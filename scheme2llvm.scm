@@ -258,13 +258,13 @@
 
 (define llvm-instructions
   '(;; binary operations.
-    (add . "add") (sub . "sub") (mul . "mul") (div . "div") (rem . "rem")    
+    (add . "add") (sub . "sub") (mul . "mul") (div . "sdiv") (rem . "srem")    
     ;; binary bit operations.
     (bit-and . "and") (bit-or . "or") (bit-xor . "xor") 
     (bit-shl . "shl") (bit-shr . "lshr")
     ;; boolean operations.
-    (seteq . "icmp eq") (setne . "setne") (setlt . "setlt") (setgt . "setgt")
-    (setle . "setle") (setge . "setge")
+    (seteq . "icmp eq") (setne . "icmp ne") (setlt . "icmp ult") (setgt . "icmp ugt")
+    (setle . "icmp ule") (setge . "icmp uge")
     ;; memory operations.
     (malloc . 0) (getelementptr . 0)
     (cast . 0) (load . 0) (store . 0) (ptrtoint . 0) (inttoptr . 0) 
@@ -391,7 +391,7 @@
                       (symbolp (if (symbol? exp) 4 1))
                       (str-repr (if (string? exp) exp (symbol->string exp))))
                   (append-code
-                   (llvm-cast t1 (add-llvm-string str str-repr) str "i32")
+                   (llvm-ptrtoint t1 (add-llvm-string str str-repr) str "i32")
                    (llvm-call target 'make-string/symbol t1 
                               (string-length str-repr) symbolp))))
                ((null? exp) (llvm-call target 'make-null))
@@ -492,7 +492,7 @@
     (add-llvm-function f-name '(env) l-body)
     (make-code 
      target 
-     (llvm-cast t1 "i32 (i32)*" f-name "i32")
+     (llvm-ptrtoint t1 "i32 (i32)*" f-name "i32")
      (llvm-call target 'make-function t1 'env 
                 (if (lambda-arbitrary-args? exp)
                     (length (lambda-parameters exp))
@@ -600,7 +600,7 @@
          (llvm-call f-env 'get-function-env (compiled-target proc-code))
          (llvm-call call-env 'make-env (length (operands exp)) f-env)
          (llvm-call f-func 'get-function-func (compiled-target proc-code))
-         (llvm-cast func "i32" f-func "i32 (i32)*")
+         (llvm-inttoptr func "i32" f-func "i32 (i32)*")
          (build-param-list call-env operand-codes 1)
          (llvm-call f-nparams 'get-function-nparams (compiled-target proc-code))
          (llvm-call (make-var) 'fix-arbitrary-funcs f-nparams call-env)
@@ -720,7 +720,7 @@ define i32 @main(i32 %argc, i8** %argv) {
                   (ensure (vector? vector) "vector-set!: not a vector.")
                   (ensure (not (null? vector)) "vector-set!: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-set!: out of range.")
-                  (store value (getelementptr (cast "i32" (points-to vector) "i32*")
+                  (store value (getelementptr (inttoptr "i32" (points-to vector) "i32*")
                                               (add raw-index 1)))
                   vector)
     
@@ -731,23 +731,23 @@ define i32 @main(i32 %argc, i8** %argv) {
                   (set-enclosing-env! (make-vector (add raw-nparams 2)) env))
      
      (llvm-define (init-function! function raw-func env nparams)
-                  (store raw-func (cast "i32" function "i32*"))
-                  (store env (getelementptr (cast "i32" function "i32*") 1))
-                  (store nparams (getelementptr (cast "i32" function "i32*") 2))
+                  (store raw-func (inttoptr "i32" function "i32*"))
+                  (store env (getelementptr (inttoptr "i32" function "i32*") 1))
+                  (store nparams (getelementptr (inttoptr "i32" function "i32*") 2))
                   function)
      (llvm-define (make-function raw-func env nparams)
                   (make-function-pointer
-                   (init-function! (cast "i32*" (malloc 3) "i32") 
+                   (init-function! (ptrtoint "i32*" (malloc 3) "i32") 
                                    raw-func env nparams)))
                    
      (llvm-define (get-function-env function)
                   (ensure (procedure? function) "get-function-env: not a procedure.")
-                  (load (getelementptr (cast "i32" (points-to function) "i32*") 1)))
+                  (load (getelementptr (inttoptr "i32" (points-to function) "i32*") 1)))
      (llvm-define (get-function-func function)
                   (ensure (procedure? function) "get-function-func: not a procedure.")
-                  (load (cast "i32" (points-to function) "i32*")))
+                  (load (inttoptr "i32" (points-to function) "i32*")))
      (llvm-define (get-function-nparams function)
-                  (load (getelementptr (cast "i32" (points-to function) "i32*") 2)))
+                  (load (getelementptr (inttoptr "i32" (points-to function) "i32*") 2)))
      
      (llvm-define (fix-arb-funcs n-params end call-env)
                   (cond ((setge n-params end) (make-null))
@@ -760,9 +760,9 @@ define i32 @main(i32 %argc, i8** %argv) {
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
      (llvm-define (init-string/symbol str raw-str size is-symbol)
-                  (store raw-str (cast "i32" str "i32*"))
-                  (store size (getelementptr (cast "i32" str "i32*") 1))
-                  (store is-symbol (getelementptr (cast "i32" str "i32*") 2))
+                  (store raw-str (inttoptr "i32" str "i32*"))
+                  (store size (getelementptr (inttoptr "i32" str "i32*") 1))
+                  (store is-symbol (getelementptr (inttoptr "i32" str "i32*") 2))
                   str)
      
      (llvm-define (make-string/symbol raw-str raw-size symbolp)
@@ -777,17 +777,17 @@ define i32 @main(i32 %argc, i8** %argv) {
 
      (llvm-define (string? x)
                   (if (string/symbol? x)
-                      (not (load (getelementptr (cast "i32" (points-to x) "i32*") 2)))
+                      (not (load (getelementptr (inttoptr "i32" (points-to x) "i32*") 2)))
                       (make-null)))
      (llvm-define (symbol? x)
                   (if (string/symbol? x)
-                      (load (getelementptr (cast "i32" (points-to x) "i32*") 2))
+                      (load (getelementptr (inttoptr "i32" (points-to x) "i32*") 2))
                       (make-null)))
      
      (llvm-define (string-length str)
-                  (load (getelementptr (cast "i32" (points-to str) "i32*") 1)))           
+                  (load (getelementptr (inttoptr "i32" (points-to str) "i32*") 1)))           
      (llvm-define (string-bytes str)
-                  (load (cast "i32" (points-to str) "i32*")))
+                  (load (inttoptr "i32" (points-to str) "i32*")))
      
      (llvm-define (string->symbol str)
                   (ensure (string? str) "string->symbol: not a string")
@@ -1060,7 +1060,7 @@ define i32 @main(i32 %argc, i8** %argv) {
         (result (compile (append bootstrap exp) '())))
     (map printer llvm-string-list)
     (display bootstrap-llvm-code)
-    (display "define i32 @startup(i32 \"%env\") {\n")
+    (display "define i32 @startup(i32 \"env\") {\n")
     (map printer (compiled-code result))
     (display (c "ret i32 " (compiled-target result) "\n}\n"))
     (display "; FUNCTIONS\n")
