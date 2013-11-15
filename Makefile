@@ -1,7 +1,7 @@
 %.2.ll: %.1.ll
 	cat $^ | llvm-upgrade > $@
 
-%.ll: %.scm
+%.1.ll: %.scm
 	cat $^ | gsi scheme2llvm.scm > $@
 
 %.bc: %.ll
