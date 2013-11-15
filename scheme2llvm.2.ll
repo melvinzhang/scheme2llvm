@@ -1627,7 +1627,6 @@
 @r16650 = internal constant [10 x i8] c"ret uint \00"		; <[10 x i8]*> [#uses=1]
 @r16663 = internal constant [4 x i8] c"\0A}\0A\00"		; <[4 x i8]*> [#uses=1]
 @r16671 = internal constant [13 x i8] c"; FUNCTIONS\0A\00"		; <[13 x i8]*> [#uses=1]
-@r16745 = internal constant [3 x i8] c"ok\00"		; <[3 x i8]*> [#uses=1]
 
 declare i32 @printf(i8*, ...)
 
@@ -1691,9 +1690,9 @@ define i32 @main(i32 %argc, i8** %argv) {
 }
 
 define i32 @startup(i32 %"%env") {
-	%r16778 = call i32 @"%make-env"( i32 40, i32 %"%env" )		; <i32> [#uses=1]
-	%r16781 = call i32 @function210( i32 %r16778 )		; <i32> [#uses=1]
-	ret i32 %r16781
+	%r16775 = call i32 @"%make-env"( i32 40, i32 %"%env" )		; <i32> [#uses=1]
+	%r16778 = call i32 @function210( i32 %r16775 )		; <i32> [#uses=1]
+	ret i32 %r16778
 }
 
 define i32 @"%and"(i32 %"%x", i32 %"%y") {
@@ -12396,8 +12395,7 @@ define i32 @function205(i32 %"%env") {
 	%r16596 = call i32 @"%get-function-nparams"( i32 %r16601 )		; <i32> [#uses=1]
 	%r16743 = call i32 @"%fix-arbitrary-funcs"( i32 %r16596, i32 %r16597 )		; <i32> [#uses=0]
 	%r16599 = call i32 %r16594( i32 %r16597 )		; <i32> [#uses=0]
-	%r16746 = ptrtoint [3 x i8]* @r16745 to i32		; <i32> [#uses=1]
-	%r16744 = call i32 @"%make-string/symbol"( i32 %r16746, i32 2, i32 4 )		; <i32> [#uses=1]
+	%r16744 = call i32 @"%make-number"( i32 0 )		; <i32> [#uses=1]
 	ret i32 %r16744
 }
 
@@ -19134,34 +19132,33 @@ define i32 @function209(i32 %"%env") {
 	%r16584 = ptrtoint i32 (i32)* @function205 to i32		; <i32> [#uses=1]
 	%r16585 = call i32 @"%make-function"( i32 %r16584, i32 %"%env", i32 0 )		; <i32> [#uses=1]
 	%r16583 = call i32 @"%set-variable!"( i32 %"%env", i32 0, i32 111, i32 %r16585 )		; <i32> [#uses=0]
-	%r16753 = call i32 @"%lookup-variable"( i32 %"%env", i32 0, i32 111 )		; <i32> [#uses=3]
-	%r16748 = call i32 @"%get-function-env"( i32 %r16753 )		; <i32> [#uses=1]
-	%r16750 = call i32 @"%make-env"( i32 1, i32 %r16748 )		; <i32> [#uses=3]
-	%r16751 = call i32 @"%get-function-func"( i32 %r16753 )		; <i32> [#uses=1]
-	%r16747 = inttoptr i32 %r16751 to i32 (i32)*		; <i32 (i32)*> [#uses=1]
-	%r16760 = call i32 @"%lookup-variable"( i32 %"%env", i32 1, i32 12 )		; <i32> [#uses=3]
-	%r16755 = call i32 @"%get-function-env"( i32 %r16760 )		; <i32> [#uses=1]
-	%r16757 = call i32 @"%make-env"( i32 1, i32 %r16755 )		; <i32> [#uses=3]
-	%r16758 = call i32 @"%get-function-func"( i32 %r16760 )		; <i32> [#uses=1]
-	%r16754 = inttoptr i32 %r16758 to i32 (i32)*		; <i32 (i32)*> [#uses=1]
-	%r16767 = call i32 @"%lookup-variable"( i32 %"%env", i32 1, i32 33 )		; <i32> [#uses=3]
-	%r16762 = call i32 @"%get-function-env"( i32 %r16767 )		; <i32> [#uses=1]
-	%r16764 = call i32 @"%make-env"( i32 0, i32 %r16762 )		; <i32> [#uses=2]
-	%r16765 = call i32 @"%get-function-func"( i32 %r16767 )		; <i32> [#uses=1]
-	%r16761 = inttoptr i32 %r16765 to i32 (i32)*		; <i32 (i32)*> [#uses=1]
-	%r16763 = call i32 @"%get-function-nparams"( i32 %r16767 )		; <i32> [#uses=1]
-	%r16768 = call i32 @"%fix-arbitrary-funcs"( i32 %r16763, i32 %r16764 )		; <i32> [#uses=0]
-	%r16766 = call i32 %r16761( i32 %r16764 )		; <i32> [#uses=1]
-	%r16769 = call i32 @"%vector-set!"( i32 %r16757, i32 1, i32 %r16766 )		; <i32> [#uses=0]
-	%r16756 = call i32 @"%get-function-nparams"( i32 %r16760 )		; <i32> [#uses=1]
-	%r16770 = call i32 @"%fix-arbitrary-funcs"( i32 %r16756, i32 %r16757 )		; <i32> [#uses=0]
-	%r16759 = call i32 %r16754( i32 %r16757 )		; <i32> [#uses=1]
-	%r16771 = call i32 @"%vector-set!"( i32 %r16750, i32 1, i32 %r16759 )		; <i32> [#uses=0]
-	%r16749 = call i32 @"%get-function-nparams"( i32 %r16753 )		; <i32> [#uses=1]
-	%r16772 = call i32 @"%fix-arbitrary-funcs"( i32 %r16749, i32 %r16750 )		; <i32> [#uses=0]
-	%r16752 = call i32 %r16747( i32 %r16750 )		; <i32> [#uses=0]
-	%r16773 = call i32 @"%make-number"( i32 0 )		; <i32> [#uses=1]
-	ret i32 %r16773
+	%r16751 = call i32 @"%lookup-variable"( i32 %"%env", i32 0, i32 111 )		; <i32> [#uses=3]
+	%r16746 = call i32 @"%get-function-env"( i32 %r16751 )		; <i32> [#uses=1]
+	%r16748 = call i32 @"%make-env"( i32 1, i32 %r16746 )		; <i32> [#uses=3]
+	%r16749 = call i32 @"%get-function-func"( i32 %r16751 )		; <i32> [#uses=1]
+	%r16745 = inttoptr i32 %r16749 to i32 (i32)*		; <i32 (i32)*> [#uses=1]
+	%r16758 = call i32 @"%lookup-variable"( i32 %"%env", i32 1, i32 12 )		; <i32> [#uses=3]
+	%r16753 = call i32 @"%get-function-env"( i32 %r16758 )		; <i32> [#uses=1]
+	%r16755 = call i32 @"%make-env"( i32 1, i32 %r16753 )		; <i32> [#uses=3]
+	%r16756 = call i32 @"%get-function-func"( i32 %r16758 )		; <i32> [#uses=1]
+	%r16752 = inttoptr i32 %r16756 to i32 (i32)*		; <i32 (i32)*> [#uses=1]
+	%r16765 = call i32 @"%lookup-variable"( i32 %"%env", i32 1, i32 33 )		; <i32> [#uses=3]
+	%r16760 = call i32 @"%get-function-env"( i32 %r16765 )		; <i32> [#uses=1]
+	%r16762 = call i32 @"%make-env"( i32 0, i32 %r16760 )		; <i32> [#uses=2]
+	%r16763 = call i32 @"%get-function-func"( i32 %r16765 )		; <i32> [#uses=1]
+	%r16759 = inttoptr i32 %r16763 to i32 (i32)*		; <i32 (i32)*> [#uses=1]
+	%r16761 = call i32 @"%get-function-nparams"( i32 %r16765 )		; <i32> [#uses=1]
+	%r16766 = call i32 @"%fix-arbitrary-funcs"( i32 %r16761, i32 %r16762 )		; <i32> [#uses=0]
+	%r16764 = call i32 %r16759( i32 %r16762 )		; <i32> [#uses=1]
+	%r16767 = call i32 @"%vector-set!"( i32 %r16755, i32 1, i32 %r16764 )		; <i32> [#uses=0]
+	%r16754 = call i32 @"%get-function-nparams"( i32 %r16758 )		; <i32> [#uses=1]
+	%r16768 = call i32 @"%fix-arbitrary-funcs"( i32 %r16754, i32 %r16755 )		; <i32> [#uses=0]
+	%r16757 = call i32 %r16752( i32 %r16755 )		; <i32> [#uses=1]
+	%r16769 = call i32 @"%vector-set!"( i32 %r16748, i32 1, i32 %r16757 )		; <i32> [#uses=0]
+	%r16747 = call i32 @"%get-function-nparams"( i32 %r16751 )		; <i32> [#uses=1]
+	%r16770 = call i32 @"%fix-arbitrary-funcs"( i32 %r16747, i32 %r16748 )		; <i32> [#uses=0]
+	%r16750 = call i32 %r16745( i32 %r16748 )		; <i32> [#uses=1]
+	ret i32 %r16750
 }
 
 define i32 @function210(i32 %"%env") {
@@ -19310,7 +19307,7 @@ define i32 @function210(i32 %"%env") {
 	%r2142 = ptrtoint i32 (i32)* @function49 to i32		; <i32> [#uses=1]
 	%r2143 = call i32 @"%make-function"( i32 %r2142, i32 %"%env", i32 0 )		; <i32> [#uses=1]
 	%r2141 = call i32 @"%set-variable!"( i32 %"%env", i32 0, i32 40, i32 %r2143 )		; <i32> [#uses=0]
-	%r16774 = call i32 @"%make-env"( i32 111, i32 %"%env" )		; <i32> [#uses=1]
-	%r16777 = call i32 @function209( i32 %r16774 )		; <i32> [#uses=1]
-	ret i32 %r16777
+	%r16771 = call i32 @"%make-env"( i32 111, i32 %"%env" )		; <i32> [#uses=1]
+	%r16774 = call i32 @function209( i32 %r16771 )		; <i32> [#uses=1]
+	ret i32 %r16774
 }

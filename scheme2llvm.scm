@@ -1039,7 +1039,7 @@ uint %main(int %argc, sbyte** %argv) {
     (display "; FUNCTIONS\n")
     (map (lambda (function) (map printer function) (newline))
          llvm-function-list))
-  'ok)
+  0)
 
 (compiler (list (read)))
 
@@ -1090,4 +1090,4 @@ uint %main(int %argc, sbyte** %argv) {
 ;vector-ref: not a vector.
 ;(compiler '((peek-char) (read-char)))
 
-0)
+)
