@@ -64,7 +64,6 @@
 (define (application? exp) (pair? exp))
 
 (define (llvm-definition? exp) (tagged-list? exp 'llvm-define))
-(define (llvm-instruction? exp) (assoc (operator exp) llvm-instructions))
 
 (define (llvm-malloc? exp) (tagged-list? exp 'malloc))
 (define (llvm-load? exp) (tagged-list? exp 'load))
@@ -162,15 +161,6 @@
           (string-append str1 (str-app (car rest) (cdr rest)))))
     (str-app (car strs) (cdr strs))))
                    
-(define (init-generators)
-  (set! var-counter 0)
-  (set! label-counter 0)
-  (set! function-counter 0)
-  (set! llvm-function-list '())
-  (set! llvm-primitive-functions 
-        '(llvm-read-char print append-bytearray bytearray-ref exit))
-  (set! llvm-string-list '()))
-
 (define var-counter 0)
 (define (make-var)
   (set! var-counter (+ 1 var-counter))
@@ -189,6 +179,11 @@
 (define llvm-primitive-functions '())
 (define (add-llvm-function-name f-name)
   (set! llvm-primitive-functions (cons f-name llvm-primitive-functions)))
+
+(define (llvm-repr exp)
+  (cond ((number? exp) (number->string exp))
+        ((symbol? exp) (c "\"%" (symbol->string exp) "\""))
+        (else exp)))
 
 (define llvm-function-list '())
 (define (add-llvm-function f-name f-params f-body)
@@ -264,14 +259,11 @@
     (cast . 0) (load . 0) (store . 0)
     (ret . 0)))
 
+(define (llvm-instruction? exp) (assoc (operator exp) llvm-instructions))
+
 (define llvm-boolean-instructions '(seteq setne setlt setgt setle setge))
 (define llvm-shift-instructions '(bit-shl bit-shr))
 (define (llvm-instr-name op) (cdr (assoc op llvm-instructions)))
-
-(define (llvm-repr exp)
-  (cond ((number? exp) (number->string exp))
-        ((symbol? exp) (c "\"%" (symbol->string exp) "\""))
-        (else exp)))
 
 (define (llvm-instruction target op x y)
   (c target " = " (llvm-instr-name op) " uint " 
@@ -968,7 +960,7 @@ uint %main(int %argc, sbyte** %argv) {
                    peek)))
      
      (define number-chars (quote (48 49 50 51 52 53 54 55 56 57)))
-     (define (char-whitespace? ch) (or (eq? ch 32) (eq? ch 10)))
+     (define (char-whitespace? ch) (or (eq? ch 32) (or (eq? ch 10) (eq? ch 9))))
      (define (char-numeric? ch) (member ch number-chars))
      (define (char-left-paren? ch) (eq? ch 40))
      (define (char-right-paren? ch) (eq? ch 41))
@@ -1043,6 +1035,15 @@ uint %main(int %argc, sbyte** %argv) {
                (else (cons ch (read-str)))))
        (list->string (read-str)))
   ))
+
+(define (init-generators)
+  (set! var-counter 0)
+  (set! label-counter 0)
+  (set! function-counter 0)
+  (set! llvm-function-list '())
+  (set! llvm-primitive-functions 
+        '(llvm-read-char print append-bytearray bytearray-ref exit))
+  (set! llvm-string-list '()))
 
 (define (compiler exp)
   (comment "in compiler")
