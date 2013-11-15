@@ -4,11 +4,13 @@ BEGIN {
 
 /^;>>>/ {
     show = 0
+    print $0
     next
 }
 
 /^;<<</ {
     show = 1
+    print $0
     next
 }
 
