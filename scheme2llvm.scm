@@ -64,6 +64,7 @@
 (define (application? exp) (pair? exp))
 
 (define (llvm-definition? exp) (tagged-list? exp 'llvm-define))
+(define (llvm-instruction? exp) (assoc (operator exp) llvm-instructions))
 
 (define (llvm-malloc? exp) (tagged-list? exp 'malloc))
 (define (llvm-load? exp) (tagged-list? exp 'load))
@@ -161,6 +162,15 @@
           (string-append str1 (str-app (car rest) (cdr rest)))))
     (str-app (car strs) (cdr strs))))
                    
+(define (init-generators)
+  (set! var-counter 0)
+  (set! label-counter 0)
+  (set! function-counter 0)
+  (set! llvm-function-list '())
+  (set! llvm-primitive-functions 
+        '(llvm-read-char print append-bytearray bytearray-ref exit))
+  (set! llvm-string-list '()))
+
 (define var-counter 0)
 (define (make-var)
   (set! var-counter (+ 1 var-counter))
@@ -179,13 +189,6 @@
 (define llvm-primitive-functions '())
 (define (add-llvm-function-name f-name)
   (set! llvm-primitive-functions (cons f-name llvm-primitive-functions)))
-
-(define (llvm-repr exp)
-  (cond ((number? exp) (number->string exp))
-        ((symbol? exp) (c "\"%" (symbol->string exp) "\""))
-        (else exp)))
-
-(define (llvm-ret value) (c "ret uint " (llvm-repr value)))
 
 (define llvm-function-list '())
 (define (add-llvm-function f-name f-params f-body)
@@ -261,11 +264,14 @@
     (cast . 0) (load . 0) (store . 0)
     (ret . 0)))
 
-(define (llvm-instruction? exp) (assoc (operator exp) llvm-instructions))
-
 (define llvm-boolean-instructions '(seteq setne setlt setgt setle setge))
 (define llvm-shift-instructions '(bit-shl bit-shr))
 (define (llvm-instr-name op) (cdr (assoc op llvm-instructions)))
+
+(define (llvm-repr exp)
+  (cond ((number? exp) (number->string exp))
+        ((symbol? exp) (c "\"%" (symbol->string exp) "\""))
+        (else exp)))
 
 (define (llvm-instruction target op x y)
   (c target " = " (llvm-instr-name op) " uint " 
@@ -283,6 +289,8 @@
   (c target " = call uint " (llvm-repr function) "(" (build-arg-list args 1) ")"))
 (define (llvm-call target function . args)
   (llvm-call2 target function args))
+
+(define (llvm-ret value) (c "ret uint " (llvm-repr value)))
 
 (define (llvm-cast target type1 x type2)
   (c target " = cast " type1 " " x " to " type2))
@@ -1035,15 +1043,6 @@ uint %main(int %argc, sbyte** %argv) {
                (else (cons ch (read-str)))))
        (list->string (read-str)))
   ))
-
-(define (init-generators)
-  (set! var-counter 0)
-  (set! label-counter 0)
-  (set! function-counter 0)
-  (set! llvm-function-list '())
-  (set! llvm-primitive-functions 
-        '(llvm-read-char print append-bytearray bytearray-ref exit))
-  (set! llvm-string-list '()))
 
 (define (compiler exp)
   (comment "in compiler")
