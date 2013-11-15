@@ -1090,4 +1090,4 @@ uint %main(int %argc, sbyte** %argv) {
 ;vector-ref: not a vector.
 ;(compiler '((peek-char) (read-char)))
 
-)
+0)
