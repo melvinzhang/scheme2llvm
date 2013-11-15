@@ -1000,7 +1000,7 @@ uint %main(int %argc, sbyte** %argv) {
              ((char-left-paren? ch) (cons (read-list)  (read-list)))
              ((char-whitespace? ch) (read-list))
              ((char-comment? ch) (read-comment) (read-list))
-             ((char-quote? ch) (cons (cons 'quote (read)) (read-list)))
+             ((char-quote? ch) (cons (cons 'quote (cons (read) '())) (read-list)))
              ((char-string? ch) (cons (read-string) (read-list)))
              ((char-character? ch) (read-char-quote))
              ((char-numeric? ch) (cons (read-number ch) (read-list)))
