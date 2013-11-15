@@ -46,7 +46,8 @@
   
 (define (error func str)
   (display func) (display " ") 
-  (display str) (newline))
+  (display str) (newline)
+  (exit 1))
 
 ;; Abstract syntax
 
@@ -406,7 +407,7 @@
       (make-code (llvm-repr exp) '())
       (let ((target (make-var)) 
             (c-t-pos (find-var exp c-t-env 0)))
-	(if (null? c-t-pos) (error exp " not found")
+	(if (null? c-t-pos) (error exp "not found")
 	    (make-code target (llvm-call target 'lookup-variable 'env
                                          (car c-t-pos) (cdr c-t-pos)))))))
 
