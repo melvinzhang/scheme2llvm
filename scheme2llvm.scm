@@ -338,6 +338,14 @@
   (llvm-call (make-var) 'vector-set! (llvm-repr vector)
              (llvm-repr index) (llvm-repr value)))
 
+(define (blockquote name exp)
+  (display (c ";>>> " name))
+  (newline)
+  (display exp)
+  (newline)
+  (display ";<<<")
+  (newline))
+
 ;; Compiler
 ;; Return value: A cons-pair (target . code)
 ;;               target: Target register
@@ -345,12 +353,7 @@
 
 (define (compile exp c-t-env)
   
-  (display ";>>>")
-  (newline)
-  (display exp)
-  (newline)
-  (display ";<<<")
-  (newline)
+  (blockquote "compile" exp)
 
   (cond ((self-evaluating? exp)  (compile-self-evaluating exp c-t-env))
         ((variable? exp)         (compile-variable exp c-t-env))
