@@ -344,6 +344,14 @@
 ;;               code:   The created code
 
 (define (compile exp c-t-env)
+  
+  (display ";>>>")
+  (newline)
+  (display exp)
+  (newline)
+  (display ";<<<")
+  (newline)
+
   (cond ((self-evaluating? exp)  (compile-self-evaluating exp c-t-env))
         ((variable? exp)         (compile-variable exp c-t-env))
         ((quote? exp)            (compile-self-evaluating
@@ -449,13 +457,6 @@
          (append-code code-seq (compiled-code (compile (car seq) c-t-env2)))
          c-t-env2)))
     
-  (display ";;;")
-  (newline)
-  (display seq)
-  (newline)
-  (display ";;;")
-  (newline)
-
   (let ((seq-defines (sequence-defines seq)))
     (if (null? seq-defines) ;; no local definitions
         (append-sequences seq '() c-t-env)
