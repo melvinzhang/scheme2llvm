@@ -338,12 +338,16 @@
   (llvm-call (make-var) 'vector-set! (llvm-repr vector)
              (llvm-repr index) (llvm-repr value)))
 
-(define (blockquote name exp)
-  (display (c ";>>> " name))
+(define (block-comment str exp)
+  (display (c ";>>> " str))
   (newline)
   (display exp)
   (newline)
   (display ";<<<")
+  (newline))
+
+(define (comment str)
+  (display (c "; " str))
   (newline))
 
 ;; Compiler
@@ -353,7 +357,7 @@
 
 (define (compile exp c-t-env)
   
-  (blockquote "compile" exp)
+  (block-comment "compile" exp)
 
   (cond ((self-evaluating? exp)  (compile-self-evaluating exp c-t-env))
         ((variable? exp)         (compile-variable exp c-t-env))
@@ -1040,7 +1044,9 @@ uint %main(int %argc, sbyte** %argv) {
   ))
 
 (define (compiler exp)
+  (comment "in compiler")
   (init-generators)
+  (comment "after init-generators")
   (let ((printer (lambda (line) (display line) (newline)))
         (result (compile (append bootstrap exp) '())))
     (map printer llvm-string-list)
