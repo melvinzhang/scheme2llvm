@@ -185,6 +185,8 @@
         ((symbol? exp) (c "\"%" (symbol->string exp) "\""))
         (else exp)))
 
+(define (llvm-ret value) (c "ret uint " (llvm-repr value)))
+
 (define llvm-function-list '())
 (define (add-llvm-function f-name f-params f-body)
   (define (build-params params)
@@ -281,8 +283,6 @@
   (c target " = call uint " (llvm-repr function) "(" (build-arg-list args 1) ")"))
 (define (llvm-call target function . args)
   (llvm-call2 target function args))
-
-(define (llvm-ret value) (c "ret uint " (llvm-repr value)))
 
 (define (llvm-cast target type1 x type2)
   (c target " = cast " type1 " " x " to " type2))
