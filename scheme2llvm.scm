@@ -448,6 +448,14 @@
          (cdr seq)
          (append-code code-seq (compiled-code (compile (car seq) c-t-env2)))
          c-t-env2)))
+    
+  (display ";;;")
+  (newline)
+  (display seq)
+  (newline)
+  (display ";;;")
+  (newline)
+
   (let ((seq-defines (sequence-defines seq)))
     (if (null? seq-defines) ;; no local definitions
         (append-sequences seq '() c-t-env)

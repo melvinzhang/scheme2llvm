@@ -2,7 +2,7 @@
 	cat $^ | llvm-upgrade > $@
 
 %.1.ll: %.scm
-	cat $^ | gsi scheme2llvm.scm > $@
+	cat $^ | gsi scheme2llvm.scm | awk -f transform_comments.awk > $@
 
 %.bc: %.ll
 	llvm-as $^
