@@ -675,6 +675,7 @@ uint %main(int %argc, sbyte** %argv) {
                   (cond ((not x) (display message) (exit 42))))
      
      (llvm-define (make-number x) (bit-shl x 2))
+     (llvm-define (make-char x) (ensure (setlt x 256) "make-char: not ASCII or reached EOF") (bit-shl x 2))
      (llvm-define (raw-number x) (bit-shr x 2))
      (llvm-define (clear-tag x) (bit-shl (bit-shr x 2) 2))
      (llvm-define (get-tag x) (bit-and x 3))
@@ -957,12 +958,12 @@ uint %main(int %argc, sbyte** %argv) {
      (define read-char-peek '())
      (define (peek-char)
        (cond ((null? read-char-peek)
-              (set! read-char-peek (make-number (llvm-read-char)))
+              (set! read-char-peek (make-char (llvm-read-char)))
               read-char-peek)
              (else read-char-peek)))
      (define (read-char)
        (define peek read-char-peek)
-       (cond ((null? peek) (make-number (llvm-read-char)))
+       (cond ((null? peek) (make-char (llvm-read-char)))
              (else (set! read-char-peek '())
                    peek)))
      
