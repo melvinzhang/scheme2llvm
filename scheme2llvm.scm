@@ -594,7 +594,7 @@
 declare int %printf(sbyte*, ...)
 declare int %exit(int)
 declare int %getchar()
-declare void %llvm.memcpy(sbyte*, sbyte*, uint, uint)
+declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 
 uint \"%llvm-read-char\"() {
   %res.0 = call int %getchar()
@@ -619,7 +619,7 @@ uint \"%append-bytearray\"(uint %arr, uint %ch, uint %size) {
 copy:
   %arr2 = cast uint %arr to sbyte*
   call void (sbyte*, sbyte*, uint, uint)* 
-       %llvm.memcpy(sbyte* %res, sbyte* %arr2, uint %size, uint 0)
+       %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %size, uint 0)
   free sbyte* %arr2
   br label %nocopy
 nocopy:
