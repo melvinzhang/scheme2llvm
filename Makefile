@@ -1,8 +1,8 @@
 %.2.ll: %.1.ll
 	cat $^ | llvm-upgrade > $@
 
-%.ll: scheme2llvm.scm
-	cat $^ | gsi $^ > $@
+%.ll: %.scm
+	cat $^ | gsi scheme2llvm.scm > $@
 
 %.bc: %.ll
 	llvm-as $^
