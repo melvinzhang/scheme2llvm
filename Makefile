@@ -15,3 +15,7 @@ scheme2llvm.1.ll: scheme2llvm.scm
 
 %: %.s
 	gcc $^ -o $@ -lgc
+
+TEST_SRC := $(wildcard test/*.scm) 
+
+tests: $(TEST_SRC:.scm=.2)
