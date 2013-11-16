@@ -1,3 +1,5 @@
+all: scheme2llvm.2
+
 %.2.ll: %.1.ll
 	cat $^ | llvm-upgrade > $@
 
@@ -19,3 +21,6 @@ scheme2llvm.1.ll: scheme2llvm.scm
 TEST_SRC := $(wildcard test/*.scm) 
 
 tests: $(TEST_SRC:.scm=.2)
+
+clean:
+	-rm *.2 *.bc *.s test/*.2 test/*.bc test/*.s
