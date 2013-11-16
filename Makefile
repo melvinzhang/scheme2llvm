@@ -1,7 +1,7 @@
 all: scheme2llvm.2
 
 clean:
-	-rm *.2 *.bc *.s test/*.2 test/*.bc test/*.s test/*.ll
+	-rm core *.2 *.bc *.s test/*.2 test/*.bc test/*.s test/*.ll
 
 TEST_SRC := $(wildcard test/*.scm) 
 
