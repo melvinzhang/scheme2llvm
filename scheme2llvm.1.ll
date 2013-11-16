@@ -26,8 +26,8 @@
 ;   ;%r1 = cast uint %r0 to ulong
 ;   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   ;%r3 = cast ubyte* %r2 to uint*
-;   %res = malloc uint, uint %num
-;   ret uint* %res
+;   %r3 = malloc uint, uint %num
+;   ret uint* %r3
 ; }
 ; 
 ; uint "%append-bytearray"(uint %arr, uint %ch, uint %size) {
@@ -4179,8 +4179,8 @@
 ;   ;%r1 = cast uint %r0 to ulong
 ;   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   ;%r3 = cast ubyte* %r2 to uint*
-;   %res = malloc uint, uint %num
-;   ret uint* %res
+;   %r3 = malloc uint, uint %num
+;   ret uint* %r3
 ; }
 ; 
 ; uint "%append-bytearray"(uint %arr, uint %ch, uint %size) {
@@ -10912,8 +10912,8 @@
 ;   ;%r1 = cast uint %r0 to ulong
 ;   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   ;%r3 = cast ubyte* %r2 to uint*
-;   %res = malloc uint, uint %num
-;   ret uint* %res
+;   %r3 = malloc uint, uint %num
+;   ret uint* %r3
 ; }
 ; 
 ; uint "%append-bytearray"(uint %arr, uint %ch, uint %size) {
@@ -10984,8 +10984,8 @@
 ;   ;%r1 = cast uint %r0 to ulong
 ;   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   ;%r3 = cast ubyte* %r2 to uint*
-;   %res = malloc uint, uint %num
-;   ret uint* %res
+;   %r3 = malloc uint, uint %num
+;   ret uint* %r3
 ; }
 ; 
 ; uint "%append-bytearray"(uint %arr, uint %ch, uint %size) {
@@ -11482,7 +11482,7 @@
 %r8687 = internal constant [13 x sbyte] c"uint (uint)*\00"
 %r8717 = internal constant [21 x sbyte] c"get-function-nparams\00"
 %r8749 = internal constant [20 x sbyte] c"fix-arbitrary-funcs\00"
-%r9028 = internal constant [1729 x sbyte] c"implementation
+%r9028 = internal constant [1727 x sbyte] c"implementation
 declare int %printf(sbyte*, ...)
 declare int %exit(int)
 declare int %getchar()
@@ -11507,8 +11507,8 @@ uint* \22%malloc\22(uint %num) {
   ;%r1 = cast uint %r0 to ulong
   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
   ;%r3 = cast ubyte* %r2 to uint*
-  %res = malloc uint, uint %num
-  ret uint* %res
+  %r3 = malloc uint, uint %num
+  ret uint* %r3
 }
 
 uint \22%append-bytearray\22(uint %arr, uint %ch, uint %size) {
@@ -13012,8 +13012,8 @@ uint* "%malloc"(uint %num) {
   ;%r1 = cast uint %r0 to ulong
   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
   ;%r3 = cast ubyte* %r2 to uint*
-  %res = malloc uint, uint %num
-  ret uint* %res
+  %r3 = malloc uint, uint %num
+  ret uint* %r3
 }
 
 uint "%append-bytearray"(uint %arr, uint %ch, uint %size) {
@@ -23976,8 +23976,8 @@ uint %function211(uint "%env") {
 %r8904 = cast uint (uint)* %function204 to uint
 %r8905 = call uint "%make-function"(uint %r8904, uint "%env", uint 0)
 %r8903 = call uint "%set-variable!"(uint "%env", uint 0, uint 110, uint %r8905)
-%r9029 = cast [1729 x sbyte]* %r9028 to uint
-%r9027 = call uint "%make-string/symbol"(uint %r9029, uint 1728, uint 1)
+%r9029 = cast [1727 x sbyte]* %r9028 to uint
+%r9027 = call uint "%make-string/symbol"(uint %r9029, uint 1726, uint 1)
 %r9026 = call uint "%set-variable!"(uint "%env", uint 0, uint 111, uint %r9027)
 %r9034 = cast [6 x sbyte]* %r9033 to uint
 %r9032 = call uint "%make-string/symbol"(uint %r9034, uint 5, uint 4)

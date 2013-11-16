@@ -632,8 +632,8 @@ uint* \"%malloc\"(uint %num) {
   ;%r1 = cast uint %r0 to ulong
   ;%r2 = call ubyte* %GC_malloc(ulong %r1)
   ;%r3 = cast ubyte* %r2 to uint*
-  %res = malloc uint, uint %num
-  ret uint* %res
+  %r3 = malloc uint, uint %num
+  ret uint* %r3
 }
 
 uint \"%append-bytearray\"(uint %arr, uint %ch, uint %size) {
