@@ -2,10 +2,10 @@
 	cat $^ | llvm-upgrade > $@
 
 %.1.ll: %.scm
-	cat $^ | gsi scheme2llvm.scm | awk -f transform_comments.awk > $@
-
-%.self: %.scm
-	cat $^ | ./scheme2llvm.2 | awk -f transform_comments.awk | grep "^;"
+	cat $^ | ./scheme2llvm.2 | awk -f transform_comments.awk > $@
+	
+scheme2llvm.1.ll: scheme2llvm.scm
+	cat $^ | gsi $^ | awk -f transform_comments.awk > $@
 
 %.bc: %.ll
 	llvm-as $^
@@ -14,4 +14,4 @@
 	llc $^
 
 %: %.s
-	gcc $^ -o $@
+	gcc $^ -o $@ -lgc
