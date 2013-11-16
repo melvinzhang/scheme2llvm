@@ -1077,15 +1077,6 @@ uint %main(int %argc, sbyte** %argv) {
 
 ;(compiler (cons (with-input-from-file "compile.ss" read) '())) ;; debug
 ;; Some tests:
-;(compiler '((display "Hello World")))
-;(compiler '(1))
-;(compiler '((display (quote (1 2 "foo" "bar" fum)))))
-;(compiler '((display (quote (1 . (2 . 3))))))
-;(compiler '((display (list->string (quote (97 98 98 99))))))
-;(compiler '((display (number->string 123546))))
-;(compiler '((display (string? (symbol->string (quote foo))))))
-;(compiler '((display (member 5 (quote (1 2 3 4))))))
-;(compiler '((display (read))))
 ;
 ;
 ;(compiler '((* (cons 1 2) 3)))
