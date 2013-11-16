@@ -1097,25 +1097,7 @@ uint %main(int %argc, sbyte** %argv) {
 ;                    (else (* x (fac (- x 1))))))
 ;            (display (fac y))))
 ;
-; Returning lambda with state.
-;(compiler '((define (adder x) (lambda (y) (+ x y)))
-;            (define a (adder 3)) 
-;            (define b (adder 4))
-;            (display (+ (a 1) (b 2)))))
-;->10                  
 ;
-; Mutually recursive functions.
-;(compiler '((define (odd x) (if (= x 1) 1
-;                                (if (even (- x 1))
-;                                    1
-;				    0)))
-;            (define (even x) (if (= x 2)
-;                                 1
-;                                 (if (odd (- x 1))
-;                                     1
-;                                     0)))
-;            (display (even 10))))
-;->1
 ;(compiler '((* (cons 1 2) 3)))
 ;*: first argument is not a number.
 ;(compiler '((vector-ref 2 3)))
