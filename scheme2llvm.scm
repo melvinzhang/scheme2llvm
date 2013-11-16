@@ -613,6 +613,7 @@ declare int %exit(int)
 declare int %getchar()
 declare ubyte* %malloc(ulong)
 declare void %GC_init()
+declare void %GC_disable();
 declare ubyte* %GC_malloc(ulong)
 declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 
@@ -631,7 +632,7 @@ uint \"%print\"(uint %format, uint %value) {
 uint* \"%malloc\"(uint %num) {
   %r0 = mul uint 4, %num 
   %r1 = cast uint %r0 to ulong
-  %r2 = call ubyte* %malloc(ulong %r1)
+  %r2 = call ubyte* %GC_malloc(ulong %r1)
   %r3 = cast ubyte* %r2 to uint*
   ;%r3 = malloc uint, uint %num
   ret uint* %r3
@@ -672,6 +673,7 @@ uint \"%exit\"(uint %ev) {
 
 uint %main(int %argc, sbyte** %argv) {
   call void %GC_init()
+  call void %GC_disable()
   %res = call uint %startup(uint 0)
   ret uint %res
 }

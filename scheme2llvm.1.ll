@@ -7,6 +7,7 @@
 ; declare int %getchar()
 ; declare ubyte* %malloc(ulong)
 ; declare void %GC_init()
+; declare void %GC_disable();
 ; declare ubyte* %GC_malloc(ulong)
 ; declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 ; 
@@ -25,7 +26,7 @@
 ; uint* "%malloc"(uint %num) {
 ;   %r0 = mul uint 4, %num 
 ;   %r1 = cast uint %r0 to ulong
-;   %r2 = call ubyte* %malloc(ulong %r1)
+;   %r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   %r3 = cast ubyte* %r2 to uint*
 ;   ;%r3 = malloc uint, uint %num
 ;   ret uint* %r3
@@ -66,6 +67,7 @@
 ; 
 ; uint %main(int %argc, sbyte** %argv) {
 ;   call void %GC_init()
+;   call void %GC_disable()
 ;   %res = call uint %startup(uint 0)
 ;   ret uint %res
 ; }
@@ -4161,6 +4163,7 @@
 ; declare int %getchar()
 ; declare ubyte* %malloc(ulong)
 ; declare void %GC_init()
+; declare void %GC_disable();
 ; declare ubyte* %GC_malloc(ulong)
 ; declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 ; 
@@ -4179,7 +4182,7 @@
 ; uint* "%malloc"(uint %num) {
 ;   %r0 = mul uint 4, %num 
 ;   %r1 = cast uint %r0 to ulong
-;   %r2 = call ubyte* %malloc(ulong %r1)
+;   %r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   %r3 = cast ubyte* %r2 to uint*
 ;   ;%r3 = malloc uint, uint %num
 ;   ret uint* %r3
@@ -4220,6 +4223,7 @@
 ; 
 ; uint %main(int %argc, sbyte** %argv) {
 ;   call void %GC_init()
+;   call void %GC_disable()
 ;   %res = call uint %startup(uint 0)
 ;   ret uint %res
 ; }
@@ -10895,6 +10899,7 @@
 ; declare int %getchar()
 ; declare ubyte* %malloc(ulong)
 ; declare void %GC_init()
+; declare void %GC_disable();
 ; declare ubyte* %GC_malloc(ulong)
 ; declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 ; 
@@ -10913,7 +10918,7 @@
 ; uint* "%malloc"(uint %num) {
 ;   %r0 = mul uint 4, %num 
 ;   %r1 = cast uint %r0 to ulong
-;   %r2 = call ubyte* %malloc(ulong %r1)
+;   %r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   %r3 = cast ubyte* %r2 to uint*
 ;   ;%r3 = malloc uint, uint %num
 ;   ret uint* %r3
@@ -10954,6 +10959,7 @@
 ; 
 ; uint %main(int %argc, sbyte** %argv) {
 ;   call void %GC_init()
+;   call void %GC_disable()
 ;   %res = call uint %startup(uint 0)
 ;   ret uint %res
 ; }
@@ -10968,6 +10974,7 @@
 ; declare int %getchar()
 ; declare ubyte* %malloc(ulong)
 ; declare void %GC_init()
+; declare void %GC_disable();
 ; declare ubyte* %GC_malloc(ulong)
 ; declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 ; 
@@ -10986,7 +10993,7 @@
 ; uint* "%malloc"(uint %num) {
 ;   %r0 = mul uint 4, %num 
 ;   %r1 = cast uint %r0 to ulong
-;   %r2 = call ubyte* %malloc(ulong %r1)
+;   %r2 = call ubyte* %GC_malloc(ulong %r1)
 ;   %r3 = cast ubyte* %r2 to uint*
 ;   ;%r3 = malloc uint, uint %num
 ;   ret uint* %r3
@@ -11027,6 +11034,7 @@
 ; 
 ; uint %main(int %argc, sbyte** %argv) {
 ;   call void %GC_init()
+;   call void %GC_disable()
 ;   %res = call uint %startup(uint 0)
 ;   ret uint %res
 ; }
@@ -11486,12 +11494,13 @@
 %r8687 = internal constant [13 x sbyte] c"uint (uint)*\00"
 %r8717 = internal constant [21 x sbyte] c"get-function-nparams\00"
 %r8749 = internal constant [20 x sbyte] c"fix-arbitrary-funcs\00"
-%r9028 = internal constant [1751 x sbyte] c"implementation
+%r9028 = internal constant [1808 x sbyte] c"implementation
 declare int %printf(sbyte*, ...)
 declare int %exit(int)
 declare int %getchar()
 declare ubyte* %malloc(ulong)
 declare void %GC_init()
+declare void %GC_disable();
 declare ubyte* %GC_malloc(ulong)
 declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 
@@ -11510,7 +11519,7 @@ uint \22%print\22(uint %format, uint %value) {
 uint* \22%malloc\22(uint %num) {
   %r0 = mul uint 4, %num 
   %r1 = cast uint %r0 to ulong
-  %r2 = call ubyte* %malloc(ulong %r1)
+  %r2 = call ubyte* %GC_malloc(ulong %r1)
   %r3 = cast ubyte* %r2 to uint*
   ;%r3 = malloc uint, uint %num
   ret uint* %r3
@@ -11551,6 +11560,7 @@ uint \22%exit\22(uint %ev) {
 
 uint %main(int %argc, sbyte** %argv) {
   call void %GC_init()
+  call void %GC_disable()
   %res = call uint %startup(uint 0)
   ret uint %res
 }
@@ -12998,6 +13008,7 @@ declare int %exit(int)
 declare int %getchar()
 declare ubyte* %malloc(ulong)
 declare void %GC_init()
+declare void %GC_disable();
 declare ubyte* %GC_malloc(ulong)
 declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 
@@ -13016,7 +13027,7 @@ uint "%print"(uint %format, uint %value) {
 uint* "%malloc"(uint %num) {
   %r0 = mul uint 4, %num 
   %r1 = cast uint %r0 to ulong
-  %r2 = call ubyte* %malloc(ulong %r1)
+  %r2 = call ubyte* %GC_malloc(ulong %r1)
   %r3 = cast ubyte* %r2 to uint*
   ;%r3 = malloc uint, uint %num
   ret uint* %r3
@@ -13057,6 +13068,7 @@ uint "%exit"(uint %ev) {
 
 uint %main(int %argc, sbyte** %argv) {
   call void %GC_init()
+  call void %GC_disable()
   %res = call uint %startup(uint 0)
   ret uint %res
 }
@@ -23982,8 +23994,8 @@ uint %function211(uint "%env") {
 %r8904 = cast uint (uint)* %function204 to uint
 %r8905 = call uint "%make-function"(uint %r8904, uint "%env", uint 0)
 %r8903 = call uint "%set-variable!"(uint "%env", uint 0, uint 110, uint %r8905)
-%r9029 = cast [1751 x sbyte]* %r9028 to uint
-%r9027 = call uint "%make-string/symbol"(uint %r9029, uint 1750, uint 1)
+%r9029 = cast [1808 x sbyte]* %r9028 to uint
+%r9027 = call uint "%make-string/symbol"(uint %r9029, uint 1807, uint 1)
 %r9026 = call uint "%set-variable!"(uint "%env", uint 0, uint 111, uint %r9027)
 %r9034 = cast [6 x sbyte]* %r9033 to uint
 %r9032 = call uint "%make-string/symbol"(uint %r9034, uint 5, uint 4)
