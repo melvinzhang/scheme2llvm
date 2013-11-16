@@ -314,7 +314,7 @@
      (c "br bool " t2 ", label %" c-label ", label %" a-label))))
 
 (define (llvm-malloc target size)
-  (c target " = malloc uint, uint " (llvm-repr size)))
+  (c target " = call uint* \"%malloc\"(uint " (llvm-repr size) ")"))
 
 (define (llvm-store target value) 
   (c "store uint " value ", uint* " target))
@@ -611,6 +611,8 @@
 declare int %printf(sbyte*, ...)
 declare int %exit(int)
 declare int %getchar()
+declare void %GC_init()
+declare ubyte* %GC_malloc(ulong)
 declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 
 uint \"%llvm-read-char\"() {
@@ -623,6 +625,15 @@ uint \"%print\"(uint %format, uint %value) {
   %format2 = cast uint %format to sbyte*
   call int (sbyte*, ...)* %printf(sbyte* %format2, uint %value)
   ret uint 0
+}
+
+uint* \"%malloc\"(uint %num) {
+  ;%r0 = mul uint 4, %num 
+  ;%r1 = cast uint %r0 to ulong
+  ;%r2 = call ubyte* %GC_malloc(ulong %r1)
+  ;%r3 = cast ubyte* %r2 to uint*
+  %res = malloc uint, uint %num
+  ret uint* %res
 }
 
 uint \"%append-bytearray\"(uint %arr, uint %ch, uint %size) {
@@ -659,6 +670,7 @@ uint \"%exit\"(uint %ev) {
 }
 
 uint %main(int %argc, sbyte** %argv) {
+  call void %GC_init()
   %res = call uint %startup(uint 0)
   ret uint %res
 }
