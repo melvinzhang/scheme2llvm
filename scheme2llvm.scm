@@ -1075,14 +1075,5 @@ uint %main(int %argc, sbyte** %argv) {
 
 (compiler (list (read)))
 
-;(compiler (cons (with-input-from-file "compile.ss" read) '())) ;; debug
-;; Some tests:
-;
-;
-;(compiler '((* (cons 1 2) 3)))
-;*: first argument is not a number.
-;(compiler '((vector-ref 2 3)))
-;vector-ref: not a vector.
-;(compiler '((peek-char) (read-char)))
 
 )
