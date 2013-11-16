@@ -1086,11 +1086,6 @@ uint %main(int %argc, sbyte** %argv) {
 ;(compiler '((display (string? (symbol->string (quote foo))))))
 ;(compiler '((display (member 5 (quote (1 2 3 4))))))
 ;(compiler '((display (read))))
-; Function application.
-;(compiler '((define y 5) 
-;            (define (fac x) (if (= x 0) 1 (* x (fac (- x 1))))) 
-;            (display (fac y))))
-;->120
 ;(compiler '((define y 5)
 ;            (define (fac x)
 ;              (cond ((= x 0) 1)
