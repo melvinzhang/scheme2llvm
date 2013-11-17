@@ -218,7 +218,7 @@
 %r8684 = internal constant [15 x sbyte] c"ulong (ulong)*\00"
 %r8714 = internal constant [21 x sbyte] c"get-function-nparams\00"
 %r8746 = internal constant [20 x sbyte] c"fix-arbitrary-funcs\00"
-%r9025 = internal constant [1914 x sbyte] c"implementation
+%r9025 = internal constant [1909 x sbyte] c"implementation
 declare int %printf(sbyte*, ...)
 declare int %exit(int)
 declare int %getchar()
@@ -252,8 +252,8 @@ ulong* \22%malloc\22(ulong %num) {
 ulong \22%append-bytearray\22(ulong %arr, ulong %ch, ulong %size) {
   %newsize = add ulong %size, 1
   %r0 = cast ulong %size to uint
-  %r1 = cast ulong %newsize to uint
-  %res = malloc sbyte, uint %r1
+  %r1 = call ubyte* %GC_malloc(ulong %newsize)
+  %res  = cast ubyte* %r1 to sbyte*
   %ch2 = cast ulong %ch to sbyte
   %end = getelementptr sbyte* %res, ulong %size
   store sbyte %ch2, sbyte* %end
@@ -263,7 +263,6 @@ copy:
   %arr2 = cast ulong %arr to sbyte*
   call void (sbyte*, sbyte*, uint, uint)* 
        %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %r0, uint 0)
-  free sbyte* %arr2
   br label %nocopy
 nocopy:
   %res3 = cast sbyte* %res to ulong
@@ -1784,8 +1783,8 @@ ulong* "%malloc"(ulong %num) {
 ulong "%append-bytearray"(ulong %arr, ulong %ch, ulong %size) {
   %newsize = add ulong %size, 1
   %r0 = cast ulong %size to uint
-  %r1 = cast ulong %newsize to uint
-  %res = malloc sbyte, uint %r1
+  %r1 = call ubyte* %GC_malloc(ulong %newsize)
+  %res  = cast ubyte* %r1 to sbyte*
   %ch2 = cast ulong %ch to sbyte
   %end = getelementptr sbyte* %res, ulong %size
   store sbyte %ch2, sbyte* %end
@@ -1795,7 +1794,6 @@ copy:
   %arr2 = cast ulong %arr to sbyte*
   call void (sbyte*, sbyte*, uint, uint)* 
        %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %r0, uint 0)
-  free sbyte* %arr2
   br label %nocopy
 nocopy:
   %res3 = cast sbyte* %res to ulong
@@ -12754,8 +12752,8 @@ ulong %function211(ulong "%env") {
 %r8901 = cast ulong (ulong)* %function204 to ulong
 %r8902 = call ulong "%make-function"(ulong %r8901, ulong "%env", ulong 0)
 %r8900 = call ulong "%set-variable!"(ulong "%env", ulong 0, ulong 110, ulong %r8902)
-%r9026 = cast [1914 x sbyte]* %r9025 to ulong
-%r9024 = call ulong "%make-string/symbol"(ulong %r9026, ulong 1913, ulong 1)
+%r9026 = cast [1909 x sbyte]* %r9025 to ulong
+%r9024 = call ulong "%make-string/symbol"(ulong %r9026, ulong 1908, ulong 1)
 %r9023 = call ulong "%set-variable!"(ulong "%env", ulong 0, ulong 111, ulong %r9024)
 %r9031 = cast [6 x sbyte]* %r9030 to ulong
 %r9029 = call ulong "%make-string/symbol"(ulong %r9031, ulong 5, ulong 4)

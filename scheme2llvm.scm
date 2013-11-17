@@ -641,8 +641,8 @@ ulong* \"%malloc\"(ulong %num) {
 ulong \"%append-bytearray\"(ulong %arr, ulong %ch, ulong %size) {
   %newsize = add ulong %size, 1
   %r0 = cast ulong %size to uint
-  %r1 = cast ulong %newsize to uint
-  %res = malloc sbyte, uint %r1
+  %r1 = call ubyte* %GC_malloc(ulong %newsize)
+  %res  = cast ubyte* %r1 to sbyte*
   %ch2 = cast ulong %ch to sbyte
   %end = getelementptr sbyte* %res, ulong %size
   store sbyte %ch2, sbyte* %end
@@ -652,7 +652,6 @@ copy:
   %arr2 = cast ulong %arr to sbyte*
   call void (sbyte*, sbyte*, uint, uint)* 
        %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %r0, uint 0)
-  free sbyte* %arr2
   br label %nocopy
 nocopy:
   %res3 = cast sbyte* %res to ulong
