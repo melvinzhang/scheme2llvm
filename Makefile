@@ -17,6 +17,9 @@ scheme2llvm.ll: scheme2llvm.scm scheme2llvm.scm
 	ulimit -v 50000; cat $< | ./scheme2llvm.2 | awk -f script/transform_comments.awk > $@
 
 scheme2llvm.1.ll: scheme2llvm.scm
+	ulimit -v 50000; cat $< | ./scheme2llvm.2 | awk -f script/transform_comments.awk > $@
+	
+scheme2llvm.gsi.1.ll: scheme2llvm.scm
 	cat $^ | gsi $^ | awk -f script/transform_comments.awk > $@
 
 %.bc: %.ll
