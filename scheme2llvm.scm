@@ -690,16 +690,30 @@ uint %main(int %argc, sbyte** %argv) {
      (llvm-define (ensure x message) 
                   (cond ((not x) (display message) (exit 42))))
      
-     (llvm-define (make-number x) (bit-shl x 2))
+     (llvm-define (make-number x) (bit-or (bit-shl x 2) 2))
      (llvm-define (make-char x) (ensure (setlt x 256) "make-char: not ASCII or reached EOF") (make-number x))
      (llvm-define (raw-number x) (bit-shr x 2))
-     (llvm-define (clear-tag x) (bit-shl (bit-shr x 2) 2))
-     (llvm-define (get-tag x) (bit-and x 3))
-     (llvm-define (make-pointer x) (bit-or (clear-tag x) 1))
-     (llvm-define (make-function-pointer x) (bit-or (clear-tag x) 3))
-     (llvm-define (make-string/symbol-pointer x) (bit-or (clear-tag x) 2))
-     (llvm-define (points-to x) (clear-tag x))
-     (llvm-define (number? x) (seteq (get-tag x) 0))
+
+     (llvm-define (get-tag x) 
+                    (cond 
+                       ((number? x) 0)
+                       ((null? x) 1)
+                       (else (load (getelementptr (cast "uint" x "uint*") 0)))))
+
+     (llvm-define (make-pointer x) 
+                  (store 1 (getelementptr (cast "uint" x "uint*") 0))
+                  x)
+     
+     (llvm-define (make-string/symbol-pointer x) 
+                  (store 2 (getelementptr (cast "uint" x "uint*") 0))
+                  x)
+
+     (llvm-define (make-function-pointer x) 
+                  (store 3 (getelementptr (cast "uint" x "uint*") 0))
+                  x)
+
+     (llvm-define (points-to x) x)
+     (llvm-define (number? x) (seteq (bit-and x 3) 2))
      (llvm-define (vector? x) (seteq (get-tag x) 1))
      (llvm-define (procedure? x) (seteq (get-tag x) 3))
      (llvm-define (string/symbol? x) (seteq (get-tag x) 2))
