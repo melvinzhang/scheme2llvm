@@ -709,6 +709,8 @@ uint %main(int %argc, sbyte** %argv) {
      (llvm-define (pair? x) (if (vector? x) (seteq (vector-size x) 2) (make-null)))
      
      (llvm-define (make-vector raw-size)
+                  (display "; make-vector:")
+                  (print (string-bytes " %d\n") raw-size)
                   (make-pointer 
                    (cast "uint*" (store raw-size (malloc (add raw-size 1))) "uint")))
      
@@ -716,13 +718,19 @@ uint %main(int %argc, sbyte** %argv) {
                   (load (cast "uint" (points-to vector) "uint*")))
      
      (llvm-define (vector-ref vector raw-index)
+                  (display "; vector-ref:")
+                  (print (string-bytes " %d") raw-index)
+                  (print (string-bytes " %d\n") (vector-size vector))
                   (ensure (vector? vector) "vector-ref: not a vector.")
                   (ensure (not (null? vector)) "vector-ref: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-ref: out of range.")
                   (load (getelementptr (cast "uint" (points-to vector) "uint*") 
                                        (add raw-index 1))))
 
-     (llvm-define (vector-set! vector raw-index value) 
+     (llvm-define (vector-set! vector raw-index value)
+                  (display "; vector-set!:")
+                  (print (string-bytes " %d") raw-index)
+                  (print (string-bytes " %d\n") (vector-size vector))
                   (ensure (vector? vector) "vector-set!: not a vector.")
                   (ensure (not (null? vector)) "vector-set!: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-set!: out of range.")
