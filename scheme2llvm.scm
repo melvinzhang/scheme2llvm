@@ -37,8 +37,10 @@
 ;; vectors (which are also used as conscells)
 ;; functions (fixed and arbitrary number of arguments)
 ;;
-;; All objects are represented with a 32 bit ulong, with 2 bits reserved 
-;; for a type tag.
+;; All objects are represented with i64 as follows: 
+;;   null is 1
+;;   numbers use 62 bits and have b10 in two low order bits
+;;   pointers store tag information in the first allocated i64
 ;;
 ;; -- The Implementation --
 
@@ -72,6 +74,8 @@
 (define (llvm-store? exp) (tagged-list? exp 'store))
 (define (llvm-getelementptr? exp) (tagged-list? exp 'getelementptr))
 (define (llvm-cast? exp) (tagged-list? exp 'cast))
+(define (llvm-ptrtoint? exp) (tagged-list? exp 'ptrtoint))
+(define (llvm-inttoptr? exp) (tagged-list? exp 'inttoptr))
 (define (llvm-ret? exp) (tagged-list? exp 'ret))
 
 (define (operator exp) (car exp))
@@ -177,6 +181,10 @@
   (set! var-counter (+ 1 var-counter))
   (c "%r" (number->string var-counter)))
 
+(define (make-global-var)
+  (set! var-counter (+ 1 var-counter))
+  (c "@r" (number->string var-counter)))
+
 (define label-counter 0)
 (define (make-label)
   (set! label-counter (+ 1 label-counter))
@@ -185,7 +193,7 @@
 (define function-counter 0)
 (define (make-function-name)
   (set! function-counter (+ 1 function-counter))
-  (c "%function" (number->string function-counter)))
+  (c "@function" (number->string function-counter)))
 
 (define llvm-primitive-functions '())
 (define (add-llvm-function-name f-name)
@@ -195,14 +203,14 @@
 (define (add-llvm-function f-name f-params f-body)
   (define (build-params params)
     (if (null? params) ""
-        (c "ulong " (llvm-repr (car params))
+        (c "i64 " (llvm-repr (car params))
            (if (null? (cdr params)) "" ", ")
            (build-params (cdr params)))))
   (set! llvm-function-list
 	(append 
          llvm-function-list
          (list (append-code 
-               (c "ulong " (llvm-repr f-name) "(" (build-params f-params) ") {")
+               (c "define i64 " (llvm-global-repr f-name) "(" (build-params f-params) ") {")
                (compiled-code f-body)
                (llvm-ret (compiled-target f-body))
                (c "}"))))))
@@ -224,7 +232,7 @@
 
 (define llvm-string-list '())
 (define (add-llvm-string target str)  
-  (let ((str-type (c "[" (llvm-repr (+ (string-length str) 1)) " x sbyte]")))
+  (let ((str-type (c "[" (llvm-repr (+ (string-length str) 1)) " x i8]")))
     (set! llvm-string-list 
           (append llvm-string-list
                   (list
@@ -253,29 +261,34 @@
 
 (define llvm-instructions
   '(;; binary operations.
-    (add . "add") (sub . "sub") (mul . "mul") (div . "div") (rem . "rem")    
+    (add . "add") (sub . "sub") (mul . "mul") (div . "udiv") (rem . "urem")    
     ;; binary bit operations.
     (bit-and . "and") (bit-or . "or") (bit-xor . "xor") 
-    (bit-shl . "shl") (bit-shr . "shr")
+    (bit-shl . "shl") (bit-shr . "lshr")
     ;; boolean operations.
-    (seteq . "seteq") (setne . "setne") (setlt . "setlt") (setgt . "setgt")
-    (setle . "setle") (setge . "setge")
+    (seteq . "icmp eq") (setne . "icmp ne") (setlt . "icmp ult") (setgt . "icmp ugt")
+    (setle . "icmp ule") (setge . "icmp uge")
     ;; memory operations.
     (malloc . 0) (getelementptr . 0)
-    (cast . 0) (load . 0) (store . 0)
+    (cast . 0) (load . 0) (store . 0) (ptrtoint . 0) (inttoptr . 0) 
     (ret . 0)))
 
 (define llvm-boolean-instructions '(seteq setne setlt setgt setle setge))
 (define llvm-shift-instructions '(bit-shl bit-shr))
 (define (llvm-instr-name op) (cdr (assoc op llvm-instructions)))
 
+(define (llvm-global-repr exp)
+  (cond ((number? exp) (number->string exp))
+        ((symbol? exp) (c "@\"%" (symbol->string exp) "\""))
+        (else exp)))
+
 (define (llvm-repr exp)
   (cond ((number? exp) (number->string exp))
-        ((symbol? exp) (c "\"%" (symbol->string exp) "\""))
+        ((symbol? exp) (c "%\"" (symbol->string exp) "\""))
         (else exp)))
 
 (define (llvm-instruction target op x y)
-  (c target " = " (llvm-instr-name op) " ulong " 
+  (c target " = " (llvm-instr-name op) " i64 " 
      (llvm-repr x) ", " (llvm-repr y)))
 
 (define (llvm-id target exp) ; Identity function
@@ -285,16 +298,22 @@
   (define (build-arg-list arg-list fi)
     (if (null? arg-list) ""
         (c (if (= fi 1) "" ", ")
-           (c "ulong " (llvm-repr (car arg-list)))
+           (c "i64 " (llvm-repr (car arg-list)))
            (build-arg-list (cdr arg-list) 0))))
-  (c target " = call ulong " (llvm-repr function) "(" (build-arg-list args 1) ")"))
+  (c target " = call i64 " (llvm-global-repr function) "(" (build-arg-list args 1) ")"))
 (define (llvm-call target function . args)
   (llvm-call2 target function args))
 
-(define (llvm-ret value) (c "ret ulong " (llvm-repr value)))
+(define (llvm-ret value) (c "ret i64 " (llvm-repr value)))
 
 (define (llvm-cast target type1 x type2)
   (c target " = cast " type1 " " x " to " type2))
+
+(define (llvm-ptrtoint target type1 x type2)
+  (c target " = ptrtoint " type1 " " x " to " type2))
+
+(define (llvm-inttoptr target type1 x type2)
+  (c target " = inttoptr " type1 " " x " to " type2))
 
 (define (llvm-phi target type vars) ; not used
   (define (build-phi-list phis)
@@ -310,27 +329,23 @@
         (t2 (make-var)))
     (append-code
      (llvm-call t1 'raw-number pred) ; false iff pred = 0 or '()
-     (llvm-cast t2 "ulong" t1 "bool")
-     (c "br bool " t2 ", label %" c-label ", label %" a-label))))
+     (c t2 " = icmp ne i64 " t1 ", 0")
+     (c "br i1 " t2 ", label %" c-label ", label %" a-label))))
 
 (define (llvm-malloc target size)
-  (c target " = call ulong* \"%malloc\"(ulong " (llvm-repr size) ")"))
+  (c target " = call i64* @\"%malloc\"(i64 " (llvm-repr size) ")"))
 
 (define (llvm-store target value) 
-  (c "store ulong " value ", ulong* " target))
+  (c "store i64 " value ", i64* " target))
 
-(define (llvm-load target var) (c target " = load ulong* " var))
-(define (llvm-alloca-var target) (c target " = alloca ulong"))
+(define (llvm-load target var) (c target " = load i64* " var))
+(define (llvm-alloca-var target) (c target " = alloca i64"))
 
 (define (llvm-shift-op target op value sh)
-  (let ((t1 (make-var)))
-    (append-code 
-     (llvm-cast t1 "ulong" sh "ubyte")
-     (c target " = " (llvm-instr-name op)
-	" ulong " (llvm-repr value) ", ubyte " t1))))
+  (c target " = " (llvm-instr-name op) " i64 " (llvm-repr value) ", " sh))
 
 (define (llvm-getelementptr target ptr index)
-  (c target " = getelementptr ulong* " ptr ", ulong " index))
+  (c target " = getelementptr i64* " ptr ", i64 " index))
 
 (define (llvm-vector-ref target vector index)
   (llvm-call target 'vector-ref (llvm-repr vector) (llvm-repr index)))
@@ -384,12 +399,12 @@
          target
          (cond ((number? exp) (llvm-call target 'make-number (llvm-repr exp)))
                ((or (string? exp) (symbol? exp))
-                (let ((str (make-var))
+                (let ((str (make-global-var))
                       (t1 (make-var))
                       (symbolp (if (symbol? exp) 4 1))
                       (str-repr (if (string? exp) exp (symbol->string exp))))
                   (append-code
-                   (llvm-cast t1 (add-llvm-string str str-repr) str "ulong")
+                   (llvm-ptrtoint t1 (add-llvm-string str str-repr) str "i64")
                    (llvm-call target 'make-string/symbol t1 
                               (string-length str-repr) symbolp))))
                ((null? exp) (llvm-call target 'make-null))
@@ -491,7 +506,7 @@
     (add-llvm-function f-name '(env) l-body)
     (make-code 
      target 
-     (llvm-cast t1 "ulong (ulong)*" f-name "ulong")
+     (llvm-ptrtoint t1 "i64 (i64)*" f-name "i64")
      (llvm-call target 'make-function t1 'env 
                 (if (lambda-arbitrary-args? exp)
                     (length (lambda-parameters exp))
@@ -535,7 +550,17 @@
 	     (make-code target (compiled-code value)
 			(llvm-cast target (first-arg exp) 
 				   (compiled-target value) (third-arg exp)))))
-          ((llvm-ret? exp)
+	  ((llvm-ptrtoint? exp)
+	   (let ((value (compile (second-arg exp) c-t-env)))
+	     (make-code target (compiled-code value)
+			(llvm-ptrtoint target (first-arg exp) 
+				   (compiled-target value) (third-arg exp)))))
+	  ((llvm-inttoptr? exp)
+	   (let ((value (compile (second-arg exp) c-t-env)))
+	     (make-code target (compiled-code value)
+			(llvm-inttoptr target (first-arg exp) 
+				   (compiled-target value) (third-arg exp)))))
+      ((llvm-ret? exp)
 	   (let ((value (compile (first-arg exp) c-t-env)))
 	     (make-code (compiled-target value) (compiled-code value)
 			(llvm-ret (compiled-target value)))))
@@ -550,13 +575,11 @@
 	   (let ((x (compile (first-arg exp) c-t-env))
 		 (y (compile (second-arg exp) c-t-env))
 		 (t1 (make-var))
-                 (t2 (make-var)))
+         (t2 (make-var)))
 	     (make-code target (compiled-code x) (compiled-code y)
-			(llvm-instruction 
-                         t1 (operator exp) 
-                         (compiled-target x) (compiled-target y))
-			(llvm-cast t2 "bool" t1 "ulong")
-                        (llvm-call target 'make-number t2))))
+			(llvm-instruction t1 (operator exp) (compiled-target x) (compiled-target y))
+			(c t2 " = zext i1 " t1 " to i64")
+            (llvm-call target 'make-number t2))))
 	  (else ;; binary operation
 	   (let ((x (compile (first-arg exp) c-t-env))
 		 (y (compile (second-arg exp) c-t-env)))
@@ -591,7 +614,7 @@
          (llvm-call f-env 'get-function-env (compiled-target proc-code))
          (llvm-call call-env 'make-env (length (operands exp)) f-env)
          (llvm-call f-func 'get-function-func (compiled-target proc-code))
-         (llvm-cast func "ulong" f-func "ulong (ulong)*")
+         (llvm-inttoptr func "i64" f-func "i64 (i64)*")
          (build-param-list call-env operand-codes 1)
          (llvm-call f-nparams 'get-function-nparams (compiled-target proc-code))
          (llvm-call (make-var) 'fix-arbitrary-funcs f-nparams call-env)
@@ -607,76 +630,75 @@
                            (map compiled-target operand-codes)))))
 
 (define bootstrap-llvm-code
-"implementation
-declare int %printf(sbyte*, ...)
-declare int %exit(int)
-declare int %getchar()
-declare ubyte* %malloc(ulong)
-declare void %GC_init()
-declare void %GC_disable();
-declare ubyte* %GC_malloc(ulong)
-declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
+"
+declare i32 @printf(i8*, ...)
+declare i32 @exit(i32)
+declare i32 @getchar()
+declare i8* @malloc(i64)
+declare void @GC_init()
+declare void @GC_disable()
+declare i8* @GC_malloc(i64)
+declare void @llvm.memcpy.i32(i8*, i8*, i32, i32)
 
-ulong \"%llvm-read-char\"() {
-  %res.0 = call int %getchar()
-  %res.1 = cast int %res.0 to ulong
-  ret ulong %res.1
+define i64 @\"%llvm-read-char\"() {
+	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
+	%res.1 = sext i32 %res.0 to i64		; <i64> [#uses=1]
+	ret i64 %res.1
 }
 
-ulong \"%print\"(ulong %format, ulong %value) {
-  %format2 = cast ulong %format to sbyte*
-  call int (sbyte*, ...)* %printf(sbyte* %format2, ulong %value)
-  ret ulong 0
+define i64 @\"%print\"(i64 %format, i64 %value) {
+	%format2 = inttoptr i64 %format to i8*		; <i8*> [#uses=1]
+	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )		; <i32>:1 [#uses=0]
+	ret i64 0
 }
 
-ulong* \"%malloc\"(ulong %num) {
-  %r0 = mul ulong 8, %num 
-  %r1 = cast ulong %r0 to ulong
-  %r2 = call ubyte* %GC_malloc(ulong %r1)
-  %r3 = cast ubyte* %r2 to ulong*
-  ;%r3 = malloc ulong, ulong %num
-  ret ulong* %r3
+define i64* @\"%malloc\"(i64 %num) {
+	%r0 = mul i64 8, %num		; <i64> [#uses=1]
+	%r1 = bitcast i64 %r0 to i64		; <i64> [#uses=1]
+	%r2 = call i8* @GC_malloc( i64 %r1 )		; <i8*> [#uses=1]
+	%r3 = bitcast i8* %r2 to i64*		; <i64*> [#uses=1]
+	ret i64* %r3
 }
 
-ulong \"%append-bytearray\"(ulong %arr, ulong %ch, ulong %size) {
-  %newsize = add ulong %size, 1
-  %r0 = cast ulong %size to uint
-  %r1 = call ubyte* %GC_malloc(ulong %newsize)
-  %res  = cast ubyte* %r1 to sbyte*
-  %ch2 = cast ulong %ch to sbyte
-  %end = getelementptr sbyte* %res, ulong %size
-  store sbyte %ch2, sbyte* %end
-  %cpy = seteq ulong %size, 0
-  br bool %cpy, label %nocopy, label %copy
-copy:
-  %arr2 = cast ulong %arr to sbyte*
-  call void (sbyte*, sbyte*, uint, uint)* 
-       %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %r0, uint 0)
-  br label %nocopy
-nocopy:
-  %res3 = cast sbyte* %res to ulong
-  ret ulong %res3
+define i64 @\"%append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
+	%newsize = add i64 %size, 1		; <i64> [#uses=1]
+	%r0 = trunc i64 %size to i32		; <i32> [#uses=1]
+	%r1 = call i8* @GC_malloc( i64 %newsize )		; <i8*> [#uses=1]
+	%res = bitcast i8* %r1 to i8*		; <i8*> [#uses=3]
+	%ch2 = trunc i64 %ch to i8		; <i8> [#uses=1]
+	%end = getelementptr i8* %res, i64 %size		; <i8*> [#uses=1]
+	store i8 %ch2, i8* %end
+	%cpy = icmp eq i64 %size, 0		; <i1> [#uses=1]
+	br i1 %cpy, label %nocopy, label %copy
+
+copy:		; preds = %0
+	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
+	call void @llvm.memcpy.i32( i8* %res, i8* %arr2, i32 %r0, i32 0 )
+	br label %nocopy
+
+nocopy:		; preds = %copy, %0
+	%res3 = ptrtoint i8* %res to i64		; <i64> [#uses=1]
+	ret i64 %res3
 }
 
-ulong \"%bytearray-ref\"(ulong %arr, ulong %index) {
-  %arr2 = cast ulong %arr to sbyte*
-  %ptr = getelementptr sbyte* %arr2, ulong %index
-  %res = load sbyte* %ptr
-  %res2 = cast sbyte %res to ulong
-  ret ulong %res2
+define i64 @\"%bytearray-ref\"(i64 %arr, i64 %index) {
+	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
+	%ptr = getelementptr i8* %arr2, i64 %index		; <i8*> [#uses=1]
+	%res = load i8* %ptr		; <i8> [#uses=1]
+	%res2 = sext i8 %res to i64		; <i64> [#uses=1]
+	ret i64 %res2
 }
 
-ulong \"%exit\"(ulong %ev) {
-  %ev2 = cast ulong %ev to int
-  call int(int)* %exit(int %ev2)
-  ret ulong 0
+define i64 @\"%exit\"(i64 %ev) {
+	%ev2 = trunc i64 %ev to i32		; <i32> [#uses=1]
+	call i32 @exit( i32 %ev2 )		; <i32>:1 [#uses=0]
+	ret i64 0
 }
 
-ulong %main(int %argc, sbyte** %argv) {
-  call void %GC_init()
-  ;call void %GC_disable()
-  %res = call ulong %startup(ulong 0)
-  ret ulong %res
+define i64 @main(i32 %argc, i8** %argv) {
+	call void @GC_init( )
+	%res = call i64 @startup( i64 0 )		; <i64> [#uses=1]
+	ret i64 %res
 }
 
 ;; Autogenerated code
@@ -699,18 +721,18 @@ ulong %main(int %argc, sbyte** %argv) {
                     (cond 
                        ((number? x) 0)
                        ((null? x) 1)
-                       (else (load (getelementptr (cast "ulong" x "ulong*") 0)))))
+                       (else (load (getelementptr (inttoptr "i64" x "i64*") 0)))))
 
      (llvm-define (make-vector-pointer x) 
-                  (store 1 (getelementptr (cast "ulong" x "ulong*") 0))
+                  (store 1 (getelementptr (inttoptr "i64" x "i64*") 0))
                   x)
      
      (llvm-define (make-string/symbol-pointer x) 
-                  (store 2 (getelementptr (cast "ulong" x "ulong*") 0))
+                  (store 2 (getelementptr (inttoptr "i64" x "i64*") 0))
                   x)
 
      (llvm-define (make-function-pointer x) 
-                  (store 3 (getelementptr (cast "ulong" x "ulong*") 0))
+                  (store 3 (getelementptr (inttoptr "i64" x "i64*") 0))
                   x)
 
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
@@ -723,17 +745,17 @@ ulong %main(int %argc, sbyte** %argv) {
      (llvm-define (pair? x) (if (vector? x) (seteq (vector-size x) 2) (make-null)))
     
      (llvm-define (init-vector! vector size)
-                  (store size (getelementptr (cast "ulong" vector "ulong*") 1))
+                  (store size (getelementptr (inttoptr "i64" vector "i64*") 1))
                   vector)
 
      (llvm-define (make-vector raw-size)
                   ;(display "; make-vector:")
                   ;(print (string-bytes " %d\n") raw-size)
                   (make-vector-pointer 
-                   (init-vector! (cast "ulong*" (malloc (add raw-size 2)) "ulong") raw-size)))
+                   (init-vector! (ptrtoint "i64*" (malloc (add raw-size 2)) "i64") raw-size)))
      
      (llvm-define (vector-size vector)
-                  (load (getelementptr (cast "ulong" vector "ulong*") 1)))
+                  (load (getelementptr (inttoptr "i64" vector "i64*") 1)))
      
      (llvm-define (vector-ref vector raw-index)
                   ;(display "; vector-ref:")
@@ -742,7 +764,7 @@ ulong %main(int %argc, sbyte** %argv) {
                   (ensure (vector? vector) "vector-ref: not a vector.")
                   (ensure (not (null? vector)) "vector-ref: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-ref: out of range.")
-                  (load (getelementptr (cast "ulong" vector "ulong*") 
+                  (load (getelementptr (inttoptr "i64" vector "i64*") 
                                        (add raw-index 2))))
 
      (llvm-define (vector-set! vector raw-index value)
@@ -752,7 +774,7 @@ ulong %main(int %argc, sbyte** %argv) {
                   (ensure (vector? vector) "vector-set!: not a vector.")
                   (ensure (not (null? vector)) "vector-set!: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-set!: out of range.")
-                  (store value (getelementptr (cast "ulong" vector "ulong*")
+                  (store value (getelementptr (inttoptr "i64" vector "i64*")
                                               (add raw-index 2)))
                   vector)
     
@@ -763,24 +785,24 @@ ulong %main(int %argc, sbyte** %argv) {
                   (set-enclosing-env! (make-vector (add raw-nparams 2)) env))
      
      (llvm-define (init-function! function raw-func env nparams)
-                  (store raw-func (getelementptr (cast "ulong" function "ulong*") 1))
-                  (store env      (getelementptr (cast "ulong" function "ulong*") 2))
-                  (store nparams  (getelementptr (cast "ulong" function "ulong*") 3))
+                  (store raw-func (getelementptr (inttoptr "i64" function "i64*") 1))
+                  (store env      (getelementptr (inttoptr "i64" function "i64*") 2))
+                  (store nparams  (getelementptr (inttoptr "i64" function "i64*") 3))
                   function)
      (llvm-define (make-function raw-func env nparams)
                   (make-function-pointer
-                   (init-function! (cast "ulong*" (malloc 4) "ulong") 
+                   (init-function! (ptrtoint "i64*" (malloc 4) "i64") 
                                    raw-func env nparams)))
                    
      (llvm-define (get-function-func function)
                   (ensure (procedure? function) "get-function-func: not a procedure.")
-                  (load (getelementptr (cast "ulong" function "ulong*") 1)))
+                  (load (getelementptr (inttoptr "i64" function "i64*") 1)))
      (llvm-define (get-function-env function)
                   (ensure (procedure? function) "get-function-env: not a procedure.")
-                  (load (getelementptr (cast "ulong" function "ulong*") 2)))
+                  (load (getelementptr (inttoptr "i64" function "i64*") 2)))
      (llvm-define (get-function-nparams function)
                   (ensure (procedure? function) "get-function-nparams: not a procedure.")
-                  (load (getelementptr (cast "ulong" function "ulong*") 3)))
+                  (load (getelementptr (inttoptr "i64" function "i64*") 3)))
      
      (llvm-define (fix-arb-funcs n-params end call-env)
                   (cond ((setge n-params end) (make-null))
@@ -793,14 +815,14 @@ ulong %main(int %argc, sbyte** %argv) {
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
      (llvm-define (init-string/symbol str raw-str size is-symbol)
-                  (store raw-str   (getelementptr (cast "ulong" str "ulong*") 1))
-                  (store size      (getelementptr (cast "ulong" str "ulong*") 2))
-                  (store is-symbol (getelementptr (cast "ulong" str "ulong*") 3))
+                  (store raw-str   (getelementptr (inttoptr "i64" str "i64*") 1))
+                  (store size      (getelementptr (inttoptr "i64" str "i64*") 2))
+                  (store is-symbol (getelementptr (inttoptr "i64" str "i64*") 3))
                   str)
      
      (llvm-define (make-string/symbol raw-str raw-size symbolp)
                   (make-string/symbol-pointer 
-                   (init-string/symbol (cast "ulong*" (malloc 4) "ulong")
+                   (init-string/symbol (ptrtoint "i64*" (malloc 4) "i64")
                                        raw-str (make-number raw-size) symbolp)))
      
      (llvm-define (make-string raw-str raw-size)
@@ -810,17 +832,17 @@ ulong %main(int %argc, sbyte** %argv) {
 
      (llvm-define (string? x)
                   (if (string/symbol? x)
-                      (not (load (getelementptr (cast "ulong" x "ulong*") 3)))
+                      (not (load (getelementptr (inttoptr "i64" x "i64*") 3)))
                       (make-null)))
      (llvm-define (symbol? x)
                   (if (string/symbol? x)
-                      (load (getelementptr (cast "ulong" x "ulong*") 3))
+                      (load (getelementptr (inttoptr "i64" x "i64*") 3))
                       (make-null)))
      
      (llvm-define (string-length str)
-                  (load (getelementptr (cast "ulong" str "ulong*") 2)))
+                  (load (getelementptr (inttoptr "i64" str "i64*") 2)))
      (llvm-define (string-bytes str)
-                  (load (getelementptr (cast "ulong" str "ulong*") 1)))
+                  (load (getelementptr (inttoptr "i64" str "i64*") 1)))
      
      (llvm-define (string->symbol str)
                   (ensure (string? str) "string->symbol: not a string")
@@ -1100,9 +1122,9 @@ ulong %main(int %argc, sbyte** %argv) {
         (result (compile (append bootstrap exp) '())))
     (map printer llvm-string-list)
     (display bootstrap-llvm-code)
-    (display "ulong %startup(ulong \"%env\") {\n")
+    (display "define i64 @startup(i64 %\"env\") {\n")
     (map printer (compiled-code result))
-    (display (c "ret ulong " (compiled-target result) "\n}\n"))
+    (display (c "ret i64 " (compiled-target result) "\n}\n"))
     (display "; FUNCTIONS\n")
     (map (lambda (function) (map printer function) (newline))
          llvm-function-list))
