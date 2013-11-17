@@ -279,7 +279,7 @@
 
 (define (llvm-global-repr exp)
   (cond ((number? exp) (number->string exp))
-        ((symbol? exp) (c "@\"%" (symbol->string exp) "\""))
+        ((symbol? exp) (c "@\"scm-" (symbol->string exp) "\""))
         (else exp)))
 
 (define (llvm-repr exp)
@@ -333,7 +333,7 @@
      (c "br i1 " t2 ", label %" c-label ", label %" a-label))))
 
 (define (llvm-malloc target size)
-  (c target " = call i64* @\"%malloc\"(i64 " (llvm-repr size) ")"))
+  (c target " = call i64* @\"scm-malloc\"(i64 " (llvm-repr size) ")"))
 
 (define (llvm-store target value) 
   (c "store i64 " value ", i64* " target))
@@ -640,26 +640,26 @@ declare void @GC_disable()
 declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
-define i64 @\"%llvm-read-char\"() {
+define i64 @\"scm-llvm-read-char\"() {
 	%res.0 = call i32 @getchar( )
 	%res.1 = sext i32 %res.0 to i64
 	ret i64 %res.1
 }
 
-define i64 @\"%print\"(i64 %format, i64 %value) {
+define i64 @\"scm-print\"(i64 %format, i64 %value) {
 	%format2 = inttoptr i64 %format to i8*
 	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
 	ret i64 0
 }
 
-define i64* @\"%malloc\"(i64 %num) {
+define i64* @\"scm-malloc\"(i64 %num) {
 	%r0 = mul i64 8, %num
 	%r1 = call i8* @GC_malloc( i64 %r0 )
 	%r2 = bitcast i8* %r1 to i64*
 	ret i64* %r2
 }
 
-define i64 @\"%append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
+define i64 @\"scm-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
 	%newsize = add i64 %size, 1
 	%res = call i8* @GC_malloc( i64 %newsize )
 	%ch2 = trunc i64 %ch to i8
@@ -678,7 +678,7 @@ nocopy:
 	ret i64 %res3
 }
 
-define i64 @\"%bytearray-ref\"(i64 %arr, i64 %index) {
+define i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
 	%arr2 = inttoptr i64 %arr to i8*
 	%ptr = getelementptr i8* %arr2, i64 %index
 	%res = load i8* %ptr
@@ -686,7 +686,7 @@ define i64 @\"%bytearray-ref\"(i64 %arr, i64 %index) {
 	ret i64 %res2
 }
 
-define i64 @\"%exit\"(i64 %ev) {
+define i64 @\"scm-exit\"(i64 %ev) {
 	%ev2 = trunc i64 %ev to i32
 	call i32 @exit( i32 %ev2 )
 	ret i64 0
