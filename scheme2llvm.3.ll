@@ -229,7 +229,7 @@
 @r9084 = internal constant [11 x i8] c"i64 (i64)*\00"
 @r9114 = internal constant [21 x i8] c"get-function-nparams\00"
 @r9146 = internal constant [20 x i8] c"fix-arbitrary-funcs\00"
-@r9425 = internal constant [1645 x i8] c"
+@r9425 = internal constant [1615 x i8] c"
 declare i32 @printf(i8*, ...)
 declare i32 @exit(i32)
 declare i32 @getchar()
@@ -253,10 +253,9 @@ define i64 @\22%print\22(i64 %format, i64 %value) {
 
 define i64* @\22%malloc\22(i64 %num) {
 	%r0 = mul i64 8, %num
-	%r1 = bitcast i64 %r0 to i64
-	%r2 = call i8* @GC_malloc( i64 %r1 )
-	%r3 = bitcast i8* %r2 to i64*
-	ret i64* %r3
+	%r1 = call i8* @GC_malloc( i64 %r0 )
+	%r2 = bitcast i8* %r1 to i64*
+	ret i64* %r2
 }
 
 define i64 @\22%append-bytearray\22(i64 %arr, i64 %ch, i64 %size) {
@@ -13234,8 +13233,8 @@ define i64 @function219(i64 %"env") {
 %r9301 = ptrtoint i64 (i64)* @function212 to i64
 %r9302 = call i64 @"%make-function"(i64 %r9301, i64 %"env", i64 0)
 %r9300 = call i64 @"%set-variable!"(i64 %"env", i64 0, i64 116, i64 %r9302)
-%r9426 = ptrtoint [1645 x i8]* @r9425 to i64
-%r9424 = call i64 @"%make-string/symbol"(i64 %r9426, i64 1644, i64 1)
+%r9426 = ptrtoint [1615 x i8]* @r9425 to i64
+%r9424 = call i64 @"%make-string/symbol"(i64 %r9426, i64 1614, i64 1)
 %r9423 = call i64 @"%set-variable!"(i64 %"env", i64 0, i64 117, i64 %r9424)
 %r9431 = ptrtoint [6 x i8]* @r9430 to i64
 %r9429 = call i64 @"%make-string/symbol"(i64 %r9431, i64 5, i64 4)

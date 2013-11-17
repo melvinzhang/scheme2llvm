@@ -654,10 +654,9 @@ define i64 @\"%print\"(i64 %format, i64 %value) {
 
 define i64* @\"%malloc\"(i64 %num) {
 	%r0 = mul i64 8, %num
-	%r1 = bitcast i64 %r0 to i64
-	%r2 = call i8* @GC_malloc( i64 %r1 )
-	%r3 = bitcast i8* %r2 to i64*
-	ret i64* %r3
+	%r1 = call i8* @GC_malloc( i64 %r0 )
+	%r2 = bitcast i8* %r1 to i64*
+	ret i64* %r2
 }
 
 define i64 @\"%append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
