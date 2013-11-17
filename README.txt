@@ -33,3 +33,7 @@ Latest version of the IR is LLVm IR 3.x
 
 Issue: Difficult to interact with the system without a REPL
   Todo: Add a basic REPL
+
+Issue: Document the subset of Scheme supported
+
+Issue: Reduce repetition in the code base
