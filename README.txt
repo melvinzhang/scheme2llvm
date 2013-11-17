@@ -30,3 +30,6 @@ Issue: Output is LLVM IR 1.x, need to use old versions of LLVM toolchain.
 Latest version of the IR is LLVm IR 3.x
   Done: upgrade output of compiler from LLVM IR 1.x to LLVM IR 2.x
   Done: upgrade output of compiler from LLVM IR 2.x to LLVM IR 3.x
+
+Issue: Difficult to interact with the system without a REPL
+  Todo: Add a basic REPL
