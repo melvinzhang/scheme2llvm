@@ -1077,11 +1077,16 @@ ulong %main(int %argc, sbyte** %argv) {
          (if (member (peek-char) identifier-end) '()
              (cons (read-char) (read-id))))
        (string->symbol (list->string (cons ch (read-id)))))
-     
+    
+     (define (interpret-escape ch)
+        (cond ((eq? ch 110) 10) ;\n is newline
+              ((eq? ch 116) 9)  ;\t is tab
+              (else ch)))
+
      (define (read-string)
        (define (read-str)
          (define ch (read-char))
-         (cond ((char-backslash? ch) (cons (read-char) (read-str)))           
+         (cond ((char-backslash? ch) (cons (interpret-escape (read-char)) (read-str)))           
                ((char-string? ch) '())
                (else (cons ch (read-str)))))
        (list->string (read-str)))
