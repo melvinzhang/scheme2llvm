@@ -638,7 +638,7 @@ declare i8* @malloc(i64)
 declare void @GC_init()
 declare void @GC_disable()
 declare i8* @GC_malloc(i64)
-declare void @llvm.memcpy.i32(i8*, i8*, i32, i32)
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @\"%llvm-read-char\"() {
 	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
@@ -661,19 +661,17 @@ define i64* @\"%malloc\"(i64 %num) {
 }
 
 define i64 @\"%append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
-	%newsize = add i64 %size, 1		; <i64> [#uses=1]
-	%r0 = trunc i64 %size to i32		; <i32> [#uses=1]
-	%r1 = call i8* @GC_malloc( i64 %newsize )		; <i8*> [#uses=1]
-	%res = bitcast i8* %r1 to i8*		; <i8*> [#uses=3]
-	%ch2 = trunc i64 %ch to i8		; <i8> [#uses=1]
-	%end = getelementptr i8* %res, i64 %size		; <i8*> [#uses=1]
+	%newsize = add i64 %size, 1
+	%res = call i8* @GC_malloc( i64 %newsize )
+	%ch2 = trunc i64 %ch to i8
+	%end = getelementptr i8* %res, i64 %size
 	store i8 %ch2, i8* %end
-	%cpy = icmp eq i64 %size, 0		; <i1> [#uses=1]
+	%cpy = icmp eq i64 %size, 0
 	br i1 %cpy, label %nocopy, label %copy
 
 copy:		; preds = %0
 	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
-	call void @llvm.memcpy.i32( i8* %res, i8* %arr2, i32 %r0, i32 0 )
+	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
 	br label %nocopy
 
 nocopy:		; preds = %copy, %0

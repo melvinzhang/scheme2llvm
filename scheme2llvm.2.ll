@@ -229,7 +229,7 @@
 @r9084 = internal constant [11 x i8] c"i64 (i64)*\00"
 @r9114 = internal constant [21 x i8] c"get-function-nparams\00"
 @r9146 = internal constant [20 x i8] c"fix-arbitrary-funcs\00"
-@r9425 = internal constant [2166 x i8] c"
+@r9425 = internal constant [2007 x i8] c"
 declare i32 @printf(i8*, ...)
 declare i32 @exit(i32)
 declare i32 @getchar()
@@ -237,7 +237,7 @@ declare i8* @malloc(i64)
 declare void @GC_init()
 declare void @GC_disable()
 declare i8* @GC_malloc(i64)
-declare void @llvm.memcpy.i32(i8*, i8*, i32, i32)
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @\22%llvm-read-char\22() {
 	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
@@ -260,19 +260,17 @@ define i64* @\22%malloc\22(i64 %num) {
 }
 
 define i64 @\22%append-bytearray\22(i64 %arr, i64 %ch, i64 %size) {
-	%newsize = add i64 %size, 1		; <i64> [#uses=1]
-	%r0 = trunc i64 %size to i32		; <i32> [#uses=1]
-	%r1 = call i8* @GC_malloc( i64 %newsize )		; <i8*> [#uses=1]
-	%res = bitcast i8* %r1 to i8*		; <i8*> [#uses=3]
-	%ch2 = trunc i64 %ch to i8		; <i8> [#uses=1]
-	%end = getelementptr i8* %res, i64 %size		; <i8*> [#uses=1]
+	%newsize = add i64 %size, 1
+	%res = call i8* @GC_malloc( i64 %newsize )
+	%ch2 = trunc i64 %ch to i8
+	%end = getelementptr i8* %res, i64 %size
 	store i8 %ch2, i8* %end
-	%cpy = icmp eq i64 %size, 0		; <i1> [#uses=1]
+	%cpy = icmp eq i64 %size, 0
 	br i1 %cpy, label %nocopy, label %copy
 
 copy:		; preds = %0
 	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
-	call void @llvm.memcpy.i32( i8* %res, i8* %arr2, i32 %r0, i32 0 )
+	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
 	br label %nocopy
 
 nocopy:		; preds = %copy, %0
@@ -1778,7 +1776,7 @@ declare i8* @malloc(i64)
 declare void @GC_init()
 declare void @GC_disable()
 declare i8* @GC_malloc(i64)
-declare void @llvm.memcpy.i32(i8*, i8*, i32, i32)
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @"%llvm-read-char"() {
 	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
@@ -1801,19 +1799,17 @@ define i64* @"%malloc"(i64 %num) {
 }
 
 define i64 @"%append-bytearray"(i64 %arr, i64 %ch, i64 %size) {
-	%newsize = add i64 %size, 1		; <i64> [#uses=1]
-	%r0 = trunc i64 %size to i32		; <i32> [#uses=1]
-	%r1 = call i8* @GC_malloc( i64 %newsize )		; <i8*> [#uses=1]
-	%res = bitcast i8* %r1 to i8*		; <i8*> [#uses=3]
-	%ch2 = trunc i64 %ch to i8		; <i8> [#uses=1]
-	%end = getelementptr i8* %res, i64 %size		; <i8*> [#uses=1]
+	%newsize = add i64 %size, 1
+	%res = call i8* @GC_malloc( i64 %newsize )
+	%ch2 = trunc i64 %ch to i8
+	%end = getelementptr i8* %res, i64 %size
 	store i8 %ch2, i8* %end
-	%cpy = icmp eq i64 %size, 0		; <i1> [#uses=1]
+	%cpy = icmp eq i64 %size, 0
 	br i1 %cpy, label %nocopy, label %copy
 
 copy:		; preds = %0
 	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
-	call void @llvm.memcpy.i32( i8* %res, i8* %arr2, i32 %r0, i32 0 )
+	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
 	br label %nocopy
 
 nocopy:		; preds = %copy, %0
@@ -13238,8 +13234,8 @@ define i64 @function219(i64 %"env") {
 %r9301 = ptrtoint i64 (i64)* @function212 to i64
 %r9302 = call i64 @"%make-function"(i64 %r9301, i64 %"env", i64 0)
 %r9300 = call i64 @"%set-variable!"(i64 %"env", i64 0, i64 116, i64 %r9302)
-%r9426 = ptrtoint [2166 x i8]* @r9425 to i64
-%r9424 = call i64 @"%make-string/symbol"(i64 %r9426, i64 2165, i64 1)
+%r9426 = ptrtoint [2007 x i8]* @r9425 to i64
+%r9424 = call i64 @"%make-string/symbol"(i64 %r9426, i64 2006, i64 1)
 %r9423 = call i64 @"%set-variable!"(i64 %"env", i64 0, i64 117, i64 %r9424)
 %r9431 = ptrtoint [6 x i8]* @r9430 to i64
 %r9429 = call i64 @"%make-string/symbol"(i64 %r9431, i64 5, i64 4)
