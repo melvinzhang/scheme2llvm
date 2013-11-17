@@ -37,7 +37,7 @@
 ;; vectors (which are also used as conscells)
 ;; functions (fixed and arbitrary number of arguments)
 ;;
-;; All objects are represented with a 32 bit uint, with 2 bits reserved 
+;; All objects are represented with a 32 bit ulong, with 2 bits reserved 
 ;; for a type tag.
 ;;
 ;; -- The Implementation --
@@ -195,14 +195,14 @@
 (define (add-llvm-function f-name f-params f-body)
   (define (build-params params)
     (if (null? params) ""
-        (c "uint " (llvm-repr (car params))
+        (c "ulong " (llvm-repr (car params))
            (if (null? (cdr params)) "" ", ")
            (build-params (cdr params)))))
   (set! llvm-function-list
 	(append 
          llvm-function-list
          (list (append-code 
-               (c "uint " (llvm-repr f-name) "(" (build-params f-params) ") {")
+               (c "ulong " (llvm-repr f-name) "(" (build-params f-params) ") {")
                (compiled-code f-body)
                (llvm-ret (compiled-target f-body))
                (c "}"))))))
@@ -275,7 +275,7 @@
         (else exp)))
 
 (define (llvm-instruction target op x y)
-  (c target " = " (llvm-instr-name op) " uint " 
+  (c target " = " (llvm-instr-name op) " ulong " 
      (llvm-repr x) ", " (llvm-repr y)))
 
 (define (llvm-id target exp) ; Identity function
@@ -285,13 +285,13 @@
   (define (build-arg-list arg-list fi)
     (if (null? arg-list) ""
         (c (if (= fi 1) "" ", ")
-           (c "uint " (llvm-repr (car arg-list)))
+           (c "ulong " (llvm-repr (car arg-list)))
            (build-arg-list (cdr arg-list) 0))))
-  (c target " = call uint " (llvm-repr function) "(" (build-arg-list args 1) ")"))
+  (c target " = call ulong " (llvm-repr function) "(" (build-arg-list args 1) ")"))
 (define (llvm-call target function . args)
   (llvm-call2 target function args))
 
-(define (llvm-ret value) (c "ret uint " (llvm-repr value)))
+(define (llvm-ret value) (c "ret ulong " (llvm-repr value)))
 
 (define (llvm-cast target type1 x type2)
   (c target " = cast " type1 " " x " to " type2))
@@ -310,27 +310,27 @@
         (t2 (make-var)))
     (append-code
      (llvm-call t1 'raw-number pred) ; false iff pred = 0 or '()
-     (llvm-cast t2 "uint" t1 "bool")
+     (llvm-cast t2 "ulong" t1 "bool")
      (c "br bool " t2 ", label %" c-label ", label %" a-label))))
 
 (define (llvm-malloc target size)
-  (c target " = call uint* \"%malloc\"(uint " (llvm-repr size) ")"))
+  (c target " = call ulong* \"%malloc\"(ulong " (llvm-repr size) ")"))
 
 (define (llvm-store target value) 
-  (c "store uint " value ", uint* " target))
+  (c "store ulong " value ", ulong* " target))
 
-(define (llvm-load target var) (c target " = load uint* " var))
-(define (llvm-alloca-var target) (c target " = alloca uint"))
+(define (llvm-load target var) (c target " = load ulong* " var))
+(define (llvm-alloca-var target) (c target " = alloca ulong"))
 
 (define (llvm-shift-op target op value sh)
   (let ((t1 (make-var)))
     (append-code 
-     (llvm-cast t1 "uint" sh "ubyte")
+     (llvm-cast t1 "ulong" sh "ubyte")
      (c target " = " (llvm-instr-name op)
-	" uint " (llvm-repr value) ", ubyte " t1))))
+	" ulong " (llvm-repr value) ", ubyte " t1))))
 
 (define (llvm-getelementptr target ptr index)
-  (c target " = getelementptr uint* " ptr ", uint " index))
+  (c target " = getelementptr ulong* " ptr ", ulong " index))
 
 (define (llvm-vector-ref target vector index)
   (llvm-call target 'vector-ref (llvm-repr vector) (llvm-repr index)))
@@ -389,7 +389,7 @@
                       (symbolp (if (symbol? exp) 4 1))
                       (str-repr (if (string? exp) exp (symbol->string exp))))
                   (append-code
-                   (llvm-cast t1 (add-llvm-string str str-repr) str "uint")
+                   (llvm-cast t1 (add-llvm-string str str-repr) str "ulong")
                    (llvm-call target 'make-string/symbol t1 
                               (string-length str-repr) symbolp))))
                ((null? exp) (llvm-call target 'make-null))
@@ -491,7 +491,7 @@
     (add-llvm-function f-name '(env) l-body)
     (make-code 
      target 
-     (llvm-cast t1 "uint (uint)*" f-name "uint")
+     (llvm-cast t1 "ulong (ulong)*" f-name "ulong")
      (llvm-call target 'make-function t1 'env 
                 (if (lambda-arbitrary-args? exp)
                     (length (lambda-parameters exp))
@@ -555,7 +555,7 @@
 			(llvm-instruction 
                          t1 (operator exp) 
                          (compiled-target x) (compiled-target y))
-			(llvm-cast t2 "bool" t1 "uint")
+			(llvm-cast t2 "bool" t1 "ulong")
                         (llvm-call target 'make-number t2))))
 	  (else ;; binary operation
 	   (let ((x (compile (first-arg exp) c-t-env))
@@ -591,7 +591,7 @@
          (llvm-call f-env 'get-function-env (compiled-target proc-code))
          (llvm-call call-env 'make-env (length (operands exp)) f-env)
          (llvm-call f-func 'get-function-func (compiled-target proc-code))
-         (llvm-cast func "uint" f-func "uint (uint)*")
+         (llvm-cast func "ulong" f-func "ulong (ulong)*")
          (build-param-list call-env operand-codes 1)
          (llvm-call f-nparams 'get-function-nparams (compiled-target proc-code))
          (llvm-call (make-var) 'fix-arbitrary-funcs f-nparams call-env)
@@ -617,65 +617,67 @@ declare void %GC_disable();
 declare ubyte* %GC_malloc(ulong)
 declare void %llvm.memcpy.i32(sbyte*, sbyte*, uint, uint)
 
-uint \"%llvm-read-char\"() {
+ulong \"%llvm-read-char\"() {
   %res.0 = call int %getchar()
-  %res.1 = cast int %res.0 to uint
-  ret uint %res.1
+  %res.1 = cast int %res.0 to ulong
+  ret ulong %res.1
 }
 
-uint \"%print\"(uint %format, uint %value) {
-  %format2 = cast uint %format to sbyte*
-  call int (sbyte*, ...)* %printf(sbyte* %format2, uint %value)
-  ret uint 0
+ulong \"%print\"(ulong %format, ulong %value) {
+  %format2 = cast ulong %format to sbyte*
+  call int (sbyte*, ...)* %printf(sbyte* %format2, ulong %value)
+  ret ulong 0
 }
 
-uint* \"%malloc\"(uint %num) {
-  %r0 = mul uint 4, %num 
-  %r1 = cast uint %r0 to ulong
+ulong* \"%malloc\"(ulong %num) {
+  %r0 = mul ulong 8, %num 
+  %r1 = cast ulong %r0 to ulong
   %r2 = call ubyte* %GC_malloc(ulong %r1)
-  %r3 = cast ubyte* %r2 to uint*
-  ;%r3 = malloc uint, uint %num
-  ret uint* %r3
+  %r3 = cast ubyte* %r2 to ulong*
+  ;%r3 = malloc ulong, ulong %num
+  ret ulong* %r3
 }
 
-uint \"%append-bytearray\"(uint %arr, uint %ch, uint %size) {
-  %newsize = add uint %size, 1
-  %res = malloc sbyte, uint %newsize
-  %ch2 = cast uint %ch to sbyte
-  %end = getelementptr sbyte* %res, uint %size
+ulong \"%append-bytearray\"(ulong %arr, ulong %ch, ulong %size) {
+  %newsize = add ulong %size, 1
+  %r0 = cast ulong %size to uint
+  %r1 = cast ulong %newsize to uint
+  %res = malloc sbyte, uint %r1
+  %ch2 = cast ulong %ch to sbyte
+  %end = getelementptr sbyte* %res, ulong %size
   store sbyte %ch2, sbyte* %end
-  %cpy = seteq uint %size, 0
+  %cpy = seteq ulong %size, 0
   br bool %cpy, label %nocopy, label %copy
 copy:
-  %arr2 = cast uint %arr to sbyte*
+  %arr2 = cast ulong %arr to sbyte*
   call void (sbyte*, sbyte*, uint, uint)* 
-       %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %size, uint 0)
+       %llvm.memcpy.i32(sbyte* %res, sbyte* %arr2, uint %r0, uint 0)
   free sbyte* %arr2
   br label %nocopy
 nocopy:
-  %res3 = cast sbyte* %res to uint
-  ret uint %res3
+  %res3 = cast sbyte* %res to ulong
+  ret ulong %res3
 }
 
-uint \"%bytearray-ref\"(uint %arr, uint %index) {
-  %arr2 = cast uint %arr to sbyte*
-  %ptr = getelementptr sbyte* %arr2, uint %index
+ulong \"%bytearray-ref\"(ulong %arr, ulong %index) {
+  %arr2 = cast ulong %arr to sbyte*
+  %ptr = getelementptr sbyte* %arr2, ulong %index
   %res = load sbyte* %ptr
-  %res2 = cast sbyte %res to uint
-  ret uint %res2
+  %res2 = cast sbyte %res to ulong
+  ret ulong %res2
 }
 
-uint \"%exit\"(uint %ev) {
-  %ev2 = cast uint %ev to int
+ulong \"%exit\"(ulong %ev) {
+  %ev2 = cast ulong %ev to int
   call int(int)* %exit(int %ev2)
-  ret uint 0
+  ret ulong 0
 }
 
-uint %main(int %argc, sbyte** %argv) {
+ulong %main(int %argc, sbyte** %argv) {
   call void %GC_init()
-  call void %GC_disable()
-  %res = call uint %startup(uint 0)
-  ret uint %res
+  ;call void %GC_disable()
+  %res = call ulong %startup(ulong 0)
+  ret ulong %res
 }
 
 ;; Autogenerated code
@@ -698,18 +700,18 @@ uint %main(int %argc, sbyte** %argv) {
                     (cond 
                        ((number? x) 0)
                        ((null? x) 1)
-                       (else (load (getelementptr (cast "uint" x "uint*") 0)))))
+                       (else (load (getelementptr (cast "ulong" x "ulong*") 0)))))
 
      (llvm-define (make-vector-pointer x) 
-                  (store 1 (getelementptr (cast "uint" x "uint*") 0))
+                  (store 1 (getelementptr (cast "ulong" x "ulong*") 0))
                   x)
      
      (llvm-define (make-string/symbol-pointer x) 
-                  (store 2 (getelementptr (cast "uint" x "uint*") 0))
+                  (store 2 (getelementptr (cast "ulong" x "ulong*") 0))
                   x)
 
      (llvm-define (make-function-pointer x) 
-                  (store 3 (getelementptr (cast "uint" x "uint*") 0))
+                  (store 3 (getelementptr (cast "ulong" x "ulong*") 0))
                   x)
 
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
@@ -722,17 +724,17 @@ uint %main(int %argc, sbyte** %argv) {
      (llvm-define (pair? x) (if (vector? x) (seteq (vector-size x) 2) (make-null)))
     
      (llvm-define (init-vector! vector size)
-                  (store size (getelementptr (cast "uint" vector "uint*") 1))
+                  (store size (getelementptr (cast "ulong" vector "ulong*") 1))
                   vector)
 
      (llvm-define (make-vector raw-size)
                   ;(display "; make-vector:")
                   ;(print (string-bytes " %d\n") raw-size)
                   (make-vector-pointer 
-                   (init-vector! (cast "uint*" (malloc (add raw-size 2)) "uint") raw-size)))
+                   (init-vector! (cast "ulong*" (malloc (add raw-size 2)) "ulong") raw-size)))
      
      (llvm-define (vector-size vector)
-                  (load (getelementptr (cast "uint" vector "uint*") 1)))
+                  (load (getelementptr (cast "ulong" vector "ulong*") 1)))
      
      (llvm-define (vector-ref vector raw-index)
                   ;(display "; vector-ref:")
@@ -741,7 +743,7 @@ uint %main(int %argc, sbyte** %argv) {
                   (ensure (vector? vector) "vector-ref: not a vector.")
                   (ensure (not (null? vector)) "vector-ref: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-ref: out of range.")
-                  (load (getelementptr (cast "uint" vector "uint*") 
+                  (load (getelementptr (cast "ulong" vector "ulong*") 
                                        (add raw-index 2))))
 
      (llvm-define (vector-set! vector raw-index value)
@@ -751,7 +753,7 @@ uint %main(int %argc, sbyte** %argv) {
                   (ensure (vector? vector) "vector-set!: not a vector.")
                   (ensure (not (null? vector)) "vector-set!: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-set!: out of range.")
-                  (store value (getelementptr (cast "uint" vector "uint*")
+                  (store value (getelementptr (cast "ulong" vector "ulong*")
                                               (add raw-index 2)))
                   vector)
     
@@ -762,24 +764,24 @@ uint %main(int %argc, sbyte** %argv) {
                   (set-enclosing-env! (make-vector (add raw-nparams 2)) env))
      
      (llvm-define (init-function! function raw-func env nparams)
-                  (store raw-func (getelementptr (cast "uint" function "uint*") 1))
-                  (store env      (getelementptr (cast "uint" function "uint*") 2))
-                  (store nparams  (getelementptr (cast "uint" function "uint*") 3))
+                  (store raw-func (getelementptr (cast "ulong" function "ulong*") 1))
+                  (store env      (getelementptr (cast "ulong" function "ulong*") 2))
+                  (store nparams  (getelementptr (cast "ulong" function "ulong*") 3))
                   function)
      (llvm-define (make-function raw-func env nparams)
                   (make-function-pointer
-                   (init-function! (cast "uint*" (malloc 4) "uint") 
+                   (init-function! (cast "ulong*" (malloc 4) "ulong") 
                                    raw-func env nparams)))
                    
      (llvm-define (get-function-func function)
                   (ensure (procedure? function) "get-function-func: not a procedure.")
-                  (load (getelementptr (cast "uint" function "uint*") 1)))
+                  (load (getelementptr (cast "ulong" function "ulong*") 1)))
      (llvm-define (get-function-env function)
                   (ensure (procedure? function) "get-function-env: not a procedure.")
-                  (load (getelementptr (cast "uint" function "uint*") 2)))
+                  (load (getelementptr (cast "ulong" function "ulong*") 2)))
      (llvm-define (get-function-nparams function)
                   (ensure (procedure? function) "get-function-nparams: not a procedure.")
-                  (load (getelementptr (cast "uint" function "uint*") 3)))
+                  (load (getelementptr (cast "ulong" function "ulong*") 3)))
      
      (llvm-define (fix-arb-funcs n-params end call-env)
                   (cond ((setge n-params end) (make-null))
@@ -792,14 +794,14 @@ uint %main(int %argc, sbyte** %argv) {
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
      (llvm-define (init-string/symbol str raw-str size is-symbol)
-                  (store raw-str   (getelementptr (cast "uint" str "uint*") 1))
-                  (store size      (getelementptr (cast "uint" str "uint*") 2))
-                  (store is-symbol (getelementptr (cast "uint" str "uint*") 3))
+                  (store raw-str   (getelementptr (cast "ulong" str "ulong*") 1))
+                  (store size      (getelementptr (cast "ulong" str "ulong*") 2))
+                  (store is-symbol (getelementptr (cast "ulong" str "ulong*") 3))
                   str)
      
      (llvm-define (make-string/symbol raw-str raw-size symbolp)
                   (make-string/symbol-pointer 
-                   (init-string/symbol (cast "uint*" (malloc 4) "uint")
+                   (init-string/symbol (cast "ulong*" (malloc 4) "ulong")
                                        raw-str (make-number raw-size) symbolp)))
      
      (llvm-define (make-string raw-str raw-size)
@@ -809,17 +811,17 @@ uint %main(int %argc, sbyte** %argv) {
 
      (llvm-define (string? x)
                   (if (string/symbol? x)
-                      (not (load (getelementptr (cast "uint" x "uint*") 3)))
+                      (not (load (getelementptr (cast "ulong" x "ulong*") 3)))
                       (make-null)))
      (llvm-define (symbol? x)
                   (if (string/symbol? x)
-                      (load (getelementptr (cast "uint" x "uint*") 3))
+                      (load (getelementptr (cast "ulong" x "ulong*") 3))
                       (make-null)))
      
      (llvm-define (string-length str)
-                  (load (getelementptr (cast "uint" str "uint*") 2)))
+                  (load (getelementptr (cast "ulong" str "ulong*") 2)))
      (llvm-define (string-bytes str)
-                  (load (getelementptr (cast "uint" str "uint*") 1)))
+                  (load (getelementptr (cast "ulong" str "ulong*") 1)))
      
      (llvm-define (string->symbol str)
                   (ensure (string? str) "string->symbol: not a string")
@@ -1094,9 +1096,9 @@ uint %main(int %argc, sbyte** %argv) {
         (result (compile (append bootstrap exp) '())))
     (map printer llvm-string-list)
     (display bootstrap-llvm-code)
-    (display "uint %startup(uint \"%env\") {\n")
+    (display "ulong %startup(ulong \"%env\") {\n")
     (map printer (compiled-code result))
-    (display (c "ret uint " (compiled-target result) "\n}\n"))
+    (display (c "ret ulong " (compiled-target result) "\n}\n"))
     (display "; FUNCTIONS\n")
     (map (lambda (function) (map printer function) (newline))
          llvm-function-list))
