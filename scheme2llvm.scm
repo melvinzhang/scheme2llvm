@@ -358,7 +358,7 @@
 
 (define (compile exp c-t-env)
   
-  (block-comment "compile" exp)
+  ;(block-comment "compile" exp)
 
   (cond ((self-evaluating? exp)  (compile-self-evaluating exp c-t-env))
         ((variable? exp)         (compile-variable exp c-t-env))
