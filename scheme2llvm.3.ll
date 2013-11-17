@@ -229,7 +229,7 @@
 @r9084 = internal constant [11 x i8] c"i64 (i64)*\00"
 @r9114 = internal constant [21 x i8] c"get-function-nparams\00"
 @r9146 = internal constant [20 x i8] c"fix-arbitrary-funcs\00"
-@r9425 = internal constant [2007 x i8] c"
+@r9425 = internal constant [1645 x i8] c"
 declare i32 @printf(i8*, ...)
 declare i32 @exit(i32)
 declare i32 @getchar()
@@ -240,22 +240,22 @@ declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @\22%llvm-read-char\22() {
-	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
-	%res.1 = sext i32 %res.0 to i64		; <i64> [#uses=1]
+	%res.0 = call i32 @getchar( )
+	%res.1 = sext i32 %res.0 to i64
 	ret i64 %res.1
 }
 
 define i64 @\22%print\22(i64 %format, i64 %value) {
-	%format2 = inttoptr i64 %format to i8*		; <i8*> [#uses=1]
-	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )		; <i32>:1 [#uses=0]
+	%format2 = inttoptr i64 %format to i8*
+	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
 	ret i64 0
 }
 
 define i64* @\22%malloc\22(i64 %num) {
-	%r0 = mul i64 8, %num		; <i64> [#uses=1]
-	%r1 = bitcast i64 %r0 to i64		; <i64> [#uses=1]
-	%r2 = call i8* @GC_malloc( i64 %r1 )		; <i8*> [#uses=1]
-	%r3 = bitcast i8* %r2 to i64*		; <i64*> [#uses=1]
+	%r0 = mul i64 8, %num
+	%r1 = bitcast i64 %r0 to i64
+	%r2 = call i8* @GC_malloc( i64 %r1 )
+	%r3 = bitcast i8* %r2 to i64*
 	ret i64* %r3
 }
 
@@ -268,33 +268,33 @@ define i64 @\22%append-bytearray\22(i64 %arr, i64 %ch, i64 %size) {
 	%cpy = icmp eq i64 %size, 0
 	br i1 %cpy, label %nocopy, label %copy
 
-copy:		; preds = %0
-	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
+copy:
+	%arr2 = inttoptr i64 %arr to i8*
 	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
 	br label %nocopy
 
-nocopy:		; preds = %copy, %0
-	%res3 = ptrtoint i8* %res to i64		; <i64> [#uses=1]
+nocopy:
+	%res3 = ptrtoint i8* %res to i64
 	ret i64 %res3
 }
 
 define i64 @\22%bytearray-ref\22(i64 %arr, i64 %index) {
-	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
-	%ptr = getelementptr i8* %arr2, i64 %index		; <i8*> [#uses=1]
-	%res = load i8* %ptr		; <i8> [#uses=1]
-	%res2 = sext i8 %res to i64		; <i64> [#uses=1]
+	%arr2 = inttoptr i64 %arr to i8*
+	%ptr = getelementptr i8* %arr2, i64 %index
+	%res = load i8* %ptr
+	%res2 = sext i8 %res to i64
 	ret i64 %res2
 }
 
 define i64 @\22%exit\22(i64 %ev) {
-	%ev2 = trunc i64 %ev to i32		; <i32> [#uses=1]
-	call i32 @exit( i32 %ev2 )		; <i32>:1 [#uses=0]
+	%ev2 = trunc i64 %ev to i32
+	call i32 @exit( i32 %ev2 )
 	ret i64 0
 }
 
 define i64 @main(i32 %argc, i8** %argv) {
 	call void @GC_init( )
-	%res = call i64 @startup( i64 0 )		; <i64> [#uses=1]
+	%res = call i64 @startup( i64 0 )
 	ret i64 %res
 }
 
@@ -1779,22 +1779,22 @@ declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @"%llvm-read-char"() {
-	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
-	%res.1 = sext i32 %res.0 to i64		; <i64> [#uses=1]
+	%res.0 = call i32 @getchar( )
+	%res.1 = sext i32 %res.0 to i64
 	ret i64 %res.1
 }
 
 define i64 @"%print"(i64 %format, i64 %value) {
-	%format2 = inttoptr i64 %format to i8*		; <i8*> [#uses=1]
-	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )		; <i32>:1 [#uses=0]
+	%format2 = inttoptr i64 %format to i8*
+	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
 	ret i64 0
 }
 
 define i64* @"%malloc"(i64 %num) {
-	%r0 = mul i64 8, %num		; <i64> [#uses=1]
-	%r1 = bitcast i64 %r0 to i64		; <i64> [#uses=1]
-	%r2 = call i8* @GC_malloc( i64 %r1 )		; <i8*> [#uses=1]
-	%r3 = bitcast i8* %r2 to i64*		; <i64*> [#uses=1]
+	%r0 = mul i64 8, %num
+	%r1 = bitcast i64 %r0 to i64
+	%r2 = call i8* @GC_malloc( i64 %r1 )
+	%r3 = bitcast i8* %r2 to i64*
 	ret i64* %r3
 }
 
@@ -1807,33 +1807,33 @@ define i64 @"%append-bytearray"(i64 %arr, i64 %ch, i64 %size) {
 	%cpy = icmp eq i64 %size, 0
 	br i1 %cpy, label %nocopy, label %copy
 
-copy:		; preds = %0
-	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
+copy:
+	%arr2 = inttoptr i64 %arr to i8*
 	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
 	br label %nocopy
 
-nocopy:		; preds = %copy, %0
-	%res3 = ptrtoint i8* %res to i64		; <i64> [#uses=1]
+nocopy:
+	%res3 = ptrtoint i8* %res to i64
 	ret i64 %res3
 }
 
 define i64 @"%bytearray-ref"(i64 %arr, i64 %index) {
-	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
-	%ptr = getelementptr i8* %arr2, i64 %index		; <i8*> [#uses=1]
-	%res = load i8* %ptr		; <i8> [#uses=1]
-	%res2 = sext i8 %res to i64		; <i64> [#uses=1]
+	%arr2 = inttoptr i64 %arr to i8*
+	%ptr = getelementptr i8* %arr2, i64 %index
+	%res = load i8* %ptr
+	%res2 = sext i8 %res to i64
 	ret i64 %res2
 }
 
 define i64 @"%exit"(i64 %ev) {
-	%ev2 = trunc i64 %ev to i32		; <i32> [#uses=1]
-	call i32 @exit( i32 %ev2 )		; <i32>:1 [#uses=0]
+	%ev2 = trunc i64 %ev to i32
+	call i32 @exit( i32 %ev2 )
 	ret i64 0
 }
 
 define i64 @main(i32 %argc, i8** %argv) {
 	call void @GC_init( )
-	%res = call i64 @startup( i64 0 )		; <i64> [#uses=1]
+	%res = call i64 @startup( i64 0 )
 	ret i64 %res
 }
 
@@ -13234,8 +13234,8 @@ define i64 @function219(i64 %"env") {
 %r9301 = ptrtoint i64 (i64)* @function212 to i64
 %r9302 = call i64 @"%make-function"(i64 %r9301, i64 %"env", i64 0)
 %r9300 = call i64 @"%set-variable!"(i64 %"env", i64 0, i64 116, i64 %r9302)
-%r9426 = ptrtoint [2007 x i8]* @r9425 to i64
-%r9424 = call i64 @"%make-string/symbol"(i64 %r9426, i64 2006, i64 1)
+%r9426 = ptrtoint [1645 x i8]* @r9425 to i64
+%r9424 = call i64 @"%make-string/symbol"(i64 %r9426, i64 1644, i64 1)
 %r9423 = call i64 @"%set-variable!"(i64 %"env", i64 0, i64 117, i64 %r9424)
 %r9431 = ptrtoint [6 x i8]* @r9430 to i64
 %r9429 = call i64 @"%make-string/symbol"(i64 %r9431, i64 5, i64 4)

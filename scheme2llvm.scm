@@ -641,22 +641,22 @@ declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @\"%llvm-read-char\"() {
-	%res.0 = call i32 @getchar( )		; <i32> [#uses=1]
-	%res.1 = sext i32 %res.0 to i64		; <i64> [#uses=1]
+	%res.0 = call i32 @getchar( )
+	%res.1 = sext i32 %res.0 to i64
 	ret i64 %res.1
 }
 
 define i64 @\"%print\"(i64 %format, i64 %value) {
-	%format2 = inttoptr i64 %format to i8*		; <i8*> [#uses=1]
-	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )		; <i32>:1 [#uses=0]
+	%format2 = inttoptr i64 %format to i8*
+	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
 	ret i64 0
 }
 
 define i64* @\"%malloc\"(i64 %num) {
-	%r0 = mul i64 8, %num		; <i64> [#uses=1]
-	%r1 = bitcast i64 %r0 to i64		; <i64> [#uses=1]
-	%r2 = call i8* @GC_malloc( i64 %r1 )		; <i8*> [#uses=1]
-	%r3 = bitcast i8* %r2 to i64*		; <i64*> [#uses=1]
+	%r0 = mul i64 8, %num
+	%r1 = bitcast i64 %r0 to i64
+	%r2 = call i8* @GC_malloc( i64 %r1 )
+	%r3 = bitcast i8* %r2 to i64*
 	ret i64* %r3
 }
 
@@ -669,33 +669,33 @@ define i64 @\"%append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
 	%cpy = icmp eq i64 %size, 0
 	br i1 %cpy, label %nocopy, label %copy
 
-copy:		; preds = %0
-	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
+copy:
+	%arr2 = inttoptr i64 %arr to i8*
 	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
 	br label %nocopy
 
-nocopy:		; preds = %copy, %0
-	%res3 = ptrtoint i8* %res to i64		; <i64> [#uses=1]
+nocopy:
+	%res3 = ptrtoint i8* %res to i64
 	ret i64 %res3
 }
 
 define i64 @\"%bytearray-ref\"(i64 %arr, i64 %index) {
-	%arr2 = inttoptr i64 %arr to i8*		; <i8*> [#uses=1]
-	%ptr = getelementptr i8* %arr2, i64 %index		; <i8*> [#uses=1]
-	%res = load i8* %ptr		; <i8> [#uses=1]
-	%res2 = sext i8 %res to i64		; <i64> [#uses=1]
+	%arr2 = inttoptr i64 %arr to i8*
+	%ptr = getelementptr i8* %arr2, i64 %index
+	%res = load i8* %ptr
+	%res2 = sext i8 %res to i64
 	ret i64 %res2
 }
 
 define i64 @\"%exit\"(i64 %ev) {
-	%ev2 = trunc i64 %ev to i32		; <i32> [#uses=1]
-	call i32 @exit( i32 %ev2 )		; <i32>:1 [#uses=0]
+	%ev2 = trunc i64 %ev to i32
+	call i32 @exit( i32 %ev2 )
 	ret i64 0
 }
 
 define i64 @main(i32 %argc, i8** %argv) {
 	call void @GC_init( )
-	%res = call i64 @startup( i64 0 )		; <i64> [#uses=1]
+	%res = call i64 @startup( i64 0 )
 	ret i64 %res
 }
 
