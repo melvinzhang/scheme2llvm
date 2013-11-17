@@ -361,7 +361,7 @@ uint %main(int %argc, sbyte** %argv) {
 %r9403 = internal constant [2 x sbyte] c"x\00"
 %r9407 = internal constant [6 x sbyte] c"uint*\00"
 %r9420 = internal constant [12 x sbyte] c"llvm-define\00"
-%r9425 = internal constant [13 x sbyte] c"make-pointer\00"
+%r9425 = internal constant [20 x sbyte] c"make-vector-pointer\00"
 %r9429 = internal constant [2 x sbyte] c"x\00"
 %r9435 = internal constant [6 x sbyte] c"store\00"
 %r9442 = internal constant [14 x sbyte] c"getelementptr\00"
@@ -453,7 +453,7 @@ uint %main(int %argc, sbyte** %argv) {
 %r9918 = internal constant [12 x sbyte] c"llvm-define\00"
 %r9923 = internal constant [12 x sbyte] c"make-vector\00"
 %r9927 = internal constant [9 x sbyte] c"raw-size\00"
-%r9933 = internal constant [13 x sbyte] c"make-pointer\00"
+%r9933 = internal constant [20 x sbyte] c"make-vector-pointer\00"
 %r9938 = internal constant [13 x sbyte] c"init-vector!\00"
 %r9943 = internal constant [5 x sbyte] c"cast\00"
 %r9947 = internal constant [6 x sbyte] c"uint*\00"
@@ -1968,7 +1968,7 @@ label15:
 ret uint %r55
 }
 
-uint "%make-pointer"(uint "%x") {
+uint "%make-vector-pointer"(uint "%x") {
 %r61 = cast uint "%x" to uint*
 %r60 = getelementptr uint* %r61, uint 0
 store uint 1, uint* %r60
@@ -2075,7 +2075,7 @@ uint "%make-vector"(uint "%raw-size") {
 %r117 = call uint* "%malloc"(uint %r118)
 %r116 = cast uint* %r117 to uint
 %r115 = call uint "%init-vector!"(uint %r116, uint "%raw-size")
-%r114 = call uint "%make-pointer"(uint %r115)
+%r114 = call uint "%make-vector-pointer"(uint %r115)
 ret uint %r114
 }
 
@@ -13083,8 +13083,8 @@ uint %function211(uint "%env") {
 %r9330 = call uint "%cons"(uint %r9331, uint %r9334)
 %r9421 = cast [12 x sbyte]* %r9420 to uint
 %r9419 = call uint "%make-string/symbol"(uint %r9421, uint 11, uint 4)
-%r9426 = cast [13 x sbyte]* %r9425 to uint
-%r9424 = call uint "%make-string/symbol"(uint %r9426, uint 12, uint 4)
+%r9426 = cast [20 x sbyte]* %r9425 to uint
+%r9424 = call uint "%make-string/symbol"(uint %r9426, uint 19, uint 4)
 %r9430 = cast [2 x sbyte]* %r9429 to uint
 %r9428 = call uint "%make-string/symbol"(uint %r9430, uint 1, uint 4)
 %r9431 = call uint "%make-null"()
@@ -13485,8 +13485,8 @@ uint %function211(uint "%env") {
 %r9929 = call uint "%make-null"()
 %r9925 = call uint "%cons"(uint %r9926, uint %r9929)
 %r9921 = call uint "%cons"(uint %r9922, uint %r9925)
-%r9934 = cast [13 x sbyte]* %r9933 to uint
-%r9932 = call uint "%make-string/symbol"(uint %r9934, uint 12, uint 4)
+%r9934 = cast [20 x sbyte]* %r9933 to uint
+%r9932 = call uint "%make-string/symbol"(uint %r9934, uint 19, uint 4)
 %r9939 = cast [13 x sbyte]* %r9938 to uint
 %r9937 = call uint "%make-string/symbol"(uint %r9939, uint 12, uint 4)
 %r9944 = cast [5 x sbyte]* %r9943 to uint

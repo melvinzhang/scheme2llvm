@@ -700,7 +700,7 @@ uint %main(int %argc, sbyte** %argv) {
                        ((null? x) 1)
                        (else (load (getelementptr (cast "uint" x "uint*") 0)))))
 
-     (llvm-define (make-pointer x) 
+     (llvm-define (make-vector-pointer x) 
                   (store 1 (getelementptr (cast "uint" x "uint*") 0))
                   x)
      
@@ -729,7 +729,7 @@ uint %main(int %argc, sbyte** %argv) {
      (llvm-define (make-vector raw-size)
                   ;(display "; make-vector:")
                   ;(print (string-bytes " %d\n") raw-size)
-                  (make-pointer 
+                  (make-vector-pointer 
                    (init-vector! (cast "uint*" (malloc (add raw-size 2)) "uint") raw-size)))
      
      (llvm-define (vector-size vector)

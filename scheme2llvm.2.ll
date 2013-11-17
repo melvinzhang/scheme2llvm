@@ -288,7 +288,7 @@
 @r9403 = internal constant [2 x i8] c"x\00"		; <[2 x i8]*> [#uses=1]
 @r9407 = internal constant [6 x i8] c"uint*\00"		; <[6 x i8]*> [#uses=1]
 @r9420 = internal constant [12 x i8] c"llvm-define\00"		; <[12 x i8]*> [#uses=1]
-@r9425 = internal constant [13 x i8] c"make-pointer\00"		; <[13 x i8]*> [#uses=1]
+@r9425 = internal constant [20 x i8] c"make-vector-pointer\00"		; <[20 x i8]*> [#uses=1]
 @r9429 = internal constant [2 x i8] c"x\00"		; <[2 x i8]*> [#uses=1]
 @r9435 = internal constant [6 x i8] c"store\00"		; <[6 x i8]*> [#uses=1]
 @r9442 = internal constant [14 x i8] c"getelementptr\00"		; <[14 x i8]*> [#uses=1]
@@ -380,7 +380,7 @@
 @r9918 = internal constant [12 x i8] c"llvm-define\00"		; <[12 x i8]*> [#uses=1]
 @r9923 = internal constant [12 x i8] c"make-vector\00"		; <[12 x i8]*> [#uses=1]
 @r9927 = internal constant [9 x i8] c"raw-size\00"		; <[9 x i8]*> [#uses=1]
-@r9933 = internal constant [13 x i8] c"make-pointer\00"		; <[13 x i8]*> [#uses=1]
+@r9933 = internal constant [20 x i8] c"make-vector-pointer\00"		; <[20 x i8]*> [#uses=1]
 @r9938 = internal constant [13 x i8] c"init-vector!\00"		; <[13 x i8]*> [#uses=1]
 @r9943 = internal constant [5 x i8] c"cast\00"		; <[5 x i8]*> [#uses=1]
 @r9947 = internal constant [6 x i8] c"uint*\00"		; <[6 x i8]*> [#uses=1]
@@ -1919,7 +1919,7 @@ label15:		; preds = %label18, %label13
 	ret i32 %r55
 }
 
-define i32 @"%make-pointer"(i32 %"%x") {
+define i32 @"%make-vector-pointer"(i32 %"%x") {
 	%r61 = inttoptr i32 %"%x" to i32*		; <i32*> [#uses=1]
 	%r60 = getelementptr i32* %r61, i64 0		; <i32*> [#uses=1]
 	store i32 1, i32* %r60
@@ -2029,7 +2029,7 @@ define i32 @"%make-vector"(i32 %"%raw-size") {
 	%r117 = call i32* @"%malloc"( i32 %r118 )		; <i32*> [#uses=1]
 	%r116 = ptrtoint i32* %r117 to i32		; <i32> [#uses=1]
 	%r115 = call i32 @"%init-vector!"( i32 %r116, i32 %"%raw-size" )		; <i32> [#uses=1]
-	%r114 = call i32 @"%make-pointer"( i32 %r115 )		; <i32> [#uses=1]
+	%r114 = call i32 @"%make-vector-pointer"( i32 %r115 )		; <i32> [#uses=1]
 	ret i32 %r114
 }
 
@@ -13420,8 +13420,8 @@ define i32 @function211(i32 %"%env") {
 	%r9330 = call i32 @"%cons"( i32 %r9331, i32 %r9334 )		; <i32> [#uses=1]
 	%r9421 = ptrtoint [12 x i8]* @r9420 to i32		; <i32> [#uses=1]
 	%r9419 = call i32 @"%make-string/symbol"( i32 %r9421, i32 11, i32 4 )		; <i32> [#uses=1]
-	%r9426 = ptrtoint [13 x i8]* @r9425 to i32		; <i32> [#uses=1]
-	%r9424 = call i32 @"%make-string/symbol"( i32 %r9426, i32 12, i32 4 )		; <i32> [#uses=1]
+	%r9426 = ptrtoint [20 x i8]* @r9425 to i32		; <i32> [#uses=1]
+	%r9424 = call i32 @"%make-string/symbol"( i32 %r9426, i32 19, i32 4 )		; <i32> [#uses=1]
 	%r9430 = ptrtoint [2 x i8]* @r9429 to i32		; <i32> [#uses=1]
 	%r9428 = call i32 @"%make-string/symbol"( i32 %r9430, i32 1, i32 4 )		; <i32> [#uses=1]
 	%r9431 = call i32 @"%make-null"( )		; <i32> [#uses=1]
@@ -13822,8 +13822,8 @@ define i32 @function211(i32 %"%env") {
 	%r9929 = call i32 @"%make-null"( )		; <i32> [#uses=1]
 	%r9925 = call i32 @"%cons"( i32 %r9926, i32 %r9929 )		; <i32> [#uses=1]
 	%r9921 = call i32 @"%cons"( i32 %r9922, i32 %r9925 )		; <i32> [#uses=1]
-	%r9934 = ptrtoint [13 x i8]* @r9933 to i32		; <i32> [#uses=1]
-	%r9932 = call i32 @"%make-string/symbol"( i32 %r9934, i32 12, i32 4 )		; <i32> [#uses=1]
+	%r9934 = ptrtoint [20 x i8]* @r9933 to i32		; <i32> [#uses=1]
+	%r9932 = call i32 @"%make-string/symbol"( i32 %r9934, i32 19, i32 4 )		; <i32> [#uses=1]
 	%r9939 = ptrtoint [13 x i8]* @r9938 to i32		; <i32> [#uses=1]
 	%r9937 = call i32 @"%make-string/symbol"( i32 %r9939, i32 12, i32 4 )		; <i32> [#uses=1]
 	%r9944 = ptrtoint [5 x i8]* @r9943 to i32		; <i32> [#uses=1]
