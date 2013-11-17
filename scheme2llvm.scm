@@ -779,14 +779,14 @@ uint %main(int %argc, sbyte** %argv) {
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
      (llvm-define (init-string/symbol str raw-str size is-symbol)
-                  (store raw-str (cast "uint" str "uint*"))
-                  (store size (getelementptr (cast "uint" str "uint*") 1))
-                  (store is-symbol (getelementptr (cast "uint" str "uint*") 2))
+                  (store raw-str   (getelementptr (cast "uint" str "uint*") 1))
+                  (store size      (getelementptr (cast "uint" str "uint*") 2))
+                  (store is-symbol (getelementptr (cast "uint" str "uint*") 3))
                   str)
      
      (llvm-define (make-string/symbol raw-str raw-size symbolp)
                   (make-string/symbol-pointer 
-                   (init-string/symbol (cast "uint*" (malloc 3) "uint")
+                   (init-string/symbol (cast "uint*" (malloc 4) "uint")
                                        raw-str (make-number raw-size) symbolp)))
      
      (llvm-define (make-string raw-str raw-size)
@@ -796,17 +796,17 @@ uint %main(int %argc, sbyte** %argv) {
 
      (llvm-define (string? x)
                   (if (string/symbol? x)
-                      (not (load (getelementptr (cast "uint" (points-to x) "uint*") 2)))
+                      (not (load (getelementptr (cast "uint" (points-to x) "uint*") 3)))
                       (make-null)))
      (llvm-define (symbol? x)
                   (if (string/symbol? x)
-                      (load (getelementptr (cast "uint" (points-to x) "uint*") 2))
+                      (load (getelementptr (cast "uint" (points-to x) "uint*") 3))
                       (make-null)))
      
      (llvm-define (string-length str)
-                  (load (getelementptr (cast "uint" (points-to str) "uint*") 1)))           
+                  (load (getelementptr (cast "uint" (points-to str) "uint*") 2)))
      (llvm-define (string-bytes str)
-                  (load (cast "uint" (points-to str) "uint*")))
+                  (load (getelementptr (cast "uint" (points-to str) "uint*") 1)))
      
      (llvm-define (string->symbol str)
                   (ensure (string? str) "string->symbol: not a string")
