@@ -712,7 +712,6 @@ uint %main(int %argc, sbyte** %argv) {
                   (store 3 (getelementptr (cast "uint" x "uint*") 0))
                   x)
 
-     (llvm-define (points-to x) x)
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
      (llvm-define (vector? x) (seteq (get-tag x) 1))
      (llvm-define (procedure? x) (seteq (get-tag x) 3))
@@ -733,7 +732,7 @@ uint %main(int %argc, sbyte** %argv) {
                    (init-vector! (cast "uint*" (malloc (add raw-size 2)) "uint") raw-size)))
      
      (llvm-define (vector-size vector)
-                  (load (getelementptr (cast "uint" (points-to vector) "uint*") 1)))
+                  (load (getelementptr (cast "uint" vector "uint*") 1)))
      
      (llvm-define (vector-ref vector raw-index)
                   ;(display "; vector-ref:")
@@ -742,7 +741,7 @@ uint %main(int %argc, sbyte** %argv) {
                   (ensure (vector? vector) "vector-ref: not a vector.")
                   (ensure (not (null? vector)) "vector-ref: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-ref: out of range.")
-                  (load (getelementptr (cast "uint" (points-to vector) "uint*") 
+                  (load (getelementptr (cast "uint" vector "uint*") 
                                        (add raw-index 2))))
 
      (llvm-define (vector-set! vector raw-index value)
@@ -752,7 +751,7 @@ uint %main(int %argc, sbyte** %argv) {
                   (ensure (vector? vector) "vector-set!: not a vector.")
                   (ensure (not (null? vector)) "vector-set!: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-set!: out of range.")
-                  (store value (getelementptr (cast "uint" (points-to vector) "uint*")
+                  (store value (getelementptr (cast "uint" vector "uint*")
                                               (add raw-index 2)))
                   vector)
     
@@ -774,13 +773,13 @@ uint %main(int %argc, sbyte** %argv) {
                    
      (llvm-define (get-function-func function)
                   (ensure (procedure? function) "get-function-func: not a procedure.")
-                  (load (getelementptr (cast "uint" (points-to function) "uint*") 1)))
+                  (load (getelementptr (cast "uint" function "uint*") 1)))
      (llvm-define (get-function-env function)
                   (ensure (procedure? function) "get-function-env: not a procedure.")
-                  (load (getelementptr (cast "uint" (points-to function) "uint*") 2)))
+                  (load (getelementptr (cast "uint" function "uint*") 2)))
      (llvm-define (get-function-nparams function)
                   (ensure (procedure? function) "get-function-nparams: not a procedure.")
-                  (load (getelementptr (cast "uint" (points-to function) "uint*") 3)))
+                  (load (getelementptr (cast "uint" function "uint*") 3)))
      
      (llvm-define (fix-arb-funcs n-params end call-env)
                   (cond ((setge n-params end) (make-null))
@@ -810,17 +809,17 @@ uint %main(int %argc, sbyte** %argv) {
 
      (llvm-define (string? x)
                   (if (string/symbol? x)
-                      (not (load (getelementptr (cast "uint" (points-to x) "uint*") 3)))
+                      (not (load (getelementptr (cast "uint" x "uint*") 3)))
                       (make-null)))
      (llvm-define (symbol? x)
                   (if (string/symbol? x)
-                      (load (getelementptr (cast "uint" (points-to x) "uint*") 3))
+                      (load (getelementptr (cast "uint" x "uint*") 3))
                       (make-null)))
      
      (llvm-define (string-length str)
-                  (load (getelementptr (cast "uint" (points-to str) "uint*") 2)))
+                  (load (getelementptr (cast "uint" str "uint*") 2)))
      (llvm-define (string-bytes str)
-                  (load (getelementptr (cast "uint" (points-to str) "uint*") 1)))
+                  (load (getelementptr (cast "uint" str "uint*") 1)))
      
      (llvm-define (string->symbol str)
                   (ensure (string? str) "string->symbol: not a string")
