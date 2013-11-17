@@ -1112,9 +1112,7 @@ define i64 @main(i32 %argc, i8** %argv) {
   ))
 
 (define (compiler exp)
-  (comment "in compiler")
   (init-generators)
-  (comment "after init-generators")
   (let ((printer (lambda (line) (display line) (newline)))
         (result (compile (append bootstrap exp) '())))
     (map printer llvm-string-list)
