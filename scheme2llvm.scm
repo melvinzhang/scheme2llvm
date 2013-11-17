@@ -704,7 +704,7 @@ uint %main(int %argc, sbyte** %argv) {
      (llvm-define (procedure? x) (seteq (get-tag x) 3))
      (llvm-define (string/symbol? x) (seteq (get-tag x) 2))
      (llvm-define (null? x) (seteq x 1))
-     (llvm-define (make-null) (make-pointer 0))
+     (llvm-define (make-null) 1)
      (llvm-define (make-true) (make-number 1))
      (llvm-define (pair? x) (if (vector? x) (seteq (vector-size x) 2) (make-null)))
     
