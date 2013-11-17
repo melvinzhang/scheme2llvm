@@ -29,5 +29,5 @@ are now identical.
 
 Issue: Output is LLVM IR 1.x, need to use old versions of LLVM toolchain.
 Latest version of the IR is LLVm IR 3.x
-  Todo: upgrade output of compiler from LLVM IR 1.x to LLVM IR 2.x
+  Done: upgrade output of compiler from LLVM IR 1.x to LLVM IR 2.x
   Todo: upgrade output of compiler from LLVM IR 2.x to LLVM IR 3.x
