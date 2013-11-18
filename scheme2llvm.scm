@@ -333,7 +333,7 @@
      (c "br i1 " t2 ", label %" c-label ", label %" a-label))))
 
 (define (llvm-malloc target size)
-  (c target " = call i64* @\"scm-malloc\"(i64 " (llvm-repr size) ")"))
+  (c target " = call i64 @\"scm-malloc\"(i64 " (llvm-repr size) ")"))
 
 (define (llvm-store target value) 
   (c "store i64 " value ", i64* " target))
@@ -659,11 +659,11 @@ define i64 @\"scm-print\"(i64 %format, i64 %value) {
 	ret i64 0
 }
 
-define i64* @\"scm-malloc\"(i64 %num) {
+define i64 @\"scm-malloc\"(i64 %num) {
 	%r0 = mul i64 8, %num
 	%r1 = call i8* @GC_malloc( i64 %r0 )
-	%r2 = bitcast i8* %r1 to i64*
-	ret i64* %r2
+	%r2 = ptrtoint i8* %r1 to i64
+	ret i64 %r2
 }
 
 define i64 @\"scm-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
@@ -761,7 +761,7 @@ define i64 @main(i32 %argc, i8** %argv) {
                   ;(display "; make-vector:")
                   ;(print (string-bytes " %d\n") raw-size)
                   (make-vector-pointer 
-                   (init-vector! (ptrtoint "i64*" (malloc (add raw-size 2)) "i64") raw-size)))
+                   (init-vector! (malloc (add raw-size 2)) raw-size)))
      
      (llvm-define (vector-size vector)
                   (load (getelementptr vector 1)))
@@ -798,8 +798,7 @@ define i64 @main(i32 %argc, i8** %argv) {
                   function)
      (llvm-define (make-function raw-func env nparams)
                   (make-function-pointer
-                   (init-function! (ptrtoint "i64*" (malloc 4) "i64") 
-                                   raw-func env nparams)))
+                   (init-function! (malloc 4) raw-func env nparams)))
                    
      (llvm-define (get-function-func function)
                   (ensure (function? function) "get-function-func: not a function.")
@@ -828,11 +827,11 @@ define i64 @main(i32 %argc, i8** %argv) {
      
      (llvm-define (make-string raw-str raw-size)
                   (make-string-pointer 
-                   (init-string/symbol (ptrtoint "i64*" (malloc 3) "i64") raw-str (make-number raw-size))))
+                   (init-string/symbol (malloc 3) raw-str (make-number raw-size))))
      
      (llvm-define (make-symbol raw-str raw-size)
                   (make-symbol-pointer 
-                   (init-string/symbol (ptrtoint "i64*" (malloc 3) "i64") raw-str (make-number raw-size))))
+                   (init-string/symbol (malloc 3) raw-str (make-number raw-size))))
      
      (llvm-define (string-length str)
                   (load (getelementptr str 2)))
