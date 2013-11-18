@@ -29,7 +29,7 @@ scheme2llvm.csi: scheme2llvm.scm
 	llc $^
 
 %: %.s
-	gcc $^ -o $@ -lgc
+	clang $^ -o $@ -lgc
 
 bootstrap:
 	make scheme2llvm.3
