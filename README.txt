@@ -37,3 +37,7 @@ Open issue: Difficult to interact with the system without a REPL
 Open issue: Document the subset of Scheme supported
 
 Open issue: Reduce repetition in the code base
+
+Open issue: Improve speed of compiled code. For compiling its own source code,
+the self compiled compiler is about 100x slower than Chicken Scheme compiled
+compiler. Should not introduce too much additional code/decrease readability.
