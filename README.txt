@@ -1,9 +1,11 @@
 Makefile makes use of the following programs:
-  gsi
-    Gambit Scheme interpreter
-  llvm 3.x
-  gcc
-  gawk
+  Required:
+    llvm 3.x
+    clang
+  Optional:
+    gawk
+    csi - Chicken Scheme interpreter
+    csc - Chicken Scheme compiler
 
 Resolved issue: Compiler uses too much memory
   "make issue/test-too-much-memory.1.ll" fails 

@@ -8,13 +8,10 @@ TEST_SRC := $(wildcard test/*.scm)
 tests: scheme2llvm.3 $(TEST_SRC:.scm=.3)
 
 %.3.ll: %.scm scheme2llvm.3
-	ulimit -v 50000; cat $< | ./scheme2llvm.3 | awk -f script/transform_comments.awk > $@
-
-scheme2llvm.ll: scheme2llvm.scm scheme2llvm.scm
-	ulimit -v 50000; cat $< | ./scheme2llvm.3 | awk -f script/transform_comments.awk > $@
+	ulimit -v 50000; cat $< | ./scheme2llvm.3 > $@
 
 scheme2llvm.3.ll: scheme2llvm.scm
-	ulimit -v 50000; cat $< | ./scheme2llvm.3 | awk -f script/transform_comments.awk > $@
+	ulimit -v 50000; cat $< | ./scheme2llvm.3 > $@
 	
 scheme2llvm.csi.3.ll: scheme2llvm.scm
 	cat $^ | csi -q $^ | awk -f script/transform_comments.awk > $@
