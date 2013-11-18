@@ -23,7 +23,7 @@ scheme2llvm.csi: scheme2llvm.scm
 	opt -std-compile-opts $^ -o $@
 
 %.s: %.bc
-	llc $^
+	llc -tailcallopt $^
 
 %: %.s
 	clang $^ -o $@ -lgc
@@ -32,3 +32,7 @@ bootstrap:
 	make scheme2llvm.3
 	touch scheme2llvm.scm
 	make scheme2llvm.3
+
+benchmark:
+	-rm scheme2llvm.3.ll
+	/usr/bin/time -v make scheme2llvm.3.ll
