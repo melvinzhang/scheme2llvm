@@ -345,7 +345,10 @@
   (c target " = " (llvm-instr-name op) " i64 " (llvm-repr value) ", " sh))
 
 (define (llvm-getelementptr target ptr index)
-  (c target " = getelementptr i64* " ptr ", i64 " index))
+  (let ((t1 (make-var)))
+    (append-code
+      (llvm-inttoptr t1 "i64" ptr "i64*")
+      (c target " = getelementptr i64* " t1 ", i64 " index))))
 
 (define (llvm-vector-ref target vector index)
   (llvm-call target 'vector-ref (llvm-repr vector) (llvm-repr index)))
@@ -722,22 +725,22 @@ define i64 @main(i32 %argc, i8** %argv) {
                     (cond 
                        ((number? x) 0)
                        ((null? x) 1)
-                       (else (load (getelementptr (inttoptr "i64" x "i64*") 0)))))
+                       (else (load (getelementptr x 0)))))
 
      (llvm-define (make-vector-pointer x) 
-                  (store 1 (getelementptr (inttoptr "i64" x "i64*") 0))
+                  (store 1 (getelementptr x 0))
                   x)
      
      (llvm-define (make-string-pointer x) 
-                  (store 2 (getelementptr (inttoptr "i64" x "i64*") 0))
+                  (store 2 (getelementptr x 0))
                   x)
      
      (llvm-define (make-symbol-pointer x) 
-                  (store 4 (getelementptr (inttoptr "i64" x "i64*") 0))
+                  (store 4 (getelementptr x 0))
                   x)
 
      (llvm-define (make-function-pointer x) 
-                  (store 3 (getelementptr (inttoptr "i64" x "i64*") 0))
+                  (store 3 (getelementptr x 0))
                   x)
 
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
@@ -751,7 +754,7 @@ define i64 @main(i32 %argc, i8** %argv) {
      (llvm-define (pair? x) (if (vector? x) (seteq (vector-size x) 2) (make-null)))
     
      (llvm-define (init-vector! vector size)
-                  (store size (getelementptr (inttoptr "i64" vector "i64*") 1))
+                  (store size (getelementptr vector 1))
                   vector)
 
      (llvm-define (make-vector raw-size)
@@ -761,7 +764,7 @@ define i64 @main(i32 %argc, i8** %argv) {
                    (init-vector! (ptrtoint "i64*" (malloc (add raw-size 2)) "i64") raw-size)))
      
      (llvm-define (vector-size vector)
-                  (load (getelementptr (inttoptr "i64" vector "i64*") 1)))
+                  (load (getelementptr vector 1)))
      
      (llvm-define (vector-ref vector raw-index)
                   ;(display "; vector-ref:")
@@ -770,8 +773,7 @@ define i64 @main(i32 %argc, i8** %argv) {
                   (ensure (vector? vector) "vector-ref: not a vector.")
                   (ensure (not (null? vector)) "vector-ref: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-ref: out of range.")
-                  (load (getelementptr (inttoptr "i64" vector "i64*") 
-                                       (add raw-index 2))))
+                  (load (getelementptr vector (add raw-index 2))))
 
      (llvm-define (vector-set! vector raw-index value)
                   ;(display "; vector-set!:")
@@ -780,8 +782,7 @@ define i64 @main(i32 %argc, i8** %argv) {
                   (ensure (vector? vector) "vector-set!: not a vector.")
                   (ensure (not (null? vector)) "vector-set!: null vector")
                   (ensure (setlt raw-index (vector-size vector)) "vector-set!: out of range.")
-                  (store value (getelementptr (inttoptr "i64" vector "i64*")
-                                              (add raw-index 2)))
+                  (store value (getelementptr vector (add raw-index 2)))
                   vector)
     
      (llvm-define (set-enclosing-env! env enclosing-env) (vector-set! env 0 enclosing-env))
@@ -791,9 +792,9 @@ define i64 @main(i32 %argc, i8** %argv) {
                   (set-enclosing-env! (make-vector (add raw-nparams 2)) env))
      
      (llvm-define (init-function! function raw-func env nparams)
-                  (store raw-func (getelementptr (inttoptr "i64" function "i64*") 1))
-                  (store env      (getelementptr (inttoptr "i64" function "i64*") 2))
-                  (store nparams  (getelementptr (inttoptr "i64" function "i64*") 3))
+                  (store raw-func (getelementptr function 1))
+                  (store env      (getelementptr function 2))
+                  (store nparams  (getelementptr function 3))
                   function)
      (llvm-define (make-function raw-func env nparams)
                   (make-function-pointer
@@ -802,13 +803,13 @@ define i64 @main(i32 %argc, i8** %argv) {
                    
      (llvm-define (get-function-func function)
                   (ensure (function? function) "get-function-func: not a function.")
-                  (load (getelementptr (inttoptr "i64" function "i64*") 1)))
+                  (load (getelementptr function 1)))
      (llvm-define (get-function-env function)
                   (ensure (function? function) "get-function-env: not a function.")
-                  (load (getelementptr (inttoptr "i64" function "i64*") 2)))
+                  (load (getelementptr function 2)))
      (llvm-define (get-function-nparams function)
                   (ensure (function? function) "get-function-nparams: not a function.")
-                  (load (getelementptr (inttoptr "i64" function "i64*") 3)))
+                  (load (getelementptr function 3)))
      
      (llvm-define (fix-arb-funcs n-params end call-env)
                   (cond ((setge n-params end) (make-null))
@@ -821,8 +822,8 @@ define i64 @main(i32 %argc, i8** %argv) {
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
      (llvm-define (init-string/symbol str raw-str size)
-                  (store raw-str   (getelementptr (inttoptr "i64" str "i64*") 1))
-                  (store size      (getelementptr (inttoptr "i64" str "i64*") 2))
+                  (store raw-str   (getelementptr str 1))
+                  (store size      (getelementptr str 2))
                   str)
      
      (llvm-define (make-string raw-str raw-size)
@@ -834,9 +835,9 @@ define i64 @main(i32 %argc, i8** %argv) {
                    (init-string/symbol (ptrtoint "i64*" (malloc 3) "i64") raw-str (make-number raw-size))))
      
      (llvm-define (string-length str)
-                  (load (getelementptr (inttoptr "i64" str "i64*") 2)))
+                  (load (getelementptr str 2)))
      (llvm-define (string-bytes str)
-                  (load (getelementptr (inttoptr "i64" str "i64*") 1)))
+                  (load (getelementptr str 1)))
      
      (llvm-define (string->symbol str)
                   (ensure (string? str) "string->symbol: not a string")
