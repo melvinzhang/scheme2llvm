@@ -398,15 +398,19 @@
 	(make-code
          target
          (cond ((number? exp) (llvm-call target 'make-number (llvm-repr exp)))
-               ((or (string? exp) (symbol? exp))
+               ((string? exp)
+                (let ((str (make-global-var))
+                      (t1 (make-var)))
+                  (append-code
+                   (llvm-ptrtoint t1 (add-llvm-string str exp) str "i64")
+                   (llvm-call target 'make-string t1 (string-length exp)))))
+               ((symbol? exp)
                 (let ((str (make-global-var))
                       (t1 (make-var))
-                      (symbolp (if (symbol? exp) 4 1))
-                      (str-repr (if (string? exp) exp (symbol->string exp))))
+                      (str-repr (symbol->string exp)))
                   (append-code
                    (llvm-ptrtoint t1 (add-llvm-string str str-repr) str "i64")
-                   (llvm-call target 'make-string/symbol t1 
-                              (string-length str-repr) symbolp))))
+                   (llvm-call target 'make-symbol t1 (string-length str-repr)))))
                ((null? exp) (llvm-call target 'make-null))
                ((pair? exp)
                 (let ((c1 (compile-self-evaluating (car exp) c-t-env))
@@ -724,8 +728,12 @@ define i64 @main(i32 %argc, i8** %argv) {
                   (store 1 (getelementptr (inttoptr "i64" x "i64*") 0))
                   x)
      
-     (llvm-define (make-string/symbol-pointer x) 
+     (llvm-define (make-string-pointer x) 
                   (store 2 (getelementptr (inttoptr "i64" x "i64*") 0))
+                  x)
+     
+     (llvm-define (make-symbol-pointer x) 
+                  (store 4 (getelementptr (inttoptr "i64" x "i64*") 0))
                   x)
 
      (llvm-define (make-function-pointer x) 
@@ -735,7 +743,8 @@ define i64 @main(i32 %argc, i8** %argv) {
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
      (llvm-define (vector? x) (seteq (get-tag x) 1))
      (llvm-define (procedure? x) (seteq (get-tag x) 3))
-     (llvm-define (string/symbol? x) (seteq (get-tag x) 2))
+     (llvm-define (string? x) (seteq (get-tag x) 2))
+     (llvm-define (symbol? x) (seteq (get-tag x) 4))
      (llvm-define (null? x) (seteq x 1))
      (llvm-define (make-null) 1)
      (llvm-define (make-true) (make-number 1))
@@ -811,30 +820,18 @@ define i64 @main(i32 %argc, i8** %argv) {
                        call-env n-params 
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
-     (llvm-define (init-string/symbol str raw-str size is-symbol)
+     (llvm-define (init-string/symbol str raw-str size)
                   (store raw-str   (getelementptr (inttoptr "i64" str "i64*") 1))
                   (store size      (getelementptr (inttoptr "i64" str "i64*") 2))
-                  (store is-symbol (getelementptr (inttoptr "i64" str "i64*") 3))
                   str)
      
-     (llvm-define (make-string/symbol raw-str raw-size symbolp)
-                  (make-string/symbol-pointer 
-                   (init-string/symbol (ptrtoint "i64*" (malloc 4) "i64")
-                                       raw-str (make-number raw-size) symbolp)))
-     
      (llvm-define (make-string raw-str raw-size)
-                  (make-string/symbol raw-str raw-size (make-null)))
+                  (make-string-pointer 
+                   (init-string/symbol (ptrtoint "i64*" (malloc 3) "i64") raw-str (make-number raw-size))))
+     
      (llvm-define (make-symbol raw-str raw-size)
-                  (make-string/symbol raw-str raw-size (make-true)))
-
-     (llvm-define (string? x)
-                  (if (string/symbol? x)
-                      (not (load (getelementptr (inttoptr "i64" x "i64*") 3)))
-                      (make-null)))
-     (llvm-define (symbol? x)
-                  (if (string/symbol? x)
-                      (load (getelementptr (inttoptr "i64" x "i64*") 3))
-                      (make-null)))
+                  (make-symbol-pointer 
+                   (init-string/symbol (ptrtoint "i64*" (malloc 3) "i64") raw-str (make-number raw-size))))
      
      (llvm-define (string-length str)
                   (load (getelementptr (inttoptr "i64" str "i64*") 2)))
