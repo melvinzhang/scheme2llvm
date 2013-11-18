@@ -206,7 +206,7 @@
            (if (null? (cdr params)) "" ", ")
            (build-params (cdr params)))))
   (set! llvm-function-list
-	(append 
+    (append 
          llvm-function-list
          (list (append-code 
                (c "define i64 " (llvm-global-repr f-name) "(" (build-params f-params) ") {")
@@ -248,13 +248,13 @@
 (define (find-var var c-t-env scope)
   (define (find-index var env index)
     (cond ((null? env) '())
-	  ((eq? (car env) var) index)
-	  (else (find-index var (cdr env) (+ 1 index)))))
+      ((eq? (car env) var) index)
+      (else (find-index var (cdr env) (+ 1 index)))))
   (if (null? c-t-env) '()
       (let ((index (find-index var (current-c-t-env c-t-env) 1)))
-	(if (null? index)
-	    (find-var var (outer-c-t-env c-t-env) (+ 1 scope))
-	    (cons scope index)))))
+    (if (null? index)
+        (find-var var (outer-c-t-env c-t-env) (+ 1 scope))
+        (cons scope index)))))
  
 ;; LLVM primitives.
 
@@ -394,7 +394,7 @@
   (if (and (eq? c-t-env 'llvm-function) (number? exp))
       (make-code (llvm-repr exp) '()) ;; create raw integer
       (let ((target (make-var)))
-	(make-code
+    (make-code
          target
          (cond ((number? exp) (llvm-call target 'make-number (llvm-repr exp)))
                ((string? exp)
@@ -425,16 +425,16 @@
       (make-code (llvm-repr exp) '())
       (let ((target (make-var)) 
             (c-t-pos (find-var exp c-t-env 0)))
-	(if (null? c-t-pos) (error exp "not found")
-	    (make-code target (llvm-call target 'lookup-variable 'env
+    (if (null? c-t-pos) (error exp "not found")
+        (make-code target (llvm-call target 'lookup-variable 'env
                                          (car c-t-pos) (cdr c-t-pos)))))))
 
 (define (compile-assignment exp c-t-env)
   (let ((target (make-var))
-	(c-t-pos (find-var (definition-variable exp) c-t-env 0))
+    (c-t-pos (find-var (definition-variable exp) c-t-env 0))
         (value (compile (definition-value exp) c-t-env)))
     (if (null? c-t-pos) (error 'compile-assignment "not found")
-	(make-code
+    (make-code
          target 
          (compiled-code value)
          (llvm-call target 'set-variable! 'env (car c-t-pos) (cdr c-t-pos) 
@@ -447,22 +447,22 @@
         (p-code (compile (if-predicate exp) c-t-env))
         (c-code (compile (if-consequent exp) c-t-env))
         (a-code (compile (if-alternative exp) c-t-env))
-	(t1 (make-var))
+    (t1 (make-var))
         (target (make-var)))
     (make-code target
-	       (llvm-alloca-var t1)
+           (llvm-alloca-var t1)
                (compiled-code p-code) 
                (llvm-bool-br (compiled-target p-code) c-branch a-branch)
                (llvm-label c-branch) 
-	       (compiled-code c-code)
-	       (llvm-store t1 (compiled-target c-code))
-	       (llvm-br after-if)
+           (compiled-code c-code)
+           (llvm-store t1 (compiled-target c-code))
+           (llvm-br after-if)
                (llvm-label a-branch) 
-	       (compiled-code a-code)
-	       (llvm-store t1 (compiled-target a-code))
+           (compiled-code a-code)
+           (llvm-store t1 (compiled-target a-code))
                (llvm-br after-if)
                (llvm-label after-if)
-	       (llvm-load target t1))))
+           (llvm-load target t1))))
 
 (define (compile-sequence seq c-t-env)
   (define (sequence-defines seq)
@@ -490,7 +490,7 @@
                (append-sequences seq '() (extend-c-t-env seq-defines c-t-env)))
               (f-name (make-function-name))
               (t1 (make-var)) 
-	      (t2 (make-var))
+          (t2 (make-var))
               (seq-env (make-var))
               (target (make-var)))
           (add-llvm-function f-name '(env) seq-code)
@@ -517,7 +517,7 @@
 
 (define (compile-llvm-definition exp c-t-env)
   (let ((f-name (definition-variable exp))
-	(f-lambda (definition-value exp))
+    (f-lambda (definition-value exp))
         (target (make-var)))
     (add-llvm-function 
      f-name
@@ -528,65 +528,65 @@
 (define (compile-llvm-instruction exp c-t-env)
   (let ((target (make-var)))
     (cond 
-	  ((llvm-load? exp)
-	   (let ((ptr (compile (first-arg exp) c-t-env)))
-	     (make-code target (compiled-code ptr)
-			(llvm-load target (compiled-target ptr)))))
-	  ((llvm-store? exp)
-	   (let ((value (compile (first-arg exp) c-t-env))
-		 (ptr   (compile (second-arg exp) c-t-env)))
-	     (make-code (compiled-target ptr)
+      ((llvm-load? exp)
+       (let ((ptr (compile (first-arg exp) c-t-env)))
+         (make-code target (compiled-code ptr)
+            (llvm-load target (compiled-target ptr)))))
+      ((llvm-store? exp)
+       (let ((value (compile (first-arg exp) c-t-env))
+         (ptr   (compile (second-arg exp) c-t-env)))
+         (make-code (compiled-target ptr)
                         (compiled-code value) (compiled-code ptr)
-			(llvm-store (compiled-target ptr)
-				    (compiled-target value)))))
-	  ((llvm-getelementptr? exp)
-	   (let ((ptr (compile (first-arg exp) c-t-env))
-		 (index (compile (second-arg exp) c-t-env)))
-	     (make-code target (compiled-code ptr) (compiled-code index)
-			(llvm-getelementptr target (compiled-target ptr)
-					    (compiled-target index)))))
-	  ((llvm-cast? exp)
-	   (let ((value (compile (second-arg exp) c-t-env)))
-	     (make-code target (compiled-code value)
-			(llvm-cast target (first-arg exp) 
-				   (compiled-target value) (third-arg exp)))))
-	  ((llvm-ptrtoint? exp)
-	   (let ((value (compile (second-arg exp) c-t-env)))
-	     (make-code target (compiled-code value)
-			(llvm-ptrtoint target (first-arg exp) 
-				   (compiled-target value) (third-arg exp)))))
-	  ((llvm-inttoptr? exp)
-	   (let ((value (compile (second-arg exp) c-t-env)))
-	     (make-code target (compiled-code value)
-			(llvm-inttoptr target (first-arg exp) 
-				   (compiled-target value) (third-arg exp)))))
+            (llvm-store (compiled-target ptr)
+                    (compiled-target value)))))
+      ((llvm-getelementptr? exp)
+       (let ((ptr (compile (first-arg exp) c-t-env))
+         (index (compile (second-arg exp) c-t-env)))
+         (make-code target (compiled-code ptr) (compiled-code index)
+            (llvm-getelementptr target (compiled-target ptr)
+                        (compiled-target index)))))
+      ((llvm-cast? exp)
+       (let ((value (compile (second-arg exp) c-t-env)))
+         (make-code target (compiled-code value)
+            (llvm-cast target (first-arg exp) 
+                   (compiled-target value) (third-arg exp)))))
+      ((llvm-ptrtoint? exp)
+       (let ((value (compile (second-arg exp) c-t-env)))
+         (make-code target (compiled-code value)
+            (llvm-ptrtoint target (first-arg exp) 
+                   (compiled-target value) (third-arg exp)))))
+      ((llvm-inttoptr? exp)
+       (let ((value (compile (second-arg exp) c-t-env)))
+         (make-code target (compiled-code value)
+            (llvm-inttoptr target (first-arg exp) 
+                   (compiled-target value) (third-arg exp)))))
       ((llvm-ret? exp)
-	   (let ((value (compile (first-arg exp) c-t-env)))
-	     (make-code (compiled-target value) (compiled-code value)
-			(llvm-ret (compiled-target value)))))
-	  ((member (operator exp) llvm-shift-instructions)
-	   (let ((value (compile (first-arg exp) c-t-env))
-		 (sh (compile (second-arg exp) c-t-env)))
-	     (make-code target (compiled-code value) (compiled-code sh)
-			(llvm-shift-op target (operator exp)
-				       (compiled-target value)
-				       (compiled-target sh)))))
-	  ((member (operator exp) llvm-boolean-instructions)
-	   (let ((x (compile (first-arg exp) c-t-env))
-		 (y (compile (second-arg exp) c-t-env))
-		 (t1 (make-var))
+       (let ((value (compile (first-arg exp) c-t-env)))
+         (make-code (compiled-target value) (compiled-code value)
+            (llvm-ret (compiled-target value)))))
+      ((member (operator exp) llvm-shift-instructions)
+       (let ((value (compile (first-arg exp) c-t-env))
+         (sh (compile (second-arg exp) c-t-env)))
+         (make-code target (compiled-code value) (compiled-code sh)
+            (llvm-shift-op target (operator exp)
+                       (compiled-target value)
+                       (compiled-target sh)))))
+      ((member (operator exp) llvm-boolean-instructions)
+       (let ((x (compile (first-arg exp) c-t-env))
+         (y (compile (second-arg exp) c-t-env))
+         (t1 (make-var))
          (t2 (make-var)))
-	     (make-code target (compiled-code x) (compiled-code y)
-			(llvm-instruction t1 (operator exp) (compiled-target x) (compiled-target y))
-			(c t2 " = zext i1 " t1 " to i64")
+         (make-code target (compiled-code x) (compiled-code y)
+            (llvm-instruction t1 (operator exp) (compiled-target x) (compiled-target y))
+            (c t2 " = zext i1 " t1 " to i64")
             (llvm-call target 'make-number t2))))
-	  (else ;; binary operation
-	   (let ((x (compile (first-arg exp) c-t-env))
-		 (y (compile (second-arg exp) c-t-env)))
-	     (make-code target (compiled-code x) (compiled-code y)
-			(llvm-instruction 
-			 target (operator exp) 
-			 (compiled-target x) (compiled-target y))))))))
+      (else ;; binary operation
+       (let ((x (compile (first-arg exp) c-t-env))
+         (y (compile (second-arg exp) c-t-env)))
+         (make-code target (compiled-code x) (compiled-code y)
+            (llvm-instruction 
+             target (operator exp) 
+             (compiled-target x) (compiled-target y))))))))
 
 (define (compile-application exp c-t-env)
   (define (build-param-list param-list operand-codes index)
@@ -641,62 +641,62 @@ declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
 define i64 @\"scm-llvm-read-char\"() {
-	%res.0 = call i32 @getchar( )
-	%res.1 = sext i32 %res.0 to i64
-	ret i64 %res.1
+    %res.0 = call i32 @getchar( )
+    %res.1 = sext i32 %res.0 to i64
+    ret i64 %res.1
 }
 
 define i64 @\"scm-print\"(i64 %format, i64 %value) {
-	%format2 = inttoptr i64 %format to i8*
-	call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
-	ret i64 0
+    %format2 = inttoptr i64 %format to i8*
+    call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
+    ret i64 0
 }
 
 define i64 @\"scm-malloc\"(i64 %num) {
-	%r0 = mul i64 8, %num
-	%r1 = call i8* @GC_malloc( i64 %r0 )
-	%r2 = ptrtoint i8* %r1 to i64
-	ret i64 %r2
+    %r0 = mul i64 8, %num
+    %r1 = call i8* @GC_malloc( i64 %r0 )
+    %r2 = ptrtoint i8* %r1 to i64
+    ret i64 %r2
 }
 
 define i64 @\"scm-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
-	%newsize = add i64 %size, 1
-	%res = call i8* @GC_malloc( i64 %newsize )
-	%ch2 = trunc i64 %ch to i8
-	%end = getelementptr i8* %res, i64 %size
-	store i8 %ch2, i8* %end
-	%cpy = icmp eq i64 %size, 0
-	br i1 %cpy, label %nocopy, label %copy
+    %newsize = add i64 %size, 1
+    %res = call i8* @GC_malloc( i64 %newsize )
+    %ch2 = trunc i64 %ch to i8
+    %end = getelementptr i8* %res, i64 %size
+    store i8 %ch2, i8* %end
+    %cpy = icmp eq i64 %size, 0
+    br i1 %cpy, label %nocopy, label %copy
 
 copy:
-	%arr2 = inttoptr i64 %arr to i8*
-	call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
-	br label %nocopy
+    %arr2 = inttoptr i64 %arr to i8*
+    call void @llvm.memcpy.p0i8.p0i8.i64( i8* %res, i8* %arr2, i64 %size, i32 0, i1 0 )
+    br label %nocopy
 
 nocopy:
-	%res3 = ptrtoint i8* %res to i64
-	ret i64 %res3
+    %res3 = ptrtoint i8* %res to i64
+    ret i64 %res3
 }
 
 define i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
-	%arr2 = inttoptr i64 %arr to i8*
-	%ptr = getelementptr i8* %arr2, i64 %index
-	%res = load i8* %ptr
-	%res2 = sext i8 %res to i64
-	ret i64 %res2
+    %arr2 = inttoptr i64 %arr to i8*
+    %ptr = getelementptr i8* %arr2, i64 %index
+    %res = load i8* %ptr
+    %res2 = sext i8 %res to i64
+    ret i64 %res2
 }
 
 define i64 @\"scm-exit\"(i64 %ev) {
-	%ev2 = trunc i64 %ev to i32
-	call i32 @exit( i32 %ev2 )
-	ret i64 0
+    %ev2 = trunc i64 %ev to i32
+    call i32 @exit( i32 %ev2 )
+    ret i64 0
 }
 
 define i64 @main(i32 %argc, i8** %argv) {
-	call void @GC_init( )
-	%r0 = call i64 @startup( i64 0 )
-	%r1 = call i64 @\"scm-raw-number\"(i64 %r0)
-	ret i64 %r1
+    call void @GC_init( )
+    %r0 = call i64 @startup( i64 0 )
+    %r1 = call i64 @\"scm-raw-number\"(i64 %r0)
+    ret i64 %r1
 }
 
 ;; Autogenerated code
