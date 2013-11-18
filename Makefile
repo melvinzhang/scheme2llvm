@@ -16,8 +16,8 @@ scheme2llvm.ll: scheme2llvm.scm scheme2llvm.scm
 scheme2llvm.3.ll: scheme2llvm.scm
 	ulimit -v 50000; cat $< | ./scheme2llvm.3 | awk -f script/transform_comments.awk > $@
 	
-scheme2llvm.gsi.3.ll: scheme2llvm.scm
-	cat $^ | gsi $^ | awk -f script/transform_comments.awk > $@
+scheme2llvm.csi.3.ll: scheme2llvm.scm
+	cat $^ | csi -q $^ | awk -f script/transform_comments.awk > $@
 
 %.bc: %.ll
 	llvm-as $^
