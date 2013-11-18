@@ -19,6 +19,9 @@ scheme2llvm.3.ll: scheme2llvm.scm
 scheme2llvm.csi.3.ll: scheme2llvm.scm
 	cat $^ | csi -q $^ | awk -f script/transform_comments.awk > $@
 
+scheme2llvm.csi: scheme2llvm.scm
+	csc -O5 scheme2llvm.scm -o $@
+
 %.bc: %.ll
 	llvm-as $^
 
