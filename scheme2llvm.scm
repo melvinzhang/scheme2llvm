@@ -69,7 +69,6 @@
 (define (llvm-definition? exp) (tagged-list? exp 'llvm-define))
 (define (llvm-instruction? exp) (assoc (operator exp) llvm-instructions))
 
-(define (llvm-malloc? exp) (tagged-list? exp 'malloc))
 (define (llvm-load? exp) (tagged-list? exp 'load))
 (define (llvm-store? exp) (tagged-list? exp 'store))
 (define (llvm-getelementptr? exp) (tagged-list? exp 'getelementptr))
@@ -173,7 +172,7 @@
   (set! function-counter 0)
   (set! llvm-function-list '())
   (set! llvm-primitive-functions 
-        '(llvm-read-char print append-bytearray bytearray-ref exit))
+        '(llvm-read-char print append-bytearray bytearray-ref exit malloc))
   (set! llvm-string-list '()))
 
 (define var-counter 0)
@@ -269,7 +268,7 @@
     (seteq . "icmp eq") (setne . "icmp ne") (setlt . "icmp ult") (setgt . "icmp ugt")
     (setle . "icmp ule") (setge . "icmp uge")
     ;; memory operations.
-    (malloc . 0) (getelementptr . 0)
+    (getelementptr . 0)
     (cast . 0) (load . 0) (store . 0) (ptrtoint . 0) (inttoptr . 0) 
     (ret . 0)))
 
@@ -331,9 +330,6 @@
      (llvm-call t1 'raw-number pred) ; false iff pred = 0 or '()
      (c t2 " = icmp ne i64 " t1 ", 0")
      (c "br i1 " t2 ", label %" c-label ", label %" a-label))))
-
-(define (llvm-malloc target size)
-  (c target " = call i64 @\"scm-malloc\"(i64 " (llvm-repr size) ")"))
 
 (define (llvm-store target value) 
   (c "store i64 " value ", i64* " target))
@@ -531,10 +527,7 @@
 
 (define (compile-llvm-instruction exp c-t-env)
   (let ((target (make-var)))
-    (cond ((llvm-malloc? exp) 
-	   (let ((size (compile (first-arg exp) c-t-env)))
-	     (make-code target (compiled-code size)
-                        (llvm-malloc target (compiled-target size)))))
+    (cond 
 	  ((llvm-load? exp)
 	   (let ((ptr (compile (first-arg exp) c-t-env)))
 	     (make-code target (compiled-code ptr)
