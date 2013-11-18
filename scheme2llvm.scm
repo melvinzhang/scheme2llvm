@@ -72,7 +72,6 @@
 (define (llvm-load? exp) (tagged-list? exp 'load))
 (define (llvm-store? exp) (tagged-list? exp 'store))
 (define (llvm-getelementptr? exp) (tagged-list? exp 'getelementptr))
-(define (llvm-cast? exp) (tagged-list? exp 'cast))
 (define (llvm-ptrtoint? exp) (tagged-list? exp 'ptrtoint))
 (define (llvm-inttoptr? exp) (tagged-list? exp 'inttoptr))
 (define (llvm-ret? exp) (tagged-list? exp 'ret))
@@ -304,9 +303,6 @@
   (llvm-call2 target function args))
 
 (define (llvm-ret value) (c "ret i64 " (llvm-repr value)))
-
-(define (llvm-cast target type1 x type2)
-  (c target " = cast " type1 " " x " to " type2))
 
 (define (llvm-ptrtoint target type1 x type2)
   (c target " = ptrtoint " type1 " " x " to " type2))
@@ -545,11 +541,6 @@
          (make-code target (compiled-code ptr) (compiled-code index)
             (llvm-getelementptr target (compiled-target ptr)
                         (compiled-target index)))))
-      ((llvm-cast? exp)
-       (let ((value (compile (second-arg exp) c-t-env)))
-         (make-code target (compiled-code value)
-            (llvm-cast target (first-arg exp) 
-                   (compiled-target value) (third-arg exp)))))
       ((llvm-ptrtoint? exp)
        (let ((value (compile (second-arg exp) c-t-env)))
          (make-code target (compiled-code value)
