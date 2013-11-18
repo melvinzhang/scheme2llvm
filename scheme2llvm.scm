@@ -742,7 +742,7 @@ define i64 @main(i32 %argc, i8** %argv) {
 
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
      (llvm-define (vector? x) (seteq (get-tag x) 1))
-     (llvm-define (procedure? x) (seteq (get-tag x) 3))
+     (llvm-define (function? x) (seteq (get-tag x) 3))
      (llvm-define (string? x) (seteq (get-tag x) 2))
      (llvm-define (symbol? x) (seteq (get-tag x) 4))
      (llvm-define (null? x) (seteq x 1))
@@ -801,13 +801,13 @@ define i64 @main(i32 %argc, i8** %argv) {
                                    raw-func env nparams)))
                    
      (llvm-define (get-function-func function)
-                  (ensure (procedure? function) "get-function-func: not a procedure.")
+                  (ensure (function? function) "get-function-func: not a function.")
                   (load (getelementptr (inttoptr "i64" function "i64*") 1)))
      (llvm-define (get-function-env function)
-                  (ensure (procedure? function) "get-function-env: not a procedure.")
+                  (ensure (function? function) "get-function-env: not a function.")
                   (load (getelementptr (inttoptr "i64" function "i64*") 2)))
      (llvm-define (get-function-nparams function)
-                  (ensure (procedure? function) "get-function-nparams: not a procedure.")
+                  (ensure (function? function) "get-function-nparams: not a function.")
                   (load (getelementptr (inttoptr "i64" function "i64*") 3)))
      
      (llvm-define (fix-arb-funcs n-params end call-env)

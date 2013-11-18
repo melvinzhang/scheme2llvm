@@ -5,9 +5,9 @@
 @r157 = internal constant [27 x i8] c"vector-set!: not a vector.\00"
 @r163 = internal constant [25 x i8] c"vector-set!: null vector\00"
 @r171 = internal constant [27 x i8] c"vector-set!: out of range.\00"
-@r204 = internal constant [36 x i8] c"get-function-func: not a procedure.\00"
-@r213 = internal constant [35 x i8] c"get-function-env: not a procedure.\00"
-@r222 = internal constant [39 x i8] c"get-function-nparams: not a procedure.\00"
+@r204 = internal constant [35 x i8] c"get-function-func: not a function.\00"
+@r213 = internal constant [34 x i8] c"get-function-env: not a function.\00"
+@r222 = internal constant [38 x i8] c"get-function-nparams: not a function.\00"
 @r283 = internal constant [29 x i8] c"string->symbol: not a string\00"
 @r293 = internal constant [29 x i8] c"symbol->string: not a symbol\00"
 @r307 = internal constant [43 x i8] c"list->string: list element is not a number\00"
@@ -421,7 +421,7 @@ define i64 @main(i32 %argc, i8** %argv) {
 @r10136 = internal constant [8 x i8] c"get-tag\00"
 @r10140 = internal constant [2 x i8] c"x\00"
 @r10150 = internal constant [12 x i8] c"llvm-define\00"
-@r10155 = internal constant [11 x i8] c"procedure?\00"
+@r10155 = internal constant [10 x i8] c"function?\00"
 @r10159 = internal constant [2 x i8] c"x\00"
 @r10165 = internal constant [6 x i8] c"seteq\00"
 @r10170 = internal constant [8 x i8] c"get-tag\00"
@@ -615,9 +615,9 @@ define i64 @main(i32 %argc, i8** %argv) {
 @r11157 = internal constant [18 x i8] c"get-function-func\00"
 @r11161 = internal constant [9 x i8] c"function\00"
 @r11167 = internal constant [7 x i8] c"ensure\00"
-@r11172 = internal constant [11 x i8] c"procedure?\00"
+@r11172 = internal constant [10 x i8] c"function?\00"
 @r11176 = internal constant [9 x i8] c"function\00"
-@r11181 = internal constant [36 x i8] c"get-function-func: not a procedure.\00"
+@r11181 = internal constant [35 x i8] c"get-function-func: not a function.\00"
 @r11187 = internal constant [5 x i8] c"load\00"
 @r11192 = internal constant [14 x i8] c"getelementptr\00"
 @r11197 = internal constant [9 x i8] c"inttoptr\00"
@@ -628,9 +628,9 @@ define i64 @main(i32 %argc, i8** %argv) {
 @r11225 = internal constant [17 x i8] c"get-function-env\00"
 @r11229 = internal constant [9 x i8] c"function\00"
 @r11235 = internal constant [7 x i8] c"ensure\00"
-@r11240 = internal constant [11 x i8] c"procedure?\00"
+@r11240 = internal constant [10 x i8] c"function?\00"
 @r11244 = internal constant [9 x i8] c"function\00"
-@r11249 = internal constant [35 x i8] c"get-function-env: not a procedure.\00"
+@r11249 = internal constant [34 x i8] c"get-function-env: not a function.\00"
 @r11255 = internal constant [5 x i8] c"load\00"
 @r11260 = internal constant [14 x i8] c"getelementptr\00"
 @r11265 = internal constant [9 x i8] c"inttoptr\00"
@@ -641,9 +641,9 @@ define i64 @main(i32 %argc, i8** %argv) {
 @r11293 = internal constant [21 x i8] c"get-function-nparams\00"
 @r11297 = internal constant [9 x i8] c"function\00"
 @r11303 = internal constant [7 x i8] c"ensure\00"
-@r11308 = internal constant [11 x i8] c"procedure?\00"
+@r11308 = internal constant [10 x i8] c"function?\00"
 @r11312 = internal constant [9 x i8] c"function\00"
-@r11317 = internal constant [39 x i8] c"get-function-nparams: not a procedure.\00"
+@r11317 = internal constant [38 x i8] c"get-function-nparams: not a function.\00"
 @r11323 = internal constant [5 x i8] c"load\00"
 @r11328 = internal constant [14 x i8] c"getelementptr\00"
 @r11333 = internal constant [9 x i8] c"inttoptr\00"
@@ -1986,7 +1986,7 @@ define i64 @"scm-vector?"(i64 %"x") {
 ret i64 %r78
 }
 
-define i64 @"scm-procedure?"(i64 %"x") {
+define i64 @"scm-function?"(i64 %"x") {
 %r84 = call i64 @"scm-get-tag"(i64 %"x")
 %r85 = icmp eq i64 %r84, 3
 %r86 = zext i1 %r85 to i64
@@ -2158,9 +2158,9 @@ ret i64 %r196
 }
 
 define i64 @"scm-get-function-func"(i64 %"function") {
-%r202 = call i64 @"scm-procedure?"(i64 %"function")
-%r205 = ptrtoint [36 x i8]* @r204 to i64
-%r203 = call i64 @"scm-make-string"(i64 %r205, i64 35)
+%r202 = call i64 @"scm-function?"(i64 %"function")
+%r205 = ptrtoint [35 x i8]* @r204 to i64
+%r203 = call i64 @"scm-make-string"(i64 %r205, i64 34)
 %r201 = call i64 @"scm-ensure"(i64 %r202, i64 %r203)
 %r208 = inttoptr i64 %"function" to i64*
 %r207 = getelementptr i64* %r208, i64 1
@@ -2169,9 +2169,9 @@ ret i64 %r206
 }
 
 define i64 @"scm-get-function-env"(i64 %"function") {
-%r211 = call i64 @"scm-procedure?"(i64 %"function")
-%r214 = ptrtoint [35 x i8]* @r213 to i64
-%r212 = call i64 @"scm-make-string"(i64 %r214, i64 34)
+%r211 = call i64 @"scm-function?"(i64 %"function")
+%r214 = ptrtoint [34 x i8]* @r213 to i64
+%r212 = call i64 @"scm-make-string"(i64 %r214, i64 33)
 %r210 = call i64 @"scm-ensure"(i64 %r211, i64 %r212)
 %r217 = inttoptr i64 %"function" to i64*
 %r216 = getelementptr i64* %r217, i64 2
@@ -2180,9 +2180,9 @@ ret i64 %r215
 }
 
 define i64 @"scm-get-function-nparams"(i64 %"function") {
-%r220 = call i64 @"scm-procedure?"(i64 %"function")
-%r223 = ptrtoint [39 x i8]* @r222 to i64
-%r221 = call i64 @"scm-make-string"(i64 %r223, i64 38)
+%r220 = call i64 @"scm-function?"(i64 %"function")
+%r223 = ptrtoint [38 x i8]* @r222 to i64
+%r221 = call i64 @"scm-make-string"(i64 %r223, i64 37)
 %r219 = call i64 @"scm-ensure"(i64 %r220, i64 %r221)
 %r226 = inttoptr i64 %"function" to i64*
 %r225 = getelementptr i64* %r226, i64 3
@@ -13747,8 +13747,8 @@ define i64 @function220(i64 %"env") {
 %r10114 = call i64 @"scm-cons"(i64 %r10115, i64 %r10118)
 %r10151 = ptrtoint [12 x i8]* @r10150 to i64
 %r10149 = call i64 @"scm-make-symbol"(i64 %r10151, i64 11)
-%r10156 = ptrtoint [11 x i8]* @r10155 to i64
-%r10154 = call i64 @"scm-make-symbol"(i64 %r10156, i64 10)
+%r10156 = ptrtoint [10 x i8]* @r10155 to i64
+%r10154 = call i64 @"scm-make-symbol"(i64 %r10156, i64 9)
 %r10160 = ptrtoint [2 x i8]* @r10159 to i64
 %r10158 = call i64 @"scm-make-symbol"(i64 %r10160, i64 1)
 %r10161 = call i64 @"scm-make-null"()
@@ -14550,15 +14550,15 @@ define i64 @function220(i64 %"env") {
 %r11155 = call i64 @"scm-cons"(i64 %r11156, i64 %r11159)
 %r11168 = ptrtoint [7 x i8]* @r11167 to i64
 %r11166 = call i64 @"scm-make-symbol"(i64 %r11168, i64 6)
-%r11173 = ptrtoint [11 x i8]* @r11172 to i64
-%r11171 = call i64 @"scm-make-symbol"(i64 %r11173, i64 10)
+%r11173 = ptrtoint [10 x i8]* @r11172 to i64
+%r11171 = call i64 @"scm-make-symbol"(i64 %r11173, i64 9)
 %r11177 = ptrtoint [9 x i8]* @r11176 to i64
 %r11175 = call i64 @"scm-make-symbol"(i64 %r11177, i64 8)
 %r11178 = call i64 @"scm-make-null"()
 %r11174 = call i64 @"scm-cons"(i64 %r11175, i64 %r11178)
 %r11170 = call i64 @"scm-cons"(i64 %r11171, i64 %r11174)
-%r11182 = ptrtoint [36 x i8]* @r11181 to i64
-%r11180 = call i64 @"scm-make-string"(i64 %r11182, i64 35)
+%r11182 = ptrtoint [35 x i8]* @r11181 to i64
+%r11180 = call i64 @"scm-make-string"(i64 %r11182, i64 34)
 %r11183 = call i64 @"scm-make-null"()
 %r11179 = call i64 @"scm-cons"(i64 %r11180, i64 %r11183)
 %r11169 = call i64 @"scm-cons"(i64 %r11170, i64 %r11179)
@@ -14604,15 +14604,15 @@ define i64 @function220(i64 %"env") {
 %r11223 = call i64 @"scm-cons"(i64 %r11224, i64 %r11227)
 %r11236 = ptrtoint [7 x i8]* @r11235 to i64
 %r11234 = call i64 @"scm-make-symbol"(i64 %r11236, i64 6)
-%r11241 = ptrtoint [11 x i8]* @r11240 to i64
-%r11239 = call i64 @"scm-make-symbol"(i64 %r11241, i64 10)
+%r11241 = ptrtoint [10 x i8]* @r11240 to i64
+%r11239 = call i64 @"scm-make-symbol"(i64 %r11241, i64 9)
 %r11245 = ptrtoint [9 x i8]* @r11244 to i64
 %r11243 = call i64 @"scm-make-symbol"(i64 %r11245, i64 8)
 %r11246 = call i64 @"scm-make-null"()
 %r11242 = call i64 @"scm-cons"(i64 %r11243, i64 %r11246)
 %r11238 = call i64 @"scm-cons"(i64 %r11239, i64 %r11242)
-%r11250 = ptrtoint [35 x i8]* @r11249 to i64
-%r11248 = call i64 @"scm-make-string"(i64 %r11250, i64 34)
+%r11250 = ptrtoint [34 x i8]* @r11249 to i64
+%r11248 = call i64 @"scm-make-string"(i64 %r11250, i64 33)
 %r11251 = call i64 @"scm-make-null"()
 %r11247 = call i64 @"scm-cons"(i64 %r11248, i64 %r11251)
 %r11237 = call i64 @"scm-cons"(i64 %r11238, i64 %r11247)
@@ -14658,15 +14658,15 @@ define i64 @function220(i64 %"env") {
 %r11291 = call i64 @"scm-cons"(i64 %r11292, i64 %r11295)
 %r11304 = ptrtoint [7 x i8]* @r11303 to i64
 %r11302 = call i64 @"scm-make-symbol"(i64 %r11304, i64 6)
-%r11309 = ptrtoint [11 x i8]* @r11308 to i64
-%r11307 = call i64 @"scm-make-symbol"(i64 %r11309, i64 10)
+%r11309 = ptrtoint [10 x i8]* @r11308 to i64
+%r11307 = call i64 @"scm-make-symbol"(i64 %r11309, i64 9)
 %r11313 = ptrtoint [9 x i8]* @r11312 to i64
 %r11311 = call i64 @"scm-make-symbol"(i64 %r11313, i64 8)
 %r11314 = call i64 @"scm-make-null"()
 %r11310 = call i64 @"scm-cons"(i64 %r11311, i64 %r11314)
 %r11306 = call i64 @"scm-cons"(i64 %r11307, i64 %r11310)
-%r11318 = ptrtoint [39 x i8]* @r11317 to i64
-%r11316 = call i64 @"scm-make-string"(i64 %r11318, i64 38)
+%r11318 = ptrtoint [38 x i8]* @r11317 to i64
+%r11316 = call i64 @"scm-make-string"(i64 %r11318, i64 37)
 %r11319 = call i64 @"scm-make-null"()
 %r11315 = call i64 @"scm-cons"(i64 %r11316, i64 %r11319)
 %r11305 = call i64 @"scm-cons"(i64 %r11306, i64 %r11315)
