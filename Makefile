@@ -31,3 +31,7 @@ scheme2llvm.csi: scheme2llvm.scm
 %: %.s
 	gcc $^ -o $@ -lgc
 
+bootstrap:
+	make scheme2llvm.3
+	touch scheme2llvm.scm
+	make scheme2llvm.3
