@@ -23,7 +23,7 @@ scheme2llvm.csi: scheme2llvm.scm
 	csc -O5 scheme2llvm.scm -o $@
 
 %.bc: %.ll
-	llvm-as $^
+	opt -std-compile-opts $^ -o $@
 
 %.s: %.bc
 	llc $^
