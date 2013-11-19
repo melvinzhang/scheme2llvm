@@ -1,19 +1,19 @@
-all: scheme2llvm.3
+all: scheme2llvm.llvm
 
 clean:
-	-rm core *.3 *.bc *.s test/*.3 test/*.bc test/*.s test/*.ll
+	-rm core *.llvm *.bc *.s test/*.llvm test/*.bc test/*.s test/*.ll
 
 TEST_SRC := $(wildcard test/*.scm) 
 
-tests: scheme2llvm.3 $(TEST_SRC:.scm=.3)
+tests: scheme2llvm.llvm $(TEST_SRC:.scm=.llvm)
 
-%.3.ll: %.scm scheme2llvm.3
-	ulimit -v 50000; cat $< | ./scheme2llvm.3 > $@
+%.ll: %.scm scheme2llvm.llvm
+	ulimit -v 50000; cat $< | ./scheme2llvm.llvm > $@
 
-scheme2llvm.3.ll: scheme2llvm.scm
-	ulimit -v 50000; cat $< | ./scheme2llvm.3 > $@
+scheme2llvm.ll: scheme2llvm.scm
+	ulimit -v 50000; cat $< | ./scheme2llvm.llvm > $@
 	
-scheme2llvm.csi.3.ll: scheme2llvm.scm
+scheme2llvm.csi.ll: scheme2llvm.scm
 	cat $^ | csi -q $^ | awk -f script/transform_comments.awk > $@
 
 scheme2llvm.csi: scheme2llvm.scm
@@ -25,14 +25,14 @@ scheme2llvm.csi: scheme2llvm.scm
 %.s: %.bc
 	llc -tailcallopt $^
 
-%: %.s
+%.llvm: %.s
 	clang $^ -o $@ -lgc
 
 bootstrap:
-	make scheme2llvm.3
+	make scheme2llvm.llvm
 	touch scheme2llvm.scm
-	make scheme2llvm.3
+	make scheme2llvm.llvm
 
 benchmark:
-	-rm scheme2llvm.3.ll
-	/usr/bin/time -v make scheme2llvm.3.ll
+	-rm scheme2llvm.ll
+	/usr/bin/time -v make scheme2llvm.ll
