@@ -25,6 +25,9 @@ scheme2llvm.csi: scheme2llvm.scm
 %.s: %.bc
 	llc -tailcallopt $^
 
+%.ll: %.c
+	clang -S -emit-llvm $^ -o $@
+
 %.llvm: %.s
 	clang $^ -o $@ -lgc
 
