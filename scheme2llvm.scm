@@ -208,7 +208,7 @@
     (append 
          llvm-function-list
          (list (append-code 
-               (c "define i64 " (llvm-global-repr f-name) "(" (build-params f-params) ") {")
+               (c "define i64 " (llvm-global-repr f-name) "(" (build-params f-params) ") nounwind {")
                (compiled-code f-body)
                (llvm-ret (compiled-target f-body))
                (c "}"))))))

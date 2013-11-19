@@ -77,7 +77,7 @@
 @r3537 = internal constant [3 x i8] c", \00"
 @r3594 = internal constant [12 x i8] c"define i64 \00"
 @r3607 = internal constant [2 x i8] c"(\00"
-@r3620 = internal constant [4 x i8] c") {\00"
+@r3620 = internal constant [13 x i8] c") nounwind {\00"
 @r3665 = internal constant [2 x i8] c"}\00"
 @r3907 = internal constant [22 x i8] c" = internal constant \00"
 @r3911 = internal constant [4 x i8] c" c\22\00"
@@ -1744,7 +1744,7 @@ define i64 @startup(i64 %"env") {
 ret i64 %r16928
 }
 ; FUNCTIONS
-define i64 @"scm-and"(i64 %"x", i64 %"y") {
+define i64 @"scm-and"(i64 %"x", i64 %"y") nounwind {
 %r3 = alloca i64
 %r5 = tail call i64 @"scm-raw-number"(i64 %"x")
 %r6 = icmp ne i64 %r5, 0
@@ -1761,7 +1761,7 @@ label3:
 ret i64 %r4
 }
 
-define i64 @"scm-or"(i64 %"x", i64 %"y") {
+define i64 @"scm-or"(i64 %"x", i64 %"y") nounwind {
 %r9 = alloca i64
 %r11 = tail call i64 @"scm-raw-number"(i64 %"x")
 %r12 = icmp ne i64 %r11, 0
@@ -1778,7 +1778,7 @@ label6:
 ret i64 %r10
 }
 
-define i64 @"scm-not"(i64 %"x") {
+define i64 @"scm-not"(i64 %"x") nounwind {
 %r16 = alloca i64
 %r18 = tail call i64 @"scm-raw-number"(i64 %"x")
 %r19 = icmp ne i64 %r18, 0
@@ -1796,7 +1796,7 @@ label9:
 ret i64 %r17
 }
 
-define i64 @"scm-ensure"(i64 %"x", i64 %"message") {
+define i64 @"scm-ensure"(i64 %"x", i64 %"message") nounwind {
 %r24 = alloca i64
 %r21 = tail call i64 @"scm-not"(i64 %"x")
 %r26 = tail call i64 @"scm-raw-number"(i64 %r21)
@@ -1815,13 +1815,13 @@ label12:
 ret i64 %r25
 }
 
-define i64 @"scm-make-number"(i64 %"x") {
+define i64 @"scm-make-number"(i64 %"x") nounwind {
 %r30 = shl i64 %"x", 2
 %r29 = or i64 %r30, 2
 ret i64 %r29
 }
 
-define i64 @"scm-make-char"(i64 %"x") {
+define i64 @"scm-make-char"(i64 %"x") nounwind {
 %r34 = icmp ult i64 %"x", 256
 %r35 = zext i1 %r34 to i64
 %r33 = tail call i64 @"scm-make-number"(i64 %r35)
@@ -1832,12 +1832,12 @@ define i64 @"scm-make-char"(i64 %"x") {
 ret i64 %r39
 }
 
-define i64 @"scm-raw-number"(i64 %"x") {
+define i64 @"scm-raw-number"(i64 %"x") nounwind {
 %r41 = lshr i64 %"x", 2
 ret i64 %r41
 }
 
-define i64 @"scm-get-tag"(i64 %"x") {
+define i64 @"scm-get-tag"(i64 %"x") nounwind {
 %r52 = alloca i64
 %r43 = tail call i64 @"scm-number?"(i64 %"x")
 %r54 = tail call i64 @"scm-raw-number"(i64 %r43)
@@ -1870,35 +1870,35 @@ label15:
 ret i64 %r53
 }
 
-define i64 @"scm-make-vector-pointer"(i64 %"x") {
+define i64 @"scm-make-vector-pointer"(i64 %"x") nounwind {
 %r59 = inttoptr i64 %"x" to i64*
 %r58 = getelementptr i64* %r59, i64 0
 store i64 1, i64* %r58
 ret i64 %"x"
 }
 
-define i64 @"scm-make-string-pointer"(i64 %"x") {
+define i64 @"scm-make-string-pointer"(i64 %"x") nounwind {
 %r63 = inttoptr i64 %"x" to i64*
 %r62 = getelementptr i64* %r63, i64 0
 store i64 2, i64* %r62
 ret i64 %"x"
 }
 
-define i64 @"scm-make-symbol-pointer"(i64 %"x") {
+define i64 @"scm-make-symbol-pointer"(i64 %"x") nounwind {
 %r67 = inttoptr i64 %"x" to i64*
 %r66 = getelementptr i64* %r67, i64 0
 store i64 4, i64* %r66
 ret i64 %"x"
 }
 
-define i64 @"scm-make-function-pointer"(i64 %"x") {
+define i64 @"scm-make-function-pointer"(i64 %"x") nounwind {
 %r71 = inttoptr i64 %"x" to i64*
 %r70 = getelementptr i64* %r71, i64 0
 store i64 3, i64* %r70
 ret i64 %"x"
 }
 
-define i64 @"scm-number?"(i64 %"x") {
+define i64 @"scm-number?"(i64 %"x") nounwind {
 %r74 = and i64 %"x", 3
 %r75 = icmp eq i64 %r74, 2
 %r76 = zext i1 %r75 to i64
@@ -1906,7 +1906,7 @@ define i64 @"scm-number?"(i64 %"x") {
 ret i64 %r73
 }
 
-define i64 @"scm-vector?"(i64 %"x") {
+define i64 @"scm-vector?"(i64 %"x") nounwind {
 %r79 = tail call i64 @"scm-get-tag"(i64 %"x")
 %r80 = icmp eq i64 %r79, 1
 %r81 = zext i1 %r80 to i64
@@ -1914,7 +1914,7 @@ define i64 @"scm-vector?"(i64 %"x") {
 ret i64 %r78
 }
 
-define i64 @"scm-function?"(i64 %"x") {
+define i64 @"scm-function?"(i64 %"x") nounwind {
 %r84 = tail call i64 @"scm-get-tag"(i64 %"x")
 %r85 = icmp eq i64 %r84, 3
 %r86 = zext i1 %r85 to i64
@@ -1922,7 +1922,7 @@ define i64 @"scm-function?"(i64 %"x") {
 ret i64 %r83
 }
 
-define i64 @"scm-string?"(i64 %"x") {
+define i64 @"scm-string?"(i64 %"x") nounwind {
 %r89 = tail call i64 @"scm-get-tag"(i64 %"x")
 %r90 = icmp eq i64 %r89, 2
 %r91 = zext i1 %r90 to i64
@@ -1930,7 +1930,7 @@ define i64 @"scm-string?"(i64 %"x") {
 ret i64 %r88
 }
 
-define i64 @"scm-symbol?"(i64 %"x") {
+define i64 @"scm-symbol?"(i64 %"x") nounwind {
 %r94 = tail call i64 @"scm-get-tag"(i64 %"x")
 %r95 = icmp eq i64 %r94, 4
 %r96 = zext i1 %r95 to i64
@@ -1938,23 +1938,23 @@ define i64 @"scm-symbol?"(i64 %"x") {
 ret i64 %r93
 }
 
-define i64 @"scm-null?"(i64 %"x") {
+define i64 @"scm-null?"(i64 %"x") nounwind {
 %r99 = icmp eq i64 %"x", 1
 %r100 = zext i1 %r99 to i64
 %r98 = tail call i64 @"scm-make-number"(i64 %r100)
 ret i64 %r98
 }
 
-define i64 @"scm-make-null"() {
+define i64 @"scm-make-null"() nounwind {
 ret i64 1
 }
 
-define i64 @"scm-make-true"() {
+define i64 @"scm-make-true"() nounwind {
 %r103 = tail call i64 @"scm-make-number"(i64 1)
 ret i64 %r103
 }
 
-define i64 @"scm-pair?"(i64 %"x") {
+define i64 @"scm-pair?"(i64 %"x") nounwind {
 %r111 = alloca i64
 %r105 = tail call i64 @"scm-vector?"(i64 %"x")
 %r113 = tail call i64 @"scm-raw-number"(i64 %r105)
@@ -1976,14 +1976,14 @@ label21:
 ret i64 %r112
 }
 
-define i64 @"scm-init-vector!"(i64 %"vector", i64 %"size") {
+define i64 @"scm-init-vector!"(i64 %"vector", i64 %"size") nounwind {
 %r118 = inttoptr i64 %"vector" to i64*
 %r117 = getelementptr i64* %r118, i64 1
 store i64 %"size", i64* %r117
 ret i64 %"vector"
 }
 
-define i64 @"scm-make-vector"(i64 %"raw-size") {
+define i64 @"scm-make-vector"(i64 %"raw-size") nounwind {
 %r123 = add i64 %"raw-size", 2
 %r122 = tail call i64 @"scm-malloc"(i64 %r123)
 %r121 = tail call i64 @"scm-init-vector!"(i64 %r122, i64 %"raw-size")
@@ -1991,14 +1991,14 @@ define i64 @"scm-make-vector"(i64 %"raw-size") {
 ret i64 %r120
 }
 
-define i64 @"scm-vector-size"(i64 %"vector") {
+define i64 @"scm-vector-size"(i64 %"vector") nounwind {
 %r127 = inttoptr i64 %"vector" to i64*
 %r126 = getelementptr i64* %r127, i64 1
 %r125 = load i64* %r126
 ret i64 %r125
 }
 
-define i64 @"scm-vector-ref"(i64 %"vector", i64 %"raw-index") {
+define i64 @"scm-vector-ref"(i64 %"vector", i64 %"raw-index") nounwind {
 %r130 = tail call i64 @"scm-vector?"(i64 %"vector")
 %r133 = ptrtoint [26 x i8]* @r132 to i64
 %r131 = tail call i64 @"scm-make-string"(i64 %r133, i64 25)
@@ -2022,7 +2022,7 @@ define i64 @"scm-vector-ref"(i64 %"vector", i64 %"raw-index") {
 ret i64 %r148
 }
 
-define i64 @"scm-vector-set!"(i64 %"vector", i64 %"raw-index", i64 %"value") {
+define i64 @"scm-vector-set!"(i64 %"vector", i64 %"raw-index", i64 %"value") nounwind {
 %r154 = tail call i64 @"scm-vector?"(i64 %"vector")
 %r157 = ptrtoint [27 x i8]* @r156 to i64
 %r155 = tail call i64 @"scm-make-string"(i64 %r157, i64 26)
@@ -2046,24 +2046,24 @@ store i64 %"value", i64* %r173
 ret i64 %"vector"
 }
 
-define i64 @"scm-set-enclosing-env!"(i64 %"env", i64 %"enclosing-env") {
+define i64 @"scm-set-enclosing-env!"(i64 %"env", i64 %"enclosing-env") nounwind {
 %r177 = tail call i64 @"scm-vector-set!"(i64 %"env", i64 0, i64 %"enclosing-env")
 ret i64 %r177
 }
 
-define i64 @"scm-get-enclosing-env"(i64 %"env") {
+define i64 @"scm-get-enclosing-env"(i64 %"env") nounwind {
 %r179 = tail call i64 @"scm-vector-ref"(i64 %"env", i64 0)
 ret i64 %r179
 }
 
-define i64 @"scm-make-env"(i64 %"raw-nparams", i64 %"env") {
+define i64 @"scm-make-env"(i64 %"raw-nparams", i64 %"env") nounwind {
 %r183 = add i64 %"raw-nparams", 2
 %r182 = tail call i64 @"scm-make-vector"(i64 %r183)
 %r181 = tail call i64 @"scm-set-enclosing-env!"(i64 %r182, i64 %"env")
 ret i64 %r181
 }
 
-define i64 @"scm-init-function!"(i64 %"function", i64 %"raw-func", i64 %"env", i64 %"nparams") {
+define i64 @"scm-init-function!"(i64 %"function", i64 %"raw-func", i64 %"env", i64 %"nparams") nounwind {
 %r187 = inttoptr i64 %"function" to i64*
 %r186 = getelementptr i64* %r187, i64 1
 store i64 %"raw-func", i64* %r186
@@ -2076,14 +2076,14 @@ store i64 %"nparams", i64* %r192
 ret i64 %"function"
 }
 
-define i64 @"scm-make-function"(i64 %"raw-func", i64 %"env", i64 %"nparams") {
+define i64 @"scm-make-function"(i64 %"raw-func", i64 %"env", i64 %"nparams") nounwind {
 %r197 = tail call i64 @"scm-malloc"(i64 4)
 %r196 = tail call i64 @"scm-init-function!"(i64 %r197, i64 %"raw-func", i64 %"env", i64 %"nparams")
 %r195 = tail call i64 @"scm-make-function-pointer"(i64 %r196)
 ret i64 %r195
 }
 
-define i64 @"scm-get-function-func"(i64 %"function") {
+define i64 @"scm-get-function-func"(i64 %"function") nounwind {
 %r200 = tail call i64 @"scm-function?"(i64 %"function")
 %r203 = ptrtoint [35 x i8]* @r202 to i64
 %r201 = tail call i64 @"scm-make-string"(i64 %r203, i64 34)
@@ -2094,7 +2094,7 @@ define i64 @"scm-get-function-func"(i64 %"function") {
 ret i64 %r204
 }
 
-define i64 @"scm-get-function-env"(i64 %"function") {
+define i64 @"scm-get-function-env"(i64 %"function") nounwind {
 %r209 = tail call i64 @"scm-function?"(i64 %"function")
 %r212 = ptrtoint [34 x i8]* @r211 to i64
 %r210 = tail call i64 @"scm-make-string"(i64 %r212, i64 33)
@@ -2105,7 +2105,7 @@ define i64 @"scm-get-function-env"(i64 %"function") {
 ret i64 %r213
 }
 
-define i64 @"scm-get-function-nparams"(i64 %"function") {
+define i64 @"scm-get-function-nparams"(i64 %"function") nounwind {
 %r218 = tail call i64 @"scm-function?"(i64 %"function")
 %r221 = ptrtoint [38 x i8]* @r220 to i64
 %r219 = tail call i64 @"scm-make-string"(i64 %r221, i64 37)
@@ -2116,7 +2116,7 @@ define i64 @"scm-get-function-nparams"(i64 %"function") {
 ret i64 %r222
 }
 
-define i64 @"scm-fix-arb-funcs"(i64 %"n-params", i64 %"end", i64 %"call-env") {
+define i64 @"scm-fix-arb-funcs"(i64 %"n-params", i64 %"end", i64 %"call-env") nounwind {
 %r234 = alloca i64
 %r227 = icmp uge i64 %"n-params", %"end"
 %r228 = zext i1 %r227 to i64
@@ -2140,7 +2140,7 @@ label24:
 ret i64 %r235
 }
 
-define i64 @"scm-fix-arbitrary-funcs"(i64 %"n-params", i64 %"call-env") {
+define i64 @"scm-fix-arbitrary-funcs"(i64 %"n-params", i64 %"call-env") nounwind {
 %r246 = alloca i64
 %r240 = icmp eq i64 %"n-params", 0
 %r241 = zext i1 %r240 to i64
@@ -2163,7 +2163,7 @@ label27:
 ret i64 %r247
 }
 
-define i64 @"scm-init-string/symbol"(i64 %"str", i64 %"raw-str", i64 %"size") {
+define i64 @"scm-init-string/symbol"(i64 %"str", i64 %"raw-str", i64 %"size") nounwind {
 %r253 = inttoptr i64 %"str" to i64*
 %r252 = getelementptr i64* %r253, i64 1
 store i64 %"raw-str", i64* %r252
@@ -2173,7 +2173,7 @@ store i64 %"size", i64* %r255
 ret i64 %"str"
 }
 
-define i64 @"scm-make-string"(i64 %"raw-str", i64 %"raw-size") {
+define i64 @"scm-make-string"(i64 %"raw-str", i64 %"raw-size") nounwind {
 %r260 = tail call i64 @"scm-malloc"(i64 3)
 %r261 = tail call i64 @"scm-make-number"(i64 %"raw-size")
 %r259 = tail call i64 @"scm-init-string/symbol"(i64 %r260, i64 %"raw-str", i64 %r261)
@@ -2181,7 +2181,7 @@ define i64 @"scm-make-string"(i64 %"raw-str", i64 %"raw-size") {
 ret i64 %r258
 }
 
-define i64 @"scm-make-symbol"(i64 %"raw-str", i64 %"raw-size") {
+define i64 @"scm-make-symbol"(i64 %"raw-str", i64 %"raw-size") nounwind {
 %r265 = tail call i64 @"scm-malloc"(i64 3)
 %r266 = tail call i64 @"scm-make-number"(i64 %"raw-size")
 %r264 = tail call i64 @"scm-init-string/symbol"(i64 %r265, i64 %"raw-str", i64 %r266)
@@ -2189,21 +2189,21 @@ define i64 @"scm-make-symbol"(i64 %"raw-str", i64 %"raw-size") {
 ret i64 %r263
 }
 
-define i64 @"scm-string-length"(i64 %"str") {
+define i64 @"scm-string-length"(i64 %"str") nounwind {
 %r270 = inttoptr i64 %"str" to i64*
 %r269 = getelementptr i64* %r270, i64 2
 %r268 = load i64* %r269
 ret i64 %r268
 }
 
-define i64 @"scm-string-bytes"(i64 %"str") {
+define i64 @"scm-string-bytes"(i64 %"str") nounwind {
 %r274 = inttoptr i64 %"str" to i64*
 %r273 = getelementptr i64* %r274, i64 1
 %r272 = load i64* %r273
 ret i64 %r272
 }
 
-define i64 @"scm-string->symbol"(i64 %"str") {
+define i64 @"scm-string->symbol"(i64 %"str") nounwind {
 %r277 = tail call i64 @"scm-string?"(i64 %"str")
 %r280 = ptrtoint [29 x i8]* @r279 to i64
 %r278 = tail call i64 @"scm-make-string"(i64 %r280, i64 28)
@@ -2215,7 +2215,7 @@ define i64 @"scm-string->symbol"(i64 %"str") {
 ret i64 %r281
 }
 
-define i64 @"scm-symbol->string"(i64 %"str") {
+define i64 @"scm-symbol->string"(i64 %"str") nounwind {
 %r287 = tail call i64 @"scm-symbol?"(i64 %"str")
 %r290 = ptrtoint [29 x i8]* @r289 to i64
 %r288 = tail call i64 @"scm-make-string"(i64 %r290, i64 28)
@@ -2227,7 +2227,7 @@ define i64 @"scm-symbol->string"(i64 %"str") {
 ret i64 %r291
 }
 
-define i64 @"scm-list->string-helper"(i64 %"lst", i64 %"len", i64 %"str-bytes") {
+define i64 @"scm-list->string-helper"(i64 %"lst", i64 %"len", i64 %"str-bytes") nounwind {
 %r311 = alloca i64
 %r296 = tail call i64 @"scm-null?"(i64 %"lst")
 %r313 = tail call i64 @"scm-raw-number"(i64 %r296)
@@ -2257,7 +2257,7 @@ label30:
 ret i64 %r312
 }
 
-define i64 @"scm-list->string"(i64 %"lst") {
+define i64 @"scm-list->string"(i64 %"lst") nounwind {
 %r317 = tail call i64 @"scm-vector?"(i64 %"lst")
 %r320 = ptrtoint [25 x i8]* @r319 to i64
 %r318 = tail call i64 @"scm-make-string"(i64 %r320, i64 24)
@@ -2266,7 +2266,7 @@ define i64 @"scm-list->string"(i64 %"lst") {
 ret i64 %r321
 }
 
-define i64 @"scm-string->list-helper"(i64 %"bytearray", i64 %"pos", i64 %"end") {
+define i64 @"scm-string->list-helper"(i64 %"bytearray", i64 %"pos", i64 %"end") nounwind {
 %r332 = alloca i64
 %r324 = icmp eq i64 %"pos", %"end"
 %r325 = zext i1 %r324 to i64
@@ -2291,7 +2291,7 @@ label33:
 ret i64 %r333
 }
 
-define i64 @"scm-string->list"(i64 %"str") {
+define i64 @"scm-string->list"(i64 %"str") nounwind {
 %r338 = tail call i64 @"scm-string?"(i64 %"str")
 %r341 = ptrtoint [27 x i8]* @r340 to i64
 %r339 = tail call i64 @"scm-make-string"(i64 %r341, i64 26)
@@ -2303,7 +2303,7 @@ define i64 @"scm-string->list"(i64 %"str") {
 ret i64 %r342
 }
 
-define i64 @"scm-string-ref"(i64 %"str", i64 %"pos") {
+define i64 @"scm-string-ref"(i64 %"str", i64 %"pos") nounwind {
 %r348 = tail call i64 @"scm-string?"(i64 %"str")
 %r351 = ptrtoint [25 x i8]* @r350 to i64
 %r349 = tail call i64 @"scm-make-string"(i64 %r351, i64 24)
@@ -2326,15 +2326,15 @@ define i64 @"scm-string-ref"(i64 %"str", i64 %"pos") {
 ret i64 %r365
 }
 
-define i64 @"scm-char->integer"(i64 %"ch") {
+define i64 @"scm-char->integer"(i64 %"ch") nounwind {
 ret i64 %"ch"
 }
 
-define i64 @"scm-integer->char"(i64 %"ch") {
+define i64 @"scm-integer->char"(i64 %"ch") nounwind {
 ret i64 %"ch"
 }
 
-define i64 @"scm-lookup-variable"(i64 %"env", i64 %"scope", i64 %"index") {
+define i64 @"scm-lookup-variable"(i64 %"env", i64 %"scope", i64 %"index") nounwind {
 %r379 = alloca i64
 %r373 = icmp eq i64 0, %"scope"
 %r374 = zext i1 %r373 to i64
@@ -2357,7 +2357,7 @@ label36:
 ret i64 %r380
 }
 
-define i64 @"scm-set-variable!"(i64 %"env", i64 %"scope", i64 %"index", i64 %"value") {
+define i64 @"scm-set-variable!"(i64 %"env", i64 %"scope", i64 %"index", i64 %"value") nounwind {
 %r391 = alloca i64
 %r385 = icmp eq i64 0, %"scope"
 %r386 = zext i1 %r385 to i64
@@ -2380,64 +2380,64 @@ label39:
 ret i64 %r392
 }
 
-define i64 @"scm-cons"(i64 %"x", i64 %"y") {
+define i64 @"scm-cons"(i64 %"x", i64 %"y") nounwind {
 %r398 = tail call i64 @"scm-make-vector"(i64 2)
 %r397 = tail call i64 @"scm-vector-set!"(i64 %r398, i64 0, i64 %"x")
 %r396 = tail call i64 @"scm-vector-set!"(i64 %r397, i64 1, i64 %"y")
 ret i64 %r396
 }
 
-define i64 @"scm-car"(i64 %"cell") {
+define i64 @"scm-car"(i64 %"cell") nounwind {
 %r400 = tail call i64 @"scm-vector-ref"(i64 %"cell", i64 0)
 ret i64 %r400
 }
 
-define i64 @"scm-cdr"(i64 %"cell") {
+define i64 @"scm-cdr"(i64 %"cell") nounwind {
 %r402 = tail call i64 @"scm-vector-ref"(i64 %"cell", i64 1)
 ret i64 %r402
 }
 
-define i64 @"scm-cddr"(i64 %"x") {
+define i64 @"scm-cddr"(i64 %"x") nounwind {
 %r405 = tail call i64 @"scm-cdr"(i64 %"x")
 %r404 = tail call i64 @"scm-cdr"(i64 %r405)
 ret i64 %r404
 }
 
-define i64 @"scm-cdddr"(i64 %"x") {
+define i64 @"scm-cdddr"(i64 %"x") nounwind {
 %r409 = tail call i64 @"scm-cdr"(i64 %"x")
 %r408 = tail call i64 @"scm-cdr"(i64 %r409)
 %r407 = tail call i64 @"scm-cdr"(i64 %r408)
 ret i64 %r407
 }
 
-define i64 @"scm-cadr"(i64 %"x") {
+define i64 @"scm-cadr"(i64 %"x") nounwind {
 %r412 = tail call i64 @"scm-cdr"(i64 %"x")
 %r411 = tail call i64 @"scm-car"(i64 %r412)
 ret i64 %r411
 }
 
-define i64 @"scm-cdadr"(i64 %"x") {
+define i64 @"scm-cdadr"(i64 %"x") nounwind {
 %r416 = tail call i64 @"scm-cdr"(i64 %"x")
 %r415 = tail call i64 @"scm-car"(i64 %r416)
 %r414 = tail call i64 @"scm-cdr"(i64 %r415)
 ret i64 %r414
 }
 
-define i64 @"scm-caadr"(i64 %"x") {
+define i64 @"scm-caadr"(i64 %"x") nounwind {
 %r420 = tail call i64 @"scm-cdr"(i64 %"x")
 %r419 = tail call i64 @"scm-car"(i64 %r420)
 %r418 = tail call i64 @"scm-car"(i64 %r419)
 ret i64 %r418
 }
 
-define i64 @"scm-caddr"(i64 %"x") {
+define i64 @"scm-caddr"(i64 %"x") nounwind {
 %r424 = tail call i64 @"scm-cdr"(i64 %"x")
 %r423 = tail call i64 @"scm-cdr"(i64 %r424)
 %r422 = tail call i64 @"scm-car"(i64 %r423)
 ret i64 %r422
 }
 
-define i64 @"scm-cadddr"(i64 %"x") {
+define i64 @"scm-cadddr"(i64 %"x") nounwind {
 %r429 = tail call i64 @"scm-cdr"(i64 %"x")
 %r428 = tail call i64 @"scm-cdr"(i64 %r429)
 %r427 = tail call i64 @"scm-cdr"(i64 %r428)
@@ -2445,7 +2445,7 @@ define i64 @"scm-cadddr"(i64 %"x") {
 ret i64 %r426
 }
 
-define i64 @"scm-*"(i64 %"x", i64 %"y") {
+define i64 @"scm-*"(i64 %"x", i64 %"y") nounwind {
 %r432 = tail call i64 @"scm-number?"(i64 %"x")
 %r435 = ptrtoint [35 x i8]* @r434 to i64
 %r433 = tail call i64 @"scm-make-string"(i64 %r435, i64 34)
@@ -2461,7 +2461,7 @@ define i64 @"scm-*"(i64 %"x", i64 %"y") {
 ret i64 %r441
 }
 
-define i64 @"scm--"(i64 %"x", i64 %"y") {
+define i64 @"scm--"(i64 %"x", i64 %"y") nounwind {
 %r447 = tail call i64 @"scm-number?"(i64 %"x")
 %r450 = ptrtoint [35 x i8]* @r449 to i64
 %r448 = tail call i64 @"scm-make-string"(i64 %r450, i64 34)
@@ -2477,7 +2477,7 @@ define i64 @"scm--"(i64 %"x", i64 %"y") {
 ret i64 %r456
 }
 
-define i64 @"scm-+"(i64 %"x", i64 %"y") {
+define i64 @"scm-+"(i64 %"x", i64 %"y") nounwind {
 %r462 = tail call i64 @"scm-number?"(i64 %"x")
 %r465 = ptrtoint [35 x i8]* @r464 to i64
 %r463 = tail call i64 @"scm-make-string"(i64 %r465, i64 34)
@@ -2493,7 +2493,7 @@ define i64 @"scm-+"(i64 %"x", i64 %"y") {
 ret i64 %r471
 }
 
-define i64 @"scm-/"(i64 %"x", i64 %"y") {
+define i64 @"scm-/"(i64 %"x", i64 %"y") nounwind {
 %r477 = tail call i64 @"scm-number?"(i64 %"x")
 %r480 = ptrtoint [35 x i8]* @r479 to i64
 %r478 = tail call i64 @"scm-make-string"(i64 %r480, i64 34)
@@ -2509,7 +2509,7 @@ define i64 @"scm-/"(i64 %"x", i64 %"y") {
 ret i64 %r486
 }
 
-define i64 @"scm-%"(i64 %"x", i64 %"y") {
+define i64 @"scm-%"(i64 %"x", i64 %"y") nounwind {
 %r492 = tail call i64 @"scm-number?"(i64 %"x")
 %r495 = ptrtoint [35 x i8]* @r494 to i64
 %r493 = tail call i64 @"scm-make-string"(i64 %r495, i64 34)
@@ -2525,7 +2525,7 @@ define i64 @"scm-%"(i64 %"x", i64 %"y") {
 ret i64 %r501
 }
 
-define i64 @"scm-="(i64 %"x", i64 %"y") {
+define i64 @"scm-="(i64 %"x", i64 %"y") nounwind {
 %r518 = alloca i64
 %r507 = tail call i64 @"scm-number?"(i64 %"x")
 %r508 = tail call i64 @"scm-number?"(i64 %"y")
@@ -2552,7 +2552,7 @@ label42:
 ret i64 %r519
 }
 
-define i64 @"scm->"(i64 %"x", i64 %"y") {
+define i64 @"scm->"(i64 %"x", i64 %"y") nounwind {
 %r535 = alloca i64
 %r524 = tail call i64 @"scm-number?"(i64 %"x")
 %r525 = tail call i64 @"scm-number?"(i64 %"y")
@@ -2579,7 +2579,7 @@ label45:
 ret i64 %r536
 }
 
-define i64 @"scm-display"(i64 %"x") {
+define i64 @"scm-display"(i64 %"x") nounwind {
 %r608 = alloca i64
 %r540 = tail call i64 @"scm-number?"(i64 %"x")
 %r610 = tail call i64 @"scm-raw-number"(i64 %r540)
@@ -2687,7 +2687,7 @@ label48:
 ret i64 %"x"
 }
 
-define i64 @function1(i64 %"env") {
+define i64 @function1(i64 %"env") nounwind {
 %r618 = tail call i64 @"scm-make-number"(i64 10)
 %r619 = tail call i64 @"scm-make-null"()
 %r617 = tail call i64 @"scm-cons"(i64 %r618, i64 %r619)
@@ -2696,7 +2696,7 @@ define i64 @function1(i64 %"env") {
 ret i64 %r615
 }
 
-define i64 @function2(i64 %"env") {
+define i64 @function2(i64 %"env") nounwind {
 %r663 = alloca i64
 %r624 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 3)
 %r625 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 4)
@@ -2760,7 +2760,7 @@ label63:
 ret i64 %r664
 }
 
-define i64 @function3(i64 %"env") {
+define i64 @function3(i64 %"env") nounwind {
 %r755 = alloca i64
 %r672 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r671 = tail call i64 @"scm-number?"(i64 %r672)
@@ -2893,7 +2893,7 @@ label69:
 ret i64 %r756
 }
 
-define i64 @function4(i64 %"env") {
+define i64 @function4(i64 %"env") nounwind {
 %r796 = alloca i64
 %r763 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r762 = tail call i64 @"scm-null?"(i64 %r763)
@@ -2951,7 +2951,7 @@ label84:
 ret i64 %r797
 }
 
-define i64 @function5(i64 %"env") {
+define i64 @function5(i64 %"env") nounwind {
 %r819 = alloca i64
 %r804 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r803 = tail call i64 @"scm-null?"(i64 %r804)
@@ -2983,7 +2983,7 @@ label90:
 ret i64 %r820
 }
 
-define i64 @function6(i64 %"env") {
+define i64 @function6(i64 %"env") nounwind {
 %r853 = alloca i64
 %r827 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r826 = tail call i64 @"scm-null?"(i64 %r827)
@@ -3034,7 +3034,7 @@ label93:
 ret i64 %r854
 }
 
-define i64 @function7(i64 %"env") {
+define i64 @function7(i64 %"env") nounwind {
 %r888 = alloca i64
 %r861 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r860 = tail call i64 @"scm-null?"(i64 %r861)
@@ -3078,7 +3078,7 @@ label99:
 ret i64 %r889
 }
 
-define i64 @function8(i64 %"env") {
+define i64 @function8(i64 %"env") nounwind {
 %r914 = alloca i64
 %r896 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r895 = tail call i64 @"scm-null?"(i64 %r896)
@@ -3113,7 +3113,7 @@ label102:
 ret i64 %r915
 }
 
-define i64 @function9(i64 %"env") {
+define i64 @function9(i64 %"env") nounwind {
 %r956 = alloca i64
 %r922 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r921 = tail call i64 @"scm-null?"(i64 %r922)
@@ -3164,7 +3164,7 @@ label105:
 ret i64 %r957
 }
 
-define i64 @function11(i64 %"env") {
+define i64 @function11(i64 %"env") nounwind {
 %r1012 = alloca i64
 %r967 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r968 = tail call i64 @"scm-make-number"(i64 9)
@@ -3226,7 +3226,7 @@ label108:
 ret i64 %r1013
 }
 
-define i64 @function12(i64 %"env") {
+define i64 @function12(i64 %"env") nounwind {
 %r964 = ptrtoint i64 (i64)* @function11 to i64
 %r965 = tail call i64 @"scm-make-function"(i64 %r964, i64 %"env", i64 0)
 %r963 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r965)
@@ -3246,13 +3246,13 @@ define i64 @function12(i64 %"env") {
 ret i64 %r1016
 }
 
-define i64 @function10(i64 %"env") {
+define i64 @function10(i64 %"env") nounwind {
 %r1029 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r1032 = tail call i64 @function12(i64 %r1029)
 ret i64 %r1032
 }
 
-define i64 @function13(i64 %"env") {
+define i64 @function13(i64 %"env") nounwind {
 %r1057 = alloca i64
 %r1037 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r1036 = tail call i64 @"scm-null?"(i64 %r1037)
@@ -3297,12 +3297,12 @@ label111:
 ret i64 %r1058
 }
 
-define i64 @function14(i64 %"env") {
+define i64 @function14(i64 %"env") nounwind {
 %r1064 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 ret i64 %r1064
 }
 
-define i64 @function15(i64 %"env") {
+define i64 @function15(i64 %"env") nounwind {
 %r1104 = alloca i64
 %r1069 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r1068 = tail call i64 @"scm-null?"(i64 %r1069)
@@ -3362,7 +3362,7 @@ label117:
 ret i64 %r1105
 }
 
-define i64 @function16(i64 %"env") {
+define i64 @function16(i64 %"env") nounwind {
 %r1118 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 8)
 %r1113 = tail call i64 @"scm-get-function-env"(i64 %r1118)
 %r1115 = tail call i64 @"scm-make-env"(i64 2, i64 %r1113)
@@ -3381,7 +3381,7 @@ define i64 @function16(i64 %"env") {
 ret i64 %r1111
 }
 
-define i64 @function17(i64 %"env") {
+define i64 @function17(i64 %"env") nounwind {
 %r1138 = alloca i64
 %r1132 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 15)
 %r1131 = tail call i64 @"scm-null?"(i64 %r1132)
@@ -3404,7 +3404,7 @@ label123:
 ret i64 %r1139
 }
 
-define i64 @function19(i64 %"env") {
+define i64 @function19(i64 %"env") nounwind {
 %r1146 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 15)
 %r1145 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1146)
 %r1154 = alloca i64
@@ -3429,13 +3429,13 @@ label126:
 ret i64 %r1155
 }
 
-define i64 @function18(i64 %"env") {
+define i64 @function18(i64 %"env") nounwind {
 %r1158 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r1161 = tail call i64 @function19(i64 %r1158)
 ret i64 %r1161
 }
 
-define i64 @function20(i64 %"env") {
+define i64 @function20(i64 %"env") nounwind {
 %r1194 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1189 = tail call i64 @"scm-get-function-env"(i64 %r1194)
 %r1191 = tail call i64 @"scm-make-env"(i64 2, i64 %r1189)
@@ -3477,7 +3477,7 @@ define i64 @function20(i64 %"env") {
 ret i64 %r1187
 }
 
-define i64 @function21(i64 %"env") {
+define i64 @function21(i64 %"env") nounwind {
 %r1234 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 4)
 %r1229 = tail call i64 @"scm-get-function-env"(i64 %r1234)
 %r1231 = tail call i64 @"scm-make-env"(i64 2, i64 %r1229)
@@ -3493,7 +3493,7 @@ define i64 @function21(i64 %"env") {
 ret i64 %r1233
 }
 
-define i64 @function22(i64 %"env") {
+define i64 @function22(i64 %"env") nounwind {
 %r1249 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1244 = tail call i64 @"scm-get-function-env"(i64 %r1249)
 %r1246 = tail call i64 @"scm-make-env"(i64 2, i64 %r1244)
@@ -3509,7 +3509,7 @@ define i64 @function22(i64 %"env") {
 ret i64 %r1248
 }
 
-define i64 @function23(i64 %"env") {
+define i64 @function23(i64 %"env") nounwind {
 %r1264 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1259 = tail call i64 @"scm-get-function-env"(i64 %r1264)
 %r1261 = tail call i64 @"scm-make-env"(i64 2, i64 %r1259)
@@ -3525,7 +3525,7 @@ define i64 @function23(i64 %"env") {
 ret i64 %r1263
 }
 
-define i64 @function24(i64 %"env") {
+define i64 @function24(i64 %"env") nounwind {
 %r1279 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1274 = tail call i64 @"scm-get-function-env"(i64 %r1279)
 %r1276 = tail call i64 @"scm-make-env"(i64 2, i64 %r1274)
@@ -3541,7 +3541,7 @@ define i64 @function24(i64 %"env") {
 ret i64 %r1278
 }
 
-define i64 @function25(i64 %"env") {
+define i64 @function25(i64 %"env") nounwind {
 %r1294 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1289 = tail call i64 @"scm-get-function-env"(i64 %r1294)
 %r1291 = tail call i64 @"scm-make-env"(i64 2, i64 %r1289)
@@ -3557,7 +3557,7 @@ define i64 @function25(i64 %"env") {
 ret i64 %r1293
 }
 
-define i64 @function26(i64 %"env") {
+define i64 @function26(i64 %"env") nounwind {
 %r1309 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1304 = tail call i64 @"scm-get-function-env"(i64 %r1309)
 %r1306 = tail call i64 @"scm-make-env"(i64 2, i64 %r1304)
@@ -3573,7 +3573,7 @@ define i64 @function26(i64 %"env") {
 ret i64 %r1308
 }
 
-define i64 @function27(i64 %"env") {
+define i64 @function27(i64 %"env") nounwind {
 %r1324 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1319 = tail call i64 @"scm-get-function-env"(i64 %r1324)
 %r1321 = tail call i64 @"scm-make-env"(i64 2, i64 %r1319)
@@ -3589,7 +3589,7 @@ define i64 @function27(i64 %"env") {
 ret i64 %r1323
 }
 
-define i64 @function28(i64 %"env") {
+define i64 @function28(i64 %"env") nounwind {
 %r1339 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1334 = tail call i64 @"scm-get-function-env"(i64 %r1339)
 %r1336 = tail call i64 @"scm-make-env"(i64 2, i64 %r1334)
@@ -3605,7 +3605,7 @@ define i64 @function28(i64 %"env") {
 ret i64 %r1338
 }
 
-define i64 @function29(i64 %"env") {
+define i64 @function29(i64 %"env") nounwind {
 %r1354 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1349 = tail call i64 @"scm-get-function-env"(i64 %r1354)
 %r1351 = tail call i64 @"scm-make-env"(i64 2, i64 %r1349)
@@ -3621,7 +3621,7 @@ define i64 @function29(i64 %"env") {
 ret i64 %r1353
 }
 
-define i64 @function30(i64 %"env") {
+define i64 @function30(i64 %"env") nounwind {
 %r1369 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1364 = tail call i64 @"scm-get-function-env"(i64 %r1369)
 %r1366 = tail call i64 @"scm-make-env"(i64 2, i64 %r1364)
@@ -3637,7 +3637,7 @@ define i64 @function30(i64 %"env") {
 ret i64 %r1368
 }
 
-define i64 @function31(i64 %"env") {
+define i64 @function31(i64 %"env") nounwind {
 %r1384 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1379 = tail call i64 @"scm-get-function-env"(i64 %r1384)
 %r1381 = tail call i64 @"scm-make-env"(i64 2, i64 %r1379)
@@ -3653,7 +3653,7 @@ define i64 @function31(i64 %"env") {
 ret i64 %r1383
 }
 
-define i64 @function32(i64 %"env") {
+define i64 @function32(i64 %"env") nounwind {
 %r1399 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r1394 = tail call i64 @"scm-get-function-env"(i64 %r1399)
 %r1396 = tail call i64 @"scm-make-env"(i64 2, i64 %r1394)
@@ -3669,7 +3669,7 @@ define i64 @function32(i64 %"env") {
 ret i64 %r1398
 }
 
-define i64 @function34(i64 %"env") {
+define i64 @function34(i64 %"env") nounwind {
 %r1425 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 17)
 %r1420 = tail call i64 @"scm-get-function-env"(i64 %r1425)
 %r1422 = tail call i64 @"scm-make-env"(i64 0, i64 %r1420)
@@ -3917,13 +3917,13 @@ label129:
 ret i64 %r1604
 }
 
-define i64 @function33(i64 %"env") {
+define i64 @function33(i64 %"env") nounwind {
 %r1607 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r1610 = tail call i64 @function34(i64 %r1607)
 ret i64 %r1610
 }
 
-define i64 @function35(i64 %"env") {
+define i64 @function35(i64 %"env") nounwind {
 %r1620 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 17)
 %r1615 = tail call i64 @"scm-get-function-env"(i64 %r1620)
 %r1617 = tail call i64 @"scm-make-env"(i64 0, i64 %r1615)
@@ -3943,7 +3943,7 @@ define i64 @function35(i64 %"env") {
 ret i64 %r1627
 }
 
-define i64 @function36(i64 %"env") {
+define i64 @function36(i64 %"env") nounwind {
 %r1660 = alloca i64
 %r1640 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 25)
 %r1635 = tail call i64 @"scm-get-function-env"(i64 %r1640)
@@ -3986,7 +3986,7 @@ label150:
 ret i64 %r1661
 }
 
-define i64 @function38(i64 %"env") {
+define i64 @function38(i64 %"env") nounwind {
 %r1674 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 17)
 %r1669 = tail call i64 @"scm-get-function-env"(i64 %r1674)
 %r1671 = tail call i64 @"scm-make-env"(i64 0, i64 %r1669)
@@ -4333,13 +4333,13 @@ label153:
 ret i64 %r1936
 }
 
-define i64 @function37(i64 %"env") {
+define i64 @function37(i64 %"env") nounwind {
 %r1939 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r1942 = tail call i64 @function38(i64 %r1939)
 ret i64 %r1942
 }
 
-define i64 @function40(i64 %"env") {
+define i64 @function40(i64 %"env") nounwind {
 %r1971 = alloca i64
 %r1950 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r1952 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
@@ -4377,7 +4377,7 @@ label180:
 ret i64 %r1972
 }
 
-define i64 @function41(i64 %"env") {
+define i64 @function41(i64 %"env") nounwind {
 %r1947 = ptrtoint i64 (i64)* @function40 to i64
 %r1948 = tail call i64 @"scm-make-function"(i64 %r1947, i64 %"env", i64 0)
 %r1946 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1948)
@@ -4430,13 +4430,13 @@ label183:
 ret i64 %r2010
 }
 
-define i64 @function39(i64 %"env") {
+define i64 @function39(i64 %"env") nounwind {
 %r2013 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2016 = tail call i64 @function41(i64 %r2013)
 ret i64 %r2016
 }
 
-define i64 @function44(i64 %"env") {
+define i64 @function44(i64 %"env") nounwind {
 %r2030 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 4, i64 16)
 %r2025 = tail call i64 @"scm-get-function-env"(i64 %r2030)
 %r2027 = tail call i64 @"scm-make-env"(i64 0, i64 %r2025)
@@ -4489,13 +4489,13 @@ label186:
 ret i64 %r2061
 }
 
-define i64 @function43(i64 %"env") {
+define i64 @function43(i64 %"env") nounwind {
 %r2064 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2067 = tail call i64 @function44(i64 %r2064)
 ret i64 %r2067
 }
 
-define i64 @function45(i64 %"env") {
+define i64 @function45(i64 %"env") nounwind {
 %r2021 = ptrtoint i64 (i64)* @function43 to i64
 %r2022 = tail call i64 @"scm-make-function"(i64 %r2021, i64 %"env", i64 0)
 %r2020 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2022)
@@ -4523,13 +4523,13 @@ define i64 @function45(i64 %"env") {
 ret i64 %r2073
 }
 
-define i64 @function42(i64 %"env") {
+define i64 @function42(i64 %"env") nounwind {
 %r2089 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2092 = tail call i64 @function45(i64 %r2089)
 ret i64 %r2092
 }
 
-define i64 @function47(i64 %"env") {
+define i64 @function47(i64 %"env") nounwind {
 %r2136 = alloca i64
 %r2105 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 4)
 %r2100 = tail call i64 @"scm-get-function-env"(i64 %r2105)
@@ -4582,7 +4582,7 @@ label189:
 ret i64 %r2137
 }
 
-define i64 @function48(i64 %"env") {
+define i64 @function48(i64 %"env") nounwind {
 %r2097 = ptrtoint i64 (i64)* @function47 to i64
 %r2098 = tail call i64 @"scm-make-function"(i64 %r2097, i64 %"env", i64 0)
 %r2096 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2098)
@@ -4601,13 +4601,13 @@ define i64 @function48(i64 %"env") {
 ret i64 %r2140
 }
 
-define i64 @function46(i64 %"env") {
+define i64 @function46(i64 %"env") nounwind {
 %r2152 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2155 = tail call i64 @function48(i64 %r2152)
 ret i64 %r2155
 }
 
-define i64 @function49(i64 %"env") {
+define i64 @function49(i64 %"env") nounwind {
 %r2190 = alloca i64
 %r2165 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2160 = tail call i64 @"scm-get-function-env"(i64 %r2165)
@@ -4662,7 +4662,7 @@ label192:
 ret i64 %r2191
 }
 
-define i64 @function52(i64 %"env") {
+define i64 @function52(i64 %"env") nounwind {
 %r2207 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 4, i64 17)
 %r2202 = tail call i64 @"scm-get-function-env"(i64 %r2207)
 %r2204 = tail call i64 @"scm-make-env"(i64 0, i64 %r2202)
@@ -4756,13 +4756,13 @@ label198:
 ret i64 %r2271
 }
 
-define i64 @function51(i64 %"env") {
+define i64 @function51(i64 %"env") nounwind {
 %r2274 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2277 = tail call i64 @function52(i64 %r2274)
 ret i64 %r2277
 }
 
-define i64 @function53(i64 %"env") {
+define i64 @function53(i64 %"env") nounwind {
 %r2198 = ptrtoint i64 (i64)* @function51 to i64
 %r2199 = tail call i64 @"scm-make-function"(i64 %r2198, i64 %"env", i64 0)
 %r2197 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2199)
@@ -4778,13 +4778,13 @@ define i64 @function53(i64 %"env") {
 ret i64 %r2278
 }
 
-define i64 @function50(i64 %"env") {
+define i64 @function50(i64 %"env") nounwind {
 %r2287 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2290 = tail call i64 @function53(i64 %r2287)
 ret i64 %r2290
 }
 
-define i64 @function54(i64 %"env") {
+define i64 @function54(i64 %"env") nounwind {
 %r2295 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2294 = tail call i64 @"scm-display"(i64 %r2295)
 %r2299 = ptrtoint [2 x i8]* @r2298 to i64
@@ -4805,7 +4805,7 @@ define i64 @function54(i64 %"env") {
 ret i64 %r2310
 }
 
-define i64 @function55(i64 %"env") {
+define i64 @function55(i64 %"env") nounwind {
 %r2333 = alloca i64
 %r2316 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2315 = tail call i64 @"scm-pair?"(i64 %r2316)
@@ -4839,7 +4839,7 @@ label204:
 ret i64 %r2334
 }
 
-define i64 @function56(i64 %"env") {
+define i64 @function56(i64 %"env") nounwind {
 %r2342 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2341 = tail call i64 @"scm-number?"(i64 %r2342)
 %r2344 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
@@ -4848,13 +4848,13 @@ define i64 @function56(i64 %"env") {
 ret i64 %r2340
 }
 
-define i64 @function57(i64 %"env") {
+define i64 @function57(i64 %"env") nounwind {
 %r2349 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2348 = tail call i64 @"scm-symbol?"(i64 %r2349)
 ret i64 %r2348
 }
 
-define i64 @function58(i64 %"env") {
+define i64 @function58(i64 %"env") nounwind {
 %r2359 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2354 = tail call i64 @"scm-get-function-env"(i64 %r2359)
 %r2356 = tail call i64 @"scm-make-env"(i64 2, i64 %r2354)
@@ -4871,7 +4871,7 @@ define i64 @function58(i64 %"env") {
 ret i64 %r2358
 }
 
-define i64 @function59(i64 %"env") {
+define i64 @function59(i64 %"env") nounwind {
 %r2376 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2371 = tail call i64 @"scm-get-function-env"(i64 %r2376)
 %r2373 = tail call i64 @"scm-make-env"(i64 2, i64 %r2371)
@@ -4888,7 +4888,7 @@ define i64 @function59(i64 %"env") {
 ret i64 %r2375
 }
 
-define i64 @function60(i64 %"env") {
+define i64 @function60(i64 %"env") nounwind {
 %r2393 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2388 = tail call i64 @"scm-get-function-env"(i64 %r2393)
 %r2390 = tail call i64 @"scm-make-env"(i64 2, i64 %r2388)
@@ -4905,7 +4905,7 @@ define i64 @function60(i64 %"env") {
 ret i64 %r2392
 }
 
-define i64 @function61(i64 %"env") {
+define i64 @function61(i64 %"env") nounwind {
 %r2410 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2405 = tail call i64 @"scm-get-function-env"(i64 %r2410)
 %r2407 = tail call i64 @"scm-make-env"(i64 2, i64 %r2405)
@@ -4922,7 +4922,7 @@ define i64 @function61(i64 %"env") {
 ret i64 %r2409
 }
 
-define i64 @function62(i64 %"env") {
+define i64 @function62(i64 %"env") nounwind {
 %r2427 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2422 = tail call i64 @"scm-get-function-env"(i64 %r2427)
 %r2424 = tail call i64 @"scm-make-env"(i64 2, i64 %r2422)
@@ -4939,7 +4939,7 @@ define i64 @function62(i64 %"env") {
 ret i64 %r2426
 }
 
-define i64 @function63(i64 %"env") {
+define i64 @function63(i64 %"env") nounwind {
 %r2444 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2439 = tail call i64 @"scm-get-function-env"(i64 %r2444)
 %r2441 = tail call i64 @"scm-make-env"(i64 2, i64 %r2439)
@@ -4956,7 +4956,7 @@ define i64 @function63(i64 %"env") {
 ret i64 %r2443
 }
 
-define i64 @function64(i64 %"env") {
+define i64 @function64(i64 %"env") nounwind {
 %r2461 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2456 = tail call i64 @"scm-get-function-env"(i64 %r2461)
 %r2458 = tail call i64 @"scm-make-env"(i64 2, i64 %r2456)
@@ -4973,7 +4973,7 @@ define i64 @function64(i64 %"env") {
 ret i64 %r2460
 }
 
-define i64 @function65(i64 %"env") {
+define i64 @function65(i64 %"env") nounwind {
 %r2478 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2473 = tail call i64 @"scm-get-function-env"(i64 %r2478)
 %r2475 = tail call i64 @"scm-make-env"(i64 2, i64 %r2473)
@@ -4990,13 +4990,13 @@ define i64 @function65(i64 %"env") {
 ret i64 %r2477
 }
 
-define i64 @function66(i64 %"env") {
+define i64 @function66(i64 %"env") nounwind {
 %r2490 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2489 = tail call i64 @"scm-pair?"(i64 %r2490)
 ret i64 %r2489
 }
 
-define i64 @function67(i64 %"env") {
+define i64 @function67(i64 %"env") nounwind {
 %r2500 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2495 = tail call i64 @"scm-get-function-env"(i64 %r2500)
 %r2497 = tail call i64 @"scm-make-env"(i64 2, i64 %r2495)
@@ -5013,7 +5013,7 @@ define i64 @function67(i64 %"env") {
 ret i64 %r2499
 }
 
-define i64 @function68(i64 %"env") {
+define i64 @function68(i64 %"env") nounwind {
 %r2517 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 13)
 %r2512 = tail call i64 @"scm-get-function-env"(i64 %r2517)
 %r2514 = tail call i64 @"scm-make-env"(i64 2, i64 %r2512)
@@ -5038,7 +5038,7 @@ define i64 @function68(i64 %"env") {
 ret i64 %r2516
 }
 
-define i64 @function69(i64 %"env") {
+define i64 @function69(i64 %"env") nounwind {
 %r2541 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2536 = tail call i64 @"scm-get-function-env"(i64 %r2541)
 %r2538 = tail call i64 @"scm-make-env"(i64 2, i64 %r2536)
@@ -5055,7 +5055,7 @@ define i64 @function69(i64 %"env") {
 ret i64 %r2540
 }
 
-define i64 @function70(i64 %"env") {
+define i64 @function70(i64 %"env") nounwind {
 %r2558 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2553 = tail call i64 @"scm-get-function-env"(i64 %r2558)
 %r2555 = tail call i64 @"scm-make-env"(i64 2, i64 %r2553)
@@ -5072,7 +5072,7 @@ define i64 @function70(i64 %"env") {
 ret i64 %r2557
 }
 
-define i64 @function71(i64 %"env") {
+define i64 @function71(i64 %"env") nounwind {
 %r2575 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2570 = tail call i64 @"scm-get-function-env"(i64 %r2575)
 %r2572 = tail call i64 @"scm-make-env"(i64 2, i64 %r2570)
@@ -5089,7 +5089,7 @@ define i64 @function71(i64 %"env") {
 ret i64 %r2574
 }
 
-define i64 @function72(i64 %"env") {
+define i64 @function72(i64 %"env") nounwind {
 %r2592 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2587 = tail call i64 @"scm-get-function-env"(i64 %r2592)
 %r2589 = tail call i64 @"scm-make-env"(i64 2, i64 %r2587)
@@ -5106,7 +5106,7 @@ define i64 @function72(i64 %"env") {
 ret i64 %r2591
 }
 
-define i64 @function73(i64 %"env") {
+define i64 @function73(i64 %"env") nounwind {
 %r2609 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2604 = tail call i64 @"scm-get-function-env"(i64 %r2609)
 %r2606 = tail call i64 @"scm-make-env"(i64 2, i64 %r2604)
@@ -5123,7 +5123,7 @@ define i64 @function73(i64 %"env") {
 ret i64 %r2608
 }
 
-define i64 @function74(i64 %"env") {
+define i64 @function74(i64 %"env") nounwind {
 %r2626 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r2621 = tail call i64 @"scm-get-function-env"(i64 %r2626)
 %r2623 = tail call i64 @"scm-make-env"(i64 2, i64 %r2621)
@@ -5140,56 +5140,56 @@ define i64 @function74(i64 %"env") {
 ret i64 %r2625
 }
 
-define i64 @function75(i64 %"env") {
+define i64 @function75(i64 %"env") nounwind {
 %r2638 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2637 = tail call i64 @"scm-car"(i64 %r2638)
 ret i64 %r2637
 }
 
-define i64 @function76(i64 %"env") {
+define i64 @function76(i64 %"env") nounwind {
 %r2643 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2642 = tail call i64 @"scm-cdr"(i64 %r2643)
 ret i64 %r2642
 }
 
-define i64 @function77(i64 %"env") {
+define i64 @function77(i64 %"env") nounwind {
 %r2648 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2647 = tail call i64 @"scm-cadr"(i64 %r2648)
 ret i64 %r2647
 }
 
-define i64 @function78(i64 %"env") {
+define i64 @function78(i64 %"env") nounwind {
 %r2653 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2652 = tail call i64 @"scm-caddr"(i64 %r2653)
 ret i64 %r2652
 }
 
-define i64 @function79(i64 %"env") {
+define i64 @function79(i64 %"env") nounwind {
 %r2658 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2657 = tail call i64 @"scm-cadddr"(i64 %r2658)
 ret i64 %r2657
 }
 
-define i64 @function80(i64 %"env") {
+define i64 @function80(i64 %"env") nounwind {
 %r2663 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2662 = tail call i64 @"scm-cdr"(i64 %r2663)
 ret i64 %r2662
 }
 
-define i64 @function81(i64 %"env") {
+define i64 @function81(i64 %"env") nounwind {
 %r2669 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2668 = tail call i64 @"scm-cdr"(i64 %r2669)
 %r2667 = tail call i64 @"scm-null?"(i64 %r2668)
 ret i64 %r2667
 }
 
-define i64 @function82(i64 %"env") {
+define i64 @function82(i64 %"env") nounwind {
 %r2674 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2673 = tail call i64 @"scm-cadr"(i64 %r2674)
 ret i64 %r2673
 }
 
-define i64 @function83(i64 %"env") {
+define i64 @function83(i64 %"env") nounwind {
 %r2685 = alloca i64
 %r2680 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2679 = tail call i64 @"scm-cadr"(i64 %r2680)
@@ -5212,7 +5212,7 @@ label207:
 ret i64 %r2686
 }
 
-define i64 @function84(i64 %"env") {
+define i64 @function84(i64 %"env") nounwind {
 %r2706 = alloca i64
 %r2694 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2693 = tail call i64 @"scm-cadr"(i64 %r2694)
@@ -5241,19 +5241,19 @@ label210:
 ret i64 %r2707
 }
 
-define i64 @function85(i64 %"env") {
+define i64 @function85(i64 %"env") nounwind {
 %r2714 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2713 = tail call i64 @"scm-cadr"(i64 %r2714)
 ret i64 %r2713
 }
 
-define i64 @function86(i64 %"env") {
+define i64 @function86(i64 %"env") nounwind {
 %r2719 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2718 = tail call i64 @"scm-caddr"(i64 %r2719)
 ret i64 %r2718
 }
 
-define i64 @function87(i64 %"env") {
+define i64 @function87(i64 %"env") nounwind {
 %r2730 = alloca i64
 %r2726 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2725 = tail call i64 @"scm-cdddr"(i64 %r2726)
@@ -5276,7 +5276,7 @@ label213:
 ret i64 %r2731
 }
 
-define i64 @function88(i64 %"env") {
+define i64 @function88(i64 %"env") nounwind {
 %r2743 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 12)
 %r2738 = tail call i64 @"scm-get-function-env"(i64 %r2743)
 %r2740 = tail call i64 @"scm-make-env"(i64 4, i64 %r2738)
@@ -5297,7 +5297,7 @@ define i64 @function88(i64 %"env") {
 ret i64 %r2742
 }
 
-define i64 @function90(i64 %"env") {
+define i64 @function90(i64 %"env") nounwind {
 %r2781 = alloca i64
 %r2763 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2762 = tail call i64 @"scm-pair?"(i64 %r2763)
@@ -5333,7 +5333,7 @@ label216:
 ret i64 %r2782
 }
 
-define i64 @function91(i64 %"env") {
+define i64 @function91(i64 %"env") nounwind {
 %r2759 = ptrtoint i64 (i64)* @function90 to i64
 %r2760 = tail call i64 @"scm-make-function"(i64 %r2759, i64 %"env", i64 0)
 %r2758 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2760)
@@ -5376,13 +5376,13 @@ label219:
 ret i64 %r2810
 }
 
-define i64 @function89(i64 %"env") {
+define i64 @function89(i64 %"env") nounwind {
 %r2813 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r2816 = tail call i64 @function91(i64 %r2813)
 ret i64 %r2816
 }
 
-define i64 @function92(i64 %"env") {
+define i64 @function92(i64 %"env") nounwind {
 %r2827 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 11)
 %r2822 = tail call i64 @"scm-get-function-env"(i64 %r2827)
 %r2824 = tail call i64 @"scm-make-env"(i64 1, i64 %r2822)
@@ -5398,13 +5398,13 @@ define i64 @function92(i64 %"env") {
 ret i64 %r2820
 }
 
-define i64 @function93(i64 %"env") {
+define i64 @function93(i64 %"env") nounwind {
 %r2836 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2835 = tail call i64 @"scm-cddr"(i64 %r2836)
 ret i64 %r2835
 }
 
-define i64 @function94(i64 %"env") {
+define i64 @function94(i64 %"env") nounwind {
 %r2869 = alloca i64
 %r2841 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2840 = tail call i64 @"scm-null?"(i64 %r2841)
@@ -5457,7 +5457,7 @@ label222:
 ret i64 %r2870
 }
 
-define i64 @function95(i64 %"env") {
+define i64 @function95(i64 %"env") nounwind {
 %r2879 = ptrtoint [6 x i8]* @r2878 to i64
 %r2877 = tail call i64 @"scm-make-symbol"(i64 %r2879, i64 5)
 %r2880 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
@@ -5465,13 +5465,13 @@ define i64 @function95(i64 %"env") {
 ret i64 %r2876
 }
 
-define i64 @function96(i64 %"env") {
+define i64 @function96(i64 %"env") nounwind {
 %r2885 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2884 = tail call i64 @"scm-cdr"(i64 %r2885)
 ret i64 %r2884
 }
 
-define i64 @function97(i64 %"env") {
+define i64 @function97(i64 %"env") nounwind {
 %r2895 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 3)
 %r2890 = tail call i64 @"scm-get-function-env"(i64 %r2895)
 %r2892 = tail call i64 @"scm-make-env"(i64 2, i64 %r2890)
@@ -5497,19 +5497,19 @@ define i64 @function97(i64 %"env") {
 ret i64 %r2894
 }
 
-define i64 @function98(i64 %"env") {
+define i64 @function98(i64 %"env") nounwind {
 %r2916 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2915 = tail call i64 @"scm-car"(i64 %r2916)
 ret i64 %r2915
 }
 
-define i64 @function99(i64 %"env") {
+define i64 @function99(i64 %"env") nounwind {
 %r2921 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2920 = tail call i64 @"scm-cdr"(i64 %r2921)
 ret i64 %r2920
 }
 
-define i64 @function100(i64 %"env") {
+define i64 @function100(i64 %"env") nounwind {
 %r2931 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 46)
 %r2926 = tail call i64 @"scm-get-function-env"(i64 %r2931)
 %r2928 = tail call i64 @"scm-make-env"(i64 1, i64 %r2926)
@@ -5532,7 +5532,7 @@ define i64 @function100(i64 %"env") {
 ret i64 %r2930
 }
 
-define i64 @function102(i64 %"env") {
+define i64 @function102(i64 %"env") nounwind {
 %r3059 = alloca i64
 %r2964 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 42)
 %r2959 = tail call i64 @"scm-get-function-env"(i64 %r2964)
@@ -5655,7 +5655,7 @@ label231:
 ret i64 %r3060
 }
 
-define i64 @function101(i64 %"env") {
+define i64 @function101(i64 %"env") nounwind {
 %r3070 = alloca i64
 %r2948 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r2947 = tail call i64 @"scm-null?"(i64 %r2948)
@@ -5689,13 +5689,13 @@ label228:
 ret i64 %r3071
 }
 
-define i64 @function104(i64 %"env") {
+define i64 @function104(i64 %"env") nounwind {
 %r3087 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3086 = tail call i64 @"scm-car"(i64 %r3087)
 ret i64 %r3086
 }
 
-define i64 @function103(i64 %"env") {
+define i64 @function103(i64 %"env") nounwind {
 %r3083 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 7)
 %r3078 = tail call i64 @"scm-get-function-env"(i64 %r3083)
 %r3080 = tail call i64 @"scm-make-env"(i64 2, i64 %r3078)
@@ -5713,13 +5713,13 @@ define i64 @function103(i64 %"env") {
 ret i64 %r3082
 }
 
-define i64 @function106(i64 %"env") {
+define i64 @function106(i64 %"env") nounwind {
 %r3106 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3105 = tail call i64 @"scm-cadr"(i64 %r3106)
 ret i64 %r3105
 }
 
-define i64 @function105(i64 %"env") {
+define i64 @function105(i64 %"env") nounwind {
 %r3102 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 7)
 %r3097 = tail call i64 @"scm-get-function-env"(i64 %r3102)
 %r3099 = tail call i64 @"scm-make-env"(i64 2, i64 %r3097)
@@ -5737,13 +5737,13 @@ define i64 @function105(i64 %"env") {
 ret i64 %r3101
 }
 
-define i64 @function107(i64 %"env") {
+define i64 @function107(i64 %"env") nounwind {
 %r3116 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3115 = tail call i64 @"scm-cddr"(i64 %r3116)
 ret i64 %r3115
 }
 
-define i64 @function108(i64 %"env") {
+define i64 @function108(i64 %"env") nounwind {
 %r3124 = ptrtoint [7 x i8]* @r3123 to i64
 %r3122 = tail call i64 @"scm-make-symbol"(i64 %r3124, i64 6)
 %r3132 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 47)
@@ -5782,19 +5782,19 @@ define i64 @function108(i64 %"env") {
 ret i64 %r3120
 }
 
-define i64 @function109(i64 %"env") {
+define i64 @function109(i64 %"env") nounwind {
 %r3160 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3159 = tail call i64 @"scm-cdr"(i64 %r3160)
 ret i64 %r3159
 }
 
-define i64 @function110(i64 %"env") {
+define i64 @function110(i64 %"env") nounwind {
 %r3165 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3164 = tail call i64 @"scm-car"(i64 %r3165)
 ret i64 %r3164
 }
 
-define i64 @function111(i64 %"env") {
+define i64 @function111(i64 %"env") nounwind {
 %r3234 = alloca i64
 %r3170 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3169 = tail call i64 @"scm-null?"(i64 %r3170)
@@ -5891,7 +5891,7 @@ label237:
 ret i64 %r3235
 }
 
-define i64 @function112(i64 %"env") {
+define i64 @function112(i64 %"env") nounwind {
 %r3247 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 53)
 %r3242 = tail call i64 @"scm-get-function-env"(i64 %r3247)
 %r3244 = tail call i64 @"scm-make-env"(i64 1, i64 %r3242)
@@ -5905,7 +5905,7 @@ define i64 @function112(i64 %"env") {
 ret i64 %r3246
 }
 
-define i64 @function113(i64 %"env") {
+define i64 @function113(i64 %"env") nounwind {
 %r3255 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3262 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 53)
 %r3257 = tail call i64 @"scm-get-function-env"(i64 %r3262)
@@ -5921,7 +5921,7 @@ define i64 @function113(i64 %"env") {
 ret i64 %r3254
 }
 
-define i64 @function115(i64 %"env") {
+define i64 @function115(i64 %"env") nounwind {
 %r3300 = alloca i64
 %r3273 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r3272 = tail call i64 @"scm-null?"(i64 %r3273)
@@ -5965,7 +5965,7 @@ label246:
 ret i64 %r3301
 }
 
-define i64 @function116(i64 %"env") {
+define i64 @function116(i64 %"env") nounwind {
 %r3270 = ptrtoint i64 (i64)* @function115 to i64
 %r3271 = tail call i64 @"scm-make-function"(i64 %r3270, i64 %"env", i64 0)
 %r3269 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r3271)
@@ -5986,13 +5986,13 @@ define i64 @function116(i64 %"env") {
 ret i64 %r3309
 }
 
-define i64 @function114(i64 %"env") {
+define i64 @function114(i64 %"env") nounwind {
 %r3318 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r3321 = tail call i64 @function116(i64 %r3318)
 ret i64 %r3321
 }
 
-define i64 @function117(i64 %"env") {
+define i64 @function117(i64 %"env") nounwind {
 %r3326 = tail call i64 @"scm-make-number"(i64 0)
 %r3325 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 1, i64 58, i64 %r3326)
 %r3328 = tail call i64 @"scm-make-number"(i64 0)
@@ -6026,7 +6026,7 @@ define i64 @function117(i64 %"env") {
 ret i64 %r3359
 }
 
-define i64 @function118(i64 %"env") {
+define i64 @function118(i64 %"env") nounwind {
 %r3368 = tail call i64 @"scm-make-number"(i64 1)
 %r3369 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 58)
 %r3367 = tail call i64 @"scm-+"(i64 %r3368, i64 %r3369)
@@ -6056,7 +6056,7 @@ define i64 @function118(i64 %"env") {
 ret i64 %r3375
 }
 
-define i64 @function119(i64 %"env") {
+define i64 @function119(i64 %"env") nounwind {
 %r3398 = tail call i64 @"scm-make-number"(i64 1)
 %r3399 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 58)
 %r3397 = tail call i64 @"scm-+"(i64 %r3398, i64 %r3399)
@@ -6086,7 +6086,7 @@ define i64 @function119(i64 %"env") {
 ret i64 %r3405
 }
 
-define i64 @function120(i64 %"env") {
+define i64 @function120(i64 %"env") nounwind {
 %r3430 = tail call i64 @"scm-make-number"(i64 1)
 %r3431 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 61)
 %r3429 = tail call i64 @"scm-+"(i64 %r3430, i64 %r3431)
@@ -6116,7 +6116,7 @@ define i64 @function120(i64 %"env") {
 ret i64 %r3437
 }
 
-define i64 @function121(i64 %"env") {
+define i64 @function121(i64 %"env") nounwind {
 %r3462 = tail call i64 @"scm-make-number"(i64 1)
 %r3463 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 63)
 %r3461 = tail call i64 @"scm-+"(i64 %r3462, i64 %r3463)
@@ -6146,7 +6146,7 @@ define i64 @function121(i64 %"env") {
 ret i64 %r3469
 }
 
-define i64 @function122(i64 %"env") {
+define i64 @function122(i64 %"env") nounwind {
 %r3494 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3495 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 65)
 %r3493 = tail call i64 @"scm-cons"(i64 %r3494, i64 %r3495)
@@ -6154,7 +6154,7 @@ define i64 @function122(i64 %"env") {
 ret i64 %r3492
 }
 
-define i64 @function124(i64 %"env") {
+define i64 @function124(i64 %"env") nounwind {
 %r3559 = alloca i64
 %r3505 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3504 = tail call i64 @"scm-null?"(i64 %r3505)
@@ -6229,7 +6229,7 @@ label249:
 ret i64 %r3560
 }
 
-define i64 @function125(i64 %"env") {
+define i64 @function125(i64 %"env") nounwind {
 %r3502 = ptrtoint i64 (i64)* @function124 to i64
 %r3503 = tail call i64 @"scm-make-function"(i64 %r3502, i64 %"env", i64 0)
 %r3501 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r3503)
@@ -6283,8 +6283,8 @@ define i64 @function125(i64 %"env") {
 %r3618 = tail call i64 @"scm-fix-arbitrary-funcs"(i64 %r3611, i64 %r3612)
 %r3614 = tail call i64 %r3609(i64 %r3612)
 %r3625 = tail call i64 @"scm-vector-set!"(i64 %r3589, i64 4, i64 %r3614)
-%r3621 = ptrtoint [4 x i8]* @r3620 to i64
-%r3619 = tail call i64 @"scm-make-string"(i64 %r3621, i64 3)
+%r3621 = ptrtoint [13 x i8]* @r3620 to i64
+%r3619 = tail call i64 @"scm-make-string"(i64 %r3621, i64 12)
 %r3626 = tail call i64 @"scm-vector-set!"(i64 %r3589, i64 5, i64 %r3619)
 %r3588 = tail call i64 @"scm-get-function-nparams"(i64 %r3592)
 %r3627 = tail call i64 @"scm-fix-arbitrary-funcs"(i64 %r3588, i64 %r3589)
@@ -6348,13 +6348,13 @@ define i64 @function125(i64 %"env") {
 ret i64 %r3563
 }
 
-define i64 @function123(i64 %"env") {
+define i64 @function123(i64 %"env") nounwind {
 %r3679 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r3682 = tail call i64 @function125(i64 %r3679)
 ret i64 %r3682
 }
 
-define i64 @function127(i64 %"env") {
+define i64 @function127(i64 %"env") nounwind {
 %r3691 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3692 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r3690 = tail call i64 @"scm-string-ref"(i64 %r3691, i64 %r3692)
@@ -6362,7 +6362,7 @@ define i64 @function127(i64 %"env") {
 ret i64 %r3689
 }
 
-define i64 @function128(i64 %"env") {
+define i64 @function128(i64 %"env") nounwind {
 %r3698 = tail call i64 @"scm-make-number"(i64 92)
 %r3697 = tail call i64 @"scm-integer->char"(i64 %r3698)
 %r3701 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
@@ -6376,7 +6376,7 @@ define i64 @function128(i64 %"env") {
 ret i64 %r3696
 }
 
-define i64 @function129(i64 %"env") {
+define i64 @function129(i64 %"env") nounwind {
 %r3845 = alloca i64
 %r3710 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r3711 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 3)
@@ -6544,7 +6544,7 @@ label255:
 ret i64 %r3846
 }
 
-define i64 @function130(i64 %"env") {
+define i64 @function130(i64 %"env") nounwind {
 %r3687 = ptrtoint i64 (i64)* @function127 to i64
 %r3688 = tail call i64 @"scm-make-function"(i64 %r3687, i64 %"env", i64 0)
 %r3686 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r3688)
@@ -6573,13 +6573,13 @@ define i64 @function130(i64 %"env") {
 ret i64 %r3849
 }
 
-define i64 @function126(i64 %"env") {
+define i64 @function126(i64 %"env") nounwind {
 %r3865 = tail call i64 @"scm-make-env"(i64 3, i64 %"env")
 %r3868 = tail call i64 @function130(i64 %r3865)
 ret i64 %r3868
 }
 
-define i64 @function132(i64 %"env") {
+define i64 @function132(i64 %"env") nounwind {
 %r3889 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 8)
 %r3884 = tail call i64 @"scm-get-function-env"(i64 %r3889)
 %r3886 = tail call i64 @"scm-make-env"(i64 2, i64 %r3884)
@@ -6649,7 +6649,7 @@ define i64 @function132(i64 %"env") {
 ret i64 %r3943
 }
 
-define i64 @function131(i64 %"env") {
+define i64 @function131(i64 %"env") nounwind {
 %r3880 = ptrtoint i64 (i64)* @function132 to i64
 %r3881 = tail call i64 @"scm-make-function"(i64 %r3880, i64 %"env", i64 0)
 %r3875 = tail call i64 @"scm-get-function-env"(i64 %r3881)
@@ -6691,26 +6691,26 @@ define i64 @function131(i64 %"env") {
 ret i64 %r3879
 }
 
-define i64 @function133(i64 %"env") {
+define i64 @function133(i64 %"env") nounwind {
 %r3988 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3989 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r3987 = tail call i64 @"scm-cons"(i64 %r3988, i64 %r3989)
 ret i64 %r3987
 }
 
-define i64 @function134(i64 %"env") {
+define i64 @function134(i64 %"env") nounwind {
 %r3994 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3993 = tail call i64 @"scm-car"(i64 %r3994)
 ret i64 %r3993
 }
 
-define i64 @function135(i64 %"env") {
+define i64 @function135(i64 %"env") nounwind {
 %r3999 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3998 = tail call i64 @"scm-cdr"(i64 %r3999)
 ret i64 %r3998
 }
 
-define i64 @function137(i64 %"env") {
+define i64 @function137(i64 %"env") nounwind {
 %r4044 = alloca i64
 %r4007 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r4006 = tail call i64 @"scm-null?"(i64 %r4007)
@@ -6772,7 +6772,7 @@ label264:
 ret i64 %r4045
 }
 
-define i64 @function138(i64 %"env") {
+define i64 @function138(i64 %"env") nounwind {
 %r4089 = alloca i64
 %r4060 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r4059 = tail call i64 @"scm-null?"(i64 %r4060)
@@ -6818,7 +6818,7 @@ label273:
 ret i64 %r4090
 }
 
-define i64 @function139(i64 %"env") {
+define i64 @function139(i64 %"env") nounwind {
 %r4004 = ptrtoint i64 (i64)* @function137 to i64
 %r4005 = tail call i64 @"scm-make-function"(i64 %r4004, i64 %"env", i64 0)
 %r4003 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r4005)
@@ -6873,13 +6873,13 @@ label270:
 ret i64 %r4119
 }
 
-define i64 @function136(i64 %"env") {
+define i64 @function136(i64 %"env") nounwind {
 %r4122 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r4125 = tail call i64 @function139(i64 %r4122)
 ret i64 %r4125
 }
 
-define i64 @function140(i64 %"env") {
+define i64 @function140(i64 %"env") nounwind {
 %r4344 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 13)
 %r4339 = tail call i64 @"scm-get-function-env"(i64 %r4344)
 %r4341 = tail call i64 @"scm-make-env"(i64 2, i64 %r4339)
@@ -6896,7 +6896,7 @@ define i64 @function140(i64 %"env") {
 ret i64 %r4337
 }
 
-define i64 @function141(i64 %"env") {
+define i64 @function141(i64 %"env") nounwind {
 %r4391 = alloca i64
 %r4354 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r4353 = tail call i64 @"scm-number?"(i64 %r4354)
@@ -6956,7 +6956,7 @@ label276:
 ret i64 %r4392
 }
 
-define i64 @function142(i64 %"env") {
+define i64 @function142(i64 %"env") nounwind {
 %r4436 = alloca i64
 %r4399 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r4398 = tail call i64 @"scm-number?"(i64 %r4399)
@@ -7016,7 +7016,7 @@ label282:
 ret i64 %r4437
 }
 
-define i64 @function143(i64 %"env") {
+define i64 @function143(i64 %"env") nounwind {
 %r4449 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r4444 = tail call i64 @"scm-get-function-env"(i64 %r4449)
 %r4446 = tail call i64 @"scm-make-env"(i64 7, i64 %r4444)
@@ -7072,7 +7072,7 @@ define i64 @function143(i64 %"env") {
 ret i64 %r4448
 }
 
-define i64 @function144(i64 %"env") {
+define i64 @function144(i64 %"env") nounwind {
 %r4507 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 82)
 %r4502 = tail call i64 @"scm-get-function-env"(i64 %r4507)
 %r4504 = tail call i64 @"scm-make-env"(i64 4, i64 %r4502)
@@ -7093,7 +7093,7 @@ define i64 @function144(i64 %"env") {
 ret i64 %r4506
 }
 
-define i64 @function146(i64 %"env") {
+define i64 @function146(i64 %"env") nounwind {
 %r4591 = alloca i64
 %r4526 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r4525 = tail call i64 @"scm-null?"(i64 %r4526)
@@ -7179,7 +7179,7 @@ label288:
 ret i64 %r4592
 }
 
-define i64 @function147(i64 %"env") {
+define i64 @function147(i64 %"env") nounwind {
 %r4523 = ptrtoint i64 (i64)* @function146 to i64
 %r4524 = tail call i64 @"scm-make-function"(i64 %r4523, i64 %"env", i64 0)
 %r4522 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r4524)
@@ -7229,13 +7229,13 @@ define i64 @function147(i64 %"env") {
 ret i64 %r4600
 }
 
-define i64 @function145(i64 %"env") {
+define i64 @function145(i64 %"env") nounwind {
 %r4641 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r4644 = tail call i64 @function147(i64 %r4641)
 ret i64 %r4644
 }
 
-define i64 @function148(i64 %"env") {
+define i64 @function148(i64 %"env") nounwind {
 %r4654 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 84)
 %r4649 = tail call i64 @"scm-get-function-env"(i64 %r4654)
 %r4651 = tail call i64 @"scm-make-env"(i64 3, i64 %r4649)
@@ -7253,7 +7253,7 @@ define i64 @function148(i64 %"env") {
 ret i64 %r4653
 }
 
-define i64 @function149(i64 %"env") {
+define i64 @function149(i64 %"env") nounwind {
 %r4671 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r4666 = tail call i64 @"scm-get-function-env"(i64 %r4671)
 %r4668 = tail call i64 @"scm-make-env"(i64 2, i64 %r4666)
@@ -7279,7 +7279,7 @@ define i64 @function149(i64 %"env") {
 ret i64 %r4670
 }
 
-define i64 @function150(i64 %"env") {
+define i64 @function150(i64 %"env") nounwind {
 %r4697 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r4692 = tail call i64 @"scm-get-function-env"(i64 %r4697)
 %r4694 = tail call i64 @"scm-make-env"(i64 7, i64 %r4692)
@@ -7308,7 +7308,7 @@ define i64 @function150(i64 %"env") {
 ret i64 %r4696
 }
 
-define i64 @function151(i64 %"env") {
+define i64 @function151(i64 %"env") nounwind {
 %r4728 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r4723 = tail call i64 @"scm-get-function-env"(i64 %r4728)
 %r4725 = tail call i64 @"scm-make-env"(i64 7, i64 %r4723)
@@ -7337,7 +7337,7 @@ define i64 @function151(i64 %"env") {
 ret i64 %r4727
 }
 
-define i64 @function153(i64 %"env") {
+define i64 @function153(i64 %"env") nounwind {
 %r4762 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r4757 = tail call i64 @"scm-get-function-env"(i64 %r4762)
 %r4759 = tail call i64 @"scm-make-env"(i64 6, i64 %r4757)
@@ -7416,7 +7416,7 @@ label294:
 ret i64 %r4761
 }
 
-define i64 @function154(i64 %"env") {
+define i64 @function154(i64 %"env") nounwind {
 %r4754 = ptrtoint i64 (i64)* @function153 to i64
 %r4755 = tail call i64 @"scm-make-function"(i64 %r4754, i64 %"env", i64 0)
 %r4753 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r4755)
@@ -7452,13 +7452,13 @@ define i64 @function154(i64 %"env") {
 ret i64 %r4833
 }
 
-define i64 @function152(i64 %"env") {
+define i64 @function152(i64 %"env") nounwind {
 %r4859 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r4862 = tail call i64 @function154(i64 %r4859)
 ret i64 %r4862
 }
 
-define i64 @function155(i64 %"env") {
+define i64 @function155(i64 %"env") nounwind {
 %r4872 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r4867 = tail call i64 @"scm-get-function-env"(i64 %r4872)
 %r4869 = tail call i64 @"scm-make-env"(i64 2, i64 %r4867)
@@ -7475,7 +7475,7 @@ define i64 @function155(i64 %"env") {
 ret i64 %r4871
 }
 
-define i64 @function156(i64 %"env") {
+define i64 @function156(i64 %"env") nounwind {
 %r4889 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r4884 = tail call i64 @"scm-get-function-env"(i64 %r4889)
 %r4886 = tail call i64 @"scm-make-env"(i64 2, i64 %r4884)
@@ -7492,7 +7492,7 @@ define i64 @function156(i64 %"env") {
 ret i64 %r4888
 }
 
-define i64 @function158(i64 %"env") {
+define i64 @function158(i64 %"env") nounwind {
 %r4914 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 54)
 %r4909 = tail call i64 @"scm-get-function-env"(i64 %r4914)
 %r4911 = tail call i64 @"scm-make-env"(i64 3, i64 %r4909)
@@ -7563,7 +7563,7 @@ define i64 @function158(i64 %"env") {
 ret i64 %r4913
 }
 
-define i64 @function157(i64 %"env") {
+define i64 @function157(i64 %"env") nounwind {
 %r4906 = ptrtoint i64 (i64)* @function158 to i64
 %r4907 = tail call i64 @"scm-make-function"(i64 %r4906, i64 %"env", i64 0)
 %r4901 = tail call i64 @"scm-get-function-env"(i64 %r4907)
@@ -7594,7 +7594,7 @@ define i64 @function157(i64 %"env") {
 ret i64 %r4905
 }
 
-define i64 @function159(i64 %"env") {
+define i64 @function159(i64 %"env") nounwind {
 %r5009 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5004 = tail call i64 @"scm-get-function-env"(i64 %r5009)
 %r5006 = tail call i64 @"scm-make-env"(i64 4, i64 %r5004)
@@ -7616,7 +7616,7 @@ define i64 @function159(i64 %"env") {
 ret i64 %r5008
 }
 
-define i64 @function160(i64 %"env") {
+define i64 @function160(i64 %"env") nounwind {
 %r5032 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5027 = tail call i64 @"scm-get-function-env"(i64 %r5032)
 %r5029 = tail call i64 @"scm-make-env"(i64 3, i64 %r5027)
@@ -7635,7 +7635,7 @@ define i64 @function160(i64 %"env") {
 ret i64 %r5031
 }
 
-define i64 @function161(i64 %"env") {
+define i64 @function161(i64 %"env") nounwind {
 %r5051 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5046 = tail call i64 @"scm-get-function-env"(i64 %r5051)
 %r5048 = tail call i64 @"scm-make-env"(i64 2, i64 %r5046)
@@ -7652,7 +7652,7 @@ define i64 @function161(i64 %"env") {
 ret i64 %r5050
 }
 
-define i64 @function162(i64 %"env") {
+define i64 @function162(i64 %"env") nounwind {
 %r5068 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5063 = tail call i64 @"scm-get-function-env"(i64 %r5068)
 %r5065 = tail call i64 @"scm-make-env"(i64 7, i64 %r5063)
@@ -7699,7 +7699,7 @@ define i64 @function162(i64 %"env") {
 ret i64 %r5067
 }
 
-define i64 @function164(i64 %"env") {
+define i64 @function164(i64 %"env") nounwind {
 %r5125 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 54)
 %r5120 = tail call i64 @"scm-get-function-env"(i64 %r5125)
 %r5122 = tail call i64 @"scm-make-env"(i64 2, i64 %r5120)
@@ -7751,7 +7751,7 @@ define i64 @function164(i64 %"env") {
 ret i64 %r5124
 }
 
-define i64 @function163(i64 %"env") {
+define i64 @function163(i64 %"env") nounwind {
 %r5117 = ptrtoint i64 (i64)* @function164 to i64
 %r5118 = tail call i64 @"scm-make-function"(i64 %r5117, i64 %"env", i64 0)
 %r5112 = tail call i64 @"scm-get-function-env"(i64 %r5118)
@@ -7773,7 +7773,7 @@ define i64 @function163(i64 %"env") {
 ret i64 %r5116
 }
 
-define i64 @function165(i64 %"env") {
+define i64 @function165(i64 %"env") nounwind {
 %r5190 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 85)
 %r5185 = tail call i64 @"scm-get-function-env"(i64 %r5190)
 %r5187 = tail call i64 @"scm-make-env"(i64 4, i64 %r5185)
@@ -7812,7 +7812,7 @@ define i64 @function165(i64 %"env") {
 ret i64 %r5189
 }
 
-define i64 @function166(i64 %"env") {
+define i64 @function166(i64 %"env") nounwind {
 %r5229 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 85)
 %r5224 = tail call i64 @"scm-get-function-env"(i64 %r5229)
 %r5226 = tail call i64 @"scm-make-env"(i64 5, i64 %r5224)
@@ -7869,7 +7869,7 @@ define i64 @function166(i64 %"env") {
 ret i64 %r5228
 }
 
-define i64 @function167(i64 %"env") {
+define i64 @function167(i64 %"env") nounwind {
 %r5287 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5282 = tail call i64 @"scm-get-function-env"(i64 %r5287)
 %r5284 = tail call i64 @"scm-make-env"(i64 2, i64 %r5282)
@@ -7916,7 +7916,7 @@ define i64 @function167(i64 %"env") {
 ret i64 %r5322
 }
 
-define i64 @function168(i64 %"env") {
+define i64 @function168(i64 %"env") nounwind {
 %r5335 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5330 = tail call i64 @"scm-get-function-env"(i64 %r5335)
 %r5332 = tail call i64 @"scm-make-env"(i64 2, i64 %r5330)
@@ -7942,7 +7942,7 @@ define i64 @function168(i64 %"env") {
 ret i64 %r5348
 }
 
-define i64 @function169(i64 %"env") {
+define i64 @function169(i64 %"env") nounwind {
 %r5725 = alloca i64
 %r5360 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r5355 = tail call i64 @"scm-get-function-env"(i64 %r5360)
@@ -8415,7 +8415,7 @@ label297:
 ret i64 %r5726
 }
 
-define i64 @function172(i64 %"env") {
+define i64 @function172(i64 %"env") nounwind {
 %r5829 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 54)
 %r5824 = tail call i64 @"scm-get-function-env"(i64 %r5829)
 %r5826 = tail call i64 @"scm-make-env"(i64 2, i64 %r5824)
@@ -8475,7 +8475,7 @@ define i64 @function172(i64 %"env") {
 ret i64 %r5828
 }
 
-define i64 @function173(i64 %"env") {
+define i64 @function173(i64 %"env") nounwind {
 %r5916 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 54)
 %r5911 = tail call i64 @"scm-get-function-env"(i64 %r5916)
 %r5913 = tail call i64 @"scm-make-env"(i64 2, i64 %r5911)
@@ -8535,7 +8535,7 @@ define i64 @function173(i64 %"env") {
 ret i64 %r5915
 }
 
-define i64 @function174(i64 %"env") {
+define i64 @function174(i64 %"env") nounwind {
 %r6022 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 54)
 %r6017 = tail call i64 @"scm-get-function-env"(i64 %r6022)
 %r6019 = tail call i64 @"scm-make-env"(i64 3, i64 %r6017)
@@ -8605,7 +8605,7 @@ define i64 @function174(i64 %"env") {
 ret i64 %r6021
 }
 
-define i64 @function171(i64 %"env") {
+define i64 @function171(i64 %"env") nounwind {
 %r5784 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 55)
 %r5779 = tail call i64 @"scm-get-function-env"(i64 %r5784)
 %r5781 = tail call i64 @"scm-make-env"(i64 2, i64 %r5779)
@@ -8835,7 +8835,7 @@ label336:
 ret i64 %r5783
 }
 
-define i64 @function170(i64 %"env") {
+define i64 @function170(i64 %"env") nounwind {
 %r6161 = alloca i64
 %r5739 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 3)
 %r5734 = tail call i64 @"scm-get-function-env"(i64 %r5739)
@@ -8906,7 +8906,7 @@ label333:
 ret i64 %r6162
 }
 
-define i64 @function176(i64 %"env") {
+define i64 @function176(i64 %"env") nounwind {
 %r6262 = alloca i64
 %r6212 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r6211 = tail call i64 @"scm-null?"(i64 %r6212)
@@ -8970,7 +8970,7 @@ label354:
 ret i64 %r6263
 }
 
-define i64 @function175(i64 %"env") {
+define i64 @function175(i64 %"env") nounwind {
 %r6291 = alloca i64
 %r6174 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 3)
 %r6169 = tail call i64 @"scm-get-function-env"(i64 %r6174)
@@ -9053,7 +9053,7 @@ label351:
 ret i64 %r6292
 }
 
-define i64 @function178(i64 %"env") {
+define i64 @function178(i64 %"env") nounwind {
 %r6381 = alloca i64
 %r6307 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r6306 = tail call i64 @"scm-null?"(i64 %r6307)
@@ -9140,7 +9140,7 @@ label357:
 ret i64 %r6382
 }
 
-define i64 @function177(i64 %"env") {
+define i64 @function177(i64 %"env") nounwind {
 %r6304 = ptrtoint i64 (i64)* @function178 to i64
 %r6305 = tail call i64 @"scm-make-function"(i64 %r6304, i64 %"env", i64 0)
 %r6299 = tail call i64 @"scm-get-function-env"(i64 %r6305)
@@ -9208,7 +9208,7 @@ define i64 @function177(i64 %"env") {
 ret i64 %r6303
 }
 
-define i64 @function180(i64 %"env") {
+define i64 @function180(i64 %"env") nounwind {
 %r6458 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 55)
 %r6453 = tail call i64 @"scm-get-function-env"(i64 %r6458)
 %r6455 = tail call i64 @"scm-make-env"(i64 14, i64 %r6453)
@@ -9402,7 +9402,7 @@ define i64 @function180(i64 %"env") {
 ret i64 %r6457
 }
 
-define i64 @function179(i64 %"env") {
+define i64 @function179(i64 %"env") nounwind {
 %r6450 = ptrtoint i64 (i64)* @function180 to i64
 %r6451 = tail call i64 @"scm-make-function"(i64 %r6450, i64 %"env", i64 0)
 %r6445 = tail call i64 @"scm-get-function-env"(i64 %r6451)
@@ -9526,7 +9526,7 @@ define i64 @function179(i64 %"env") {
 ret i64 %r6449
 }
 
-define i64 @function182(i64 %"env") {
+define i64 @function182(i64 %"env") nounwind {
 %r6858 = alloca i64
 %r6761 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r6760 = tail call i64 @"scm-null?"(i64 %r6761)
@@ -9656,7 +9656,7 @@ label360:
 ret i64 %r6859
 }
 
-define i64 @function184(i64 %"env") {
+define i64 @function184(i64 %"env") nounwind {
 %r6889 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 4, i64 55)
 %r6884 = tail call i64 @"scm-get-function-env"(i64 %r6889)
 %r6886 = tail call i64 @"scm-make-env"(i64 3, i64 %r6884)
@@ -9692,7 +9692,7 @@ define i64 @function184(i64 %"env") {
 ret i64 %r6888
 }
 
-define i64 @function183(i64 %"env") {
+define i64 @function183(i64 %"env") nounwind {
 %r6977 = alloca i64
 %r6871 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 28)
 %r6866 = tail call i64 @"scm-get-function-env"(i64 %r6871)
@@ -9788,7 +9788,7 @@ label369:
 ret i64 %r6978
 }
 
-define i64 @function186(i64 %"env") {
+define i64 @function186(i64 %"env") nounwind {
 %r7019 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 4, i64 68)
 %r7014 = tail call i64 @"scm-get-function-env"(i64 %r7019)
 %r7016 = tail call i64 @"scm-make-env"(i64 3, i64 %r7014)
@@ -9862,7 +9862,7 @@ define i64 @function186(i64 %"env") {
 ret i64 %r7036
 }
 
-define i64 @function185(i64 %"env") {
+define i64 @function185(i64 %"env") nounwind {
 %r7158 = alloca i64
 %r6990 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r6989 = tail call i64 @"scm-null?"(i64 %r6990)
@@ -9974,7 +9974,7 @@ label372:
 ret i64 %r7159
 }
 
-define i64 @function187(i64 %"env") {
+define i64 @function187(i64 %"env") nounwind {
 %r6758 = ptrtoint i64 (i64)* @function182 to i64
 %r6759 = tail call i64 @"scm-make-function"(i64 %r6758, i64 %"env", i64 0)
 %r6757 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r6759)
@@ -10004,13 +10004,13 @@ define i64 @function187(i64 %"env") {
 ret i64 %r6986
 }
 
-define i64 @function181(i64 %"env") {
+define i64 @function181(i64 %"env") nounwind {
 %r7174 = tail call i64 @"scm-make-env"(i64 2, i64 %"env")
 %r7177 = tail call i64 @function187(i64 %r7174)
 ret i64 %r7177
 }
 
-define i64 @function189(i64 %"env") {
+define i64 @function189(i64 %"env") nounwind {
 %r7195 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 68)
 %r7190 = tail call i64 @"scm-get-function-env"(i64 %r7195)
 %r7192 = tail call i64 @"scm-make-env"(i64 3, i64 %r7190)
@@ -10122,7 +10122,7 @@ label375:
 ret i64 %r7212
 }
 
-define i64 @function188(i64 %"env") {
+define i64 @function188(i64 %"env") nounwind {
 %r7187 = ptrtoint i64 (i64)* @function189 to i64
 %r7188 = tail call i64 @"scm-make-function"(i64 %r7187, i64 %"env", i64 0)
 %r7182 = tail call i64 @"scm-get-function-env"(i64 %r7188)
@@ -10204,7 +10204,7 @@ define i64 @function188(i64 %"env") {
 ret i64 %r7186
 }
 
-define i64 @function191(i64 %"env") {
+define i64 @function191(i64 %"env") nounwind {
 %r7381 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 68)
 %r7376 = tail call i64 @"scm-get-function-env"(i64 %r7381)
 %r7378 = tail call i64 @"scm-make-env"(i64 3, i64 %r7376)
@@ -10264,7 +10264,7 @@ define i64 @function191(i64 %"env") {
 ret i64 %r7425
 }
 
-define i64 @function190(i64 %"env") {
+define i64 @function190(i64 %"env") nounwind {
 %r7373 = ptrtoint i64 (i64)* @function191 to i64
 %r7374 = tail call i64 @"scm-make-function"(i64 %r7373, i64 %"env", i64 0)
 %r7368 = tail call i64 @"scm-get-function-env"(i64 %r7374)
@@ -10308,7 +10308,7 @@ define i64 @function190(i64 %"env") {
 ret i64 %r7372
 }
 
-define i64 @function194(i64 %"env") {
+define i64 @function194(i64 %"env") nounwind {
 %r7499 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r7494 = tail call i64 @"scm-get-function-env"(i64 %r7499)
 %r7496 = tail call i64 @"scm-make-env"(i64 3, i64 %r7494)
@@ -10355,7 +10355,7 @@ define i64 @function194(i64 %"env") {
 ret i64 %r7498
 }
 
-define i64 @function195(i64 %"env") {
+define i64 @function195(i64 %"env") nounwind {
 %r7583 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r7578 = tail call i64 @"scm-get-function-env"(i64 %r7583)
 %r7580 = tail call i64 @"scm-make-env"(i64 4, i64 %r7578)
@@ -10431,7 +10431,7 @@ define i64 @function195(i64 %"env") {
 ret i64 %r7582
 }
 
-define i64 @function196(i64 %"env") {
+define i64 @function196(i64 %"env") nounwind {
 %r7718 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r7713 = tail call i64 @"scm-get-function-env"(i64 %r7718)
 %r7715 = tail call i64 @"scm-make-env"(i64 4, i64 %r7713)
@@ -10500,7 +10500,7 @@ define i64 @function196(i64 %"env") {
 ret i64 %r7717
 }
 
-define i64 @function197(i64 %"env") {
+define i64 @function197(i64 %"env") nounwind {
 %r7846 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r7841 = tail call i64 @"scm-get-function-env"(i64 %r7846)
 %r7843 = tail call i64 @"scm-make-env"(i64 3, i64 %r7841)
@@ -10569,7 +10569,7 @@ define i64 @function197(i64 %"env") {
 ret i64 %r7845
 }
 
-define i64 @function198(i64 %"env") {
+define i64 @function198(i64 %"env") nounwind {
 %r7952 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r7947 = tail call i64 @"scm-get-function-env"(i64 %r7952)
 %r7949 = tail call i64 @"scm-make-env"(i64 3, i64 %r7947)
@@ -10638,7 +10638,7 @@ define i64 @function198(i64 %"env") {
 ret i64 %r7951
 }
 
-define i64 @function199(i64 %"env") {
+define i64 @function199(i64 %"env") nounwind {
 %r8058 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r8053 = tail call i64 @"scm-get-function-env"(i64 %r8058)
 %r8055 = tail call i64 @"scm-make-env"(i64 3, i64 %r8053)
@@ -10692,7 +10692,7 @@ define i64 @function199(i64 %"env") {
 ret i64 %r8057
 }
 
-define i64 @function200(i64 %"env") {
+define i64 @function200(i64 %"env") nounwind {
 %r8160 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r8155 = tail call i64 @"scm-get-function-env"(i64 %r8160)
 %r8157 = tail call i64 @"scm-make-env"(i64 4, i64 %r8155)
@@ -10772,7 +10772,7 @@ define i64 @function200(i64 %"env") {
 ret i64 %r8159
 }
 
-define i64 @function201(i64 %"env") {
+define i64 @function201(i64 %"env") nounwind {
 %r8310 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r8305 = tail call i64 @"scm-get-function-env"(i64 %r8310)
 %r8307 = tail call i64 @"scm-make-env"(i64 6, i64 %r8305)
@@ -10887,7 +10887,7 @@ define i64 @function201(i64 %"env") {
 ret i64 %r8309
 }
 
-define i64 @function202(i64 %"env") {
+define i64 @function202(i64 %"env") nounwind {
 %r8495 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r8490 = tail call i64 @"scm-get-function-env"(i64 %r8495)
 %r8492 = tail call i64 @"scm-make-env"(i64 4, i64 %r8490)
@@ -10967,7 +10967,7 @@ define i64 @function202(i64 %"env") {
 ret i64 %r8494
 }
 
-define i64 @function193(i64 %"env") {
+define i64 @function193(i64 %"env") nounwind {
 %r8638 = alloca i64
 %r7481 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 16)
 %r7476 = tail call i64 @"scm-get-function-env"(i64 %r7481)
@@ -11576,7 +11576,7 @@ label378:
 ret i64 %r8639
 }
 
-define i64 @function192(i64 %"env") {
+define i64 @function192(i64 %"env") nounwind {
 %r7473 = ptrtoint i64 (i64)* @function193 to i64
 %r7474 = tail call i64 @"scm-make-function"(i64 %r7473, i64 %"env", i64 0)
 %r7468 = tail call i64 @"scm-get-function-env"(i64 %r7474)
@@ -11598,7 +11598,7 @@ define i64 @function192(i64 %"env") {
 ret i64 %r7472
 }
 
-define i64 @function204(i64 %"env") {
+define i64 @function204(i64 %"env") nounwind {
 %r8724 = alloca i64
 %r8659 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r8658 = tail call i64 @"scm-null?"(i64 %r8659)
@@ -11680,7 +11680,7 @@ label402:
 ret i64 %r8725
 }
 
-define i64 @function205(i64 %"env") {
+define i64 @function205(i64 %"env") nounwind {
 %r8775 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r8770 = tail call i64 @"scm-get-function-env"(i64 %r8775)
 %r8772 = tail call i64 @"scm-make-env"(i64 10, i64 %r8770)
@@ -11890,7 +11890,7 @@ define i64 @function205(i64 %"env") {
 ret i64 %r8774
 }
 
-define i64 @function206(i64 %"env") {
+define i64 @function206(i64 %"env") nounwind {
 %r9066 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 102)
 %r9061 = tail call i64 @"scm-get-function-env"(i64 %r9066)
 %r9063 = tail call i64 @"scm-make-env"(i64 2, i64 %r9061)
@@ -11906,7 +11906,7 @@ define i64 @function206(i64 %"env") {
 ret i64 %r9065
 }
 
-define i64 @function207(i64 %"env") {
+define i64 @function207(i64 %"env") nounwind {
 %r8656 = ptrtoint i64 (i64)* @function204 to i64
 %r8657 = tail call i64 @"scm-make-function"(i64 %r8656, i64 %"env", i64 0)
 %r8655 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r8657)
@@ -12066,13 +12066,13 @@ label405:
 ret i64 %r9095
 }
 
-define i64 @function203(i64 %"env") {
+define i64 @function203(i64 %"env") nounwind {
 %r9098 = tail call i64 @"scm-make-env"(i64 1, i64 %"env")
 %r9101 = tail call i64 @function207(i64 %r9098)
 ret i64 %r9101
 }
 
-define i64 @function209(i64 %"env") {
+define i64 @function209(i64 %"env") nounwind {
 %r9119 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 55)
 %r9114 = tail call i64 @"scm-get-function-env"(i64 %r9119)
 %r9116 = tail call i64 @"scm-make-env"(i64 3, i64 %r9114)
@@ -12143,7 +12143,7 @@ define i64 @function209(i64 %"env") {
 ret i64 %r9118
 }
 
-define i64 @function210(i64 %"env") {
+define i64 @function210(i64 %"env") nounwind {
 %r9203 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 2, i64 102)
 %r9198 = tail call i64 @"scm-get-function-env"(i64 %r9203)
 %r9200 = tail call i64 @"scm-make-env"(i64 2, i64 %r9198)
@@ -12159,7 +12159,7 @@ define i64 @function210(i64 %"env") {
 ret i64 %r9202
 }
 
-define i64 @function208(i64 %"env") {
+define i64 @function208(i64 %"env") nounwind {
 %r9111 = ptrtoint i64 (i64)* @function209 to i64
 %r9112 = tail call i64 @"scm-make-function"(i64 %r9111, i64 %"env", i64 0)
 %r9106 = tail call i64 @"scm-get-function-env"(i64 %r9112)
@@ -12204,7 +12204,7 @@ define i64 @function208(i64 %"env") {
 ret i64 %r9110
 }
 
-define i64 @function213(i64 %"env") {
+define i64 @function213(i64 %"env") nounwind {
 %r16838 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 4, i64 7)
 %r16833 = tail call i64 @"scm-get-function-env"(i64 %r16838)
 %r16835 = tail call i64 @"scm-make-env"(i64 2, i64 %r16833)
@@ -12228,7 +12228,7 @@ define i64 @function213(i64 %"env") {
 ret i64 %r16849
 }
 
-define i64 @function212(i64 %"env") {
+define i64 @function212(i64 %"env") nounwind {
 %r16758 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 7)
 %r16753 = tail call i64 @"scm-get-function-env"(i64 %r16758)
 %r16755 = tail call i64 @"scm-make-env"(i64 2, i64 %r16753)
@@ -12312,7 +12312,7 @@ define i64 @function212(i64 %"env") {
 ret i64 %r16828
 }
 
-define i64 @function214(i64 %"env") {
+define i64 @function214(i64 %"env") nounwind {
 %r16859 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r16858 = tail call i64 @"scm-display"(i64 %r16859)
 %r16866 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 3, i64 1)
@@ -12326,7 +12326,7 @@ define i64 @function214(i64 %"env") {
 ret i64 %r16865
 }
 
-define i64 @function211(i64 %"env") {
+define i64 @function211(i64 %"env") nounwind {
 %r16742 = tail call i64 @"scm-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r16737 = tail call i64 @"scm-get-function-env"(i64 %r16742)
 %r16739 = tail call i64 @"scm-make-env"(i64 0, i64 %r16737)
@@ -12375,7 +12375,7 @@ define i64 @function211(i64 %"env") {
 ret i64 %r16894
 }
 
-define i64 @function215(i64 %"env") {
+define i64 @function215(i64 %"env") nounwind {
 %r2292 = ptrtoint i64 (i64)* @function54 to i64
 %r2293 = tail call i64 @"scm-make-function"(i64 %r2292, i64 %"env", i64 0)
 %r2291 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2293)
@@ -19032,7 +19032,7 @@ define i64 @function215(i64 %"env") {
 ret i64 %r16900
 }
 
-define i64 @function216(i64 %"env") {
+define i64 @function216(i64 %"env") nounwind {
 %r613 = ptrtoint i64 (i64)* @function1 to i64
 %r614 = tail call i64 @"scm-make-function"(i64 %r613, i64 %"env", i64 0)
 %r612 = tail call i64 @"scm-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r614)
