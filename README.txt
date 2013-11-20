@@ -13,7 +13,6 @@ Open issues
 ===========
 Open issue: Leverage LLVM's tail call optimization
   Todo: use fastcc calling convention
-  Todo: ret must be immediately after call, compilation of if break this
 
 Open issue: Output readable function names instead of function554 
 
