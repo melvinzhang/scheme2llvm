@@ -1,11 +1,38 @@
 Makefile makes use of the following programs:
   Required:
     llvm 3.x
-    clang
+    clang 3.x
   Optional:
     gawk
     csi - Chicken Scheme interpreter
     csc - Chicken Scheme compiler
+
+
+
+Open issues
+===========
+Open issue: Leverage LLVM's tail call optimization
+  Todo: use fastcc calling convention
+  Todo: ret must be immediately after call, compilation of if break this
+
+Open issue: Output readable function names instead of function554 
+
+Open issue: Document the subset of Scheme supported
+
+Open issue: Reduce repetition in the code base
+
+Open issue: Difficult to interact with the system without a REPL
+  Todo: Add a basic REPL
+
+Open issue: Improve speed of compiled code. For compiling its own source code,
+the self compiled compiler is about 100x slower than Chicken Scheme compiled
+compiler. Should not introduce too much additional code/decrease readability.
+  Done: switch from llvm-as to opt, decrease time for self compile from 21s to 7s
+
+
+
+Resolved issues in chronological order
+======================================
 
 Resolved issue: Compiler uses too much memory
   "make issue/test-too-much-memory.1.ll" fails 
@@ -33,13 +60,3 @@ Latest version of the IR is LLVm IR 3.x
   Done: upgrade output of compiler from LLVM IR 1.x to LLVM IR 2.x
   Done: upgrade output of compiler from LLVM IR 2.x to LLVM IR 3.x
 
-Open issue: Difficult to interact with the system without a REPL
-  Todo: Add a basic REPL
-
-Open issue: Document the subset of Scheme supported
-
-Open issue: Reduce repetition in the code base
-
-Open issue: Improve speed of compiled code. For compiling its own source code,
-the self compiled compiler is about 100x slower than Chicken Scheme compiled
-compiler. Should not introduce too much additional code/decrease readability.
