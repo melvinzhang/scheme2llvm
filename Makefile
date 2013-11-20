@@ -20,10 +20,10 @@ scheme2llvm.csi: scheme2llvm.scm
 	csc -O5 scheme2llvm.scm -o $@
 
 %.bc: %.ll
-	opt -std-compile-opts -std-link-opts $^ -o $@
+	opt -O3 $^ -o $@
 
 %.s: %.bc
-	llc -tailcallopt $^
+	llc -O3 $^
 
 %.ll: %.c
 	clang -S -emit-llvm $^ -o $@
