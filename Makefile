@@ -20,7 +20,7 @@ scheme2llvm.csi: scheme2llvm.scm
 	csc -O5 scheme2llvm.scm -o $@
 
 %.bc: %.ll
-	opt -std-compile-opts $^ -o $@
+	opt -std-compile-opts -std-link-opts $^ -o $@
 
 %.s: %.bc
 	llc -tailcallopt $^
