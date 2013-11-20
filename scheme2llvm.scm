@@ -712,20 +712,9 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
                        ((null? x) 1)
                        (else (load (getelementptr x 0)))))
 
-     (llvm-define (make-vector-pointer x) 
-                  (store 1 (getelementptr x 0))
-                  x)
      
-     (llvm-define (make-string-pointer x) 
-                  (store 2 (getelementptr x 0))
-                  x)
-     
-     (llvm-define (make-symbol-pointer x) 
-                  (store 4 (getelementptr x 0))
-                  x)
 
      (llvm-define (make-function-pointer x) 
-                  (store 3 (getelementptr x 0))
                   x)
 
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
@@ -739,14 +728,14 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
      (llvm-define (pair? x) (if (vector? x) (seteq (vector-size x) 2) (make-null)))
     
      (llvm-define (init-vector! vector size)
+                  (store 1    (getelementptr vector 0))
                   (store size (getelementptr vector 1))
                   vector)
 
      (llvm-define (make-vector raw-size)
                   ;(display "; make-vector:")
                   ;(print (string-bytes " %d\n") raw-size)
-                  (make-vector-pointer 
-                   (init-vector! (malloc (add raw-size 2)) raw-size)))
+                  (init-vector! (malloc (add raw-size 2)) raw-size))
      
      (llvm-define (vector-size vector)
                   (load (getelementptr vector 1)))
@@ -777,13 +766,14 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
                   (set-enclosing-env! (make-vector (add raw-nparams 2)) env))
      
      (llvm-define (init-function! function raw-func env nparams)
+                  (store 3        (getelementptr function 0))
                   (store raw-func (getelementptr function 1))
                   (store env      (getelementptr function 2))
                   (store nparams  (getelementptr function 3))
                   function)
+
      (llvm-define (make-function raw-func env nparams)
-                  (make-function-pointer
-                   (init-function! (malloc 4) raw-func env nparams)))
+                  (init-function! (malloc 4) raw-func env nparams))
                    
      (llvm-define (get-function-func function)
                   (ensure (function? function) "get-function-func: not a function.")
@@ -805,18 +795,23 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
                        call-env n-params 
                        (fix-arb-funcs n-params (sub (vector-size call-env) 1) call-env))))
                        
-     (llvm-define (init-string/symbol str raw-str size)
+     (llvm-define (init-string str raw-str size)
+                  (store 2         (getelementptr str 0))
                   (store raw-str   (getelementptr str 1))
                   (store size      (getelementptr str 2))
                   str)
      
      (llvm-define (make-string raw-str raw-size)
-                  (make-string-pointer 
-                   (init-string/symbol (malloc 3) raw-str (make-number raw-size))))
+                  (init-string (malloc 3) raw-str (make-number raw-size)))
+     
+     (llvm-define (init-symbol str raw-str size)
+                  (store 4         (getelementptr str 0))
+                  (store raw-str   (getelementptr str 1))
+                  (store size      (getelementptr str 2))
+                  str)
      
      (llvm-define (make-symbol raw-str raw-size)
-                  (make-symbol-pointer 
-                   (init-string/symbol (malloc 3) raw-str (make-number raw-size))))
+                  (init-symbol (malloc 3) raw-str (make-number raw-size)))
      
      (llvm-define (string-length str)
                   (load (getelementptr str 2)))
