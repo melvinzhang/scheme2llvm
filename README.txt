@@ -20,6 +20,8 @@ Open issue: Reduce repetition in the code base
 Open issue: Difficult to interact with the system without a REPL
   Todo: Add a basic REPL
 
+Open issue: Rewrite parts of the compiler to remove set!
+
 Open issue: Improve speed of compiled code. For compiling its own source code,
 the self compiled compiler is about 100x slower than Chicken Scheme compiled
 compiler. Should not introduce too much additional code/decrease readability.
