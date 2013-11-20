@@ -39,3 +39,6 @@ bootstrap:
 benchmark:
 	-rm scheme2llvm.ll
 	/usr/bin/time -v make scheme2llvm.ll
+
+size:
+	 cat scheme2llvm.scm| sed 's/\(.\)/\1\n/g' | sort | uniq -c | sort -n | grep "("
