@@ -208,7 +208,7 @@
     (append 
          llvm-function-list
          (list (append-code 
-               (c "define i64 " (llvm-global-repr f-name) "(" (build-params f-params) ") nounwind {")
+               (c "define fastcc i64 " (llvm-global-repr f-name) "(" (build-params f-params) ") nounwind {")
                (compiled-code f-body)
                (llvm-ret (compiled-target f-body))
                (c "}"))))))
@@ -298,7 +298,7 @@
         (c (if (= fi 1) "" ", ")
            (c "i64 " (llvm-repr (car arg-list)))
            (build-arg-list (cdr arg-list) 0))))
-  (c target " = tail call i64 " (llvm-global-repr function) "(" (build-arg-list args 1) ")"))
+  (c target " = tail call fastcc i64 " (llvm-global-repr function) "(" (build-arg-list args 1) ")"))
 (define (llvm-call target function . args)
   (llvm-call2 target function args))
 
@@ -631,26 +631,26 @@ declare void @GC_disable()
 declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
-define i64 @\"scm-llvm-read-char\"() {
+define fastcc i64 @\"scm-llvm-read-char\"() {
     %res.0 = call i32 @getchar( )
     %res.1 = sext i32 %res.0 to i64
     ret i64 %res.1
 }
 
-define i64 @\"scm-print\"(i64 %format, i64 %value) {
+define fastcc i64 @\"scm-print\"(i64 %format, i64 %value) {
     %format2 = inttoptr i64 %format to i8*
     call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
     ret i64 0
 }
 
-define i64 @\"scm-malloc\"(i64 %num) {
+define fastcc i64 @\"scm-malloc\"(i64 %num) {
     %r0 = mul i64 8, %num
     %r1 = call i8* @GC_malloc( i64 %r0 )
     %r2 = ptrtoint i8* %r1 to i64
     ret i64 %r2
 }
 
-define i64 @\"scm-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
+define fastcc i64 @\"scm-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
     %newsize = add i64 %size, 1
     %res = call i8* @GC_malloc( i64 %newsize )
     %ch2 = trunc i64 %ch to i8
@@ -669,7 +669,7 @@ nocopy:
     ret i64 %res3
 }
 
-define i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
+define fastcc i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
     %arr2 = inttoptr i64 %arr to i8*
     %ptr = getelementptr i8* %arr2, i64 %index
     %res = load i8* %ptr
@@ -677,16 +677,16 @@ define i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
     ret i64 %res2
 }
 
-define i64 @\"scm-exit\"(i64 %ev) {
+define fastcc i64 @\"scm-exit\"(i64 %ev) {
     %ev2 = trunc i64 %ev to i32
     call i32 @exit( i32 %ev2 )
     ret i64 0
 }
 
-define i64 @main(i32 %argc, i8** %argv) {
+define fastcc i64 @main(i32 %argc, i8** %argv) {
     call void @GC_init( )
-    %r0 = call i64 @startup( i64 0 )
-    %r1 = call i64 @\"scm-raw-number\"(i64 %r0)
+    %r0 = call fastcc i64 @startup( i64 0 )
+    %r1 = call fastcc i64 @\"scm-raw-number\"(i64 %r0)
     ret i64 %r1
 }
 
@@ -1099,7 +1099,7 @@ define i64 @main(i32 %argc, i8** %argv) {
         (result (compile (append bootstrap exp) '())))
     (map printer llvm-string-list)
     (display bootstrap-llvm-code)
-    (display "define i64 @startup(i64 %\"env\") {\n")
+    (display "define fastcc i64 @startup(i64 %\"env\") {\n")
     (map printer (compiled-code result))
     (display (c "ret i64 " (compiled-target result) "\n}\n"))
     (display "; FUNCTIONS\n")
