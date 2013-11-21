@@ -492,7 +492,6 @@
                (append-sequences seq '() (extend-c-t-env seq-defines c-t-env)))
               (f-name (make-function-name))
               (t1 (make-var)) 
-              (t2 (make-var))
               (seq-env (make-var))
               (target (make-var)))
           (add-llvm-function f-name '(env) seq-code)
