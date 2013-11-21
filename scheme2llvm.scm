@@ -171,7 +171,7 @@
   (set! function-counter 0)
   (set! llvm-function-list '())
   (set! llvm-primitive-functions 
-        '(llvm-read-char print append-bytearray bytearray-ref exit malloc))
+        '(get-char print append-bytearray bytearray-ref exit malloc))
   (set! llvm-string-list '()))
 
 (define var-counter 0)
@@ -191,7 +191,7 @@
 (define function-counter 0)
 (define (make-raw-function-name)
   (set! function-counter (+ 1 function-counter))
-  (c "function" (number->string function-counter)))
+  (c "fun" (number->string function-counter)))
 (define (make-function-name)
   (c "@" (make-raw-function-name)))
 
@@ -279,7 +279,7 @@
 
 (define (llvm-global-repr exp)
   (cond ((number? exp) (number->string exp))
-        ((symbol? exp) (c "@\"scm-" (symbol->string exp) "\""))
+        ((symbol? exp) (c "@\"fun-" (symbol->string exp) "\""))
         (else exp)))
 
 (define (llvm-repr exp)
@@ -642,26 +642,26 @@ declare void @GC_disable()
 declare i8* @GC_malloc(i64)
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8*, i8*, i64, i32, i1)
 
-define fastcc i64 @\"scm-llvm-read-char\"() {
+define fastcc i64 @\"fun-get-char\"() {
     %res.0 = call i32 @getchar( )
     %res.1 = sext i32 %res.0 to i64
     ret i64 %res.1
 }
 
-define fastcc i64 @\"scm-print\"(i64 %format, i64 %value) {
+define fastcc i64 @\"fun-print\"(i64 %format, i64 %value) {
     %format2 = inttoptr i64 %format to i8*
     call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
     ret i64 0
 }
 
-define fastcc i64 @\"scm-malloc\"(i64 %num) {
+define fastcc i64 @\"fun-malloc\"(i64 %num) {
     %r0 = mul i64 8, %num
     %r1 = call i8* @GC_malloc( i64 %r0 )
     %r2 = ptrtoint i8* %r1 to i64
     ret i64 %r2
 }
 
-define fastcc i64 @\"scm-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
+define fastcc i64 @\"fun-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
     %newsize = add i64 %size, 1
     %res = call i8* @GC_malloc( i64 %newsize )
     %ch2 = trunc i64 %ch to i8
@@ -680,7 +680,7 @@ nocopy:
     ret i64 %res3
 }
 
-define fastcc i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
+define fastcc i64 @\"fun-bytearray-ref\"(i64 %arr, i64 %index) {
     %arr2 = inttoptr i64 %arr to i8*
     %ptr = getelementptr i8* %arr2, i64 %index
     %res = load i8* %ptr
@@ -688,7 +688,7 @@ define fastcc i64 @\"scm-bytearray-ref\"(i64 %arr, i64 %index) {
     ret i64 %res2
 }
 
-define fastcc i64 @\"scm-exit\"(i64 %ev) {
+define fastcc i64 @\"fun-exit\"(i64 %ev) {
     %ev2 = trunc i64 %ev to i32
     call i32 @exit( i32 %ev2 )
     ret i64 0
@@ -697,7 +697,7 @@ define fastcc i64 @\"scm-exit\"(i64 %ev) {
 define fastcc i64 @main(i32 %argc, i8** %argv) {
     call void @GC_init( )
     %r0 = call fastcc i64 @startup( i64 0 )
-    %r1 = call fastcc i64 @\"scm-raw-number\"(i64 %r0)
+    %r1 = call fastcc i64 @\"fun-raw-number\"(i64 %r0)
     ret i64 %r1
 }
 
@@ -722,11 +722,6 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
                        ((number? x) 0)
                        ((null? x) 1)
                        (else (load (getelementptr x 0)))))
-
-     
-
-     (llvm-define (make-function-pointer x) 
-                  x)
 
      (llvm-define (number? x) (seteq (bit-and x 3) 2))
      (llvm-define (vector? x) (seteq (get-tag x) 1))
@@ -1008,12 +1003,12 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
      (define read-char-peek '())
      (define (peek-char)
        (cond ((null? read-char-peek)
-              (set! read-char-peek (make-char (llvm-read-char)))
+              (set! read-char-peek (make-char (get-char)))
               read-char-peek)
              (else read-char-peek)))
      (define (read-char)
        (define peek read-char-peek)
-       (cond ((null? peek) (make-char (llvm-read-char)))
+       (cond ((null? peek) (make-char (get-char)))
              (else (set! read-char-peek '())
                    peek)))
      
