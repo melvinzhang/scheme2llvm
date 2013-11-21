@@ -36,8 +36,8 @@
 @r577 = internal constant [4 x i8] c" . \00"
 @r584 = internal constant [2 x i8] c")\00"
 @r589 = internal constant [29 x i8] c"display: nonapplicable type.\00"
-@r1498 = internal constant [6 x i8] c"quote\00"
-@r1786 = internal constant [6 x i8] c"quote\00"
+@r1475 = internal constant [6 x i8] c"quote\00"
+@r1763 = internal constant [6 x i8] c"quote\00"
 @r2287 = internal constant [2 x i8] c" \00"
 @r2351 = internal constant [5 x i8] c"set!\00"
 @r2368 = internal constant [7 x i8] c"define\00"
@@ -1192,479 +1192,468 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
 @r14132 = internal constant [4 x i8] c"cdr\00"
 @r14136 = internal constant [4 x i8] c"lst\00"
 @r14146 = internal constant [7 x i8] c"define\00"
-@r14151 = internal constant [7 x i8] c"length\00"
+@r14151 = internal constant [4 x i8] c"nth\00"
 @r14155 = internal constant [4 x i8] c"lst\00"
-@r14161 = internal constant [5 x i8] c"cond\00"
-@r14167 = internal constant [6 x i8] c"null?\00"
-@r14171 = internal constant [4 x i8] c"lst\00"
-@r14180 = internal constant [5 x i8] c"else\00"
-@r14185 = internal constant [2 x i8] c"+\00"
-@r14192 = internal constant [7 x i8] c"length\00"
-@r14197 = internal constant [4 x i8] c"cdr\00"
-@r14201 = internal constant [4 x i8] c"lst\00"
-@r14212 = internal constant [7 x i8] c"define\00"
-@r14217 = internal constant [4 x i8] c"nth\00"
-@r14221 = internal constant [4 x i8] c"lst\00"
-@r14225 = internal constant [3 x i8] c"el\00"
-@r14231 = internal constant [5 x i8] c"cond\00"
-@r14237 = internal constant [6 x i8] c"null?\00"
-@r14241 = internal constant [4 x i8] c"lst\00"
-@r14247 = internal constant [6 x i8] c"quote\00"
-@r14257 = internal constant [2 x i8] c"=\00"
-@r14261 = internal constant [3 x i8] c"el\00"
-@r14269 = internal constant [4 x i8] c"car\00"
-@r14273 = internal constant [4 x i8] c"lst\00"
-@r14280 = internal constant [5 x i8] c"else\00"
-@r14285 = internal constant [4 x i8] c"nth\00"
-@r14290 = internal constant [4 x i8] c"cdr\00"
-@r14294 = internal constant [4 x i8] c"lst\00"
-@r14300 = internal constant [2 x i8] c"-\00"
-@r14304 = internal constant [3 x i8] c"el\00"
-@r14316 = internal constant [7 x i8] c"define\00"
-@r14321 = internal constant [4 x i8] c"map\00"
-@r14325 = internal constant [3 x i8] c"fn\00"
-@r14329 = internal constant [4 x i8] c"lst\00"
-@r14335 = internal constant [5 x i8] c"cond\00"
-@r14341 = internal constant [6 x i8] c"null?\00"
-@r14345 = internal constant [4 x i8] c"lst\00"
-@r14351 = internal constant [6 x i8] c"quote\00"
-@r14360 = internal constant [5 x i8] c"else\00"
-@r14365 = internal constant [5 x i8] c"cons\00"
-@r14370 = internal constant [3 x i8] c"fn\00"
-@r14375 = internal constant [4 x i8] c"car\00"
-@r14379 = internal constant [4 x i8] c"lst\00"
-@r14386 = internal constant [4 x i8] c"map\00"
-@r14390 = internal constant [3 x i8] c"fn\00"
-@r14395 = internal constant [4 x i8] c"cdr\00"
-@r14399 = internal constant [4 x i8] c"lst\00"
-@r14410 = internal constant [7 x i8] c"define\00"
-@r14415 = internal constant [7 x i8] c"append\00"
-@r14419 = internal constant [3 x i8] c"l1\00"
-@r14423 = internal constant [3 x i8] c"l2\00"
-@r14429 = internal constant [5 x i8] c"cond\00"
-@r14435 = internal constant [6 x i8] c"null?\00"
-@r14439 = internal constant [3 x i8] c"l1\00"
-@r14444 = internal constant [3 x i8] c"l2\00"
-@r14450 = internal constant [5 x i8] c"else\00"
-@r14455 = internal constant [5 x i8] c"cons\00"
-@r14460 = internal constant [4 x i8] c"car\00"
-@r14464 = internal constant [3 x i8] c"l1\00"
-@r14470 = internal constant [7 x i8] c"append\00"
-@r14475 = internal constant [4 x i8] c"cdr\00"
-@r14479 = internal constant [3 x i8] c"l1\00"
-@r14484 = internal constant [3 x i8] c"l2\00"
-@r14494 = internal constant [7 x i8] c"define\00"
-@r14499 = internal constant [8 x i8] c"reverse\00"
-@r14503 = internal constant [4 x i8] c"lst\00"
-@r14509 = internal constant [3 x i8] c"if\00"
-@r14514 = internal constant [6 x i8] c"null?\00"
-@r14518 = internal constant [4 x i8] c"lst\00"
-@r14523 = internal constant [4 x i8] c"lst\00"
-@r14528 = internal constant [7 x i8] c"append\00"
-@r14533 = internal constant [8 x i8] c"reverse\00"
-@r14538 = internal constant [4 x i8] c"cdr\00"
-@r14542 = internal constant [4 x i8] c"lst\00"
-@r14549 = internal constant [5 x i8] c"list\00"
-@r14554 = internal constant [4 x i8] c"car\00"
-@r14558 = internal constant [4 x i8] c"lst\00"
-@r14568 = internal constant [7 x i8] c"define\00"
-@r14573 = internal constant [15 x i8] c"number->string\00"
-@r14577 = internal constant [2 x i8] c"n\00"
-@r14583 = internal constant [7 x i8] c"define\00"
-@r14588 = internal constant [8 x i8] c"nmb-str\00"
-@r14592 = internal constant [2 x i8] c"n\00"
+@r14159 = internal constant [3 x i8] c"el\00"
+@r14165 = internal constant [5 x i8] c"cond\00"
+@r14171 = internal constant [6 x i8] c"null?\00"
+@r14175 = internal constant [4 x i8] c"lst\00"
+@r14181 = internal constant [6 x i8] c"quote\00"
+@r14191 = internal constant [2 x i8] c"=\00"
+@r14195 = internal constant [3 x i8] c"el\00"
+@r14203 = internal constant [4 x i8] c"car\00"
+@r14207 = internal constant [4 x i8] c"lst\00"
+@r14214 = internal constant [5 x i8] c"else\00"
+@r14219 = internal constant [4 x i8] c"nth\00"
+@r14224 = internal constant [4 x i8] c"cdr\00"
+@r14228 = internal constant [4 x i8] c"lst\00"
+@r14234 = internal constant [2 x i8] c"-\00"
+@r14238 = internal constant [3 x i8] c"el\00"
+@r14250 = internal constant [7 x i8] c"define\00"
+@r14255 = internal constant [4 x i8] c"map\00"
+@r14259 = internal constant [3 x i8] c"fn\00"
+@r14263 = internal constant [4 x i8] c"lst\00"
+@r14269 = internal constant [5 x i8] c"cond\00"
+@r14275 = internal constant [6 x i8] c"null?\00"
+@r14279 = internal constant [4 x i8] c"lst\00"
+@r14285 = internal constant [6 x i8] c"quote\00"
+@r14294 = internal constant [5 x i8] c"else\00"
+@r14299 = internal constant [5 x i8] c"cons\00"
+@r14304 = internal constant [3 x i8] c"fn\00"
+@r14309 = internal constant [4 x i8] c"car\00"
+@r14313 = internal constant [4 x i8] c"lst\00"
+@r14320 = internal constant [4 x i8] c"map\00"
+@r14324 = internal constant [3 x i8] c"fn\00"
+@r14329 = internal constant [4 x i8] c"cdr\00"
+@r14333 = internal constant [4 x i8] c"lst\00"
+@r14344 = internal constant [7 x i8] c"define\00"
+@r14349 = internal constant [7 x i8] c"append\00"
+@r14353 = internal constant [3 x i8] c"l1\00"
+@r14357 = internal constant [3 x i8] c"l2\00"
+@r14363 = internal constant [5 x i8] c"cond\00"
+@r14369 = internal constant [6 x i8] c"null?\00"
+@r14373 = internal constant [3 x i8] c"l1\00"
+@r14378 = internal constant [3 x i8] c"l2\00"
+@r14384 = internal constant [5 x i8] c"else\00"
+@r14389 = internal constant [5 x i8] c"cons\00"
+@r14394 = internal constant [4 x i8] c"car\00"
+@r14398 = internal constant [3 x i8] c"l1\00"
+@r14404 = internal constant [7 x i8] c"append\00"
+@r14409 = internal constant [4 x i8] c"cdr\00"
+@r14413 = internal constant [3 x i8] c"l1\00"
+@r14418 = internal constant [3 x i8] c"l2\00"
+@r14428 = internal constant [7 x i8] c"define\00"
+@r14433 = internal constant [8 x i8] c"reverse\00"
+@r14437 = internal constant [4 x i8] c"lst\00"
+@r14443 = internal constant [3 x i8] c"if\00"
+@r14448 = internal constant [6 x i8] c"null?\00"
+@r14452 = internal constant [4 x i8] c"lst\00"
+@r14457 = internal constant [4 x i8] c"lst\00"
+@r14462 = internal constant [7 x i8] c"append\00"
+@r14467 = internal constant [8 x i8] c"reverse\00"
+@r14472 = internal constant [4 x i8] c"cdr\00"
+@r14476 = internal constant [4 x i8] c"lst\00"
+@r14483 = internal constant [5 x i8] c"list\00"
+@r14488 = internal constant [4 x i8] c"car\00"
+@r14492 = internal constant [4 x i8] c"lst\00"
+@r14502 = internal constant [7 x i8] c"define\00"
+@r14507 = internal constant [15 x i8] c"number->string\00"
+@r14511 = internal constant [2 x i8] c"n\00"
+@r14517 = internal constant [7 x i8] c"define\00"
+@r14522 = internal constant [8 x i8] c"nmb-str\00"
+@r14526 = internal constant [2 x i8] c"n\00"
+@r14530 = internal constant [4 x i8] c"res\00"
+@r14536 = internal constant [3 x i8] c"if\00"
+@r14541 = internal constant [2 x i8] c">\00"
+@r14545 = internal constant [2 x i8] c"n\00"
+@r14553 = internal constant [8 x i8] c"nmb-str\00"
+@r14558 = internal constant [2 x i8] c"/\00"
+@r14562 = internal constant [2 x i8] c"n\00"
+@r14570 = internal constant [5 x i8] c"cons\00"
+@r14575 = internal constant [4 x i8] c"nth\00"
+@r14579 = internal constant [13 x i8] c"number-chars\00"
+@r14584 = internal constant [2 x i8] c"%\00"
+@r14588 = internal constant [2 x i8] c"n\00"
 @r14596 = internal constant [4 x i8] c"res\00"
-@r14602 = internal constant [3 x i8] c"if\00"
-@r14607 = internal constant [2 x i8] c">\00"
-@r14611 = internal constant [2 x i8] c"n\00"
-@r14619 = internal constant [8 x i8] c"nmb-str\00"
-@r14624 = internal constant [2 x i8] c"/\00"
-@r14628 = internal constant [2 x i8] c"n\00"
-@r14636 = internal constant [5 x i8] c"cons\00"
-@r14641 = internal constant [4 x i8] c"nth\00"
-@r14645 = internal constant [13 x i8] c"number-chars\00"
-@r14650 = internal constant [2 x i8] c"%\00"
-@r14654 = internal constant [2 x i8] c"n\00"
-@r14662 = internal constant [4 x i8] c"res\00"
-@r14669 = internal constant [5 x i8] c"cons\00"
-@r14674 = internal constant [4 x i8] c"nth\00"
-@r14678 = internal constant [13 x i8] c"number-chars\00"
-@r14682 = internal constant [2 x i8] c"n\00"
-@r14687 = internal constant [4 x i8] c"res\00"
-@r14695 = internal constant [13 x i8] c"list->string\00"
-@r14700 = internal constant [8 x i8] c"nmb-str\00"
-@r14704 = internal constant [2 x i8] c"n\00"
-@r14709 = internal constant [6 x i8] c"quote\00"
-@r14720 = internal constant [7 x i8] c"define\00"
-@r14725 = internal constant [6 x i8] c"list?\00"
-@r14729 = internal constant [2 x i8] c"x\00"
-@r14735 = internal constant [5 x i8] c"cond\00"
-@r14741 = internal constant [6 x i8] c"null?\00"
+@r14603 = internal constant [5 x i8] c"cons\00"
+@r14608 = internal constant [4 x i8] c"nth\00"
+@r14612 = internal constant [13 x i8] c"number-chars\00"
+@r14616 = internal constant [2 x i8] c"n\00"
+@r14621 = internal constant [4 x i8] c"res\00"
+@r14629 = internal constant [13 x i8] c"list->string\00"
+@r14634 = internal constant [8 x i8] c"nmb-str\00"
+@r14638 = internal constant [2 x i8] c"n\00"
+@r14643 = internal constant [6 x i8] c"quote\00"
+@r14654 = internal constant [7 x i8] c"define\00"
+@r14659 = internal constant [6 x i8] c"list?\00"
+@r14663 = internal constant [2 x i8] c"x\00"
+@r14669 = internal constant [5 x i8] c"cond\00"
+@r14675 = internal constant [6 x i8] c"null?\00"
+@r14679 = internal constant [2 x i8] c"x\00"
+@r14689 = internal constant [6 x i8] c"pair?\00"
+@r14693 = internal constant [2 x i8] c"x\00"
+@r14699 = internal constant [6 x i8] c"list?\00"
+@r14704 = internal constant [4 x i8] c"cdr\00"
+@r14708 = internal constant [2 x i8] c"x\00"
+@r14716 = internal constant [5 x i8] c"else\00"
+@r14721 = internal constant [6 x i8] c"quote\00"
+@r14732 = internal constant [7 x i8] c"define\00"
+@r14736 = internal constant [5 x i8] c"list\00"
+@r14741 = internal constant [7 x i8] c"lambda\00"
 @r14745 = internal constant [2 x i8] c"x\00"
-@r14755 = internal constant [6 x i8] c"pair?\00"
-@r14759 = internal constant [2 x i8] c"x\00"
-@r14765 = internal constant [6 x i8] c"list?\00"
-@r14770 = internal constant [4 x i8] c"cdr\00"
-@r14774 = internal constant [2 x i8] c"x\00"
-@r14782 = internal constant [5 x i8] c"else\00"
-@r14787 = internal constant [6 x i8] c"quote\00"
-@r14798 = internal constant [7 x i8] c"define\00"
-@r14802 = internal constant [5 x i8] c"list\00"
-@r14807 = internal constant [7 x i8] c"lambda\00"
-@r14811 = internal constant [2 x i8] c"x\00"
-@r14815 = internal constant [2 x i8] c"x\00"
-@r14822 = internal constant [7 x i8] c"define\00"
-@r14827 = internal constant [6 x i8] c"assoc\00"
-@r14831 = internal constant [2 x i8] c"x\00"
-@r14835 = internal constant [4 x i8] c"lst\00"
-@r14841 = internal constant [5 x i8] c"cond\00"
-@r14847 = internal constant [6 x i8] c"null?\00"
-@r14851 = internal constant [4 x i8] c"lst\00"
-@r14857 = internal constant [6 x i8] c"quote\00"
-@r14867 = internal constant [4 x i8] c"eq?\00"
-@r14871 = internal constant [2 x i8] c"x\00"
-@r14876 = internal constant [4 x i8] c"car\00"
-@r14881 = internal constant [4 x i8] c"car\00"
-@r14885 = internal constant [4 x i8] c"lst\00"
-@r14893 = internal constant [4 x i8] c"car\00"
-@r14897 = internal constant [4 x i8] c"lst\00"
-@r14904 = internal constant [5 x i8] c"else\00"
-@r14909 = internal constant [6 x i8] c"assoc\00"
-@r14913 = internal constant [2 x i8] c"x\00"
-@r14918 = internal constant [4 x i8] c"cdr\00"
-@r14922 = internal constant [4 x i8] c"lst\00"
-@r14932 = internal constant [7 x i8] c"define\00"
-@r14937 = internal constant [14 x i8] c"string-append\00"
-@r14941 = internal constant [5 x i8] c"str1\00"
-@r14945 = internal constant [5 x i8] c"str2\00"
-@r14951 = internal constant [13 x i8] c"list->string\00"
-@r14956 = internal constant [7 x i8] c"append\00"
-@r14961 = internal constant [13 x i8] c"string->list\00"
-@r14965 = internal constant [5 x i8] c"str1\00"
-@r14971 = internal constant [13 x i8] c"string->list\00"
-@r14975 = internal constant [5 x i8] c"str2\00"
-@r14984 = internal constant [7 x i8] c"define\00"
-@r14988 = internal constant [15 x i8] c"read-char-peek\00"
-@r14993 = internal constant [6 x i8] c"quote\00"
+@r14749 = internal constant [2 x i8] c"x\00"
+@r14756 = internal constant [7 x i8] c"define\00"
+@r14761 = internal constant [6 x i8] c"assoc\00"
+@r14765 = internal constant [2 x i8] c"x\00"
+@r14769 = internal constant [4 x i8] c"lst\00"
+@r14775 = internal constant [5 x i8] c"cond\00"
+@r14781 = internal constant [6 x i8] c"null?\00"
+@r14785 = internal constant [4 x i8] c"lst\00"
+@r14791 = internal constant [6 x i8] c"quote\00"
+@r14801 = internal constant [4 x i8] c"eq?\00"
+@r14805 = internal constant [2 x i8] c"x\00"
+@r14810 = internal constant [4 x i8] c"car\00"
+@r14815 = internal constant [4 x i8] c"car\00"
+@r14819 = internal constant [4 x i8] c"lst\00"
+@r14827 = internal constant [4 x i8] c"car\00"
+@r14831 = internal constant [4 x i8] c"lst\00"
+@r14838 = internal constant [5 x i8] c"else\00"
+@r14843 = internal constant [6 x i8] c"assoc\00"
+@r14847 = internal constant [2 x i8] c"x\00"
+@r14852 = internal constant [4 x i8] c"cdr\00"
+@r14856 = internal constant [4 x i8] c"lst\00"
+@r14866 = internal constant [7 x i8] c"define\00"
+@r14871 = internal constant [14 x i8] c"string-append\00"
+@r14875 = internal constant [5 x i8] c"str1\00"
+@r14879 = internal constant [5 x i8] c"str2\00"
+@r14885 = internal constant [13 x i8] c"list->string\00"
+@r14890 = internal constant [7 x i8] c"append\00"
+@r14895 = internal constant [13 x i8] c"string->list\00"
+@r14899 = internal constant [5 x i8] c"str1\00"
+@r14905 = internal constant [13 x i8] c"string->list\00"
+@r14909 = internal constant [5 x i8] c"str2\00"
+@r14918 = internal constant [7 x i8] c"define\00"
+@r14922 = internal constant [15 x i8] c"read-char-peek\00"
+@r14927 = internal constant [6 x i8] c"quote\00"
+@r14936 = internal constant [7 x i8] c"define\00"
+@r14941 = internal constant [10 x i8] c"peek-char\00"
+@r14947 = internal constant [5 x i8] c"cond\00"
+@r14953 = internal constant [6 x i8] c"null?\00"
+@r14957 = internal constant [15 x i8] c"read-char-peek\00"
+@r14963 = internal constant [5 x i8] c"set!\00"
+@r14967 = internal constant [15 x i8] c"read-char-peek\00"
+@r14972 = internal constant [10 x i8] c"make-char\00"
+@r14977 = internal constant [9 x i8] c"get-char\00"
+@r14984 = internal constant [15 x i8] c"read-char-peek\00"
+@r14990 = internal constant [5 x i8] c"else\00"
+@r14994 = internal constant [15 x i8] c"read-char-peek\00"
 @r15002 = internal constant [7 x i8] c"define\00"
-@r15007 = internal constant [10 x i8] c"peek-char\00"
-@r15013 = internal constant [5 x i8] c"cond\00"
-@r15019 = internal constant [6 x i8] c"null?\00"
-@r15023 = internal constant [15 x i8] c"read-char-peek\00"
-@r15029 = internal constant [5 x i8] c"set!\00"
-@r15033 = internal constant [15 x i8] c"read-char-peek\00"
-@r15038 = internal constant [10 x i8] c"make-char\00"
-@r15043 = internal constant [9 x i8] c"get-char\00"
-@r15050 = internal constant [15 x i8] c"read-char-peek\00"
+@r15007 = internal constant [10 x i8] c"read-char\00"
+@r15013 = internal constant [7 x i8] c"define\00"
+@r15017 = internal constant [5 x i8] c"peek\00"
+@r15021 = internal constant [15 x i8] c"read-char-peek\00"
+@r15027 = internal constant [5 x i8] c"cond\00"
+@r15033 = internal constant [6 x i8] c"null?\00"
+@r15037 = internal constant [5 x i8] c"peek\00"
+@r15043 = internal constant [10 x i8] c"make-char\00"
+@r15048 = internal constant [9 x i8] c"get-char\00"
 @r15056 = internal constant [5 x i8] c"else\00"
-@r15060 = internal constant [15 x i8] c"read-char-peek\00"
-@r15068 = internal constant [7 x i8] c"define\00"
-@r15073 = internal constant [10 x i8] c"read-char\00"
-@r15079 = internal constant [7 x i8] c"define\00"
-@r15083 = internal constant [5 x i8] c"peek\00"
-@r15087 = internal constant [15 x i8] c"read-char-peek\00"
-@r15093 = internal constant [5 x i8] c"cond\00"
-@r15099 = internal constant [6 x i8] c"null?\00"
-@r15103 = internal constant [5 x i8] c"peek\00"
-@r15109 = internal constant [10 x i8] c"make-char\00"
-@r15114 = internal constant [9 x i8] c"get-char\00"
-@r15122 = internal constant [5 x i8] c"else\00"
-@r15127 = internal constant [5 x i8] c"set!\00"
-@r15131 = internal constant [15 x i8] c"read-char-peek\00"
-@r15136 = internal constant [6 x i8] c"quote\00"
-@r15144 = internal constant [5 x i8] c"peek\00"
-@r15152 = internal constant [7 x i8] c"define\00"
-@r15156 = internal constant [13 x i8] c"number-chars\00"
-@r15161 = internal constant [6 x i8] c"quote\00"
-@r15190 = internal constant [7 x i8] c"define\00"
-@r15195 = internal constant [17 x i8] c"char-whitespace?\00"
-@r15199 = internal constant [3 x i8] c"ch\00"
-@r15205 = internal constant [3 x i8] c"or\00"
-@r15210 = internal constant [4 x i8] c"eq?\00"
-@r15214 = internal constant [3 x i8] c"ch\00"
-@r15222 = internal constant [3 x i8] c"or\00"
-@r15227 = internal constant [4 x i8] c"eq?\00"
-@r15231 = internal constant [3 x i8] c"ch\00"
-@r15239 = internal constant [4 x i8] c"eq?\00"
-@r15243 = internal constant [3 x i8] c"ch\00"
-@r15254 = internal constant [7 x i8] c"define\00"
-@r15259 = internal constant [14 x i8] c"char-numeric?\00"
-@r15263 = internal constant [3 x i8] c"ch\00"
-@r15269 = internal constant [7 x i8] c"member\00"
-@r15273 = internal constant [3 x i8] c"ch\00"
-@r15277 = internal constant [13 x i8] c"number-chars\00"
-@r15284 = internal constant [7 x i8] c"define\00"
-@r15289 = internal constant [17 x i8] c"char-left-paren?\00"
+@r15061 = internal constant [5 x i8] c"set!\00"
+@r15065 = internal constant [15 x i8] c"read-char-peek\00"
+@r15070 = internal constant [6 x i8] c"quote\00"
+@r15078 = internal constant [5 x i8] c"peek\00"
+@r15086 = internal constant [7 x i8] c"define\00"
+@r15090 = internal constant [13 x i8] c"number-chars\00"
+@r15095 = internal constant [6 x i8] c"quote\00"
+@r15124 = internal constant [7 x i8] c"define\00"
+@r15129 = internal constant [17 x i8] c"char-whitespace?\00"
+@r15133 = internal constant [3 x i8] c"ch\00"
+@r15139 = internal constant [3 x i8] c"or\00"
+@r15144 = internal constant [4 x i8] c"eq?\00"
+@r15148 = internal constant [3 x i8] c"ch\00"
+@r15156 = internal constant [3 x i8] c"or\00"
+@r15161 = internal constant [4 x i8] c"eq?\00"
+@r15165 = internal constant [3 x i8] c"ch\00"
+@r15173 = internal constant [4 x i8] c"eq?\00"
+@r15177 = internal constant [3 x i8] c"ch\00"
+@r15188 = internal constant [7 x i8] c"define\00"
+@r15193 = internal constant [14 x i8] c"char-numeric?\00"
+@r15197 = internal constant [3 x i8] c"ch\00"
+@r15203 = internal constant [7 x i8] c"member\00"
+@r15207 = internal constant [3 x i8] c"ch\00"
+@r15211 = internal constant [13 x i8] c"number-chars\00"
+@r15218 = internal constant [7 x i8] c"define\00"
+@r15223 = internal constant [17 x i8] c"char-left-paren?\00"
+@r15227 = internal constant [3 x i8] c"ch\00"
+@r15233 = internal constant [4 x i8] c"eq?\00"
+@r15237 = internal constant [3 x i8] c"ch\00"
+@r15246 = internal constant [7 x i8] c"define\00"
+@r15251 = internal constant [18 x i8] c"char-right-paren?\00"
+@r15255 = internal constant [3 x i8] c"ch\00"
+@r15261 = internal constant [4 x i8] c"eq?\00"
+@r15265 = internal constant [3 x i8] c"ch\00"
+@r15274 = internal constant [7 x i8] c"define\00"
+@r15279 = internal constant [14 x i8] c"char-comment?\00"
+@r15283 = internal constant [3 x i8] c"ch\00"
+@r15289 = internal constant [4 x i8] c"eq?\00"
 @r15293 = internal constant [3 x i8] c"ch\00"
-@r15299 = internal constant [4 x i8] c"eq?\00"
-@r15303 = internal constant [3 x i8] c"ch\00"
-@r15312 = internal constant [7 x i8] c"define\00"
-@r15317 = internal constant [18 x i8] c"char-right-paren?\00"
+@r15302 = internal constant [7 x i8] c"define\00"
+@r15307 = internal constant [13 x i8] c"char-string?\00"
+@r15311 = internal constant [3 x i8] c"ch\00"
+@r15317 = internal constant [4 x i8] c"eq?\00"
 @r15321 = internal constant [3 x i8] c"ch\00"
-@r15327 = internal constant [4 x i8] c"eq?\00"
-@r15331 = internal constant [3 x i8] c"ch\00"
-@r15340 = internal constant [7 x i8] c"define\00"
-@r15345 = internal constant [14 x i8] c"char-comment?\00"
+@r15330 = internal constant [7 x i8] c"define\00"
+@r15335 = internal constant [14 x i8] c"char-newline?\00"
+@r15339 = internal constant [3 x i8] c"ch\00"
+@r15345 = internal constant [4 x i8] c"eq?\00"
 @r15349 = internal constant [3 x i8] c"ch\00"
-@r15355 = internal constant [4 x i8] c"eq?\00"
-@r15359 = internal constant [3 x i8] c"ch\00"
-@r15368 = internal constant [7 x i8] c"define\00"
-@r15373 = internal constant [13 x i8] c"char-string?\00"
+@r15358 = internal constant [7 x i8] c"define\00"
+@r15363 = internal constant [10 x i8] c"char-dot?\00"
+@r15367 = internal constant [3 x i8] c"ch\00"
+@r15373 = internal constant [4 x i8] c"eq?\00"
 @r15377 = internal constant [3 x i8] c"ch\00"
-@r15383 = internal constant [4 x i8] c"eq?\00"
-@r15387 = internal constant [3 x i8] c"ch\00"
-@r15396 = internal constant [7 x i8] c"define\00"
-@r15401 = internal constant [14 x i8] c"char-newline?\00"
+@r15386 = internal constant [7 x i8] c"define\00"
+@r15391 = internal constant [12 x i8] c"char-quote?\00"
+@r15395 = internal constant [3 x i8] c"ch\00"
+@r15401 = internal constant [4 x i8] c"eq?\00"
 @r15405 = internal constant [3 x i8] c"ch\00"
-@r15411 = internal constant [4 x i8] c"eq?\00"
-@r15415 = internal constant [3 x i8] c"ch\00"
-@r15424 = internal constant [7 x i8] c"define\00"
-@r15429 = internal constant [10 x i8] c"char-dot?\00"
+@r15414 = internal constant [7 x i8] c"define\00"
+@r15419 = internal constant [16 x i8] c"char-backquote?\00"
+@r15423 = internal constant [3 x i8] c"ch\00"
+@r15429 = internal constant [4 x i8] c"eq?\00"
 @r15433 = internal constant [3 x i8] c"ch\00"
-@r15439 = internal constant [4 x i8] c"eq?\00"
-@r15443 = internal constant [3 x i8] c"ch\00"
-@r15452 = internal constant [7 x i8] c"define\00"
-@r15457 = internal constant [12 x i8] c"char-quote?\00"
+@r15442 = internal constant [7 x i8] c"define\00"
+@r15447 = internal constant [12 x i8] c"char-comma?\00"
+@r15451 = internal constant [3 x i8] c"ch\00"
+@r15457 = internal constant [4 x i8] c"eq?\00"
 @r15461 = internal constant [3 x i8] c"ch\00"
-@r15467 = internal constant [4 x i8] c"eq?\00"
-@r15471 = internal constant [3 x i8] c"ch\00"
-@r15480 = internal constant [7 x i8] c"define\00"
-@r15485 = internal constant [16 x i8] c"char-backquote?\00"
+@r15470 = internal constant [7 x i8] c"define\00"
+@r15475 = internal constant [16 x i8] c"char-backslash?\00"
+@r15479 = internal constant [3 x i8] c"ch\00"
+@r15485 = internal constant [4 x i8] c"eq?\00"
 @r15489 = internal constant [3 x i8] c"ch\00"
-@r15495 = internal constant [4 x i8] c"eq?\00"
-@r15499 = internal constant [3 x i8] c"ch\00"
-@r15508 = internal constant [7 x i8] c"define\00"
-@r15513 = internal constant [12 x i8] c"char-comma?\00"
+@r15498 = internal constant [7 x i8] c"define\00"
+@r15503 = internal constant [16 x i8] c"char-character?\00"
+@r15507 = internal constant [3 x i8] c"ch\00"
+@r15513 = internal constant [4 x i8] c"eq?\00"
 @r15517 = internal constant [3 x i8] c"ch\00"
-@r15523 = internal constant [4 x i8] c"eq?\00"
-@r15527 = internal constant [3 x i8] c"ch\00"
-@r15536 = internal constant [7 x i8] c"define\00"
-@r15541 = internal constant [16 x i8] c"char-backslash?\00"
-@r15545 = internal constant [3 x i8] c"ch\00"
-@r15551 = internal constant [4 x i8] c"eq?\00"
-@r15555 = internal constant [3 x i8] c"ch\00"
-@r15564 = internal constant [7 x i8] c"define\00"
-@r15569 = internal constant [16 x i8] c"char-character?\00"
-@r15573 = internal constant [3 x i8] c"ch\00"
-@r15579 = internal constant [4 x i8] c"eq?\00"
-@r15583 = internal constant [3 x i8] c"ch\00"
-@r15592 = internal constant [7 x i8] c"define\00"
-@r15596 = internal constant [15 x i8] c"identifier-end\00"
-@r15601 = internal constant [6 x i8] c"quote\00"
-@r15618 = internal constant [7 x i8] c"define\00"
-@r15623 = internal constant [5 x i8] c"read\00"
-@r15629 = internal constant [7 x i8] c"define\00"
-@r15633 = internal constant [3 x i8] c"ch\00"
-@r15638 = internal constant [10 x i8] c"read-char\00"
-@r15645 = internal constant [5 x i8] c"cond\00"
-@r15651 = internal constant [17 x i8] c"char-left-paren?\00"
-@r15655 = internal constant [3 x i8] c"ch\00"
-@r15661 = internal constant [10 x i8] c"read-list\00"
-@r15669 = internal constant [17 x i8] c"char-whitespace?\00"
-@r15673 = internal constant [3 x i8] c"ch\00"
-@r15679 = internal constant [5 x i8] c"read\00"
-@r15687 = internal constant [14 x i8] c"char-comment?\00"
-@r15691 = internal constant [3 x i8] c"ch\00"
-@r15697 = internal constant [13 x i8] c"read-comment\00"
-@r15703 = internal constant [5 x i8] c"read\00"
-@r15711 = internal constant [12 x i8] c"char-quote?\00"
+@r15526 = internal constant [7 x i8] c"define\00"
+@r15530 = internal constant [15 x i8] c"identifier-end\00"
+@r15535 = internal constant [6 x i8] c"quote\00"
+@r15552 = internal constant [7 x i8] c"define\00"
+@r15557 = internal constant [5 x i8] c"read\00"
+@r15563 = internal constant [7 x i8] c"define\00"
+@r15567 = internal constant [3 x i8] c"ch\00"
+@r15572 = internal constant [10 x i8] c"read-char\00"
+@r15579 = internal constant [5 x i8] c"cond\00"
+@r15585 = internal constant [17 x i8] c"char-left-paren?\00"
+@r15589 = internal constant [3 x i8] c"ch\00"
+@r15595 = internal constant [10 x i8] c"read-list\00"
+@r15603 = internal constant [17 x i8] c"char-whitespace?\00"
+@r15607 = internal constant [3 x i8] c"ch\00"
+@r15613 = internal constant [5 x i8] c"read\00"
+@r15621 = internal constant [14 x i8] c"char-comment?\00"
+@r15625 = internal constant [3 x i8] c"ch\00"
+@r15631 = internal constant [13 x i8] c"read-comment\00"
+@r15637 = internal constant [5 x i8] c"read\00"
+@r15645 = internal constant [12 x i8] c"char-quote?\00"
+@r15649 = internal constant [3 x i8] c"ch\00"
+@r15655 = internal constant [5 x i8] c"cons\00"
+@r15660 = internal constant [6 x i8] c"quote\00"
+@r15664 = internal constant [6 x i8] c"quote\00"
+@r15670 = internal constant [5 x i8] c"cons\00"
+@r15675 = internal constant [5 x i8] c"read\00"
+@r15681 = internal constant [6 x i8] c"quote\00"
+@r15693 = internal constant [13 x i8] c"char-string?\00"
+@r15697 = internal constant [3 x i8] c"ch\00"
+@r15703 = internal constant [12 x i8] c"read-string\00"
+@r15711 = internal constant [16 x i8] c"char-character?\00"
 @r15715 = internal constant [3 x i8] c"ch\00"
-@r15721 = internal constant [5 x i8] c"cons\00"
-@r15726 = internal constant [6 x i8] c"quote\00"
-@r15730 = internal constant [6 x i8] c"quote\00"
-@r15736 = internal constant [5 x i8] c"cons\00"
-@r15741 = internal constant [5 x i8] c"read\00"
-@r15747 = internal constant [6 x i8] c"quote\00"
-@r15759 = internal constant [13 x i8] c"char-string?\00"
-@r15763 = internal constant [3 x i8] c"ch\00"
-@r15769 = internal constant [12 x i8] c"read-string\00"
-@r15777 = internal constant [16 x i8] c"char-character?\00"
-@r15781 = internal constant [3 x i8] c"ch\00"
-@r15787 = internal constant [16 x i8] c"read-char-quote\00"
-@r15795 = internal constant [14 x i8] c"char-numeric?\00"
-@r15799 = internal constant [3 x i8] c"ch\00"
-@r15805 = internal constant [12 x i8] c"read-number\00"
-@r15809 = internal constant [3 x i8] c"ch\00"
-@r15816 = internal constant [5 x i8] c"else\00"
-@r15821 = internal constant [16 x i8] c"read-identifier\00"
-@r15825 = internal constant [3 x i8] c"ch\00"
+@r15721 = internal constant [16 x i8] c"read-char-quote\00"
+@r15729 = internal constant [14 x i8] c"char-numeric?\00"
+@r15733 = internal constant [3 x i8] c"ch\00"
+@r15739 = internal constant [12 x i8] c"read-number\00"
+@r15743 = internal constant [3 x i8] c"ch\00"
+@r15750 = internal constant [5 x i8] c"else\00"
+@r15755 = internal constant [16 x i8] c"read-identifier\00"
+@r15759 = internal constant [3 x i8] c"ch\00"
+@r15768 = internal constant [7 x i8] c"define\00"
+@r15773 = internal constant [16 x i8] c"read-char-quote\00"
+@r15779 = internal constant [10 x i8] c"read-char\00"
+@r15785 = internal constant [10 x i8] c"read-char\00"
+@r15792 = internal constant [7 x i8] c"define\00"
+@r15797 = internal constant [13 x i8] c"read-comment\00"
+@r15803 = internal constant [3 x i8] c"if\00"
+@r15808 = internal constant [4 x i8] c"not\00"
+@r15813 = internal constant [14 x i8] c"char-newline?\00"
+@r15818 = internal constant [10 x i8] c"read-char\00"
+@r15826 = internal constant [13 x i8] c"read-comment\00"
 @r15834 = internal constant [7 x i8] c"define\00"
-@r15839 = internal constant [16 x i8] c"read-char-quote\00"
-@r15845 = internal constant [10 x i8] c"read-char\00"
-@r15851 = internal constant [10 x i8] c"read-char\00"
-@r15858 = internal constant [7 x i8] c"define\00"
-@r15863 = internal constant [13 x i8] c"read-comment\00"
-@r15869 = internal constant [3 x i8] c"if\00"
-@r15874 = internal constant [4 x i8] c"not\00"
-@r15879 = internal constant [14 x i8] c"char-newline?\00"
-@r15884 = internal constant [10 x i8] c"read-char\00"
-@r15892 = internal constant [13 x i8] c"read-comment\00"
-@r15900 = internal constant [7 x i8] c"define\00"
-@r15905 = internal constant [10 x i8] c"read-list\00"
-@r15911 = internal constant [7 x i8] c"define\00"
+@r15839 = internal constant [10 x i8] c"read-list\00"
+@r15845 = internal constant [7 x i8] c"define\00"
+@r15849 = internal constant [3 x i8] c"ch\00"
+@r15854 = internal constant [10 x i8] c"read-char\00"
+@r15861 = internal constant [5 x i8] c"cond\00"
+@r15867 = internal constant [18 x i8] c"char-right-paren?\00"
+@r15871 = internal constant [3 x i8] c"ch\00"
+@r15877 = internal constant [6 x i8] c"quote\00"
+@r15887 = internal constant [10 x i8] c"char-dot?\00"
+@r15891 = internal constant [3 x i8] c"ch\00"
+@r15897 = internal constant [4 x i8] c"car\00"
+@r15902 = internal constant [10 x i8] c"read-list\00"
+@r15911 = internal constant [17 x i8] c"char-left-paren?\00"
 @r15915 = internal constant [3 x i8] c"ch\00"
-@r15920 = internal constant [10 x i8] c"read-char\00"
-@r15927 = internal constant [5 x i8] c"cond\00"
-@r15933 = internal constant [18 x i8] c"char-right-paren?\00"
-@r15937 = internal constant [3 x i8] c"ch\00"
-@r15943 = internal constant [6 x i8] c"quote\00"
-@r15953 = internal constant [10 x i8] c"char-dot?\00"
-@r15957 = internal constant [3 x i8] c"ch\00"
-@r15963 = internal constant [4 x i8] c"car\00"
-@r15968 = internal constant [10 x i8] c"read-list\00"
-@r15977 = internal constant [17 x i8] c"char-left-paren?\00"
-@r15981 = internal constant [3 x i8] c"ch\00"
-@r15987 = internal constant [5 x i8] c"cons\00"
-@r15992 = internal constant [10 x i8] c"read-list\00"
-@r15998 = internal constant [10 x i8] c"read-list\00"
-@r16007 = internal constant [17 x i8] c"char-whitespace?\00"
-@r16011 = internal constant [3 x i8] c"ch\00"
-@r16017 = internal constant [10 x i8] c"read-list\00"
-@r16025 = internal constant [14 x i8] c"char-comment?\00"
-@r16029 = internal constant [3 x i8] c"ch\00"
-@r16035 = internal constant [13 x i8] c"read-comment\00"
-@r16041 = internal constant [10 x i8] c"read-list\00"
-@r16049 = internal constant [12 x i8] c"char-quote?\00"
-@r16053 = internal constant [3 x i8] c"ch\00"
-@r16059 = internal constant [5 x i8] c"cons\00"
-@r16064 = internal constant [5 x i8] c"cons\00"
-@r16069 = internal constant [6 x i8] c"quote\00"
-@r16073 = internal constant [6 x i8] c"quote\00"
-@r16079 = internal constant [5 x i8] c"cons\00"
-@r16084 = internal constant [5 x i8] c"read\00"
-@r16090 = internal constant [6 x i8] c"quote\00"
-@r16100 = internal constant [10 x i8] c"read-list\00"
-@r16109 = internal constant [13 x i8] c"char-string?\00"
-@r16113 = internal constant [3 x i8] c"ch\00"
-@r16119 = internal constant [5 x i8] c"cons\00"
-@r16124 = internal constant [12 x i8] c"read-string\00"
-@r16130 = internal constant [10 x i8] c"read-list\00"
-@r16139 = internal constant [16 x i8] c"char-character?\00"
-@r16143 = internal constant [3 x i8] c"ch\00"
-@r16149 = internal constant [16 x i8] c"read-char-quote\00"
-@r16157 = internal constant [14 x i8] c"char-numeric?\00"
-@r16161 = internal constant [3 x i8] c"ch\00"
-@r16167 = internal constant [5 x i8] c"cons\00"
-@r16172 = internal constant [12 x i8] c"read-number\00"
-@r16176 = internal constant [3 x i8] c"ch\00"
-@r16182 = internal constant [10 x i8] c"read-list\00"
-@r16190 = internal constant [5 x i8] c"else\00"
-@r16195 = internal constant [5 x i8] c"cons\00"
-@r16200 = internal constant [16 x i8] c"read-identifier\00"
-@r16204 = internal constant [3 x i8] c"ch\00"
-@r16210 = internal constant [10 x i8] c"read-list\00"
-@r16220 = internal constant [7 x i8] c"define\00"
-@r16225 = internal constant [18 x i8] c"char-list->number\00"
-@r16229 = internal constant [4 x i8] c"lst\00"
-@r16233 = internal constant [4 x i8] c"res\00"
-@r16239 = internal constant [7 x i8] c"define\00"
-@r16244 = internal constant [6 x i8] c"nmemb\00"
-@r16248 = internal constant [2 x i8] c"x\00"
-@r16252 = internal constant [4 x i8] c"lst\00"
-@r16256 = internal constant [4 x i8] c"pos\00"
-@r16262 = internal constant [3 x i8] c"if\00"
-@r16267 = internal constant [2 x i8] c"=\00"
-@r16271 = internal constant [2 x i8] c"x\00"
-@r16276 = internal constant [4 x i8] c"car\00"
-@r16280 = internal constant [4 x i8] c"lst\00"
-@r16286 = internal constant [4 x i8] c"pos\00"
-@r16291 = internal constant [6 x i8] c"nmemb\00"
-@r16295 = internal constant [2 x i8] c"x\00"
-@r16300 = internal constant [4 x i8] c"cdr\00"
-@r16304 = internal constant [4 x i8] c"lst\00"
-@r16310 = internal constant [2 x i8] c"+\00"
-@r16314 = internal constant [4 x i8] c"pos\00"
-@r16325 = internal constant [3 x i8] c"if\00"
-@r16330 = internal constant [6 x i8] c"null?\00"
-@r16334 = internal constant [4 x i8] c"lst\00"
-@r16339 = internal constant [4 x i8] c"res\00"
-@r16344 = internal constant [18 x i8] c"char-list->number\00"
-@r16349 = internal constant [4 x i8] c"cdr\00"
-@r16353 = internal constant [4 x i8] c"lst\00"
-@r16359 = internal constant [2 x i8] c"+\00"
-@r16364 = internal constant [2 x i8] c"*\00"
-@r16368 = internal constant [4 x i8] c"res\00"
-@r16376 = internal constant [6 x i8] c"nmemb\00"
-@r16381 = internal constant [4 x i8] c"car\00"
-@r16385 = internal constant [4 x i8] c"lst\00"
-@r16390 = internal constant [13 x i8] c"number-chars\00"
-@r16402 = internal constant [7 x i8] c"define\00"
-@r16407 = internal constant [12 x i8] c"read-number\00"
-@r16411 = internal constant [3 x i8] c"ch\00"
-@r16417 = internal constant [7 x i8] c"define\00"
-@r16422 = internal constant [9 x i8] c"read-nmb\00"
-@r16428 = internal constant [7 x i8] c"define\00"
-@r16432 = internal constant [5 x i8] c"peek\00"
-@r16437 = internal constant [10 x i8] c"peek-char\00"
-@r16444 = internal constant [3 x i8] c"if\00"
-@r16449 = internal constant [14 x i8] c"char-numeric?\00"
-@r16453 = internal constant [5 x i8] c"peek\00"
-@r16459 = internal constant [5 x i8] c"cons\00"
-@r16464 = internal constant [10 x i8] c"read-char\00"
-@r16470 = internal constant [9 x i8] c"read-nmb\00"
-@r16477 = internal constant [6 x i8] c"quote\00"
-@r16487 = internal constant [18 x i8] c"char-list->number\00"
-@r16492 = internal constant [5 x i8] c"cons\00"
-@r16496 = internal constant [3 x i8] c"ch\00"
-@r16501 = internal constant [9 x i8] c"read-nmb\00"
-@r16512 = internal constant [7 x i8] c"define\00"
-@r16517 = internal constant [16 x i8] c"read-identifier\00"
-@r16521 = internal constant [3 x i8] c"ch\00"
-@r16527 = internal constant [7 x i8] c"define\00"
-@r16532 = internal constant [8 x i8] c"read-id\00"
-@r16538 = internal constant [3 x i8] c"if\00"
-@r16543 = internal constant [7 x i8] c"member\00"
-@r16548 = internal constant [10 x i8] c"peek-char\00"
-@r16553 = internal constant [15 x i8] c"identifier-end\00"
-@r16559 = internal constant [6 x i8] c"quote\00"
-@r16567 = internal constant [5 x i8] c"cons\00"
-@r16572 = internal constant [10 x i8] c"read-char\00"
-@r16578 = internal constant [8 x i8] c"read-id\00"
-@r16587 = internal constant [15 x i8] c"string->symbol\00"
-@r16592 = internal constant [13 x i8] c"list->string\00"
-@r16597 = internal constant [5 x i8] c"cons\00"
-@r16601 = internal constant [3 x i8] c"ch\00"
-@r16606 = internal constant [8 x i8] c"read-id\00"
-@r16616 = internal constant [7 x i8] c"define\00"
-@r16621 = internal constant [17 x i8] c"interpret-escape\00"
-@r16625 = internal constant [3 x i8] c"ch\00"
-@r16631 = internal constant [5 x i8] c"cond\00"
-@r16637 = internal constant [4 x i8] c"eq?\00"
-@r16641 = internal constant [3 x i8] c"ch\00"
-@r16653 = internal constant [4 x i8] c"eq?\00"
-@r16657 = internal constant [3 x i8] c"ch\00"
-@r16668 = internal constant [5 x i8] c"else\00"
-@r16672 = internal constant [3 x i8] c"ch\00"
-@r16680 = internal constant [7 x i8] c"define\00"
-@r16685 = internal constant [12 x i8] c"read-string\00"
-@r16691 = internal constant [7 x i8] c"define\00"
-@r16696 = internal constant [9 x i8] c"read-str\00"
-@r16702 = internal constant [7 x i8] c"define\00"
-@r16706 = internal constant [3 x i8] c"ch\00"
-@r16711 = internal constant [10 x i8] c"read-char\00"
-@r16718 = internal constant [5 x i8] c"cond\00"
-@r16724 = internal constant [16 x i8] c"char-backslash?\00"
-@r16728 = internal constant [3 x i8] c"ch\00"
-@r16734 = internal constant [5 x i8] c"cons\00"
-@r16739 = internal constant [17 x i8] c"interpret-escape\00"
-@r16744 = internal constant [10 x i8] c"read-char\00"
-@r16751 = internal constant [9 x i8] c"read-str\00"
-@r16760 = internal constant [13 x i8] c"char-string?\00"
-@r16764 = internal constant [3 x i8] c"ch\00"
-@r16770 = internal constant [6 x i8] c"quote\00"
-@r16779 = internal constant [5 x i8] c"else\00"
-@r16784 = internal constant [5 x i8] c"cons\00"
-@r16788 = internal constant [3 x i8] c"ch\00"
-@r16793 = internal constant [9 x i8] c"read-str\00"
-@r16803 = internal constant [13 x i8] c"list->string\00"
-@r16808 = internal constant [9 x i8] c"read-str\00"
-@r16849 = internal constant [42 x i8] c"define fastcc i64 @startup(i64 %\22env\22) {
+@r15921 = internal constant [5 x i8] c"cons\00"
+@r15926 = internal constant [10 x i8] c"read-list\00"
+@r15932 = internal constant [10 x i8] c"read-list\00"
+@r15941 = internal constant [17 x i8] c"char-whitespace?\00"
+@r15945 = internal constant [3 x i8] c"ch\00"
+@r15951 = internal constant [10 x i8] c"read-list\00"
+@r15959 = internal constant [14 x i8] c"char-comment?\00"
+@r15963 = internal constant [3 x i8] c"ch\00"
+@r15969 = internal constant [13 x i8] c"read-comment\00"
+@r15975 = internal constant [10 x i8] c"read-list\00"
+@r15983 = internal constant [12 x i8] c"char-quote?\00"
+@r15987 = internal constant [3 x i8] c"ch\00"
+@r15993 = internal constant [5 x i8] c"cons\00"
+@r15998 = internal constant [5 x i8] c"cons\00"
+@r16003 = internal constant [6 x i8] c"quote\00"
+@r16007 = internal constant [6 x i8] c"quote\00"
+@r16013 = internal constant [5 x i8] c"cons\00"
+@r16018 = internal constant [5 x i8] c"read\00"
+@r16024 = internal constant [6 x i8] c"quote\00"
+@r16034 = internal constant [10 x i8] c"read-list\00"
+@r16043 = internal constant [13 x i8] c"char-string?\00"
+@r16047 = internal constant [3 x i8] c"ch\00"
+@r16053 = internal constant [5 x i8] c"cons\00"
+@r16058 = internal constant [12 x i8] c"read-string\00"
+@r16064 = internal constant [10 x i8] c"read-list\00"
+@r16073 = internal constant [16 x i8] c"char-character?\00"
+@r16077 = internal constant [3 x i8] c"ch\00"
+@r16083 = internal constant [16 x i8] c"read-char-quote\00"
+@r16091 = internal constant [14 x i8] c"char-numeric?\00"
+@r16095 = internal constant [3 x i8] c"ch\00"
+@r16101 = internal constant [5 x i8] c"cons\00"
+@r16106 = internal constant [12 x i8] c"read-number\00"
+@r16110 = internal constant [3 x i8] c"ch\00"
+@r16116 = internal constant [10 x i8] c"read-list\00"
+@r16124 = internal constant [5 x i8] c"else\00"
+@r16129 = internal constant [5 x i8] c"cons\00"
+@r16134 = internal constant [16 x i8] c"read-identifier\00"
+@r16138 = internal constant [3 x i8] c"ch\00"
+@r16144 = internal constant [10 x i8] c"read-list\00"
+@r16154 = internal constant [7 x i8] c"define\00"
+@r16159 = internal constant [18 x i8] c"char-list->number\00"
+@r16163 = internal constant [4 x i8] c"lst\00"
+@r16167 = internal constant [4 x i8] c"res\00"
+@r16173 = internal constant [7 x i8] c"define\00"
+@r16178 = internal constant [6 x i8] c"nmemb\00"
+@r16182 = internal constant [2 x i8] c"x\00"
+@r16186 = internal constant [4 x i8] c"lst\00"
+@r16190 = internal constant [4 x i8] c"pos\00"
+@r16196 = internal constant [3 x i8] c"if\00"
+@r16201 = internal constant [2 x i8] c"=\00"
+@r16205 = internal constant [2 x i8] c"x\00"
+@r16210 = internal constant [4 x i8] c"car\00"
+@r16214 = internal constant [4 x i8] c"lst\00"
+@r16220 = internal constant [4 x i8] c"pos\00"
+@r16225 = internal constant [6 x i8] c"nmemb\00"
+@r16229 = internal constant [2 x i8] c"x\00"
+@r16234 = internal constant [4 x i8] c"cdr\00"
+@r16238 = internal constant [4 x i8] c"lst\00"
+@r16244 = internal constant [2 x i8] c"+\00"
+@r16248 = internal constant [4 x i8] c"pos\00"
+@r16259 = internal constant [3 x i8] c"if\00"
+@r16264 = internal constant [6 x i8] c"null?\00"
+@r16268 = internal constant [4 x i8] c"lst\00"
+@r16273 = internal constant [4 x i8] c"res\00"
+@r16278 = internal constant [18 x i8] c"char-list->number\00"
+@r16283 = internal constant [4 x i8] c"cdr\00"
+@r16287 = internal constant [4 x i8] c"lst\00"
+@r16293 = internal constant [2 x i8] c"+\00"
+@r16298 = internal constant [2 x i8] c"*\00"
+@r16302 = internal constant [4 x i8] c"res\00"
+@r16310 = internal constant [6 x i8] c"nmemb\00"
+@r16315 = internal constant [4 x i8] c"car\00"
+@r16319 = internal constant [4 x i8] c"lst\00"
+@r16324 = internal constant [13 x i8] c"number-chars\00"
+@r16336 = internal constant [7 x i8] c"define\00"
+@r16341 = internal constant [12 x i8] c"read-number\00"
+@r16345 = internal constant [3 x i8] c"ch\00"
+@r16351 = internal constant [7 x i8] c"define\00"
+@r16356 = internal constant [9 x i8] c"read-nmb\00"
+@r16362 = internal constant [7 x i8] c"define\00"
+@r16366 = internal constant [5 x i8] c"peek\00"
+@r16371 = internal constant [10 x i8] c"peek-char\00"
+@r16378 = internal constant [3 x i8] c"if\00"
+@r16383 = internal constant [14 x i8] c"char-numeric?\00"
+@r16387 = internal constant [5 x i8] c"peek\00"
+@r16393 = internal constant [5 x i8] c"cons\00"
+@r16398 = internal constant [10 x i8] c"read-char\00"
+@r16404 = internal constant [9 x i8] c"read-nmb\00"
+@r16411 = internal constant [6 x i8] c"quote\00"
+@r16421 = internal constant [18 x i8] c"char-list->number\00"
+@r16426 = internal constant [5 x i8] c"cons\00"
+@r16430 = internal constant [3 x i8] c"ch\00"
+@r16435 = internal constant [9 x i8] c"read-nmb\00"
+@r16446 = internal constant [7 x i8] c"define\00"
+@r16451 = internal constant [16 x i8] c"read-identifier\00"
+@r16455 = internal constant [3 x i8] c"ch\00"
+@r16461 = internal constant [7 x i8] c"define\00"
+@r16466 = internal constant [8 x i8] c"read-id\00"
+@r16472 = internal constant [3 x i8] c"if\00"
+@r16477 = internal constant [7 x i8] c"member\00"
+@r16482 = internal constant [10 x i8] c"peek-char\00"
+@r16487 = internal constant [15 x i8] c"identifier-end\00"
+@r16493 = internal constant [6 x i8] c"quote\00"
+@r16501 = internal constant [5 x i8] c"cons\00"
+@r16506 = internal constant [10 x i8] c"read-char\00"
+@r16512 = internal constant [8 x i8] c"read-id\00"
+@r16521 = internal constant [15 x i8] c"string->symbol\00"
+@r16526 = internal constant [13 x i8] c"list->string\00"
+@r16531 = internal constant [5 x i8] c"cons\00"
+@r16535 = internal constant [3 x i8] c"ch\00"
+@r16540 = internal constant [8 x i8] c"read-id\00"
+@r16550 = internal constant [7 x i8] c"define\00"
+@r16555 = internal constant [17 x i8] c"interpret-escape\00"
+@r16559 = internal constant [3 x i8] c"ch\00"
+@r16565 = internal constant [5 x i8] c"cond\00"
+@r16571 = internal constant [4 x i8] c"eq?\00"
+@r16575 = internal constant [3 x i8] c"ch\00"
+@r16587 = internal constant [4 x i8] c"eq?\00"
+@r16591 = internal constant [3 x i8] c"ch\00"
+@r16602 = internal constant [5 x i8] c"else\00"
+@r16606 = internal constant [3 x i8] c"ch\00"
+@r16614 = internal constant [7 x i8] c"define\00"
+@r16619 = internal constant [12 x i8] c"read-string\00"
+@r16625 = internal constant [7 x i8] c"define\00"
+@r16630 = internal constant [9 x i8] c"read-str\00"
+@r16636 = internal constant [7 x i8] c"define\00"
+@r16640 = internal constant [3 x i8] c"ch\00"
+@r16645 = internal constant [10 x i8] c"read-char\00"
+@r16652 = internal constant [5 x i8] c"cond\00"
+@r16658 = internal constant [16 x i8] c"char-backslash?\00"
+@r16662 = internal constant [3 x i8] c"ch\00"
+@r16668 = internal constant [5 x i8] c"cons\00"
+@r16673 = internal constant [17 x i8] c"interpret-escape\00"
+@r16678 = internal constant [10 x i8] c"read-char\00"
+@r16685 = internal constant [9 x i8] c"read-str\00"
+@r16694 = internal constant [13 x i8] c"char-string?\00"
+@r16698 = internal constant [3 x i8] c"ch\00"
+@r16704 = internal constant [6 x i8] c"quote\00"
+@r16713 = internal constant [5 x i8] c"else\00"
+@r16718 = internal constant [5 x i8] c"cons\00"
+@r16722 = internal constant [3 x i8] c"ch\00"
+@r16727 = internal constant [9 x i8] c"read-str\00"
+@r16737 = internal constant [13 x i8] c"list->string\00"
+@r16742 = internal constant [9 x i8] c"read-str\00"
+@r16783 = internal constant [42 x i8] c"define fastcc i64 @startup(i64 %\22env\22) {
 \00"
-@r16881 = internal constant [9 x i8] c"ret i64 \00"
-@r16894 = internal constant [4 x i8] c"
+@r16815 = internal constant [9 x i8] c"ret i64 \00"
+@r16828 = internal constant [4 x i8] c"
 }
 \00"
-@r16902 = internal constant [13 x i8] c"; FUNCTIONS
+@r16836 = internal constant [13 x i8] c"; FUNCTIONS
 \00"
 
 declare i32 @printf(i8*, ...)
@@ -1737,9 +1726,9 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
 
 ;; Autogenerated code
 define fastcc i64 @startup(i64 %"env") {
-%r17005 = tail call fastcc i64 @"fun-make-env"(i64 41, i64 %"env")
-%r17007 = tail call fastcc i64 @fun219(i64 %r17005)
-ret i64 %r17007
+%r16939 = tail call fastcc i64 @"fun-make-env"(i64 40, i64 %"env")
+%r16941 = tail call fastcc i64 @fun219(i64 %r16939)
+ret i64 %r16941
 }
 ; FUNCTIONS
 define fastcc i64 @"fun-and"(i64 %"x", i64 %"y") nounwind {
@@ -2939,810 +2928,806 @@ label84:
 ret i64 %r796
 }
 
-define fastcc i64 @"fun5-length"(i64 %"env") nounwind {
-%r818 = alloca i64
+define fastcc i64 @"fun5-nth"(i64 %"env") nounwind {
+%r829 = alloca i64
 %r803 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r802 = tail call fastcc i64 @"fun-null?"(i64 %r803)
-%r820 = tail call fastcc i64 @"fun-raw-number"(i64 %r802)
-%r821 = icmp ne i64 %r820, 0
-br i1 %r821, label %label88, label %label89
+%r831 = tail call fastcc i64 @"fun-raw-number"(i64 %r802)
+%r832 = icmp ne i64 %r831, 0
+br i1 %r832, label %label88, label %label89
 label88:
-%r804 = tail call fastcc i64 @"fun-make-number"(i64 0)
-store i64 %r804, i64* %r818
+%r804 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r804, i64* %r829
 br label %label90
 label89:
-%r806 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r813 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 5)
-%r808 = tail call fastcc i64 @"fun-get-function-env"(i64 %r813)
-%r810 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r808)
-%r811 = tail call fastcc i64 @"fun-get-function-func"(i64 %r813)
-%r807 = inttoptr i64 %r811 to i64 (i64)*
-%r815 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r814 = tail call fastcc i64 @"fun-cdr"(i64 %r815)
-%r816 = tail call fastcc i64 @"fun-vector-set!"(i64 %r810, i64 1, i64 %r814)
-%r809 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r813)
-%r817 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r809, i64 %r810)
-%r812 = tail call fastcc i64 %r807(i64 %r810)
-%r805 = tail call fastcc i64 @"fun-+"(i64 %r806, i64 %r812)
-store i64 %r805, i64* %r818
-br label %label90
-label90:
-%r819 = load i64* %r818
-ret i64 %r819
-}
-
-define fastcc i64 @"fun6-nth"(i64 %"env") nounwind {
-%r852 = alloca i64
-%r826 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r825 = tail call fastcc i64 @"fun-null?"(i64 %r826)
-%r854 = tail call fastcc i64 @"fun-raw-number"(i64 %r825)
-%r855 = icmp ne i64 %r854, 0
-br i1 %r855, label %label91, label %label92
+%r825 = alloca i64
+%r806 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r807 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r805 = tail call fastcc i64 @"fun-="(i64 %r806, i64 %r807)
+%r827 = tail call fastcc i64 @"fun-raw-number"(i64 %r805)
+%r828 = icmp ne i64 %r827, 0
+br i1 %r828, label %label91, label %label92
 label91:
-%r827 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r827, i64* %r852
+%r809 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r808 = tail call fastcc i64 @"fun-car"(i64 %r809)
+store i64 %r808, i64* %r825
 br label %label93
 label92:
-%r848 = alloca i64
-%r829 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r830 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r828 = tail call fastcc i64 @"fun-="(i64 %r829, i64 %r830)
-%r850 = tail call fastcc i64 @"fun-raw-number"(i64 %r828)
-%r851 = icmp ne i64 %r850, 0
-br i1 %r851, label %label94, label %label95
-label94:
-%r832 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r831 = tail call fastcc i64 @"fun-car"(i64 %r832)
-store i64 %r831, i64* %r848
-br label %label96
-label95:
-%r839 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 6)
-%r834 = tail call fastcc i64 @"fun-get-function-env"(i64 %r839)
-%r836 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r834)
-%r837 = tail call fastcc i64 @"fun-get-function-func"(i64 %r839)
-%r833 = inttoptr i64 %r837 to i64 (i64)*
-%r841 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r840 = tail call fastcc i64 @"fun-cdr"(i64 %r841)
-%r845 = tail call fastcc i64 @"fun-vector-set!"(i64 %r836, i64 1, i64 %r840)
-%r843 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r844 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r842 = tail call fastcc i64 @"fun--"(i64 %r843, i64 %r844)
-%r846 = tail call fastcc i64 @"fun-vector-set!"(i64 %r836, i64 2, i64 %r842)
-%r835 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r839)
-%r847 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r835, i64 %r836)
-%r838 = tail call fastcc i64 %r833(i64 %r836)
-store i64 %r838, i64* %r848
-br label %label96
-label96:
-%r849 = load i64* %r848
-store i64 %r849, i64* %r852
+%r816 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 5)
+%r811 = tail call fastcc i64 @"fun-get-function-env"(i64 %r816)
+%r813 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r811)
+%r814 = tail call fastcc i64 @"fun-get-function-func"(i64 %r816)
+%r810 = inttoptr i64 %r814 to i64 (i64)*
+%r818 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r817 = tail call fastcc i64 @"fun-cdr"(i64 %r818)
+%r822 = tail call fastcc i64 @"fun-vector-set!"(i64 %r813, i64 1, i64 %r817)
+%r820 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r821 = tail call fastcc i64 @"fun-make-number"(i64 1)
+%r819 = tail call fastcc i64 @"fun--"(i64 %r820, i64 %r821)
+%r823 = tail call fastcc i64 @"fun-vector-set!"(i64 %r813, i64 2, i64 %r819)
+%r812 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r816)
+%r824 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r812, i64 %r813)
+%r815 = tail call fastcc i64 %r810(i64 %r813)
+store i64 %r815, i64* %r825
 br label %label93
 label93:
-%r853 = load i64* %r852
-ret i64 %r853
+%r826 = load i64* %r825
+store i64 %r826, i64* %r829
+br label %label90
+label90:
+%r830 = load i64* %r829
+ret i64 %r830
 }
 
-define fastcc i64 @"fun7-map"(i64 %"env") nounwind {
-%r887 = alloca i64
+define fastcc i64 @"fun6-map"(i64 %"env") nounwind {
+%r864 = alloca i64
+%r837 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r836 = tail call fastcc i64 @"fun-null?"(i64 %r837)
+%r866 = tail call fastcc i64 @"fun-raw-number"(i64 %r836)
+%r867 = icmp ne i64 %r866, 0
+br i1 %r867, label %label94, label %label95
+label94:
+%r838 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r838, i64* %r864
+br label %label96
+label95:
+%r846 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r841 = tail call fastcc i64 @"fun-get-function-env"(i64 %r846)
+%r843 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r841)
+%r844 = tail call fastcc i64 @"fun-get-function-func"(i64 %r846)
+%r840 = inttoptr i64 %r844 to i64 (i64)*
+%r848 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r847 = tail call fastcc i64 @"fun-car"(i64 %r848)
+%r849 = tail call fastcc i64 @"fun-vector-set!"(i64 %r843, i64 1, i64 %r847)
+%r842 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r846)
+%r850 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r842, i64 %r843)
+%r845 = tail call fastcc i64 %r840(i64 %r843)
+%r857 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 6)
+%r852 = tail call fastcc i64 @"fun-get-function-env"(i64 %r857)
+%r854 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r852)
+%r855 = tail call fastcc i64 @"fun-get-function-func"(i64 %r857)
+%r851 = inttoptr i64 %r855 to i64 (i64)*
+%r858 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r861 = tail call fastcc i64 @"fun-vector-set!"(i64 %r854, i64 1, i64 %r858)
 %r860 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r859 = tail call fastcc i64 @"fun-null?"(i64 %r860)
-%r889 = tail call fastcc i64 @"fun-raw-number"(i64 %r859)
-%r890 = icmp ne i64 %r889, 0
-br i1 %r890, label %label97, label %label98
+%r859 = tail call fastcc i64 @"fun-cdr"(i64 %r860)
+%r862 = tail call fastcc i64 @"fun-vector-set!"(i64 %r854, i64 2, i64 %r859)
+%r853 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r857)
+%r863 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r853, i64 %r854)
+%r856 = tail call fastcc i64 %r851(i64 %r854)
+%r839 = tail call fastcc i64 @"fun-cons"(i64 %r845, i64 %r856)
+store i64 %r839, i64* %r864
+br label %label96
+label96:
+%r865 = load i64* %r864
+ret i64 %r865
+}
+
+define fastcc i64 @"fun7-append"(i64 %"env") nounwind {
+%r890 = alloca i64
+%r872 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r871 = tail call fastcc i64 @"fun-null?"(i64 %r872)
+%r892 = tail call fastcc i64 @"fun-raw-number"(i64 %r871)
+%r893 = icmp ne i64 %r892, 0
+br i1 %r893, label %label97, label %label98
 label97:
-%r861 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r861, i64* %r887
+%r873 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+store i64 %r873, i64* %r890
 br label %label99
 label98:
-%r869 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r864 = tail call fastcc i64 @"fun-get-function-env"(i64 %r869)
-%r866 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r864)
-%r867 = tail call fastcc i64 @"fun-get-function-func"(i64 %r869)
-%r863 = inttoptr i64 %r867 to i64 (i64)*
-%r871 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r870 = tail call fastcc i64 @"fun-car"(i64 %r871)
-%r872 = tail call fastcc i64 @"fun-vector-set!"(i64 %r866, i64 1, i64 %r870)
-%r865 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r869)
-%r873 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r865, i64 %r866)
-%r868 = tail call fastcc i64 %r863(i64 %r866)
-%r880 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 7)
-%r875 = tail call fastcc i64 @"fun-get-function-env"(i64 %r880)
-%r877 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r875)
-%r878 = tail call fastcc i64 @"fun-get-function-func"(i64 %r880)
-%r874 = inttoptr i64 %r878 to i64 (i64)*
-%r881 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r884 = tail call fastcc i64 @"fun-vector-set!"(i64 %r877, i64 1, i64 %r881)
-%r883 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r882 = tail call fastcc i64 @"fun-cdr"(i64 %r883)
-%r885 = tail call fastcc i64 @"fun-vector-set!"(i64 %r877, i64 2, i64 %r882)
-%r876 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r880)
-%r886 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r876, i64 %r877)
-%r879 = tail call fastcc i64 %r874(i64 %r877)
-%r862 = tail call fastcc i64 @"fun-cons"(i64 %r868, i64 %r879)
-store i64 %r862, i64* %r887
+%r876 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r875 = tail call fastcc i64 @"fun-car"(i64 %r876)
+%r883 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 7)
+%r878 = tail call fastcc i64 @"fun-get-function-env"(i64 %r883)
+%r880 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r878)
+%r881 = tail call fastcc i64 @"fun-get-function-func"(i64 %r883)
+%r877 = inttoptr i64 %r881 to i64 (i64)*
+%r885 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r884 = tail call fastcc i64 @"fun-cdr"(i64 %r885)
+%r887 = tail call fastcc i64 @"fun-vector-set!"(i64 %r880, i64 1, i64 %r884)
+%r886 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r888 = tail call fastcc i64 @"fun-vector-set!"(i64 %r880, i64 2, i64 %r886)
+%r879 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r883)
+%r889 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r879, i64 %r880)
+%r882 = tail call fastcc i64 %r877(i64 %r880)
+%r874 = tail call fastcc i64 @"fun-cons"(i64 %r875, i64 %r882)
+store i64 %r874, i64* %r890
 br label %label99
 label99:
-%r888 = load i64* %r887
-ret i64 %r888
+%r891 = load i64* %r890
+ret i64 %r891
 }
 
-define fastcc i64 @"fun8-append"(i64 %"env") nounwind {
-%r913 = alloca i64
-%r895 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r894 = tail call fastcc i64 @"fun-null?"(i64 %r895)
-%r915 = tail call fastcc i64 @"fun-raw-number"(i64 %r894)
-%r916 = icmp ne i64 %r915, 0
-br i1 %r916, label %label100, label %label101
+define fastcc i64 @"fun8-reverse"(i64 %"env") nounwind {
+%r932 = alloca i64
+%r898 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r897 = tail call fastcc i64 @"fun-null?"(i64 %r898)
+%r934 = tail call fastcc i64 @"fun-raw-number"(i64 %r897)
+%r935 = icmp ne i64 %r934, 0
+br i1 %r935, label %label100, label %label101
 label100:
-%r896 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-store i64 %r896, i64* %r913
+%r899 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+store i64 %r899, i64* %r932
 br label %label102
 label101:
-%r899 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r898 = tail call fastcc i64 @"fun-car"(i64 %r899)
-%r906 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 8)
+%r906 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 7)
 %r901 = tail call fastcc i64 @"fun-get-function-env"(i64 %r906)
 %r903 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r901)
 %r904 = tail call fastcc i64 @"fun-get-function-func"(i64 %r906)
 %r900 = inttoptr i64 %r904 to i64 (i64)*
-%r908 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r907 = tail call fastcc i64 @"fun-cdr"(i64 %r908)
-%r910 = tail call fastcc i64 @"fun-vector-set!"(i64 %r903, i64 1, i64 %r907)
-%r909 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r911 = tail call fastcc i64 @"fun-vector-set!"(i64 %r903, i64 2, i64 %r909)
+%r913 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 8)
+%r908 = tail call fastcc i64 @"fun-get-function-env"(i64 %r913)
+%r910 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r908)
+%r911 = tail call fastcc i64 @"fun-get-function-func"(i64 %r913)
+%r907 = inttoptr i64 %r911 to i64 (i64)*
+%r915 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r914 = tail call fastcc i64 @"fun-cdr"(i64 %r915)
+%r916 = tail call fastcc i64 @"fun-vector-set!"(i64 %r910, i64 1, i64 %r914)
+%r909 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r913)
+%r917 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r909, i64 %r910)
+%r912 = tail call fastcc i64 %r907(i64 %r910)
+%r929 = tail call fastcc i64 @"fun-vector-set!"(i64 %r903, i64 1, i64 %r912)
+%r924 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 11)
+%r919 = tail call fastcc i64 @"fun-get-function-env"(i64 %r924)
+%r921 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r919)
+%r922 = tail call fastcc i64 @"fun-get-function-func"(i64 %r924)
+%r918 = inttoptr i64 %r922 to i64 (i64)*
+%r926 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r925 = tail call fastcc i64 @"fun-car"(i64 %r926)
+%r927 = tail call fastcc i64 @"fun-vector-set!"(i64 %r921, i64 1, i64 %r925)
+%r920 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r924)
+%r928 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r920, i64 %r921)
+%r923 = tail call fastcc i64 %r918(i64 %r921)
+%r930 = tail call fastcc i64 @"fun-vector-set!"(i64 %r903, i64 2, i64 %r923)
 %r902 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r906)
-%r912 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r902, i64 %r903)
+%r931 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r902, i64 %r903)
 %r905 = tail call fastcc i64 %r900(i64 %r903)
-%r897 = tail call fastcc i64 @"fun-cons"(i64 %r898, i64 %r905)
-store i64 %r897, i64* %r913
+store i64 %r905, i64* %r932
 br label %label102
 label102:
-%r914 = load i64* %r913
-ret i64 %r914
+%r933 = load i64* %r932
+ret i64 %r933
 }
 
-define fastcc i64 @"fun9-reverse"(i64 %"env") nounwind {
-%r955 = alloca i64
-%r921 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r920 = tail call fastcc i64 @"fun-null?"(i64 %r921)
-%r957 = tail call fastcc i64 @"fun-raw-number"(i64 %r920)
-%r958 = icmp ne i64 %r957, 0
-br i1 %r958, label %label103, label %label104
+define fastcc i64 @"fun10-nmb-str"(i64 %"env") nounwind {
+%r988 = alloca i64
+%r943 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r944 = tail call fastcc i64 @"fun-make-number"(i64 9)
+%r942 = tail call fastcc i64 @"fun->"(i64 %r943, i64 %r944)
+%r990 = tail call fastcc i64 @"fun-raw-number"(i64 %r942)
+%r991 = icmp ne i64 %r990, 0
+br i1 %r991, label %label103, label %label104
 label103:
-%r922 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-store i64 %r922, i64* %r955
+%r951 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r946 = tail call fastcc i64 @"fun-get-function-env"(i64 %r951)
+%r948 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r946)
+%r949 = tail call fastcc i64 @"fun-get-function-func"(i64 %r951)
+%r945 = inttoptr i64 %r949 to i64 (i64)*
+%r953 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r954 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r952 = tail call fastcc i64 @"fun-/"(i64 %r953, i64 %r954)
+%r971 = tail call fastcc i64 @"fun-vector-set!"(i64 %r948, i64 1, i64 %r952)
+%r962 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 5)
+%r957 = tail call fastcc i64 @"fun-get-function-env"(i64 %r962)
+%r959 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r957)
+%r960 = tail call fastcc i64 @"fun-get-function-func"(i64 %r962)
+%r956 = inttoptr i64 %r960 to i64 (i64)*
+%r963 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 17)
+%r967 = tail call fastcc i64 @"fun-vector-set!"(i64 %r959, i64 1, i64 %r963)
+%r965 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r966 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r964 = tail call fastcc i64 @"fun-%"(i64 %r965, i64 %r966)
+%r968 = tail call fastcc i64 @"fun-vector-set!"(i64 %r959, i64 2, i64 %r964)
+%r958 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r962)
+%r969 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r958, i64 %r959)
+%r961 = tail call fastcc i64 %r956(i64 %r959)
+%r970 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r955 = tail call fastcc i64 @"fun-cons"(i64 %r961, i64 %r970)
+%r972 = tail call fastcc i64 @"fun-vector-set!"(i64 %r948, i64 2, i64 %r955)
+%r947 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r951)
+%r973 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r947, i64 %r948)
+%r950 = tail call fastcc i64 %r945(i64 %r948)
+store i64 %r950, i64* %r988
 br label %label105
 label104:
-%r929 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 8)
-%r924 = tail call fastcc i64 @"fun-get-function-env"(i64 %r929)
-%r926 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r924)
-%r927 = tail call fastcc i64 @"fun-get-function-func"(i64 %r929)
-%r923 = inttoptr i64 %r927 to i64 (i64)*
-%r936 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 9)
-%r931 = tail call fastcc i64 @"fun-get-function-env"(i64 %r936)
-%r933 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r931)
-%r934 = tail call fastcc i64 @"fun-get-function-func"(i64 %r936)
-%r930 = inttoptr i64 %r934 to i64 (i64)*
-%r938 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r937 = tail call fastcc i64 @"fun-cdr"(i64 %r938)
-%r939 = tail call fastcc i64 @"fun-vector-set!"(i64 %r933, i64 1, i64 %r937)
-%r932 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r936)
-%r940 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r932, i64 %r933)
-%r935 = tail call fastcc i64 %r930(i64 %r933)
-%r952 = tail call fastcc i64 @"fun-vector-set!"(i64 %r926, i64 1, i64 %r935)
-%r947 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 12)
-%r942 = tail call fastcc i64 @"fun-get-function-env"(i64 %r947)
-%r944 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r942)
-%r945 = tail call fastcc i64 @"fun-get-function-func"(i64 %r947)
-%r941 = inttoptr i64 %r945 to i64 (i64)*
-%r949 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r948 = tail call fastcc i64 @"fun-car"(i64 %r949)
-%r950 = tail call fastcc i64 @"fun-vector-set!"(i64 %r944, i64 1, i64 %r948)
-%r943 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r947)
-%r951 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r943, i64 %r944)
-%r946 = tail call fastcc i64 %r941(i64 %r944)
-%r953 = tail call fastcc i64 @"fun-vector-set!"(i64 %r926, i64 2, i64 %r946)
-%r925 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r929)
-%r954 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r925, i64 %r926)
-%r928 = tail call fastcc i64 %r923(i64 %r926)
-store i64 %r928, i64* %r955
+%r981 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 5)
+%r976 = tail call fastcc i64 @"fun-get-function-env"(i64 %r981)
+%r978 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r976)
+%r979 = tail call fastcc i64 @"fun-get-function-func"(i64 %r981)
+%r975 = inttoptr i64 %r979 to i64 (i64)*
+%r982 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 17)
+%r984 = tail call fastcc i64 @"fun-vector-set!"(i64 %r978, i64 1, i64 %r982)
+%r983 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r985 = tail call fastcc i64 @"fun-vector-set!"(i64 %r978, i64 2, i64 %r983)
+%r977 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r981)
+%r986 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r977, i64 %r978)
+%r980 = tail call fastcc i64 %r975(i64 %r978)
+%r987 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r974 = tail call fastcc i64 @"fun-cons"(i64 %r980, i64 %r987)
+store i64 %r974, i64* %r988
 br label %label105
 label105:
-%r956 = load i64* %r955
-ret i64 %r956
+%r989 = load i64* %r988
+ret i64 %r989
 }
 
-define fastcc i64 @"fun11-nmb-str"(i64 %"env") nounwind {
-%r1011 = alloca i64
-%r966 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r967 = tail call fastcc i64 @"fun-make-number"(i64 9)
-%r965 = tail call fastcc i64 @"fun->"(i64 %r966, i64 %r967)
-%r1013 = tail call fastcc i64 @"fun-raw-number"(i64 %r965)
-%r1014 = icmp ne i64 %r1013, 0
-br i1 %r1014, label %label106, label %label107
+define fastcc i64 @fun11(i64 %"env") nounwind {
+%r940 = ptrtoint i64 (i64)* @"fun10-nmb-str" to i64
+%r941 = tail call fastcc i64 @"fun-make-function"(i64 %r940, i64 %"env", i64 0)
+%r939 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r941)
+%r999 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r994 = tail call fastcc i64 @"fun-get-function-env"(i64 %r999)
+%r996 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r994)
+%r997 = tail call fastcc i64 @"fun-get-function-func"(i64 %r999)
+%r993 = inttoptr i64 %r997 to i64 (i64)*
+%r1000 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r1002 = tail call fastcc i64 @"fun-vector-set!"(i64 %r996, i64 1, i64 %r1000)
+%r1001 = tail call fastcc i64 @"fun-make-null"()
+%r1003 = tail call fastcc i64 @"fun-vector-set!"(i64 %r996, i64 2, i64 %r1001)
+%r995 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r999)
+%r1004 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r995, i64 %r996)
+%r998 = tail call fastcc i64 %r993(i64 %r996)
+%r992 = tail call fastcc i64 @"fun-list->string"(i64 %r998)
+ret i64 %r992
+}
+
+define fastcc i64 @"fun9-number->string"(i64 %"env") nounwind {
+%r1005 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r1007 = tail call fastcc i64 @fun11(i64 %r1005)
+ret i64 %r1007
+}
+
+define fastcc i64 @"fun12-list?"(i64 %"env") nounwind {
+%r1032 = alloca i64
+%r1012 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1011 = tail call fastcc i64 @"fun-null?"(i64 %r1012)
+%r1034 = tail call fastcc i64 @"fun-raw-number"(i64 %r1011)
+%r1035 = icmp ne i64 %r1034, 0
+br i1 %r1035, label %label106, label %label107
 label106:
-%r974 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r969 = tail call fastcc i64 @"fun-get-function-env"(i64 %r974)
-%r971 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r969)
-%r972 = tail call fastcc i64 @"fun-get-function-func"(i64 %r974)
-%r968 = inttoptr i64 %r972 to i64 (i64)*
-%r976 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r977 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r975 = tail call fastcc i64 @"fun-/"(i64 %r976, i64 %r977)
-%r994 = tail call fastcc i64 @"fun-vector-set!"(i64 %r971, i64 1, i64 %r975)
-%r985 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
-%r980 = tail call fastcc i64 @"fun-get-function-env"(i64 %r985)
-%r982 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r980)
-%r983 = tail call fastcc i64 @"fun-get-function-func"(i64 %r985)
-%r979 = inttoptr i64 %r983 to i64 (i64)*
-%r986 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 18)
-%r990 = tail call fastcc i64 @"fun-vector-set!"(i64 %r982, i64 1, i64 %r986)
-%r988 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r989 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r987 = tail call fastcc i64 @"fun-%"(i64 %r988, i64 %r989)
-%r991 = tail call fastcc i64 @"fun-vector-set!"(i64 %r982, i64 2, i64 %r987)
-%r981 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r985)
-%r992 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r981, i64 %r982)
-%r984 = tail call fastcc i64 %r979(i64 %r982)
-%r993 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r978 = tail call fastcc i64 @"fun-cons"(i64 %r984, i64 %r993)
-%r995 = tail call fastcc i64 @"fun-vector-set!"(i64 %r971, i64 2, i64 %r978)
-%r970 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r974)
-%r996 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r970, i64 %r971)
-%r973 = tail call fastcc i64 %r968(i64 %r971)
-store i64 %r973, i64* %r1011
+%r1013 = tail call fastcc i64 @"fun-make-number"(i64 1)
+store i64 %r1013, i64* %r1032
 br label %label108
 label107:
-%r1004 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
-%r999 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1004)
-%r1001 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r999)
-%r1002 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1004)
-%r998 = inttoptr i64 %r1002 to i64 (i64)*
-%r1005 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 18)
-%r1007 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1001, i64 1, i64 %r1005)
-%r1006 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1008 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1001, i64 2, i64 %r1006)
-%r1000 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1004)
-%r1009 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1000, i64 %r1001)
-%r1003 = tail call fastcc i64 %r998(i64 %r1001)
-%r1010 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r997 = tail call fastcc i64 @"fun-cons"(i64 %r1003, i64 %r1010)
-store i64 %r997, i64* %r1011
-br label %label108
-label108:
-%r1012 = load i64* %r1011
-ret i64 %r1012
-}
-
-define fastcc i64 @fun12(i64 %"env") nounwind {
-%r963 = ptrtoint i64 (i64)* @"fun11-nmb-str" to i64
-%r964 = tail call fastcc i64 @"fun-make-function"(i64 %r963, i64 %"env", i64 0)
-%r962 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r964)
-%r1022 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1028 = alloca i64
+%r1015 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1014 = tail call fastcc i64 @"fun-pair?"(i64 %r1015)
+%r1030 = tail call fastcc i64 @"fun-raw-number"(i64 %r1014)
+%r1031 = icmp ne i64 %r1030, 0
+br i1 %r1031, label %label109, label %label110
+label109:
+%r1022 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 10)
 %r1017 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1022)
-%r1019 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1017)
+%r1019 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1017)
 %r1020 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1022)
 %r1016 = inttoptr i64 %r1020 to i64 (i64)*
-%r1023 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r1024 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1023 = tail call fastcc i64 @"fun-cdr"(i64 %r1024)
 %r1025 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1019, i64 1, i64 %r1023)
-%r1024 = tail call fastcc i64 @"fun-make-null"()
-%r1026 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1019, i64 2, i64 %r1024)
 %r1018 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1022)
-%r1027 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1018, i64 %r1019)
+%r1026 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1018, i64 %r1019)
 %r1021 = tail call fastcc i64 %r1016(i64 %r1019)
-%r1015 = tail call fastcc i64 @"fun-list->string"(i64 %r1021)
-ret i64 %r1015
-}
-
-define fastcc i64 @"fun10-number->string"(i64 %"env") nounwind {
-%r1028 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r1030 = tail call fastcc i64 @fun12(i64 %r1028)
-ret i64 %r1030
-}
-
-define fastcc i64 @"fun13-list?"(i64 %"env") nounwind {
-%r1055 = alloca i64
-%r1035 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1034 = tail call fastcc i64 @"fun-null?"(i64 %r1035)
-%r1057 = tail call fastcc i64 @"fun-raw-number"(i64 %r1034)
-%r1058 = icmp ne i64 %r1057, 0
-br i1 %r1058, label %label109, label %label110
-label109:
-%r1036 = tail call fastcc i64 @"fun-make-number"(i64 1)
-store i64 %r1036, i64* %r1055
+store i64 %r1021, i64* %r1028
 br label %label111
 label110:
-%r1051 = alloca i64
-%r1038 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1037 = tail call fastcc i64 @"fun-pair?"(i64 %r1038)
-%r1053 = tail call fastcc i64 @"fun-raw-number"(i64 %r1037)
-%r1054 = icmp ne i64 %r1053, 0
-br i1 %r1054, label %label112, label %label113
-label112:
-%r1045 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 11)
-%r1040 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1045)
-%r1042 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1040)
-%r1043 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1045)
-%r1039 = inttoptr i64 %r1043 to i64 (i64)*
-%r1047 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1046 = tail call fastcc i64 @"fun-cdr"(i64 %r1047)
-%r1048 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1042, i64 1, i64 %r1046)
-%r1041 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1045)
-%r1049 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1041, i64 %r1042)
-%r1044 = tail call fastcc i64 %r1039(i64 %r1042)
-store i64 %r1044, i64* %r1051
-br label %label114
-label113:
-%r1050 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r1050, i64* %r1051
-br label %label114
-label114:
-%r1052 = load i64* %r1051
-store i64 %r1052, i64* %r1055
+%r1027 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r1027, i64* %r1028
 br label %label111
 label111:
-%r1056 = load i64* %r1055
-ret i64 %r1056
+%r1029 = load i64* %r1028
+store i64 %r1029, i64* %r1032
+br label %label108
+label108:
+%r1033 = load i64* %r1032
+ret i64 %r1033
 }
 
-define fastcc i64 @"fun14-list"(i64 %"env") nounwind {
-%r1062 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-ret i64 %r1062
+define fastcc i64 @"fun13-list"(i64 %"env") nounwind {
+%r1039 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+ret i64 %r1039
 }
 
-define fastcc i64 @"fun15-assoc"(i64 %"env") nounwind {
-%r1102 = alloca i64
-%r1067 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r1066 = tail call fastcc i64 @"fun-null?"(i64 %r1067)
-%r1104 = tail call fastcc i64 @"fun-raw-number"(i64 %r1066)
-%r1105 = icmp ne i64 %r1104, 0
-br i1 %r1105, label %label115, label %label116
+define fastcc i64 @"fun14-assoc"(i64 %"env") nounwind {
+%r1079 = alloca i64
+%r1044 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1043 = tail call fastcc i64 @"fun-null?"(i64 %r1044)
+%r1081 = tail call fastcc i64 @"fun-raw-number"(i64 %r1043)
+%r1082 = icmp ne i64 %r1081, 0
+br i1 %r1082, label %label112, label %label113
+label112:
+%r1045 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r1045, i64* %r1079
+br label %label114
+label113:
+%r1075 = alloca i64
+%r1052 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1047 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1052)
+%r1049 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1047)
+%r1050 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1052)
+%r1046 = inttoptr i64 %r1050 to i64 (i64)*
+%r1053 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1057 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1049, i64 1, i64 %r1053)
+%r1056 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1055 = tail call fastcc i64 @"fun-car"(i64 %r1056)
+%r1054 = tail call fastcc i64 @"fun-car"(i64 %r1055)
+%r1058 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1049, i64 2, i64 %r1054)
+%r1048 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1052)
+%r1059 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1048, i64 %r1049)
+%r1051 = tail call fastcc i64 %r1046(i64 %r1049)
+%r1077 = tail call fastcc i64 @"fun-raw-number"(i64 %r1051)
+%r1078 = icmp ne i64 %r1077, 0
+br i1 %r1078, label %label115, label %label116
 label115:
-%r1068 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r1068, i64* %r1102
+%r1061 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1060 = tail call fastcc i64 @"fun-car"(i64 %r1061)
+store i64 %r1060, i64* %r1075
 br label %label117
 label116:
-%r1098 = alloca i64
-%r1075 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1070 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1075)
-%r1072 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1070)
-%r1073 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1075)
-%r1069 = inttoptr i64 %r1073 to i64 (i64)*
-%r1076 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1080 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1072, i64 1, i64 %r1076)
-%r1079 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r1078 = tail call fastcc i64 @"fun-car"(i64 %r1079)
-%r1077 = tail call fastcc i64 @"fun-car"(i64 %r1078)
-%r1081 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1072, i64 2, i64 %r1077)
-%r1071 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1075)
-%r1082 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1071, i64 %r1072)
-%r1074 = tail call fastcc i64 %r1069(i64 %r1072)
-%r1100 = tail call fastcc i64 @"fun-raw-number"(i64 %r1074)
-%r1101 = icmp ne i64 %r1100, 0
-br i1 %r1101, label %label118, label %label119
-label118:
-%r1084 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r1083 = tail call fastcc i64 @"fun-car"(i64 %r1084)
-store i64 %r1083, i64* %r1098
-br label %label120
-label119:
-%r1091 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 13)
-%r1086 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1091)
-%r1088 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1086)
-%r1089 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1091)
-%r1085 = inttoptr i64 %r1089 to i64 (i64)*
-%r1092 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1095 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1088, i64 1, i64 %r1092)
-%r1094 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r1093 = tail call fastcc i64 @"fun-cdr"(i64 %r1094)
-%r1096 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1088, i64 2, i64 %r1093)
-%r1087 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1091)
-%r1097 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1087, i64 %r1088)
-%r1090 = tail call fastcc i64 %r1085(i64 %r1088)
-store i64 %r1090, i64* %r1098
-br label %label120
-label120:
-%r1099 = load i64* %r1098
-store i64 %r1099, i64* %r1102
+%r1068 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 12)
+%r1063 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1068)
+%r1065 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1063)
+%r1066 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1068)
+%r1062 = inttoptr i64 %r1066 to i64 (i64)*
+%r1069 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1072 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1065, i64 1, i64 %r1069)
+%r1071 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1070 = tail call fastcc i64 @"fun-cdr"(i64 %r1071)
+%r1073 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1065, i64 2, i64 %r1070)
+%r1064 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1068)
+%r1074 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1064, i64 %r1065)
+%r1067 = tail call fastcc i64 %r1062(i64 %r1065)
+store i64 %r1067, i64* %r1075
 br label %label117
 label117:
-%r1103 = load i64* %r1102
-ret i64 %r1103
+%r1076 = load i64* %r1075
+store i64 %r1076, i64* %r1079
+br label %label114
+label114:
+%r1080 = load i64* %r1079
+ret i64 %r1080
 }
 
-define fastcc i64 @"fun16-string-append"(i64 %"env") nounwind {
-%r1116 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 8)
-%r1111 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1116)
-%r1113 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1111)
-%r1114 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1116)
-%r1110 = inttoptr i64 %r1114 to i64 (i64)*
-%r1118 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1117 = tail call fastcc i64 @"fun-string->list"(i64 %r1118)
-%r1121 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1113, i64 1, i64 %r1117)
-%r1120 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r1119 = tail call fastcc i64 @"fun-string->list"(i64 %r1120)
-%r1122 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1113, i64 2, i64 %r1119)
-%r1112 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1116)
-%r1123 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1112, i64 %r1113)
-%r1115 = tail call fastcc i64 %r1110(i64 %r1113)
-%r1109 = tail call fastcc i64 @"fun-list->string"(i64 %r1115)
-ret i64 %r1109
+define fastcc i64 @"fun15-string-append"(i64 %"env") nounwind {
+%r1093 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 7)
+%r1088 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1093)
+%r1090 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1088)
+%r1091 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1093)
+%r1087 = inttoptr i64 %r1091 to i64 (i64)*
+%r1095 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1094 = tail call fastcc i64 @"fun-string->list"(i64 %r1095)
+%r1098 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1090, i64 1, i64 %r1094)
+%r1097 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1096 = tail call fastcc i64 @"fun-string->list"(i64 %r1097)
+%r1099 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1090, i64 2, i64 %r1096)
+%r1089 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1093)
+%r1100 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1089, i64 %r1090)
+%r1092 = tail call fastcc i64 %r1087(i64 %r1090)
+%r1086 = tail call fastcc i64 @"fun-list->string"(i64 %r1092)
+ret i64 %r1086
 }
 
-define fastcc i64 @"fun17-peek-char"(i64 %"env") nounwind {
-%r1136 = alloca i64
-%r1130 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 15)
-%r1129 = tail call fastcc i64 @"fun-null?"(i64 %r1130)
-%r1138 = tail call fastcc i64 @"fun-raw-number"(i64 %r1129)
-%r1139 = icmp ne i64 %r1138, 0
-br i1 %r1139, label %label121, label %label122
+define fastcc i64 @"fun16-peek-char"(i64 %"env") nounwind {
+%r1113 = alloca i64
+%r1107 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 14)
+%r1106 = tail call fastcc i64 @"fun-null?"(i64 %r1107)
+%r1115 = tail call fastcc i64 @"fun-raw-number"(i64 %r1106)
+%r1116 = icmp ne i64 %r1115, 0
+br i1 %r1116, label %label118, label %label119
+label118:
+%r1110 = tail call fastcc i64 @"fun-get-char"()
+%r1109 = tail call fastcc i64 @"fun-make-char"(i64 %r1110)
+%r1108 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 14, i64 %r1109)
+%r1111 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 14)
+store i64 %r1111, i64* %r1113
+br label %label120
+label119:
+%r1112 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 14)
+store i64 %r1112, i64* %r1113
+br label %label120
+label120:
+%r1114 = load i64* %r1113
+ret i64 %r1114
+}
+
+define fastcc i64 @fun18(i64 %"env") nounwind {
+%r1121 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 14)
+%r1120 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1121)
+%r1129 = alloca i64
+%r1123 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1122 = tail call fastcc i64 @"fun-null?"(i64 %r1123)
+%r1131 = tail call fastcc i64 @"fun-raw-number"(i64 %r1122)
+%r1132 = icmp ne i64 %r1131, 0
+br i1 %r1132, label %label121, label %label122
 label121:
-%r1133 = tail call fastcc i64 @"fun-get-char"()
-%r1132 = tail call fastcc i64 @"fun-make-char"(i64 %r1133)
-%r1131 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 15, i64 %r1132)
-%r1134 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 15)
-store i64 %r1134, i64* %r1136
+%r1125 = tail call fastcc i64 @"fun-get-char"()
+%r1124 = tail call fastcc i64 @"fun-make-char"(i64 %r1125)
+store i64 %r1124, i64* %r1129
 br label %label123
 label122:
-%r1135 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 15)
-store i64 %r1135, i64* %r1136
+%r1127 = tail call fastcc i64 @"fun-make-null"()
+%r1126 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 2, i64 14, i64 %r1127)
+%r1128 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+store i64 %r1128, i64* %r1129
 br label %label123
 label123:
-%r1137 = load i64* %r1136
-ret i64 %r1137
+%r1130 = load i64* %r1129
+ret i64 %r1130
 }
 
-define fastcc i64 @fun19(i64 %"env") nounwind {
-%r1144 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 15)
-%r1143 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1144)
-%r1152 = alloca i64
-%r1146 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1145 = tail call fastcc i64 @"fun-null?"(i64 %r1146)
-%r1154 = tail call fastcc i64 @"fun-raw-number"(i64 %r1145)
-%r1155 = icmp ne i64 %r1154, 0
-br i1 %r1155, label %label124, label %label125
+define fastcc i64 @"fun17-read-char"(i64 %"env") nounwind {
+%r1133 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r1135 = tail call fastcc i64 @fun18(i64 %r1133)
+ret i64 %r1135
+}
+
+define fastcc i64 @"fun19-char-whitespace?"(i64 %"env") nounwind {
+%r1168 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1163 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1168)
+%r1165 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1163)
+%r1166 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1168)
+%r1162 = inttoptr i64 %r1166 to i64 (i64)*
+%r1169 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1171 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1165, i64 1, i64 %r1169)
+%r1170 = tail call fastcc i64 @"fun-make-number"(i64 32)
+%r1172 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1165, i64 2, i64 %r1170)
+%r1164 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1168)
+%r1173 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1164, i64 %r1165)
+%r1167 = tail call fastcc i64 %r1162(i64 %r1165)
+%r1181 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1176 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1181)
+%r1178 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1176)
+%r1179 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1181)
+%r1175 = inttoptr i64 %r1179 to i64 (i64)*
+%r1182 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1184 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1178, i64 1, i64 %r1182)
+%r1183 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r1185 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1178, i64 2, i64 %r1183)
+%r1177 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1181)
+%r1186 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1177, i64 %r1178)
+%r1180 = tail call fastcc i64 %r1175(i64 %r1178)
+%r1193 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1188 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1193)
+%r1190 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1188)
+%r1191 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1193)
+%r1187 = inttoptr i64 %r1191 to i64 (i64)*
+%r1194 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1196 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1190, i64 1, i64 %r1194)
+%r1195 = tail call fastcc i64 @"fun-make-number"(i64 9)
+%r1197 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1190, i64 2, i64 %r1195)
+%r1189 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1193)
+%r1198 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1189, i64 %r1190)
+%r1192 = tail call fastcc i64 %r1187(i64 %r1190)
+%r1174 = tail call fastcc i64 @"fun-or"(i64 %r1180, i64 %r1192)
+%r1161 = tail call fastcc i64 @"fun-or"(i64 %r1167, i64 %r1174)
+ret i64 %r1161
+}
+
+define fastcc i64 @"fun20-char-numeric?"(i64 %"env") nounwind {
+%r1208 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 4)
+%r1203 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1208)
+%r1205 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1203)
+%r1206 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1208)
+%r1202 = inttoptr i64 %r1206 to i64 (i64)*
+%r1209 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1211 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1205, i64 1, i64 %r1209)
+%r1210 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 17)
+%r1212 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1205, i64 2, i64 %r1210)
+%r1204 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1208)
+%r1213 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1204, i64 %r1205)
+%r1207 = tail call fastcc i64 %r1202(i64 %r1205)
+ret i64 %r1207
+}
+
+define fastcc i64 @"fun21-char-left-paren?"(i64 %"env") nounwind {
+%r1223 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1218 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1223)
+%r1220 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1218)
+%r1221 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1223)
+%r1217 = inttoptr i64 %r1221 to i64 (i64)*
+%r1224 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1226 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1220, i64 1, i64 %r1224)
+%r1225 = tail call fastcc i64 @"fun-make-number"(i64 40)
+%r1227 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1220, i64 2, i64 %r1225)
+%r1219 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1223)
+%r1228 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1219, i64 %r1220)
+%r1222 = tail call fastcc i64 %r1217(i64 %r1220)
+ret i64 %r1222
+}
+
+define fastcc i64 @"fun22-char-right-paren?"(i64 %"env") nounwind {
+%r1238 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1233 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1238)
+%r1235 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1233)
+%r1236 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1238)
+%r1232 = inttoptr i64 %r1236 to i64 (i64)*
+%r1239 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1241 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1235, i64 1, i64 %r1239)
+%r1240 = tail call fastcc i64 @"fun-make-number"(i64 41)
+%r1242 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1235, i64 2, i64 %r1240)
+%r1234 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1238)
+%r1243 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1234, i64 %r1235)
+%r1237 = tail call fastcc i64 %r1232(i64 %r1235)
+ret i64 %r1237
+}
+
+define fastcc i64 @"fun23-char-comment?"(i64 %"env") nounwind {
+%r1253 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1248 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1253)
+%r1250 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1248)
+%r1251 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1253)
+%r1247 = inttoptr i64 %r1251 to i64 (i64)*
+%r1254 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1256 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1250, i64 1, i64 %r1254)
+%r1255 = tail call fastcc i64 @"fun-make-number"(i64 59)
+%r1257 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1250, i64 2, i64 %r1255)
+%r1249 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1253)
+%r1258 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1249, i64 %r1250)
+%r1252 = tail call fastcc i64 %r1247(i64 %r1250)
+ret i64 %r1252
+}
+
+define fastcc i64 @"fun24-char-string?"(i64 %"env") nounwind {
+%r1268 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1263 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1268)
+%r1265 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1263)
+%r1266 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1268)
+%r1262 = inttoptr i64 %r1266 to i64 (i64)*
+%r1269 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1271 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1265, i64 1, i64 %r1269)
+%r1270 = tail call fastcc i64 @"fun-make-number"(i64 34)
+%r1272 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1265, i64 2, i64 %r1270)
+%r1264 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1268)
+%r1273 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1264, i64 %r1265)
+%r1267 = tail call fastcc i64 %r1262(i64 %r1265)
+ret i64 %r1267
+}
+
+define fastcc i64 @"fun25-char-newline?"(i64 %"env") nounwind {
+%r1283 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1278 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1283)
+%r1280 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1278)
+%r1281 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1283)
+%r1277 = inttoptr i64 %r1281 to i64 (i64)*
+%r1284 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1286 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1280, i64 1, i64 %r1284)
+%r1285 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r1287 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1280, i64 2, i64 %r1285)
+%r1279 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1283)
+%r1288 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1279, i64 %r1280)
+%r1282 = tail call fastcc i64 %r1277(i64 %r1280)
+ret i64 %r1282
+}
+
+define fastcc i64 @"fun26-char-dot?"(i64 %"env") nounwind {
+%r1298 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1293 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1298)
+%r1295 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1293)
+%r1296 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1298)
+%r1292 = inttoptr i64 %r1296 to i64 (i64)*
+%r1299 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1301 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1295, i64 1, i64 %r1299)
+%r1300 = tail call fastcc i64 @"fun-make-number"(i64 46)
+%r1302 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1295, i64 2, i64 %r1300)
+%r1294 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1298)
+%r1303 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1294, i64 %r1295)
+%r1297 = tail call fastcc i64 %r1292(i64 %r1295)
+ret i64 %r1297
+}
+
+define fastcc i64 @"fun27-char-quote?"(i64 %"env") nounwind {
+%r1313 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1308 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1313)
+%r1310 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1308)
+%r1311 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1313)
+%r1307 = inttoptr i64 %r1311 to i64 (i64)*
+%r1314 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1316 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1310, i64 1, i64 %r1314)
+%r1315 = tail call fastcc i64 @"fun-make-number"(i64 39)
+%r1317 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1310, i64 2, i64 %r1315)
+%r1309 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1313)
+%r1318 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1309, i64 %r1310)
+%r1312 = tail call fastcc i64 %r1307(i64 %r1310)
+ret i64 %r1312
+}
+
+define fastcc i64 @"fun28-char-backquote?"(i64 %"env") nounwind {
+%r1328 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1323 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1328)
+%r1325 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1323)
+%r1326 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1328)
+%r1322 = inttoptr i64 %r1326 to i64 (i64)*
+%r1329 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1331 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1325, i64 1, i64 %r1329)
+%r1330 = tail call fastcc i64 @"fun-make-number"(i64 96)
+%r1332 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1325, i64 2, i64 %r1330)
+%r1324 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1328)
+%r1333 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1324, i64 %r1325)
+%r1327 = tail call fastcc i64 %r1322(i64 %r1325)
+ret i64 %r1327
+}
+
+define fastcc i64 @"fun29-char-comma?"(i64 %"env") nounwind {
+%r1343 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1338 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1343)
+%r1340 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1338)
+%r1341 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1343)
+%r1337 = inttoptr i64 %r1341 to i64 (i64)*
+%r1344 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1346 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1340, i64 1, i64 %r1344)
+%r1345 = tail call fastcc i64 @"fun-make-number"(i64 44)
+%r1347 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1340, i64 2, i64 %r1345)
+%r1339 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1343)
+%r1348 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1339, i64 %r1340)
+%r1342 = tail call fastcc i64 %r1337(i64 %r1340)
+ret i64 %r1342
+}
+
+define fastcc i64 @"fun30-char-backslash?"(i64 %"env") nounwind {
+%r1358 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1353 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1358)
+%r1355 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1353)
+%r1356 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1358)
+%r1352 = inttoptr i64 %r1356 to i64 (i64)*
+%r1359 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1361 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1355, i64 1, i64 %r1359)
+%r1360 = tail call fastcc i64 @"fun-make-number"(i64 92)
+%r1362 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1355, i64 2, i64 %r1360)
+%r1354 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1358)
+%r1363 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1354, i64 %r1355)
+%r1357 = tail call fastcc i64 %r1352(i64 %r1355)
+ret i64 %r1357
+}
+
+define fastcc i64 @"fun31-char-character?"(i64 %"env") nounwind {
+%r1373 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r1368 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1373)
+%r1370 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1368)
+%r1371 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1373)
+%r1367 = inttoptr i64 %r1371 to i64 (i64)*
+%r1374 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1376 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1370, i64 1, i64 %r1374)
+%r1375 = tail call fastcc i64 @"fun-make-number"(i64 35)
+%r1377 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1370, i64 2, i64 %r1375)
+%r1369 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1373)
+%r1378 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1369, i64 %r1370)
+%r1372 = tail call fastcc i64 %r1367(i64 %r1370)
+ret i64 %r1372
+}
+
+define fastcc i64 @fun33(i64 %"env") nounwind {
+%r1399 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 16)
+%r1394 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1399)
+%r1396 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1394)
+%r1397 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1399)
+%r1393 = inttoptr i64 %r1397 to i64 (i64)*
+%r1395 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1399)
+%r1400 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1395, i64 %r1396)
+%r1398 = tail call fastcc i64 %r1393(i64 %r1396)
+%r1392 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1398)
+%r1577 = alloca i64
+%r1407 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 20)
+%r1402 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1407)
+%r1404 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1402)
+%r1405 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1407)
+%r1401 = inttoptr i64 %r1405 to i64 (i64)*
+%r1408 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1409 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1404, i64 1, i64 %r1408)
+%r1403 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1407)
+%r1410 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1403, i64 %r1404)
+%r1406 = tail call fastcc i64 %r1401(i64 %r1404)
+%r1579 = tail call fastcc i64 @"fun-raw-number"(i64 %r1406)
+%r1580 = icmp ne i64 %r1579, 0
+br i1 %r1580, label %label124, label %label125
 label124:
-%r1148 = tail call fastcc i64 @"fun-get-char"()
-%r1147 = tail call fastcc i64 @"fun-make-char"(i64 %r1148)
-store i64 %r1147, i64* %r1152
+%r1417 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1412 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1417)
+%r1414 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1412)
+%r1415 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1417)
+%r1411 = inttoptr i64 %r1415 to i64 (i64)*
+%r1413 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1417)
+%r1418 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1413, i64 %r1414)
+%r1416 = tail call fastcc i64 %r1411(i64 %r1414)
+store i64 %r1416, i64* %r1577
 br label %label126
 label125:
-%r1150 = tail call fastcc i64 @"fun-make-null"()
-%r1149 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 2, i64 15, i64 %r1150)
-%r1151 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-store i64 %r1151, i64* %r1152
-br label %label126
-label126:
-%r1153 = load i64* %r1152
-ret i64 %r1153
-}
-
-define fastcc i64 @"fun18-read-char"(i64 %"env") nounwind {
-%r1156 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r1158 = tail call fastcc i64 @fun19(i64 %r1156)
-ret i64 %r1158
-}
-
-define fastcc i64 @"fun20-char-whitespace?"(i64 %"env") nounwind {
-%r1191 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1186 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1191)
-%r1188 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1186)
-%r1189 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1191)
-%r1185 = inttoptr i64 %r1189 to i64 (i64)*
-%r1192 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1194 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1188, i64 1, i64 %r1192)
-%r1193 = tail call fastcc i64 @"fun-make-number"(i64 32)
-%r1195 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1188, i64 2, i64 %r1193)
-%r1187 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1191)
-%r1196 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1187, i64 %r1188)
-%r1190 = tail call fastcc i64 %r1185(i64 %r1188)
-%r1204 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1199 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1204)
-%r1201 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1199)
-%r1202 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1204)
-%r1198 = inttoptr i64 %r1202 to i64 (i64)*
-%r1205 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1207 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1201, i64 1, i64 %r1205)
-%r1206 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r1208 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1201, i64 2, i64 %r1206)
-%r1200 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1204)
-%r1209 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1200, i64 %r1201)
-%r1203 = tail call fastcc i64 %r1198(i64 %r1201)
-%r1216 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1211 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1216)
-%r1213 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1211)
-%r1214 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1216)
-%r1210 = inttoptr i64 %r1214 to i64 (i64)*
-%r1217 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1219 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1213, i64 1, i64 %r1217)
-%r1218 = tail call fastcc i64 @"fun-make-number"(i64 9)
-%r1220 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1213, i64 2, i64 %r1218)
-%r1212 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1216)
-%r1221 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1212, i64 %r1213)
-%r1215 = tail call fastcc i64 %r1210(i64 %r1213)
-%r1197 = tail call fastcc i64 @"fun-or"(i64 %r1203, i64 %r1215)
-%r1184 = tail call fastcc i64 @"fun-or"(i64 %r1190, i64 %r1197)
-ret i64 %r1184
-}
-
-define fastcc i64 @"fun21-char-numeric?"(i64 %"env") nounwind {
-%r1231 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 4)
-%r1226 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1231)
-%r1228 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1226)
-%r1229 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1231)
-%r1225 = inttoptr i64 %r1229 to i64 (i64)*
-%r1232 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1234 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1228, i64 1, i64 %r1232)
-%r1233 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 18)
-%r1235 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1228, i64 2, i64 %r1233)
-%r1227 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1231)
-%r1236 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1227, i64 %r1228)
-%r1230 = tail call fastcc i64 %r1225(i64 %r1228)
-ret i64 %r1230
-}
-
-define fastcc i64 @"fun22-char-left-paren?"(i64 %"env") nounwind {
-%r1246 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1241 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1246)
-%r1243 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1241)
-%r1244 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1246)
-%r1240 = inttoptr i64 %r1244 to i64 (i64)*
-%r1247 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1249 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1243, i64 1, i64 %r1247)
-%r1248 = tail call fastcc i64 @"fun-make-number"(i64 40)
-%r1250 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1243, i64 2, i64 %r1248)
-%r1242 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1246)
-%r1251 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1242, i64 %r1243)
-%r1245 = tail call fastcc i64 %r1240(i64 %r1243)
-ret i64 %r1245
-}
-
-define fastcc i64 @"fun23-char-right-paren?"(i64 %"env") nounwind {
-%r1261 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1256 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1261)
-%r1258 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1256)
-%r1259 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1261)
-%r1255 = inttoptr i64 %r1259 to i64 (i64)*
-%r1262 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1264 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1258, i64 1, i64 %r1262)
-%r1263 = tail call fastcc i64 @"fun-make-number"(i64 41)
-%r1265 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1258, i64 2, i64 %r1263)
-%r1257 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1261)
-%r1266 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1257, i64 %r1258)
-%r1260 = tail call fastcc i64 %r1255(i64 %r1258)
-ret i64 %r1260
-}
-
-define fastcc i64 @"fun24-char-comment?"(i64 %"env") nounwind {
-%r1276 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1271 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1276)
-%r1273 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1271)
-%r1274 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1276)
-%r1270 = inttoptr i64 %r1274 to i64 (i64)*
-%r1277 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1279 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1273, i64 1, i64 %r1277)
-%r1278 = tail call fastcc i64 @"fun-make-number"(i64 59)
-%r1280 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1273, i64 2, i64 %r1278)
-%r1272 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1276)
-%r1281 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1272, i64 %r1273)
-%r1275 = tail call fastcc i64 %r1270(i64 %r1273)
-ret i64 %r1275
-}
-
-define fastcc i64 @"fun25-char-string?"(i64 %"env") nounwind {
-%r1291 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1286 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1291)
-%r1288 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1286)
-%r1289 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1291)
-%r1285 = inttoptr i64 %r1289 to i64 (i64)*
-%r1292 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1294 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1288, i64 1, i64 %r1292)
-%r1293 = tail call fastcc i64 @"fun-make-number"(i64 34)
-%r1295 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1288, i64 2, i64 %r1293)
-%r1287 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1291)
-%r1296 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1287, i64 %r1288)
-%r1290 = tail call fastcc i64 %r1285(i64 %r1288)
-ret i64 %r1290
-}
-
-define fastcc i64 @"fun26-char-newline?"(i64 %"env") nounwind {
-%r1306 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1301 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1306)
-%r1303 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1301)
-%r1304 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1306)
-%r1300 = inttoptr i64 %r1304 to i64 (i64)*
-%r1307 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1309 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1303, i64 1, i64 %r1307)
-%r1308 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r1310 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1303, i64 2, i64 %r1308)
-%r1302 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1306)
-%r1311 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1302, i64 %r1303)
-%r1305 = tail call fastcc i64 %r1300(i64 %r1303)
-ret i64 %r1305
-}
-
-define fastcc i64 @"fun27-char-dot?"(i64 %"env") nounwind {
-%r1321 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1316 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1321)
-%r1318 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1316)
-%r1319 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1321)
-%r1315 = inttoptr i64 %r1319 to i64 (i64)*
-%r1322 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1324 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1318, i64 1, i64 %r1322)
-%r1323 = tail call fastcc i64 @"fun-make-number"(i64 46)
-%r1325 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1318, i64 2, i64 %r1323)
-%r1317 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1321)
-%r1326 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1317, i64 %r1318)
-%r1320 = tail call fastcc i64 %r1315(i64 %r1318)
-ret i64 %r1320
-}
-
-define fastcc i64 @"fun28-char-quote?"(i64 %"env") nounwind {
-%r1336 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1331 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1336)
-%r1333 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1331)
-%r1334 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1336)
-%r1330 = inttoptr i64 %r1334 to i64 (i64)*
-%r1337 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1339 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1333, i64 1, i64 %r1337)
-%r1338 = tail call fastcc i64 @"fun-make-number"(i64 39)
-%r1340 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1333, i64 2, i64 %r1338)
-%r1332 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1336)
-%r1341 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1332, i64 %r1333)
-%r1335 = tail call fastcc i64 %r1330(i64 %r1333)
-ret i64 %r1335
-}
-
-define fastcc i64 @"fun29-char-backquote?"(i64 %"env") nounwind {
-%r1351 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1346 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1351)
-%r1348 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1346)
-%r1349 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1351)
-%r1345 = inttoptr i64 %r1349 to i64 (i64)*
-%r1352 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1354 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1348, i64 1, i64 %r1352)
-%r1353 = tail call fastcc i64 @"fun-make-number"(i64 96)
-%r1355 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1348, i64 2, i64 %r1353)
-%r1347 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1351)
-%r1356 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1347, i64 %r1348)
-%r1350 = tail call fastcc i64 %r1345(i64 %r1348)
-ret i64 %r1350
-}
-
-define fastcc i64 @"fun30-char-comma?"(i64 %"env") nounwind {
-%r1366 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1361 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1366)
-%r1363 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1361)
-%r1364 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1366)
-%r1360 = inttoptr i64 %r1364 to i64 (i64)*
-%r1367 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1369 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1363, i64 1, i64 %r1367)
-%r1368 = tail call fastcc i64 @"fun-make-number"(i64 44)
-%r1370 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1363, i64 2, i64 %r1368)
-%r1362 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1366)
-%r1371 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1362, i64 %r1363)
-%r1365 = tail call fastcc i64 %r1360(i64 %r1363)
-ret i64 %r1365
-}
-
-define fastcc i64 @"fun31-char-backslash?"(i64 %"env") nounwind {
-%r1381 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1376 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1381)
-%r1378 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1376)
-%r1379 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1381)
-%r1375 = inttoptr i64 %r1379 to i64 (i64)*
-%r1382 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1384 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1378, i64 1, i64 %r1382)
-%r1383 = tail call fastcc i64 @"fun-make-number"(i64 92)
-%r1385 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1378, i64 2, i64 %r1383)
-%r1377 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1381)
-%r1386 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1377, i64 %r1378)
-%r1380 = tail call fastcc i64 %r1375(i64 %r1378)
-ret i64 %r1380
-}
-
-define fastcc i64 @"fun32-char-character?"(i64 %"env") nounwind {
-%r1396 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r1391 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1396)
-%r1393 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1391)
-%r1394 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1396)
-%r1390 = inttoptr i64 %r1394 to i64 (i64)*
-%r1397 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1399 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1393, i64 1, i64 %r1397)
-%r1398 = tail call fastcc i64 @"fun-make-number"(i64 35)
-%r1400 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1393, i64 2, i64 %r1398)
-%r1392 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1396)
-%r1401 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1392, i64 %r1393)
-%r1395 = tail call fastcc i64 %r1390(i64 %r1393)
-ret i64 %r1395
-}
-
-define fastcc i64 @fun34(i64 %"env") nounwind {
-%r1422 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 17)
-%r1417 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1422)
-%r1419 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1417)
-%r1420 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1422)
-%r1416 = inttoptr i64 %r1420 to i64 (i64)*
-%r1418 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1422)
-%r1423 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1418, i64 %r1419)
-%r1421 = tail call fastcc i64 %r1416(i64 %r1419)
-%r1415 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1421)
-%r1600 = alloca i64
-%r1430 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 21)
-%r1425 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1430)
-%r1427 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1425)
-%r1428 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1430)
-%r1424 = inttoptr i64 %r1428 to i64 (i64)*
-%r1431 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1432 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1427, i64 1, i64 %r1431)
-%r1426 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1430)
-%r1433 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1426, i64 %r1427)
-%r1429 = tail call fastcc i64 %r1424(i64 %r1427)
-%r1602 = tail call fastcc i64 @"fun-raw-number"(i64 %r1429)
-%r1603 = icmp ne i64 %r1602, 0
-br i1 %r1603, label %label127, label %label128
+%r1573 = alloca i64
+%r1425 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 18)
+%r1420 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1425)
+%r1422 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1420)
+%r1423 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1425)
+%r1419 = inttoptr i64 %r1423 to i64 (i64)*
+%r1426 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1427 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1422, i64 1, i64 %r1426)
+%r1421 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1425)
+%r1428 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1421, i64 %r1422)
+%r1424 = tail call fastcc i64 %r1419(i64 %r1422)
+%r1575 = tail call fastcc i64 @"fun-raw-number"(i64 %r1424)
+%r1576 = icmp ne i64 %r1575, 0
+br i1 %r1576, label %label127, label %label128
 label127:
-%r1440 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1435 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1440)
-%r1437 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1435)
-%r1438 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1440)
-%r1434 = inttoptr i64 %r1438 to i64 (i64)*
-%r1436 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1440)
-%r1441 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1436, i64 %r1437)
-%r1439 = tail call fastcc i64 %r1434(i64 %r1437)
-store i64 %r1439, i64* %r1600
+%r1435 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 32)
+%r1430 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1435)
+%r1432 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1430)
+%r1433 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1435)
+%r1429 = inttoptr i64 %r1433 to i64 (i64)*
+%r1431 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1435)
+%r1436 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1431, i64 %r1432)
+%r1434 = tail call fastcc i64 %r1429(i64 %r1432)
+store i64 %r1434, i64* %r1573
 br label %label129
 label128:
-%r1596 = alloca i64
-%r1448 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 19)
-%r1443 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1448)
-%r1445 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1443)
-%r1446 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1448)
-%r1442 = inttoptr i64 %r1446 to i64 (i64)*
-%r1449 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1450 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1445, i64 1, i64 %r1449)
-%r1444 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1448)
-%r1451 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1444, i64 %r1445)
-%r1447 = tail call fastcc i64 %r1442(i64 %r1445)
-%r1598 = tail call fastcc i64 @"fun-raw-number"(i64 %r1447)
-%r1599 = icmp ne i64 %r1598, 0
-br i1 %r1599, label %label130, label %label131
+%r1569 = alloca i64
+%r1443 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r1438 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1443)
+%r1440 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1438)
+%r1441 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1443)
+%r1437 = inttoptr i64 %r1441 to i64 (i64)*
+%r1444 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1445 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1440, i64 1, i64 %r1444)
+%r1439 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1443)
+%r1446 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1439, i64 %r1440)
+%r1442 = tail call fastcc i64 %r1437(i64 %r1440)
+%r1571 = tail call fastcc i64 @"fun-raw-number"(i64 %r1442)
+%r1572 = icmp ne i64 %r1571, 0
+br i1 %r1572, label %label130, label %label131
 label130:
-%r1458 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 33)
-%r1453 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1458)
-%r1455 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1453)
-%r1456 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1458)
-%r1452 = inttoptr i64 %r1456 to i64 (i64)*
-%r1454 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1458)
-%r1459 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1454, i64 %r1455)
-%r1457 = tail call fastcc i64 %r1452(i64 %r1455)
-store i64 %r1457, i64* %r1596
+%r1453 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 34)
+%r1448 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1453)
+%r1450 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1448)
+%r1451 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1453)
+%r1447 = inttoptr i64 %r1451 to i64 (i64)*
+%r1449 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1453)
+%r1454 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1449, i64 %r1450)
+%r1452 = tail call fastcc i64 %r1447(i64 %r1450)
+%r1461 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 32)
+%r1456 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1461)
+%r1458 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1456)
+%r1459 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1461)
+%r1455 = inttoptr i64 %r1459 to i64 (i64)*
+%r1457 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1461)
+%r1462 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1457, i64 %r1458)
+%r1460 = tail call fastcc i64 %r1455(i64 %r1458)
+store i64 %r1460, i64* %r1569
 br label %label132
 label131:
-%r1592 = alloca i64
-%r1466 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
-%r1461 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1466)
-%r1463 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1461)
-%r1464 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1466)
-%r1460 = inttoptr i64 %r1464 to i64 (i64)*
-%r1467 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1468 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1463, i64 1, i64 %r1467)
-%r1462 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1466)
-%r1469 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1462, i64 %r1463)
-%r1465 = tail call fastcc i64 %r1460(i64 %r1463)
-%r1594 = tail call fastcc i64 @"fun-raw-number"(i64 %r1465)
-%r1595 = icmp ne i64 %r1594, 0
-br i1 %r1595, label %label133, label %label134
+%r1565 = alloca i64
+%r1469 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
+%r1464 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1469)
+%r1466 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1464)
+%r1467 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1469)
+%r1463 = inttoptr i64 %r1467 to i64 (i64)*
+%r1470 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1471 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1466, i64 1, i64 %r1470)
+%r1465 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1469)
+%r1472 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1465, i64 %r1466)
+%r1468 = tail call fastcc i64 %r1463(i64 %r1466)
+%r1567 = tail call fastcc i64 @"fun-raw-number"(i64 %r1468)
+%r1568 = icmp ne i64 %r1567, 0
+br i1 %r1568, label %label133, label %label134
 label133:
-%r1476 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
-%r1471 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1476)
-%r1473 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1471)
-%r1474 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1476)
-%r1470 = inttoptr i64 %r1474 to i64 (i64)*
-%r1472 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1476)
-%r1477 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1472, i64 %r1473)
-%r1475 = tail call fastcc i64 %r1470(i64 %r1473)
-%r1484 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 33)
+%r1476 = ptrtoint [6 x i8]* @r1475 to i64
+%r1474 = tail call fastcc i64 @"fun-make-symbol"(i64 %r1476, i64 5)
+%r1484 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 32)
 %r1479 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1484)
 %r1481 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1479)
 %r1482 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1484)
@@ -3750,1026 +3735,1030 @@ label133:
 %r1480 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1484)
 %r1485 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1480, i64 %r1481)
 %r1483 = tail call fastcc i64 %r1478(i64 %r1481)
-store i64 %r1483, i64* %r1592
+%r1486 = tail call fastcc i64 @"fun-make-null"()
+%r1477 = tail call fastcc i64 @"fun-cons"(i64 %r1483, i64 %r1486)
+%r1473 = tail call fastcc i64 @"fun-cons"(i64 %r1474, i64 %r1477)
+store i64 %r1473, i64* %r1565
 br label %label135
 label134:
-%r1588 = alloca i64
-%r1492 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 27)
-%r1487 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1492)
-%r1489 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1487)
-%r1490 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1492)
-%r1486 = inttoptr i64 %r1490 to i64 (i64)*
-%r1493 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1494 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1489, i64 1, i64 %r1493)
-%r1488 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1492)
-%r1495 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1488, i64 %r1489)
-%r1491 = tail call fastcc i64 %r1486(i64 %r1489)
-%r1590 = tail call fastcc i64 @"fun-raw-number"(i64 %r1491)
-%r1591 = icmp ne i64 %r1590, 0
-br i1 %r1591, label %label136, label %label137
+%r1561 = alloca i64
+%r1493 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
+%r1488 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1493)
+%r1490 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1488)
+%r1491 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1493)
+%r1487 = inttoptr i64 %r1491 to i64 (i64)*
+%r1494 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1495 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1490, i64 1, i64 %r1494)
+%r1489 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1493)
+%r1496 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1489, i64 %r1490)
+%r1492 = tail call fastcc i64 %r1487(i64 %r1490)
+%r1563 = tail call fastcc i64 @"fun-raw-number"(i64 %r1492)
+%r1564 = icmp ne i64 %r1563, 0
+br i1 %r1564, label %label136, label %label137
 label136:
-%r1499 = ptrtoint [6 x i8]* @r1498 to i64
-%r1497 = tail call fastcc i64 @"fun-make-symbol"(i64 %r1499, i64 5)
-%r1507 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 33)
-%r1502 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1507)
-%r1504 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1502)
-%r1505 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1507)
-%r1501 = inttoptr i64 %r1505 to i64 (i64)*
-%r1503 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1507)
-%r1508 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1503, i64 %r1504)
-%r1506 = tail call fastcc i64 %r1501(i64 %r1504)
-%r1509 = tail call fastcc i64 @"fun-make-null"()
-%r1500 = tail call fastcc i64 @"fun-cons"(i64 %r1506, i64 %r1509)
-%r1496 = tail call fastcc i64 @"fun-cons"(i64 %r1497, i64 %r1500)
-store i64 %r1496, i64* %r1588
+%r1503 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 40)
+%r1498 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1503)
+%r1500 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1498)
+%r1501 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1503)
+%r1497 = inttoptr i64 %r1501 to i64 (i64)*
+%r1499 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1503)
+%r1504 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1499, i64 %r1500)
+%r1502 = tail call fastcc i64 %r1497(i64 %r1500)
+store i64 %r1502, i64* %r1561
 br label %label138
 label137:
-%r1584 = alloca i64
-%r1516 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
-%r1511 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1516)
-%r1513 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1511)
-%r1514 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1516)
-%r1510 = inttoptr i64 %r1514 to i64 (i64)*
-%r1517 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1518 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1513, i64 1, i64 %r1517)
-%r1512 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1516)
-%r1519 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1512, i64 %r1513)
-%r1515 = tail call fastcc i64 %r1510(i64 %r1513)
-%r1586 = tail call fastcc i64 @"fun-raw-number"(i64 %r1515)
-%r1587 = icmp ne i64 %r1586, 0
-br i1 %r1587, label %label139, label %label140
+%r1557 = alloca i64
+%r1511 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 30)
+%r1506 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1511)
+%r1508 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1506)
+%r1509 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1511)
+%r1505 = inttoptr i64 %r1509 to i64 (i64)*
+%r1512 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1513 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1508, i64 1, i64 %r1512)
+%r1507 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1511)
+%r1514 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1507, i64 %r1508)
+%r1510 = tail call fastcc i64 %r1505(i64 %r1508)
+%r1559 = tail call fastcc i64 @"fun-raw-number"(i64 %r1510)
+%r1560 = icmp ne i64 %r1559, 0
+br i1 %r1560, label %label139, label %label140
 label139:
-%r1526 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 41)
-%r1521 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1526)
-%r1523 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1521)
-%r1524 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1526)
-%r1520 = inttoptr i64 %r1524 to i64 (i64)*
-%r1522 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1526)
-%r1527 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1522, i64 %r1523)
-%r1525 = tail call fastcc i64 %r1520(i64 %r1523)
-store i64 %r1525, i64* %r1584
+%r1521 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 33)
+%r1516 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1521)
+%r1518 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1516)
+%r1519 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1521)
+%r1515 = inttoptr i64 %r1519 to i64 (i64)*
+%r1517 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1521)
+%r1522 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1517, i64 %r1518)
+%r1520 = tail call fastcc i64 %r1515(i64 %r1518)
+store i64 %r1520, i64* %r1557
 br label %label141
 label140:
-%r1580 = alloca i64
-%r1534 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 31)
-%r1529 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1534)
-%r1531 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1529)
-%r1532 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1534)
-%r1528 = inttoptr i64 %r1532 to i64 (i64)*
-%r1535 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1536 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1531, i64 1, i64 %r1535)
-%r1530 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1534)
-%r1537 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1530, i64 %r1531)
-%r1533 = tail call fastcc i64 %r1528(i64 %r1531)
-%r1582 = tail call fastcc i64 @"fun-raw-number"(i64 %r1533)
-%r1583 = icmp ne i64 %r1582, 0
-br i1 %r1583, label %label142, label %label143
+%r1553 = alloca i64
+%r1529 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 19)
+%r1524 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1529)
+%r1526 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1524)
+%r1527 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1529)
+%r1523 = inttoptr i64 %r1527 to i64 (i64)*
+%r1530 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1531 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1526, i64 1, i64 %r1530)
+%r1525 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1529)
+%r1532 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1525, i64 %r1526)
+%r1528 = tail call fastcc i64 %r1523(i64 %r1526)
+%r1555 = tail call fastcc i64 @"fun-raw-number"(i64 %r1528)
+%r1556 = icmp ne i64 %r1555, 0
+br i1 %r1556, label %label142, label %label143
 label142:
-%r1544 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 34)
-%r1539 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1544)
-%r1541 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1539)
-%r1542 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1544)
-%r1538 = inttoptr i64 %r1542 to i64 (i64)*
-%r1540 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1544)
-%r1545 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1540, i64 %r1541)
-%r1543 = tail call fastcc i64 %r1538(i64 %r1541)
-store i64 %r1543, i64* %r1580
+%r1539 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
+%r1534 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1539)
+%r1536 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1534)
+%r1537 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1539)
+%r1533 = inttoptr i64 %r1537 to i64 (i64)*
+%r1540 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1541 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1536, i64 1, i64 %r1540)
+%r1535 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1539)
+%r1542 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1535, i64 %r1536)
+%r1538 = tail call fastcc i64 %r1533(i64 %r1536)
+store i64 %r1538, i64* %r1553
 br label %label144
 label143:
-%r1576 = alloca i64
-%r1552 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 20)
-%r1547 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1552)
-%r1549 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1547)
-%r1550 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1552)
-%r1546 = inttoptr i64 %r1550 to i64 (i64)*
-%r1553 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1554 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1549, i64 1, i64 %r1553)
-%r1548 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1552)
-%r1555 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1548, i64 %r1549)
-%r1551 = tail call fastcc i64 %r1546(i64 %r1549)
-%r1578 = tail call fastcc i64 @"fun-raw-number"(i64 %r1551)
-%r1579 = icmp ne i64 %r1578, 0
-br i1 %r1579, label %label145, label %label146
-label145:
-%r1562 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 38)
-%r1557 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1562)
-%r1559 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1557)
-%r1560 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1562)
-%r1556 = inttoptr i64 %r1560 to i64 (i64)*
-%r1563 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1564 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1559, i64 1, i64 %r1563)
-%r1558 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1562)
-%r1565 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1558, i64 %r1559)
-%r1561 = tail call fastcc i64 %r1556(i64 %r1559)
-store i64 %r1561, i64* %r1576
-br label %label147
-label146:
-%r1572 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 39)
-%r1567 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1572)
-%r1569 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1567)
-%r1570 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1572)
-%r1566 = inttoptr i64 %r1570 to i64 (i64)*
-%r1573 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1574 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1569, i64 1, i64 %r1573)
-%r1568 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1572)
-%r1575 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1568, i64 %r1569)
-%r1571 = tail call fastcc i64 %r1566(i64 %r1569)
-store i64 %r1571, i64* %r1576
-br label %label147
-label147:
-%r1577 = load i64* %r1576
-store i64 %r1577, i64* %r1580
+%r1549 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 38)
+%r1544 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1549)
+%r1546 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1544)
+%r1547 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1549)
+%r1543 = inttoptr i64 %r1547 to i64 (i64)*
+%r1550 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1551 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1546, i64 1, i64 %r1550)
+%r1545 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1549)
+%r1552 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1545, i64 %r1546)
+%r1548 = tail call fastcc i64 %r1543(i64 %r1546)
+store i64 %r1548, i64* %r1553
 br label %label144
 label144:
-%r1581 = load i64* %r1580
-store i64 %r1581, i64* %r1584
+%r1554 = load i64* %r1553
+store i64 %r1554, i64* %r1557
 br label %label141
 label141:
-%r1585 = load i64* %r1584
-store i64 %r1585, i64* %r1588
+%r1558 = load i64* %r1557
+store i64 %r1558, i64* %r1561
 br label %label138
 label138:
-%r1589 = load i64* %r1588
-store i64 %r1589, i64* %r1592
+%r1562 = load i64* %r1561
+store i64 %r1562, i64* %r1565
 br label %label135
 label135:
-%r1593 = load i64* %r1592
-store i64 %r1593, i64* %r1596
+%r1566 = load i64* %r1565
+store i64 %r1566, i64* %r1569
 br label %label132
 label132:
-%r1597 = load i64* %r1596
-store i64 %r1597, i64* %r1600
+%r1570 = load i64* %r1569
+store i64 %r1570, i64* %r1573
 br label %label129
 label129:
-%r1601 = load i64* %r1600
-ret i64 %r1601
+%r1574 = load i64* %r1573
+store i64 %r1574, i64* %r1577
+br label %label126
+label126:
+%r1578 = load i64* %r1577
+ret i64 %r1578
 }
 
-define fastcc i64 @"fun33-read"(i64 %"env") nounwind {
-%r1604 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r1606 = tail call fastcc i64 @fun34(i64 %r1604)
-ret i64 %r1606
+define fastcc i64 @"fun32-read"(i64 %"env") nounwind {
+%r1581 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r1583 = tail call fastcc i64 @fun33(i64 %r1581)
+ret i64 %r1583
 }
 
-define fastcc i64 @"fun35-read-char-quote"(i64 %"env") nounwind {
-%r1616 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 17)
-%r1611 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1616)
-%r1613 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1611)
-%r1614 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1616)
-%r1610 = inttoptr i64 %r1614 to i64 (i64)*
-%r1612 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1616)
-%r1617 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1612, i64 %r1613)
-%r1615 = tail call fastcc i64 %r1610(i64 %r1613)
-%r1624 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 17)
-%r1619 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1624)
-%r1621 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1619)
-%r1622 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1624)
-%r1618 = inttoptr i64 %r1622 to i64 (i64)*
-%r1620 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1624)
-%r1625 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1620, i64 %r1621)
-%r1623 = tail call fastcc i64 %r1618(i64 %r1621)
-ret i64 %r1623
+define fastcc i64 @"fun34-read-char-quote"(i64 %"env") nounwind {
+%r1593 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 16)
+%r1588 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1593)
+%r1590 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1588)
+%r1591 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1593)
+%r1587 = inttoptr i64 %r1591 to i64 (i64)*
+%r1589 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1593)
+%r1594 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1589, i64 %r1590)
+%r1592 = tail call fastcc i64 %r1587(i64 %r1590)
+%r1601 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 16)
+%r1596 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1601)
+%r1598 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1596)
+%r1599 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1601)
+%r1595 = inttoptr i64 %r1599 to i64 (i64)*
+%r1597 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1601)
+%r1602 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1597, i64 %r1598)
+%r1600 = tail call fastcc i64 %r1595(i64 %r1598)
+ret i64 %r1600
 }
 
-define fastcc i64 @"fun36-read-comment"(i64 %"env") nounwind {
-%r1656 = alloca i64
-%r1636 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 25)
-%r1631 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1636)
-%r1633 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1631)
-%r1634 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1636)
-%r1630 = inttoptr i64 %r1634 to i64 (i64)*
-%r1643 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 17)
-%r1638 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1643)
-%r1640 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1638)
-%r1641 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1643)
-%r1637 = inttoptr i64 %r1641 to i64 (i64)*
-%r1639 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1643)
-%r1644 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1639, i64 %r1640)
-%r1642 = tail call fastcc i64 %r1637(i64 %r1640)
-%r1645 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1633, i64 1, i64 %r1642)
-%r1632 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1636)
-%r1646 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1632, i64 %r1633)
-%r1635 = tail call fastcc i64 %r1630(i64 %r1633)
-%r1629 = tail call fastcc i64 @"fun-not"(i64 %r1635)
-%r1658 = tail call fastcc i64 @"fun-raw-number"(i64 %r1629)
-%r1659 = icmp ne i64 %r1658, 0
-br i1 %r1659, label %label148, label %label149
+define fastcc i64 @"fun35-read-comment"(i64 %"env") nounwind {
+%r1633 = alloca i64
+%r1613 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 24)
+%r1608 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1613)
+%r1610 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1608)
+%r1611 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1613)
+%r1607 = inttoptr i64 %r1611 to i64 (i64)*
+%r1620 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 16)
+%r1615 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1620)
+%r1617 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1615)
+%r1618 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1620)
+%r1614 = inttoptr i64 %r1618 to i64 (i64)*
+%r1616 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1620)
+%r1621 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1616, i64 %r1617)
+%r1619 = tail call fastcc i64 %r1614(i64 %r1617)
+%r1622 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1610, i64 1, i64 %r1619)
+%r1609 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1613)
+%r1623 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1609, i64 %r1610)
+%r1612 = tail call fastcc i64 %r1607(i64 %r1610)
+%r1606 = tail call fastcc i64 @"fun-not"(i64 %r1612)
+%r1635 = tail call fastcc i64 @"fun-raw-number"(i64 %r1606)
+%r1636 = icmp ne i64 %r1635, 0
+br i1 %r1636, label %label145, label %label146
+label145:
+%r1630 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 34)
+%r1625 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1630)
+%r1627 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1625)
+%r1628 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1630)
+%r1624 = inttoptr i64 %r1628 to i64 (i64)*
+%r1626 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1630)
+%r1631 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1626, i64 %r1627)
+%r1629 = tail call fastcc i64 %r1624(i64 %r1627)
+store i64 %r1629, i64* %r1633
+br label %label147
+label146:
+%r1632 = tail call fastcc i64 @"fun-make-number"(i64 0)
+store i64 %r1632, i64* %r1633
+br label %label147
+label147:
+%r1634 = load i64* %r1633
+ret i64 %r1634
+}
+
+define fastcc i64 @fun37(i64 %"env") nounwind {
+%r1647 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 16)
+%r1642 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1647)
+%r1644 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1642)
+%r1645 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1647)
+%r1641 = inttoptr i64 %r1645 to i64 (i64)*
+%r1643 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1647)
+%r1648 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1643, i64 %r1644)
+%r1646 = tail call fastcc i64 %r1641(i64 %r1644)
+%r1640 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1646)
+%r1908 = alloca i64
+%r1655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 21)
+%r1650 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1655)
+%r1652 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1650)
+%r1653 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1655)
+%r1649 = inttoptr i64 %r1653 to i64 (i64)*
+%r1656 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1657 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1652, i64 1, i64 %r1656)
+%r1651 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1655)
+%r1658 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1651, i64 %r1652)
+%r1654 = tail call fastcc i64 %r1649(i64 %r1652)
+%r1910 = tail call fastcc i64 @"fun-raw-number"(i64 %r1654)
+%r1911 = icmp ne i64 %r1910, 0
+br i1 %r1911, label %label148, label %label149
 label148:
-%r1653 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 35)
-%r1648 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1653)
-%r1650 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1648)
-%r1651 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1653)
-%r1647 = inttoptr i64 %r1651 to i64 (i64)*
-%r1649 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1653)
-%r1654 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1649, i64 %r1650)
-%r1652 = tail call fastcc i64 %r1647(i64 %r1650)
-store i64 %r1652, i64* %r1656
+%r1659 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r1659, i64* %r1908
 br label %label150
 label149:
-%r1655 = tail call fastcc i64 @"fun-make-number"(i64 0)
-store i64 %r1655, i64* %r1656
-br label %label150
-label150:
-%r1657 = load i64* %r1656
-ret i64 %r1657
-}
-
-define fastcc i64 @fun38(i64 %"env") nounwind {
-%r1670 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 17)
-%r1665 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1670)
-%r1667 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1665)
-%r1668 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1670)
-%r1664 = inttoptr i64 %r1668 to i64 (i64)*
-%r1666 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1670)
-%r1671 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1666, i64 %r1667)
-%r1669 = tail call fastcc i64 %r1664(i64 %r1667)
-%r1663 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1669)
-%r1931 = alloca i64
-%r1678 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
-%r1673 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1678)
-%r1675 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1673)
-%r1676 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1678)
-%r1672 = inttoptr i64 %r1676 to i64 (i64)*
-%r1679 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1680 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1675, i64 1, i64 %r1679)
-%r1674 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1678)
-%r1681 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1674, i64 %r1675)
-%r1677 = tail call fastcc i64 %r1672(i64 %r1675)
-%r1933 = tail call fastcc i64 @"fun-raw-number"(i64 %r1677)
-%r1934 = icmp ne i64 %r1933, 0
-br i1 %r1934, label %label151, label %label152
+%r1904 = alloca i64
+%r1666 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r1661 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1666)
+%r1663 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1661)
+%r1664 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1666)
+%r1660 = inttoptr i64 %r1664 to i64 (i64)*
+%r1667 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1668 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1663, i64 1, i64 %r1667)
+%r1662 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1666)
+%r1669 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1662, i64 %r1663)
+%r1665 = tail call fastcc i64 %r1660(i64 %r1663)
+%r1906 = tail call fastcc i64 @"fun-raw-number"(i64 %r1665)
+%r1907 = icmp ne i64 %r1906, 0
+br i1 %r1907, label %label151, label %label152
 label151:
-%r1682 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r1682, i64* %r1931
+%r1677 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1672 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1677)
+%r1674 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1672)
+%r1675 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1677)
+%r1671 = inttoptr i64 %r1675 to i64 (i64)*
+%r1673 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1677)
+%r1678 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1673, i64 %r1674)
+%r1676 = tail call fastcc i64 %r1671(i64 %r1674)
+%r1670 = tail call fastcc i64 @"fun-car"(i64 %r1676)
+store i64 %r1670, i64* %r1904
 br label %label153
 label152:
-%r1927 = alloca i64
-%r1689 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
-%r1684 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1689)
-%r1686 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1684)
-%r1687 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1689)
-%r1683 = inttoptr i64 %r1687 to i64 (i64)*
-%r1690 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1691 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1686, i64 1, i64 %r1690)
-%r1685 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1689)
-%r1692 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1685, i64 %r1686)
-%r1688 = tail call fastcc i64 %r1683(i64 %r1686)
-%r1929 = tail call fastcc i64 @"fun-raw-number"(i64 %r1688)
-%r1930 = icmp ne i64 %r1929, 0
-br i1 %r1930, label %label154, label %label155
+%r1900 = alloca i64
+%r1685 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 20)
+%r1680 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1685)
+%r1682 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1680)
+%r1683 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1685)
+%r1679 = inttoptr i64 %r1683 to i64 (i64)*
+%r1686 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1687 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1682, i64 1, i64 %r1686)
+%r1681 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1685)
+%r1688 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1681, i64 %r1682)
+%r1684 = tail call fastcc i64 %r1679(i64 %r1682)
+%r1902 = tail call fastcc i64 @"fun-raw-number"(i64 %r1684)
+%r1903 = icmp ne i64 %r1902, 0
+br i1 %r1903, label %label154, label %label155
 label154:
-%r1700 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1695 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1700)
-%r1697 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1695)
-%r1698 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1700)
-%r1694 = inttoptr i64 %r1698 to i64 (i64)*
-%r1696 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1700)
-%r1701 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1696, i64 %r1697)
-%r1699 = tail call fastcc i64 %r1694(i64 %r1697)
-%r1693 = tail call fastcc i64 @"fun-car"(i64 %r1699)
-store i64 %r1693, i64* %r1927
+%r1696 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1691 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1696)
+%r1693 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1691)
+%r1694 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1696)
+%r1690 = inttoptr i64 %r1694 to i64 (i64)*
+%r1692 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1696)
+%r1697 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1692, i64 %r1693)
+%r1695 = tail call fastcc i64 %r1690(i64 %r1693)
+%r1704 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1699 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1704)
+%r1701 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1699)
+%r1702 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1704)
+%r1698 = inttoptr i64 %r1702 to i64 (i64)*
+%r1700 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1704)
+%r1705 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1700, i64 %r1701)
+%r1703 = tail call fastcc i64 %r1698(i64 %r1701)
+%r1689 = tail call fastcc i64 @"fun-cons"(i64 %r1695, i64 %r1703)
+store i64 %r1689, i64* %r1900
 br label %label156
 label155:
-%r1923 = alloca i64
-%r1708 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 21)
-%r1703 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1708)
-%r1705 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1703)
-%r1706 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1708)
-%r1702 = inttoptr i64 %r1706 to i64 (i64)*
-%r1709 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1710 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1705, i64 1, i64 %r1709)
-%r1704 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1708)
-%r1711 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1704, i64 %r1705)
-%r1707 = tail call fastcc i64 %r1702(i64 %r1705)
-%r1925 = tail call fastcc i64 @"fun-raw-number"(i64 %r1707)
-%r1926 = icmp ne i64 %r1925, 0
-br i1 %r1926, label %label157, label %label158
+%r1896 = alloca i64
+%r1712 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 18)
+%r1707 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1712)
+%r1709 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1707)
+%r1710 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1712)
+%r1706 = inttoptr i64 %r1710 to i64 (i64)*
+%r1713 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1714 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1709, i64 1, i64 %r1713)
+%r1708 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1712)
+%r1715 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1708, i64 %r1709)
+%r1711 = tail call fastcc i64 %r1706(i64 %r1709)
+%r1898 = tail call fastcc i64 @"fun-raw-number"(i64 %r1711)
+%r1899 = icmp ne i64 %r1898, 0
+br i1 %r1899, label %label157, label %label158
 label157:
-%r1719 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1714 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1719)
-%r1716 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1714)
-%r1717 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1719)
-%r1713 = inttoptr i64 %r1717 to i64 (i64)*
-%r1715 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1719)
-%r1720 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1715, i64 %r1716)
-%r1718 = tail call fastcc i64 %r1713(i64 %r1716)
-%r1727 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1722 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1727)
-%r1724 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1722)
-%r1725 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1727)
-%r1721 = inttoptr i64 %r1725 to i64 (i64)*
-%r1723 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1727)
-%r1728 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1723, i64 %r1724)
-%r1726 = tail call fastcc i64 %r1721(i64 %r1724)
-%r1712 = tail call fastcc i64 @"fun-cons"(i64 %r1718, i64 %r1726)
-store i64 %r1712, i64* %r1923
+%r1722 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1717 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1722)
+%r1719 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1717)
+%r1720 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1722)
+%r1716 = inttoptr i64 %r1720 to i64 (i64)*
+%r1718 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1722)
+%r1723 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1718, i64 %r1719)
+%r1721 = tail call fastcc i64 %r1716(i64 %r1719)
+store i64 %r1721, i64* %r1896
 br label %label159
 label158:
-%r1919 = alloca i64
-%r1735 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 19)
-%r1730 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1735)
-%r1732 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1730)
-%r1733 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1735)
-%r1729 = inttoptr i64 %r1733 to i64 (i64)*
-%r1736 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1737 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1732, i64 1, i64 %r1736)
-%r1731 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1735)
-%r1738 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1731, i64 %r1732)
-%r1734 = tail call fastcc i64 %r1729(i64 %r1732)
-%r1921 = tail call fastcc i64 @"fun-raw-number"(i64 %r1734)
-%r1922 = icmp ne i64 %r1921, 0
-br i1 %r1922, label %label160, label %label161
+%r1892 = alloca i64
+%r1730 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r1725 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1730)
+%r1727 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1725)
+%r1728 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1730)
+%r1724 = inttoptr i64 %r1728 to i64 (i64)*
+%r1731 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1732 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1727, i64 1, i64 %r1731)
+%r1726 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1730)
+%r1733 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1726, i64 %r1727)
+%r1729 = tail call fastcc i64 %r1724(i64 %r1727)
+%r1894 = tail call fastcc i64 @"fun-raw-number"(i64 %r1729)
+%r1895 = icmp ne i64 %r1894, 0
+br i1 %r1895, label %label160, label %label161
 label160:
-%r1745 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1740 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1745)
-%r1742 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1740)
-%r1743 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1745)
-%r1739 = inttoptr i64 %r1743 to i64 (i64)*
-%r1741 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1745)
-%r1746 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1741, i64 %r1742)
-%r1744 = tail call fastcc i64 %r1739(i64 %r1742)
-store i64 %r1744, i64* %r1919
+%r1740 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 34)
+%r1735 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1740)
+%r1737 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1735)
+%r1738 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1740)
+%r1734 = inttoptr i64 %r1738 to i64 (i64)*
+%r1736 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1740)
+%r1741 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1736, i64 %r1737)
+%r1739 = tail call fastcc i64 %r1734(i64 %r1737)
+%r1748 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1743 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1748)
+%r1745 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1743)
+%r1746 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1748)
+%r1742 = inttoptr i64 %r1746 to i64 (i64)*
+%r1744 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1748)
+%r1749 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1744, i64 %r1745)
+%r1747 = tail call fastcc i64 %r1742(i64 %r1745)
+store i64 %r1747, i64* %r1892
 br label %label162
 label161:
-%r1915 = alloca i64
-%r1753 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
-%r1748 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1753)
-%r1750 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1748)
-%r1751 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1753)
-%r1747 = inttoptr i64 %r1751 to i64 (i64)*
-%r1754 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1755 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1750, i64 1, i64 %r1754)
-%r1749 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1753)
-%r1756 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1749, i64 %r1750)
-%r1752 = tail call fastcc i64 %r1747(i64 %r1750)
-%r1917 = tail call fastcc i64 @"fun-raw-number"(i64 %r1752)
-%r1918 = icmp ne i64 %r1917, 0
-br i1 %r1918, label %label163, label %label164
+%r1888 = alloca i64
+%r1756 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
+%r1751 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1756)
+%r1753 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1751)
+%r1754 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1756)
+%r1750 = inttoptr i64 %r1754 to i64 (i64)*
+%r1757 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1758 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1753, i64 1, i64 %r1757)
+%r1752 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1756)
+%r1759 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1752, i64 %r1753)
+%r1755 = tail call fastcc i64 %r1750(i64 %r1753)
+%r1890 = tail call fastcc i64 @"fun-raw-number"(i64 %r1755)
+%r1891 = icmp ne i64 %r1890, 0
+br i1 %r1891, label %label163, label %label164
 label163:
-%r1763 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
-%r1758 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1763)
-%r1760 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1758)
-%r1761 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1763)
-%r1757 = inttoptr i64 %r1761 to i64 (i64)*
-%r1759 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1763)
-%r1764 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1759, i64 %r1760)
-%r1762 = tail call fastcc i64 %r1757(i64 %r1760)
-%r1771 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1766 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1771)
-%r1768 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1766)
-%r1769 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1771)
-%r1765 = inttoptr i64 %r1769 to i64 (i64)*
-%r1767 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1771)
-%r1772 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1767, i64 %r1768)
-%r1770 = tail call fastcc i64 %r1765(i64 %r1768)
-store i64 %r1770, i64* %r1915
+%r1764 = ptrtoint [6 x i8]* @r1763 to i64
+%r1762 = tail call fastcc i64 @"fun-make-symbol"(i64 %r1764, i64 5)
+%r1772 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 32)
+%r1767 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1772)
+%r1769 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1767)
+%r1770 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1772)
+%r1766 = inttoptr i64 %r1770 to i64 (i64)*
+%r1768 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1772)
+%r1773 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1768, i64 %r1769)
+%r1771 = tail call fastcc i64 %r1766(i64 %r1769)
+%r1774 = tail call fastcc i64 @"fun-make-null"()
+%r1765 = tail call fastcc i64 @"fun-cons"(i64 %r1771, i64 %r1774)
+%r1761 = tail call fastcc i64 @"fun-cons"(i64 %r1762, i64 %r1765)
+%r1781 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1776 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1781)
+%r1778 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1776)
+%r1779 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1781)
+%r1775 = inttoptr i64 %r1779 to i64 (i64)*
+%r1777 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1781)
+%r1782 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1777, i64 %r1778)
+%r1780 = tail call fastcc i64 %r1775(i64 %r1778)
+%r1760 = tail call fastcc i64 @"fun-cons"(i64 %r1761, i64 %r1780)
+store i64 %r1760, i64* %r1888
 br label %label165
 label164:
-%r1911 = alloca i64
-%r1779 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 27)
-%r1774 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1779)
-%r1776 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1774)
-%r1777 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1779)
-%r1773 = inttoptr i64 %r1777 to i64 (i64)*
-%r1780 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1781 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1776, i64 1, i64 %r1780)
-%r1775 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1779)
-%r1782 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1775, i64 %r1776)
-%r1778 = tail call fastcc i64 %r1773(i64 %r1776)
-%r1913 = tail call fastcc i64 @"fun-raw-number"(i64 %r1778)
-%r1914 = icmp ne i64 %r1913, 0
-br i1 %r1914, label %label166, label %label167
+%r1884 = alloca i64
+%r1789 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
+%r1784 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1789)
+%r1786 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1784)
+%r1787 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1789)
+%r1783 = inttoptr i64 %r1787 to i64 (i64)*
+%r1790 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1791 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1786, i64 1, i64 %r1790)
+%r1785 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1789)
+%r1792 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1785, i64 %r1786)
+%r1788 = tail call fastcc i64 %r1783(i64 %r1786)
+%r1886 = tail call fastcc i64 @"fun-raw-number"(i64 %r1788)
+%r1887 = icmp ne i64 %r1886, 0
+br i1 %r1887, label %label166, label %label167
 label166:
-%r1787 = ptrtoint [6 x i8]* @r1786 to i64
-%r1785 = tail call fastcc i64 @"fun-make-symbol"(i64 %r1787, i64 5)
-%r1795 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 33)
-%r1790 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1795)
-%r1792 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1790)
-%r1793 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1795)
-%r1789 = inttoptr i64 %r1793 to i64 (i64)*
-%r1791 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1795)
-%r1796 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1791, i64 %r1792)
-%r1794 = tail call fastcc i64 %r1789(i64 %r1792)
-%r1797 = tail call fastcc i64 @"fun-make-null"()
-%r1788 = tail call fastcc i64 @"fun-cons"(i64 %r1794, i64 %r1797)
-%r1784 = tail call fastcc i64 @"fun-cons"(i64 %r1785, i64 %r1788)
-%r1804 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1799 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1804)
-%r1801 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1799)
-%r1802 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1804)
-%r1798 = inttoptr i64 %r1802 to i64 (i64)*
-%r1800 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1804)
-%r1805 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1800, i64 %r1801)
-%r1803 = tail call fastcc i64 %r1798(i64 %r1801)
-%r1783 = tail call fastcc i64 @"fun-cons"(i64 %r1784, i64 %r1803)
-store i64 %r1783, i64* %r1911
+%r1800 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 40)
+%r1795 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1800)
+%r1797 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1795)
+%r1798 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1800)
+%r1794 = inttoptr i64 %r1798 to i64 (i64)*
+%r1796 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1800)
+%r1801 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1796, i64 %r1797)
+%r1799 = tail call fastcc i64 %r1794(i64 %r1797)
+%r1808 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1803 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1808)
+%r1805 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1803)
+%r1806 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1808)
+%r1802 = inttoptr i64 %r1806 to i64 (i64)*
+%r1804 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1808)
+%r1809 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1804, i64 %r1805)
+%r1807 = tail call fastcc i64 %r1802(i64 %r1805)
+%r1793 = tail call fastcc i64 @"fun-cons"(i64 %r1799, i64 %r1807)
+store i64 %r1793, i64* %r1884
 br label %label168
 label167:
-%r1907 = alloca i64
-%r1812 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
-%r1807 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1812)
-%r1809 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1807)
-%r1810 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1812)
-%r1806 = inttoptr i64 %r1810 to i64 (i64)*
-%r1813 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1814 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1809, i64 1, i64 %r1813)
-%r1808 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1812)
-%r1815 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1808, i64 %r1809)
-%r1811 = tail call fastcc i64 %r1806(i64 %r1809)
-%r1909 = tail call fastcc i64 @"fun-raw-number"(i64 %r1811)
-%r1910 = icmp ne i64 %r1909, 0
-br i1 %r1910, label %label169, label %label170
+%r1880 = alloca i64
+%r1816 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 30)
+%r1811 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1816)
+%r1813 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1811)
+%r1814 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1816)
+%r1810 = inttoptr i64 %r1814 to i64 (i64)*
+%r1817 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1818 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1813, i64 1, i64 %r1817)
+%r1812 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1816)
+%r1819 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1812, i64 %r1813)
+%r1815 = tail call fastcc i64 %r1810(i64 %r1813)
+%r1882 = tail call fastcc i64 @"fun-raw-number"(i64 %r1815)
+%r1883 = icmp ne i64 %r1882, 0
+br i1 %r1883, label %label169, label %label170
 label169:
-%r1823 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 41)
-%r1818 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1823)
-%r1820 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1818)
-%r1821 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1823)
-%r1817 = inttoptr i64 %r1821 to i64 (i64)*
-%r1819 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1823)
-%r1824 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1819, i64 %r1820)
-%r1822 = tail call fastcc i64 %r1817(i64 %r1820)
-%r1831 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1826 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1831)
-%r1828 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1826)
-%r1829 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1831)
-%r1825 = inttoptr i64 %r1829 to i64 (i64)*
-%r1827 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1831)
-%r1832 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1827, i64 %r1828)
-%r1830 = tail call fastcc i64 %r1825(i64 %r1828)
-%r1816 = tail call fastcc i64 @"fun-cons"(i64 %r1822, i64 %r1830)
-store i64 %r1816, i64* %r1907
+%r1826 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 33)
+%r1821 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1826)
+%r1823 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1821)
+%r1824 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1826)
+%r1820 = inttoptr i64 %r1824 to i64 (i64)*
+%r1822 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1826)
+%r1827 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1822, i64 %r1823)
+%r1825 = tail call fastcc i64 %r1820(i64 %r1823)
+store i64 %r1825, i64* %r1880
 br label %label171
 label170:
-%r1903 = alloca i64
-%r1839 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 31)
-%r1834 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1839)
-%r1836 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1834)
-%r1837 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1839)
-%r1833 = inttoptr i64 %r1837 to i64 (i64)*
-%r1840 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1841 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1836, i64 1, i64 %r1840)
-%r1835 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1839)
-%r1842 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1835, i64 %r1836)
-%r1838 = tail call fastcc i64 %r1833(i64 %r1836)
-%r1905 = tail call fastcc i64 @"fun-raw-number"(i64 %r1838)
-%r1906 = icmp ne i64 %r1905, 0
-br i1 %r1906, label %label172, label %label173
+%r1876 = alloca i64
+%r1834 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 19)
+%r1829 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1834)
+%r1831 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1829)
+%r1832 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1834)
+%r1828 = inttoptr i64 %r1832 to i64 (i64)*
+%r1835 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1836 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1831, i64 1, i64 %r1835)
+%r1830 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1834)
+%r1837 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1830, i64 %r1831)
+%r1833 = tail call fastcc i64 %r1828(i64 %r1831)
+%r1878 = tail call fastcc i64 @"fun-raw-number"(i64 %r1833)
+%r1879 = icmp ne i64 %r1878, 0
+br i1 %r1879, label %label172, label %label173
 label172:
-%r1849 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 34)
-%r1844 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1849)
-%r1846 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1844)
-%r1847 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1849)
-%r1843 = inttoptr i64 %r1847 to i64 (i64)*
-%r1845 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1849)
-%r1850 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1845, i64 %r1846)
-%r1848 = tail call fastcc i64 %r1843(i64 %r1846)
-store i64 %r1848, i64* %r1903
+%r1845 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
+%r1840 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1845)
+%r1842 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1840)
+%r1843 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1845)
+%r1839 = inttoptr i64 %r1843 to i64 (i64)*
+%r1846 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1847 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1842, i64 1, i64 %r1846)
+%r1841 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1845)
+%r1848 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1841, i64 %r1842)
+%r1844 = tail call fastcc i64 %r1839(i64 %r1842)
+%r1855 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1850 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1855)
+%r1852 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1850)
+%r1853 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1855)
+%r1849 = inttoptr i64 %r1853 to i64 (i64)*
+%r1851 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1855)
+%r1856 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1851, i64 %r1852)
+%r1854 = tail call fastcc i64 %r1849(i64 %r1852)
+%r1838 = tail call fastcc i64 @"fun-cons"(i64 %r1844, i64 %r1854)
+store i64 %r1838, i64* %r1876
 br label %label174
 label173:
-%r1899 = alloca i64
-%r1857 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 20)
-%r1852 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1857)
-%r1854 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1852)
-%r1855 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1857)
-%r1851 = inttoptr i64 %r1855 to i64 (i64)*
-%r1858 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1859 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1854, i64 1, i64 %r1858)
-%r1853 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1857)
-%r1860 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1853, i64 %r1854)
-%r1856 = tail call fastcc i64 %r1851(i64 %r1854)
-%r1901 = tail call fastcc i64 @"fun-raw-number"(i64 %r1856)
-%r1902 = icmp ne i64 %r1901, 0
-br i1 %r1902, label %label175, label %label176
-label175:
-%r1868 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 38)
-%r1863 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1868)
-%r1865 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1863)
-%r1866 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1868)
-%r1862 = inttoptr i64 %r1866 to i64 (i64)*
-%r1869 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1870 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1865, i64 1, i64 %r1869)
-%r1864 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1868)
-%r1871 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1864, i64 %r1865)
-%r1867 = tail call fastcc i64 %r1862(i64 %r1865)
-%r1878 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1873 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1878)
-%r1875 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1873)
-%r1876 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1878)
-%r1872 = inttoptr i64 %r1876 to i64 (i64)*
-%r1874 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1878)
-%r1879 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1874, i64 %r1875)
-%r1877 = tail call fastcc i64 %r1872(i64 %r1875)
-%r1861 = tail call fastcc i64 @"fun-cons"(i64 %r1867, i64 %r1877)
-store i64 %r1861, i64* %r1899
-br label %label177
-label176:
-%r1887 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 39)
-%r1882 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1887)
-%r1884 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1882)
-%r1885 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1887)
-%r1881 = inttoptr i64 %r1885 to i64 (i64)*
-%r1888 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1889 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1884, i64 1, i64 %r1888)
-%r1883 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1887)
-%r1890 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1883, i64 %r1884)
-%r1886 = tail call fastcc i64 %r1881(i64 %r1884)
-%r1897 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
-%r1892 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1897)
-%r1894 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1892)
-%r1895 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1897)
-%r1891 = inttoptr i64 %r1895 to i64 (i64)*
-%r1893 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1897)
-%r1898 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1893, i64 %r1894)
-%r1896 = tail call fastcc i64 %r1891(i64 %r1894)
-%r1880 = tail call fastcc i64 @"fun-cons"(i64 %r1886, i64 %r1896)
-store i64 %r1880, i64* %r1899
-br label %label177
-label177:
-%r1900 = load i64* %r1899
-store i64 %r1900, i64* %r1903
+%r1864 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 38)
+%r1859 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1864)
+%r1861 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r1859)
+%r1862 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1864)
+%r1858 = inttoptr i64 %r1862 to i64 (i64)*
+%r1865 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1866 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1861, i64 1, i64 %r1865)
+%r1860 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1864)
+%r1867 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1860, i64 %r1861)
+%r1863 = tail call fastcc i64 %r1858(i64 %r1861)
+%r1874 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r1869 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1874)
+%r1871 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1869)
+%r1872 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1874)
+%r1868 = inttoptr i64 %r1872 to i64 (i64)*
+%r1870 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1874)
+%r1875 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1870, i64 %r1871)
+%r1873 = tail call fastcc i64 %r1868(i64 %r1871)
+%r1857 = tail call fastcc i64 @"fun-cons"(i64 %r1863, i64 %r1873)
+store i64 %r1857, i64* %r1876
 br label %label174
 label174:
-%r1904 = load i64* %r1903
-store i64 %r1904, i64* %r1907
+%r1877 = load i64* %r1876
+store i64 %r1877, i64* %r1880
 br label %label171
 label171:
-%r1908 = load i64* %r1907
-store i64 %r1908, i64* %r1911
+%r1881 = load i64* %r1880
+store i64 %r1881, i64* %r1884
 br label %label168
 label168:
-%r1912 = load i64* %r1911
-store i64 %r1912, i64* %r1915
+%r1885 = load i64* %r1884
+store i64 %r1885, i64* %r1888
 br label %label165
 label165:
-%r1916 = load i64* %r1915
-store i64 %r1916, i64* %r1919
+%r1889 = load i64* %r1888
+store i64 %r1889, i64* %r1892
 br label %label162
 label162:
-%r1920 = load i64* %r1919
-store i64 %r1920, i64* %r1923
+%r1893 = load i64* %r1892
+store i64 %r1893, i64* %r1896
 br label %label159
 label159:
-%r1924 = load i64* %r1923
-store i64 %r1924, i64* %r1927
+%r1897 = load i64* %r1896
+store i64 %r1897, i64* %r1900
 br label %label156
 label156:
-%r1928 = load i64* %r1927
-store i64 %r1928, i64* %r1931
+%r1901 = load i64* %r1900
+store i64 %r1901, i64* %r1904
 br label %label153
 label153:
-%r1932 = load i64* %r1931
-ret i64 %r1932
+%r1905 = load i64* %r1904
+store i64 %r1905, i64* %r1908
+br label %label150
+label150:
+%r1909 = load i64* %r1908
+ret i64 %r1909
 }
 
-define fastcc i64 @"fun37-read-list"(i64 %"env") nounwind {
-%r1935 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r1937 = tail call fastcc i64 @fun38(i64 %r1935)
-ret i64 %r1937
+define fastcc i64 @"fun36-read-list"(i64 %"env") nounwind {
+%r1912 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r1914 = tail call fastcc i64 @fun37(i64 %r1912)
+ret i64 %r1914
 }
 
-define fastcc i64 @"fun40-nmemb"(i64 %"env") nounwind {
-%r1966 = alloca i64
-%r1945 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1947 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r1946 = tail call fastcc i64 @"fun-car"(i64 %r1947)
-%r1944 = tail call fastcc i64 @"fun-="(i64 %r1945, i64 %r1946)
-%r1968 = tail call fastcc i64 @"fun-raw-number"(i64 %r1944)
-%r1969 = icmp ne i64 %r1968, 0
-br i1 %r1969, label %label178, label %label179
+define fastcc i64 @"fun39-nmemb"(i64 %"env") nounwind {
+%r1943 = alloca i64
+%r1922 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1924 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1923 = tail call fastcc i64 @"fun-car"(i64 %r1924)
+%r1921 = tail call fastcc i64 @"fun-="(i64 %r1922, i64 %r1923)
+%r1945 = tail call fastcc i64 @"fun-raw-number"(i64 %r1921)
+%r1946 = icmp ne i64 %r1945, 0
+br i1 %r1946, label %label175, label %label176
+label175:
+%r1925 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 3)
+store i64 %r1925, i64* %r1943
+br label %label177
+label176:
+%r1932 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r1927 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1932)
+%r1929 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r1927)
+%r1930 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1932)
+%r1926 = inttoptr i64 %r1930 to i64 (i64)*
+%r1933 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1939 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1929, i64 1, i64 %r1933)
+%r1935 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1934 = tail call fastcc i64 @"fun-cdr"(i64 %r1935)
+%r1940 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1929, i64 2, i64 %r1934)
+%r1937 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 3)
+%r1938 = tail call fastcc i64 @"fun-make-number"(i64 1)
+%r1936 = tail call fastcc i64 @"fun-+"(i64 %r1937, i64 %r1938)
+%r1941 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1929, i64 3, i64 %r1936)
+%r1928 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1932)
+%r1942 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1928, i64 %r1929)
+%r1931 = tail call fastcc i64 %r1926(i64 %r1929)
+store i64 %r1931, i64* %r1943
+br label %label177
+label177:
+%r1944 = load i64* %r1943
+ret i64 %r1944
+}
+
+define fastcc i64 @fun40(i64 %"env") nounwind {
+%r1919 = ptrtoint i64 (i64)* @"fun39-nmemb" to i64
+%r1920 = tail call fastcc i64 @"fun-make-function"(i64 %r1919, i64 %"env", i64 0)
+%r1918 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1920)
+%r1981 = alloca i64
+%r1948 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r1947 = tail call fastcc i64 @"fun-null?"(i64 %r1948)
+%r1983 = tail call fastcc i64 @"fun-raw-number"(i64 %r1947)
+%r1984 = icmp ne i64 %r1983, 0
+br i1 %r1984, label %label178, label %label179
 label178:
-%r1948 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 3)
-store i64 %r1948, i64* %r1966
+%r1949 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+store i64 %r1949, i64* %r1981
 br label %label180
 label179:
-%r1955 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r1950 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1955)
-%r1952 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r1950)
-%r1953 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1955)
-%r1949 = inttoptr i64 %r1953 to i64 (i64)*
-%r1956 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1962 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1952, i64 1, i64 %r1956)
-%r1958 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r1956 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
+%r1951 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1956)
+%r1953 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1951)
+%r1954 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1956)
+%r1950 = inttoptr i64 %r1954 to i64 (i64)*
+%r1958 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r1957 = tail call fastcc i64 @"fun-cdr"(i64 %r1958)
-%r1963 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1952, i64 2, i64 %r1957)
-%r1960 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 3)
-%r1961 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r1959 = tail call fastcc i64 @"fun-+"(i64 %r1960, i64 %r1961)
-%r1964 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1952, i64 3, i64 %r1959)
-%r1951 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1955)
-%r1965 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1951, i64 %r1952)
-%r1954 = tail call fastcc i64 %r1949(i64 %r1952)
-store i64 %r1954, i64* %r1966
+%r1978 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1953, i64 1, i64 %r1957)
+%r1961 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r1962 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r1960 = tail call fastcc i64 @"fun-*"(i64 %r1961, i64 %r1962)
+%r1969 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r1964 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1969)
+%r1966 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r1964)
+%r1967 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1969)
+%r1963 = inttoptr i64 %r1967 to i64 (i64)*
+%r1971 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r1970 = tail call fastcc i64 @"fun-car"(i64 %r1971)
+%r1974 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1966, i64 1, i64 %r1970)
+%r1972 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 17)
+%r1975 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1966, i64 2, i64 %r1972)
+%r1973 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r1976 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1966, i64 3, i64 %r1973)
+%r1965 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1969)
+%r1977 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1965, i64 %r1966)
+%r1968 = tail call fastcc i64 %r1963(i64 %r1966)
+%r1959 = tail call fastcc i64 @"fun-+"(i64 %r1960, i64 %r1968)
+%r1979 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1953, i64 2, i64 %r1959)
+%r1952 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1956)
+%r1980 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1952, i64 %r1953)
+%r1955 = tail call fastcc i64 %r1950(i64 %r1953)
+store i64 %r1955, i64* %r1981
 br label %label180
 label180:
-%r1967 = load i64* %r1966
-ret i64 %r1967
+%r1982 = load i64* %r1981
+ret i64 %r1982
 }
 
-define fastcc i64 @fun41(i64 %"env") nounwind {
-%r1942 = ptrtoint i64 (i64)* @"fun40-nmemb" to i64
-%r1943 = tail call fastcc i64 @"fun-make-function"(i64 %r1942, i64 %"env", i64 0)
-%r1941 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1943)
-%r2004 = alloca i64
-%r1971 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r1970 = tail call fastcc i64 @"fun-null?"(i64 %r1971)
-%r2006 = tail call fastcc i64 @"fun-raw-number"(i64 %r1970)
-%r2007 = icmp ne i64 %r2006, 0
-br i1 %r2007, label %label181, label %label182
+define fastcc i64 @"fun38-char-list->number"(i64 %"env") nounwind {
+%r1985 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r1987 = tail call fastcc i64 @fun40(i64 %r1985)
+ret i64 %r1987
+}
+
+define fastcc i64 @fun43(i64 %"env") nounwind {
+%r2001 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 15)
+%r1996 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2001)
+%r1998 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r1996)
+%r1999 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2001)
+%r1995 = inttoptr i64 %r1999 to i64 (i64)*
+%r1997 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2001)
+%r2002 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1997, i64 %r1998)
+%r2000 = tail call fastcc i64 %r1995(i64 %r1998)
+%r1994 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2000)
+%r2031 = alloca i64
+%r2009 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 19)
+%r2004 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2009)
+%r2006 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2004)
+%r2007 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2009)
+%r2003 = inttoptr i64 %r2007 to i64 (i64)*
+%r2010 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2011 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2006, i64 1, i64 %r2010)
+%r2005 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2009)
+%r2012 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2005, i64 %r2006)
+%r2008 = tail call fastcc i64 %r2003(i64 %r2006)
+%r2033 = tail call fastcc i64 @"fun-raw-number"(i64 %r2008)
+%r2034 = icmp ne i64 %r2033, 0
+br i1 %r2034, label %label181, label %label182
 label181:
-%r1972 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
-store i64 %r1972, i64* %r2004
+%r2020 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 16)
+%r2015 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2020)
+%r2017 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2015)
+%r2018 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2020)
+%r2014 = inttoptr i64 %r2018 to i64 (i64)*
+%r2016 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2020)
+%r2021 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2016, i64 %r2017)
+%r2019 = tail call fastcc i64 %r2014(i64 %r2017)
+%r2028 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r2023 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2028)
+%r2025 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2023)
+%r2026 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2028)
+%r2022 = inttoptr i64 %r2026 to i64 (i64)*
+%r2024 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2028)
+%r2029 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2024, i64 %r2025)
+%r2027 = tail call fastcc i64 %r2022(i64 %r2025)
+%r2013 = tail call fastcc i64 @"fun-cons"(i64 %r2019, i64 %r2027)
+store i64 %r2013, i64* %r2031
 br label %label183
 label182:
-%r1979 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
-%r1974 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1979)
-%r1976 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r1974)
-%r1977 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1979)
-%r1973 = inttoptr i64 %r1977 to i64 (i64)*
-%r1981 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r1980 = tail call fastcc i64 @"fun-cdr"(i64 %r1981)
-%r2001 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1976, i64 1, i64 %r1980)
-%r1984 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
-%r1985 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r1983 = tail call fastcc i64 @"fun-*"(i64 %r1984, i64 %r1985)
-%r1992 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r1987 = tail call fastcc i64 @"fun-get-function-env"(i64 %r1992)
-%r1989 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r1987)
-%r1990 = tail call fastcc i64 @"fun-get-function-func"(i64 %r1992)
-%r1986 = inttoptr i64 %r1990 to i64 (i64)*
-%r1994 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r1993 = tail call fastcc i64 @"fun-car"(i64 %r1994)
-%r1997 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1989, i64 1, i64 %r1993)
-%r1995 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 18)
-%r1998 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1989, i64 2, i64 %r1995)
-%r1996 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r1999 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1989, i64 3, i64 %r1996)
-%r1988 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1992)
-%r2000 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1988, i64 %r1989)
-%r1991 = tail call fastcc i64 %r1986(i64 %r1989)
-%r1982 = tail call fastcc i64 @"fun-+"(i64 %r1983, i64 %r1991)
-%r2002 = tail call fastcc i64 @"fun-vector-set!"(i64 %r1976, i64 2, i64 %r1982)
-%r1975 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r1979)
-%r2003 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r1975, i64 %r1976)
-%r1978 = tail call fastcc i64 %r1973(i64 %r1976)
-store i64 %r1978, i64* %r2004
+%r2030 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r2030, i64* %r2031
 br label %label183
 label183:
-%r2005 = load i64* %r2004
-ret i64 %r2005
+%r2032 = load i64* %r2031
+ret i64 %r2032
 }
 
-define fastcc i64 @"fun39-char-list->number"(i64 %"env") nounwind {
-%r2008 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r2010 = tail call fastcc i64 @fun41(i64 %r2008)
-ret i64 %r2010
+define fastcc i64 @"fun42-read-nmb"(i64 %"env") nounwind {
+%r2035 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r2037 = tail call fastcc i64 @fun43(i64 %r2035)
+ret i64 %r2037
 }
 
 define fastcc i64 @fun44(i64 %"env") nounwind {
-%r2024 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 16)
-%r2019 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2024)
-%r2021 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2019)
-%r2022 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2024)
-%r2018 = inttoptr i64 %r2022 to i64 (i64)*
-%r2020 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2024)
-%r2025 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2020, i64 %r2021)
-%r2023 = tail call fastcc i64 %r2018(i64 %r2021)
-%r2017 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2023)
-%r2054 = alloca i64
-%r2032 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 20)
-%r2027 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2032)
-%r2029 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2027)
-%r2030 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2032)
-%r2026 = inttoptr i64 %r2030 to i64 (i64)*
-%r2033 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2034 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2029, i64 1, i64 %r2033)
-%r2028 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2032)
-%r2035 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2028, i64 %r2029)
-%r2031 = tail call fastcc i64 %r2026(i64 %r2029)
-%r2056 = tail call fastcc i64 @"fun-raw-number"(i64 %r2031)
-%r2057 = icmp ne i64 %r2056, 0
-br i1 %r2057, label %label184, label %label185
+%r1992 = ptrtoint i64 (i64)* @"fun42-read-nmb" to i64
+%r1993 = tail call fastcc i64 @"fun-make-function"(i64 %r1992, i64 %"env", i64 0)
+%r1991 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r1993)
+%r2044 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
+%r2039 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2044)
+%r2041 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2039)
+%r2042 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2044)
+%r2038 = inttoptr i64 %r2042 to i64 (i64)*
+%r2046 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r2053 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2048 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2053)
+%r2050 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2048)
+%r2051 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2053)
+%r2047 = inttoptr i64 %r2051 to i64 (i64)*
+%r2049 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2053)
+%r2054 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2049, i64 %r2050)
+%r2052 = tail call fastcc i64 %r2047(i64 %r2050)
+%r2045 = tail call fastcc i64 @"fun-cons"(i64 %r2046, i64 %r2052)
+%r2056 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2041, i64 1, i64 %r2045)
+%r2055 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r2057 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2041, i64 2, i64 %r2055)
+%r2040 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2044)
+%r2058 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2040, i64 %r2041)
+%r2043 = tail call fastcc i64 %r2038(i64 %r2041)
+ret i64 %r2043
+}
+
+define fastcc i64 @"fun41-read-number"(i64 %"env") nounwind {
+%r2059 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r2061 = tail call fastcc i64 @fun44(i64 %r2059)
+ret i64 %r2061
+}
+
+define fastcc i64 @"fun46-read-id"(i64 %"env") nounwind {
+%r2105 = alloca i64
+%r2074 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 4)
+%r2069 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2074)
+%r2071 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2069)
+%r2072 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2074)
+%r2068 = inttoptr i64 %r2072 to i64 (i64)*
+%r2081 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 15)
+%r2076 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2081)
+%r2078 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2076)
+%r2079 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2081)
+%r2075 = inttoptr i64 %r2079 to i64 (i64)*
+%r2077 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2081)
+%r2082 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2077, i64 %r2078)
+%r2080 = tail call fastcc i64 %r2075(i64 %r2078)
+%r2084 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2071, i64 1, i64 %r2080)
+%r2083 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 31)
+%r2085 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2071, i64 2, i64 %r2083)
+%r2070 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2074)
+%r2086 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2070, i64 %r2071)
+%r2073 = tail call fastcc i64 %r2068(i64 %r2071)
+%r2107 = tail call fastcc i64 @"fun-raw-number"(i64 %r2073)
+%r2108 = icmp ne i64 %r2107, 0
+br i1 %r2108, label %label184, label %label185
 label184:
-%r2043 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 17)
-%r2038 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2043)
-%r2040 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2038)
-%r2041 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2043)
-%r2037 = inttoptr i64 %r2041 to i64 (i64)*
-%r2039 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2043)
-%r2044 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2039, i64 %r2040)
-%r2042 = tail call fastcc i64 %r2037(i64 %r2040)
-%r2051 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
-%r2046 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2051)
-%r2048 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2046)
-%r2049 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2051)
-%r2045 = inttoptr i64 %r2049 to i64 (i64)*
-%r2047 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2051)
-%r2052 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2047, i64 %r2048)
-%r2050 = tail call fastcc i64 %r2045(i64 %r2048)
-%r2036 = tail call fastcc i64 @"fun-cons"(i64 %r2042, i64 %r2050)
-store i64 %r2036, i64* %r2054
+%r2087 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r2087, i64* %r2105
 br label %label186
 label185:
-%r2053 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r2053, i64* %r2054
+%r2095 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 16)
+%r2090 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2095)
+%r2092 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2090)
+%r2093 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2095)
+%r2089 = inttoptr i64 %r2093 to i64 (i64)*
+%r2091 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2095)
+%r2096 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2091, i64 %r2092)
+%r2094 = tail call fastcc i64 %r2089(i64 %r2092)
+%r2103 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r2098 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2103)
+%r2100 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2098)
+%r2101 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2103)
+%r2097 = inttoptr i64 %r2101 to i64 (i64)*
+%r2099 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2103)
+%r2104 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2099, i64 %r2100)
+%r2102 = tail call fastcc i64 %r2097(i64 %r2100)
+%r2088 = tail call fastcc i64 @"fun-cons"(i64 %r2094, i64 %r2102)
+store i64 %r2088, i64* %r2105
 br label %label186
 label186:
-%r2055 = load i64* %r2054
-ret i64 %r2055
+%r2106 = load i64* %r2105
+ret i64 %r2106
 }
 
-define fastcc i64 @"fun43-read-nmb"(i64 %"env") nounwind {
-%r2058 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r2060 = tail call fastcc i64 @fun44(i64 %r2058)
-ret i64 %r2060
+define fastcc i64 @fun47(i64 %"env") nounwind {
+%r2066 = ptrtoint i64 (i64)* @"fun46-read-id" to i64
+%r2067 = tail call fastcc i64 @"fun-make-function"(i64 %r2066, i64 %"env", i64 0)
+%r2065 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2067)
+%r2112 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r2119 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2114 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2119)
+%r2116 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2114)
+%r2117 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2119)
+%r2113 = inttoptr i64 %r2117 to i64 (i64)*
+%r2115 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2119)
+%r2120 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2115, i64 %r2116)
+%r2118 = tail call fastcc i64 %r2113(i64 %r2116)
+%r2111 = tail call fastcc i64 @"fun-cons"(i64 %r2112, i64 %r2118)
+%r2110 = tail call fastcc i64 @"fun-list->string"(i64 %r2111)
+%r2109 = tail call fastcc i64 @"fun-string->symbol"(i64 %r2110)
+ret i64 %r2109
 }
 
-define fastcc i64 @fun45(i64 %"env") nounwind {
-%r2015 = ptrtoint i64 (i64)* @"fun43-read-nmb" to i64
-%r2016 = tail call fastcc i64 @"fun-make-function"(i64 %r2015, i64 %"env", i64 0)
-%r2014 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2016)
-%r2067 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
-%r2062 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2067)
-%r2064 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2062)
-%r2065 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2067)
-%r2061 = inttoptr i64 %r2065 to i64 (i64)*
-%r2069 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r2076 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2071 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2076)
-%r2073 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2071)
-%r2074 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2076)
-%r2070 = inttoptr i64 %r2074 to i64 (i64)*
-%r2072 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2076)
-%r2077 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2072, i64 %r2073)
-%r2075 = tail call fastcc i64 %r2070(i64 %r2073)
-%r2068 = tail call fastcc i64 @"fun-cons"(i64 %r2069, i64 %r2075)
-%r2079 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2064, i64 1, i64 %r2068)
-%r2078 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r2080 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2064, i64 2, i64 %r2078)
-%r2063 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2067)
-%r2081 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2063, i64 %r2064)
-%r2066 = tail call fastcc i64 %r2061(i64 %r2064)
-ret i64 %r2066
+define fastcc i64 @"fun45-read-identifier"(i64 %"env") nounwind {
+%r2121 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r2123 = tail call fastcc i64 @fun47(i64 %r2121)
+ret i64 %r2123
 }
 
-define fastcc i64 @"fun42-read-number"(i64 %"env") nounwind {
-%r2082 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r2084 = tail call fastcc i64 @fun45(i64 %r2082)
-ret i64 %r2084
-}
-
-define fastcc i64 @"fun47-read-id"(i64 %"env") nounwind {
-%r2128 = alloca i64
-%r2097 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 4)
-%r2092 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2097)
-%r2094 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2092)
-%r2095 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2097)
-%r2091 = inttoptr i64 %r2095 to i64 (i64)*
-%r2104 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 16)
-%r2099 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2104)
-%r2101 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2099)
-%r2102 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2104)
-%r2098 = inttoptr i64 %r2102 to i64 (i64)*
-%r2100 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2104)
-%r2105 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2100, i64 %r2101)
-%r2103 = tail call fastcc i64 %r2098(i64 %r2101)
-%r2107 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2094, i64 1, i64 %r2103)
-%r2106 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 32)
-%r2108 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2094, i64 2, i64 %r2106)
-%r2093 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2097)
-%r2109 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2093, i64 %r2094)
-%r2096 = tail call fastcc i64 %r2091(i64 %r2094)
-%r2130 = tail call fastcc i64 @"fun-raw-number"(i64 %r2096)
-%r2131 = icmp ne i64 %r2130, 0
-br i1 %r2131, label %label187, label %label188
+define fastcc i64 @"fun48-interpret-escape"(i64 %"env") nounwind {
+%r2158 = alloca i64
+%r2133 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r2128 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2133)
+%r2130 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2128)
+%r2131 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2133)
+%r2127 = inttoptr i64 %r2131 to i64 (i64)*
+%r2134 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2136 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2130, i64 1, i64 %r2134)
+%r2135 = tail call fastcc i64 @"fun-make-number"(i64 110)
+%r2137 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2130, i64 2, i64 %r2135)
+%r2129 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2133)
+%r2138 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2129, i64 %r2130)
+%r2132 = tail call fastcc i64 %r2127(i64 %r2130)
+%r2160 = tail call fastcc i64 @"fun-raw-number"(i64 %r2132)
+%r2161 = icmp ne i64 %r2160, 0
+br i1 %r2161, label %label187, label %label188
 label187:
-%r2110 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r2110, i64* %r2128
+%r2139 = tail call fastcc i64 @"fun-make-number"(i64 10)
+store i64 %r2139, i64* %r2158
 br label %label189
 label188:
-%r2118 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 17)
-%r2113 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2118)
-%r2115 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2113)
-%r2116 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2118)
-%r2112 = inttoptr i64 %r2116 to i64 (i64)*
-%r2114 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2118)
-%r2119 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2114, i64 %r2115)
-%r2117 = tail call fastcc i64 %r2112(i64 %r2115)
-%r2126 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r2121 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2126)
-%r2123 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2121)
-%r2124 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2126)
-%r2120 = inttoptr i64 %r2124 to i64 (i64)*
-%r2122 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2126)
-%r2127 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2122, i64 %r2123)
-%r2125 = tail call fastcc i64 %r2120(i64 %r2123)
-%r2111 = tail call fastcc i64 @"fun-cons"(i64 %r2117, i64 %r2125)
-store i64 %r2111, i64* %r2128
-br label %label189
-label189:
-%r2129 = load i64* %r2128
-ret i64 %r2129
-}
-
-define fastcc i64 @fun48(i64 %"env") nounwind {
-%r2089 = ptrtoint i64 (i64)* @"fun47-read-id" to i64
-%r2090 = tail call fastcc i64 @"fun-make-function"(i64 %r2089, i64 %"env", i64 0)
-%r2088 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2090)
-%r2135 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r2142 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2137 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2142)
-%r2139 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2137)
-%r2140 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2142)
-%r2136 = inttoptr i64 %r2140 to i64 (i64)*
-%r2138 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2142)
-%r2143 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2138, i64 %r2139)
-%r2141 = tail call fastcc i64 %r2136(i64 %r2139)
-%r2134 = tail call fastcc i64 @"fun-cons"(i64 %r2135, i64 %r2141)
-%r2133 = tail call fastcc i64 @"fun-list->string"(i64 %r2134)
-%r2132 = tail call fastcc i64 @"fun-string->symbol"(i64 %r2133)
-ret i64 %r2132
-}
-
-define fastcc i64 @"fun46-read-identifier"(i64 %"env") nounwind {
-%r2144 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r2146 = tail call fastcc i64 @fun48(i64 %r2144)
-ret i64 %r2146
-}
-
-define fastcc i64 @"fun49-interpret-escape"(i64 %"env") nounwind {
-%r2181 = alloca i64
-%r2156 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r2151 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2156)
-%r2153 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2151)
-%r2154 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2156)
-%r2150 = inttoptr i64 %r2154 to i64 (i64)*
-%r2157 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2159 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2153, i64 1, i64 %r2157)
-%r2158 = tail call fastcc i64 @"fun-make-number"(i64 110)
-%r2160 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2153, i64 2, i64 %r2158)
-%r2152 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2156)
-%r2161 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2152, i64 %r2153)
-%r2155 = tail call fastcc i64 %r2150(i64 %r2153)
-%r2183 = tail call fastcc i64 @"fun-raw-number"(i64 %r2155)
-%r2184 = icmp ne i64 %r2183, 0
-br i1 %r2184, label %label190, label %label191
+%r2154 = alloca i64
+%r2146 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r2141 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2146)
+%r2143 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2141)
+%r2144 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2146)
+%r2140 = inttoptr i64 %r2144 to i64 (i64)*
+%r2147 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2149 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2143, i64 1, i64 %r2147)
+%r2148 = tail call fastcc i64 @"fun-make-number"(i64 116)
+%r2150 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2143, i64 2, i64 %r2148)
+%r2142 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2146)
+%r2151 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2142, i64 %r2143)
+%r2145 = tail call fastcc i64 %r2140(i64 %r2143)
+%r2156 = tail call fastcc i64 @"fun-raw-number"(i64 %r2145)
+%r2157 = icmp ne i64 %r2156, 0
+br i1 %r2157, label %label190, label %label191
 label190:
-%r2162 = tail call fastcc i64 @"fun-make-number"(i64 10)
-store i64 %r2162, i64* %r2181
+%r2152 = tail call fastcc i64 @"fun-make-number"(i64 9)
+store i64 %r2152, i64* %r2154
 br label %label192
 label191:
-%r2177 = alloca i64
-%r2169 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
-%r2164 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2169)
-%r2166 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2164)
-%r2167 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2169)
-%r2163 = inttoptr i64 %r2167 to i64 (i64)*
-%r2170 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2172 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2166, i64 1, i64 %r2170)
-%r2171 = tail call fastcc i64 @"fun-make-number"(i64 116)
-%r2173 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2166, i64 2, i64 %r2171)
-%r2165 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2169)
-%r2174 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2165, i64 %r2166)
-%r2168 = tail call fastcc i64 %r2163(i64 %r2166)
-%r2179 = tail call fastcc i64 @"fun-raw-number"(i64 %r2168)
-%r2180 = icmp ne i64 %r2179, 0
-br i1 %r2180, label %label193, label %label194
-label193:
-%r2175 = tail call fastcc i64 @"fun-make-number"(i64 9)
-store i64 %r2175, i64* %r2177
-br label %label195
-label194:
-%r2176 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-store i64 %r2176, i64* %r2177
-br label %label195
-label195:
-%r2178 = load i64* %r2177
-store i64 %r2178, i64* %r2181
+%r2153 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+store i64 %r2153, i64* %r2154
 br label %label192
 label192:
-%r2182 = load i64* %r2181
-ret i64 %r2182
+%r2155 = load i64* %r2154
+store i64 %r2155, i64* %r2158
+br label %label189
+label189:
+%r2159 = load i64* %r2158
+ret i64 %r2159
+}
+
+define fastcc i64 @fun51(i64 %"env") nounwind {
+%r2175 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 16)
+%r2170 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2175)
+%r2172 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2170)
+%r2173 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2175)
+%r2169 = inttoptr i64 %r2173 to i64 (i64)*
+%r2171 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2175)
+%r2176 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2171, i64 %r2172)
+%r2174 = tail call fastcc i64 %r2169(i64 %r2172)
+%r2168 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2174)
+%r2238 = alloca i64
+%r2183 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 29)
+%r2178 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2183)
+%r2180 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2178)
+%r2181 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2183)
+%r2177 = inttoptr i64 %r2181 to i64 (i64)*
+%r2184 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2185 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2180, i64 1, i64 %r2184)
+%r2179 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2183)
+%r2186 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2179, i64 %r2180)
+%r2182 = tail call fastcc i64 %r2177(i64 %r2180)
+%r2240 = tail call fastcc i64 @"fun-raw-number"(i64 %r2182)
+%r2241 = icmp ne i64 %r2240, 0
+br i1 %r2241, label %label193, label %label194
+label193:
+%r2194 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 39)
+%r2189 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2194)
+%r2191 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2189)
+%r2192 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2194)
+%r2188 = inttoptr i64 %r2192 to i64 (i64)*
+%r2201 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 16)
+%r2196 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2201)
+%r2198 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2196)
+%r2199 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2201)
+%r2195 = inttoptr i64 %r2199 to i64 (i64)*
+%r2197 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2201)
+%r2202 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2197, i64 %r2198)
+%r2200 = tail call fastcc i64 %r2195(i64 %r2198)
+%r2203 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2191, i64 1, i64 %r2200)
+%r2190 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2194)
+%r2204 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2190, i64 %r2191)
+%r2193 = tail call fastcc i64 %r2188(i64 %r2191)
+%r2211 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r2206 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2211)
+%r2208 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2206)
+%r2209 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2211)
+%r2205 = inttoptr i64 %r2209 to i64 (i64)*
+%r2207 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2211)
+%r2212 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2207, i64 %r2208)
+%r2210 = tail call fastcc i64 %r2205(i64 %r2208)
+%r2187 = tail call fastcc i64 @"fun-cons"(i64 %r2193, i64 %r2210)
+store i64 %r2187, i64* %r2238
+br label %label195
+label194:
+%r2234 = alloca i64
+%r2219 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 23)
+%r2214 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2219)
+%r2216 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2214)
+%r2217 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2219)
+%r2213 = inttoptr i64 %r2217 to i64 (i64)*
+%r2220 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2221 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2216, i64 1, i64 %r2220)
+%r2215 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2219)
+%r2222 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2215, i64 %r2216)
+%r2218 = tail call fastcc i64 %r2213(i64 %r2216)
+%r2236 = tail call fastcc i64 @"fun-raw-number"(i64 %r2218)
+%r2237 = icmp ne i64 %r2236, 0
+br i1 %r2237, label %label196, label %label197
+label196:
+%r2223 = tail call fastcc i64 @"fun-make-null"()
+store i64 %r2223, i64* %r2234
+br label %label198
+label197:
+%r2225 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2232 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r2227 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2232)
+%r2229 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2227)
+%r2230 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2232)
+%r2226 = inttoptr i64 %r2230 to i64 (i64)*
+%r2228 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2232)
+%r2233 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2228, i64 %r2229)
+%r2231 = tail call fastcc i64 %r2226(i64 %r2229)
+%r2224 = tail call fastcc i64 @"fun-cons"(i64 %r2225, i64 %r2231)
+store i64 %r2224, i64* %r2234
+br label %label198
+label198:
+%r2235 = load i64* %r2234
+store i64 %r2235, i64* %r2238
+br label %label195
+label195:
+%r2239 = load i64* %r2238
+ret i64 %r2239
+}
+
+define fastcc i64 @"fun50-read-str"(i64 %"env") nounwind {
+%r2242 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r2244 = tail call fastcc i64 @fun51(i64 %r2242)
+ret i64 %r2244
 }
 
 define fastcc i64 @fun52(i64 %"env") nounwind {
-%r2198 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 17)
-%r2193 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2198)
-%r2195 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2193)
-%r2196 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2198)
-%r2192 = inttoptr i64 %r2196 to i64 (i64)*
-%r2194 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2198)
-%r2199 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2194, i64 %r2195)
-%r2197 = tail call fastcc i64 %r2192(i64 %r2195)
-%r2191 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2197)
-%r2261 = alloca i64
-%r2206 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 30)
-%r2201 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2206)
-%r2203 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2201)
-%r2204 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2206)
-%r2200 = inttoptr i64 %r2204 to i64 (i64)*
-%r2207 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2208 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2203, i64 1, i64 %r2207)
-%r2202 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2206)
-%r2209 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2202, i64 %r2203)
-%r2205 = tail call fastcc i64 %r2200(i64 %r2203)
-%r2263 = tail call fastcc i64 @"fun-raw-number"(i64 %r2205)
-%r2264 = icmp ne i64 %r2263, 0
-br i1 %r2264, label %label196, label %label197
-label196:
-%r2217 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 40)
-%r2212 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2217)
-%r2214 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2212)
-%r2215 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2217)
-%r2211 = inttoptr i64 %r2215 to i64 (i64)*
-%r2224 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 17)
-%r2219 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2224)
-%r2221 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2219)
-%r2222 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2224)
-%r2218 = inttoptr i64 %r2222 to i64 (i64)*
-%r2220 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2224)
-%r2225 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2220, i64 %r2221)
-%r2223 = tail call fastcc i64 %r2218(i64 %r2221)
-%r2226 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2214, i64 1, i64 %r2223)
-%r2213 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2217)
-%r2227 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2213, i64 %r2214)
-%r2216 = tail call fastcc i64 %r2211(i64 %r2214)
-%r2234 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
-%r2229 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2234)
-%r2231 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2229)
-%r2232 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2234)
-%r2228 = inttoptr i64 %r2232 to i64 (i64)*
-%r2230 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2234)
-%r2235 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2230, i64 %r2231)
-%r2233 = tail call fastcc i64 %r2228(i64 %r2231)
-%r2210 = tail call fastcc i64 @"fun-cons"(i64 %r2216, i64 %r2233)
-store i64 %r2210, i64* %r2261
-br label %label198
-label197:
-%r2257 = alloca i64
-%r2242 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 24)
-%r2237 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2242)
-%r2239 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2237)
-%r2240 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2242)
-%r2236 = inttoptr i64 %r2240 to i64 (i64)*
-%r2243 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2244 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2239, i64 1, i64 %r2243)
-%r2238 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2242)
-%r2245 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2238, i64 %r2239)
-%r2241 = tail call fastcc i64 %r2236(i64 %r2239)
-%r2259 = tail call fastcc i64 @"fun-raw-number"(i64 %r2241)
-%r2260 = icmp ne i64 %r2259, 0
-br i1 %r2260, label %label199, label %label200
+%r2166 = ptrtoint i64 (i64)* @"fun50-read-str" to i64
+%r2167 = tail call fastcc i64 @"fun-make-function"(i64 %r2166, i64 %"env", i64 0)
+%r2165 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2167)
+%r2252 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2247 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2252)
+%r2249 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2247)
+%r2250 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2252)
+%r2246 = inttoptr i64 %r2250 to i64 (i64)*
+%r2248 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2252)
+%r2253 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2248, i64 %r2249)
+%r2251 = tail call fastcc i64 %r2246(i64 %r2249)
+%r2245 = tail call fastcc i64 @"fun-list->string"(i64 %r2251)
+ret i64 %r2245
+}
+
+define fastcc i64 @"fun49-read-string"(i64 %"env") nounwind {
+%r2254 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
+%r2256 = tail call fastcc i64 @fun52(i64 %r2254)
+ret i64 %r2256
+}
+
+define fastcc i64 @"fun53-length"(i64 %"env") nounwind {
+%r2276 = alloca i64
+%r2261 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2260 = tail call fastcc i64 @"fun-null?"(i64 %r2261)
+%r2278 = tail call fastcc i64 @"fun-raw-number"(i64 %r2260)
+%r2279 = icmp ne i64 %r2278, 0
+br i1 %r2279, label %label199, label %label200
 label199:
-%r2246 = tail call fastcc i64 @"fun-make-null"()
-store i64 %r2246, i64* %r2257
+%r2262 = tail call fastcc i64 @"fun-make-number"(i64 0)
+store i64 %r2262, i64* %r2276
 br label %label201
 label200:
-%r2248 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2255 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
-%r2250 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2255)
-%r2252 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2250)
-%r2253 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2255)
-%r2249 = inttoptr i64 %r2253 to i64 (i64)*
-%r2251 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2255)
-%r2256 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2251, i64 %r2252)
-%r2254 = tail call fastcc i64 %r2249(i64 %r2252)
-%r2247 = tail call fastcc i64 @"fun-cons"(i64 %r2248, i64 %r2254)
-store i64 %r2247, i64* %r2257
+%r2264 = tail call fastcc i64 @"fun-make-number"(i64 1)
+%r2271 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r2266 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2271)
+%r2268 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2266)
+%r2269 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2271)
+%r2265 = inttoptr i64 %r2269 to i64 (i64)*
+%r2273 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r2272 = tail call fastcc i64 @"fun-cdr"(i64 %r2273)
+%r2274 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2268, i64 1, i64 %r2272)
+%r2267 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2271)
+%r2275 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2267, i64 %r2268)
+%r2270 = tail call fastcc i64 %r2265(i64 %r2268)
+%r2263 = tail call fastcc i64 @"fun-+"(i64 %r2264, i64 %r2270)
+store i64 %r2263, i64* %r2276
 br label %label201
 label201:
-%r2258 = load i64* %r2257
-store i64 %r2258, i64* %r2261
-br label %label198
-label198:
-%r2262 = load i64* %r2261
-ret i64 %r2262
-}
-
-define fastcc i64 @"fun51-read-str"(i64 %"env") nounwind {
-%r2265 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r2267 = tail call fastcc i64 @fun52(i64 %r2265)
-ret i64 %r2267
-}
-
-define fastcc i64 @fun53(i64 %"env") nounwind {
-%r2189 = ptrtoint i64 (i64)* @"fun51-read-str" to i64
-%r2190 = tail call fastcc i64 @"fun-make-function"(i64 %r2189, i64 %"env", i64 0)
-%r2188 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2190)
-%r2275 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r2270 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2275)
-%r2272 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r2270)
-%r2273 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2275)
-%r2269 = inttoptr i64 %r2273 to i64 (i64)*
-%r2271 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2275)
-%r2276 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2271, i64 %r2272)
-%r2274 = tail call fastcc i64 %r2269(i64 %r2272)
-%r2268 = tail call fastcc i64 @"fun-list->string"(i64 %r2274)
-ret i64 %r2268
-}
-
-define fastcc i64 @"fun50-read-string"(i64 %"env") nounwind {
-%r2277 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %"env")
-%r2279 = tail call fastcc i64 @fun53(i64 %r2277)
-ret i64 %r2279
+%r2277 = load i64* %r2276
+ret i64 %r2277
 }
 
 define fastcc i64 @"fun54-error"(i64 %"env") nounwind {
@@ -4843,7 +4832,7 @@ ret i64 %r2337
 }
 
 define fastcc i64 @"fun58-assignment?"(i64 %"env") nounwind {
-%r2348 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2348 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2343 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2348)
 %r2345 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2343)
 %r2346 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2348)
@@ -4860,7 +4849,7 @@ ret i64 %r2347
 }
 
 define fastcc i64 @"fun59-definition?"(i64 %"env") nounwind {
-%r2365 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2365 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2360 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2365)
 %r2362 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2360)
 %r2363 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2365)
@@ -4877,7 +4866,7 @@ ret i64 %r2364
 }
 
 define fastcc i64 @"fun60-if?"(i64 %"env") nounwind {
-%r2382 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2382 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2377 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2382)
 %r2379 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2377)
 %r2380 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2382)
@@ -4894,7 +4883,7 @@ ret i64 %r2381
 }
 
 define fastcc i64 @"fun61-cond?"(i64 %"env") nounwind {
-%r2399 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2399 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2394 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2399)
 %r2396 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2394)
 %r2397 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2399)
@@ -4911,7 +4900,7 @@ ret i64 %r2398
 }
 
 define fastcc i64 @"fun62-lambda?"(i64 %"env") nounwind {
-%r2416 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2416 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2411 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2416)
 %r2413 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2411)
 %r2414 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2416)
@@ -4928,7 +4917,7 @@ ret i64 %r2415
 }
 
 define fastcc i64 @"fun63-begin?"(i64 %"env") nounwind {
-%r2433 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2433 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2428 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2433)
 %r2430 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2428)
 %r2431 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2433)
@@ -4945,7 +4934,7 @@ ret i64 %r2432
 }
 
 define fastcc i64 @"fun64-quote?"(i64 %"env") nounwind {
-%r2450 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2450 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2445 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2450)
 %r2447 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2445)
 %r2448 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2450)
@@ -4962,7 +4951,7 @@ ret i64 %r2449
 }
 
 define fastcc i64 @"fun65-let?"(i64 %"env") nounwind {
-%r2467 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2467 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2462 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2467)
 %r2464 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2462)
 %r2465 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2467)
@@ -4985,7 +4974,7 @@ ret i64 %r2478
 }
 
 define fastcc i64 @"fun67-llvm-definition?"(i64 %"env") nounwind {
-%r2489 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2489 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2484 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2489)
 %r2486 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2484)
 %r2487 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2489)
@@ -5002,12 +4991,12 @@ ret i64 %r2488
 }
 
 define fastcc i64 @"fun68-llvm-instruction?"(i64 %"env") nounwind {
-%r2506 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 13)
+%r2506 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 12)
 %r2501 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2506)
 %r2503 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2501)
 %r2504 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2506)
 %r2500 = inttoptr i64 %r2504 to i64 (i64)*
-%r2513 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 22)
+%r2513 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 23)
 %r2508 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2513)
 %r2510 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2508)
 %r2511 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2513)
@@ -5018,7 +5007,7 @@ define fastcc i64 @"fun68-llvm-instruction?"(i64 %"env") nounwind {
 %r2516 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2509, i64 %r2510)
 %r2512 = tail call fastcc i64 %r2507(i64 %r2510)
 %r2518 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2503, i64 1, i64 %r2512)
-%r2517 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 77)
+%r2517 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 78)
 %r2519 = tail call fastcc i64 @"fun-vector-set!"(i64 %r2503, i64 2, i64 %r2517)
 %r2502 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r2506)
 %r2520 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r2502, i64 %r2503)
@@ -5027,7 +5016,7 @@ ret i64 %r2505
 }
 
 define fastcc i64 @"fun69-llvm-load?"(i64 %"env") nounwind {
-%r2530 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2530 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2525 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2530)
 %r2527 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2525)
 %r2528 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2530)
@@ -5044,7 +5033,7 @@ ret i64 %r2529
 }
 
 define fastcc i64 @"fun70-llvm-store?"(i64 %"env") nounwind {
-%r2547 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2547 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2542 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2547)
 %r2544 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2542)
 %r2545 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2547)
@@ -5061,7 +5050,7 @@ ret i64 %r2546
 }
 
 define fastcc i64 @"fun71-llvm-getelementptr?"(i64 %"env") nounwind {
-%r2564 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2564 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2559 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2564)
 %r2561 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2559)
 %r2562 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2564)
@@ -5078,7 +5067,7 @@ ret i64 %r2563
 }
 
 define fastcc i64 @"fun72-llvm-ptrtoint?"(i64 %"env") nounwind {
-%r2581 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2581 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2576 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2581)
 %r2578 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2576)
 %r2579 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2581)
@@ -5095,7 +5084,7 @@ ret i64 %r2580
 }
 
 define fastcc i64 @"fun73-llvm-inttoptr?"(i64 %"env") nounwind {
-%r2598 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2598 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2593 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2598)
 %r2595 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2593)
 %r2596 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2598)
@@ -5112,7 +5101,7 @@ ret i64 %r2597
 }
 
 define fastcc i64 @"fun74-llvm-ret?"(i64 %"env") nounwind {
-%r2615 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
+%r2615 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
 %r2610 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2615)
 %r2612 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2610)
 %r2613 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2615)
@@ -5265,7 +5254,7 @@ ret i64 %r2720
 }
 
 define fastcc i64 @"fun88-make-if"(i64 %"env") nounwind {
-%r2732 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 12)
+%r2732 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 11)
 %r2727 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2732)
 %r2729 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r2727)
 %r2730 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2732)
@@ -5326,7 +5315,7 @@ define fastcc i64 @fun91(i64 %"env") nounwind {
 %r2749 = tail call fastcc i64 @"fun-make-function"(i64 %r2748, i64 %"env", i64 0)
 %r2747 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2749)
 %r2798 = alloca i64
-%r2780 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 11)
+%r2780 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 10)
 %r2775 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2780)
 %r2777 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2775)
 %r2778 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2780)
@@ -5371,7 +5360,7 @@ ret i64 %r2804
 }
 
 define fastcc i64 @"fun92-lambda-arbitrary-args?"(i64 %"env") nounwind {
-%r2815 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 11)
+%r2815 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
 %r2810 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2815)
 %r2812 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2810)
 %r2813 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2815)
@@ -5405,7 +5394,7 @@ store i64 %r2830, i64* %r2857
 br label %label222
 label221:
 %r2853 = alloca i64
-%r2837 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 28)
+%r2837 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 29)
 %r2832 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2837)
 %r2834 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2832)
 %r2835 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2837)
@@ -5424,7 +5413,7 @@ label223:
 store i64 %r2841, i64* %r2853
 br label %label225
 label224:
-%r2849 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 40)
+%r2849 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 41)
 %r2844 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2849)
 %r2846 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2844)
 %r2847 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2849)
@@ -5465,7 +5454,7 @@ define fastcc i64 @"fun97-cond-else-clause?"(i64 %"env") nounwind {
 %r2880 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2878)
 %r2881 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2883)
 %r2877 = inttoptr i64 %r2881 to i64 (i64)*
-%r2890 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 43)
+%r2890 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 44)
 %r2885 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2890)
 %r2887 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2885)
 %r2888 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2890)
@@ -5498,12 +5487,12 @@ ret i64 %r2908
 }
 
 define fastcc i64 @"fun100-cond->if"(i64 %"env") nounwind {
-%r2919 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 46)
+%r2919 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 47)
 %r2914 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2919)
 %r2916 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2914)
 %r2917 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2919)
 %r2913 = inttoptr i64 %r2917 to i64 (i64)*
-%r2926 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 41)
+%r2926 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 42)
 %r2921 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2926)
 %r2923 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2921)
 %r2924 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2926)
@@ -5522,7 +5511,7 @@ ret i64 %r2918
 
 define fastcc i64 @fun102(i64 %"env") nounwind {
 %r3047 = alloca i64
-%r2952 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 42)
+%r2952 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 43)
 %r2947 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2952)
 %r2949 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2947)
 %r2950 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2952)
@@ -5543,12 +5532,12 @@ label229:
 %r2996 = icmp ne i64 %r2995, 0
 br i1 %r2996, label %label232, label %label233
 label232:
-%r2964 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 39)
+%r2964 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 40)
 %r2959 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2964)
 %r2961 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2959)
 %r2962 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2964)
 %r2958 = inttoptr i64 %r2962 to i64 (i64)*
-%r2971 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 44)
+%r2971 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 45)
 %r2966 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2971)
 %r2968 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r2966)
 %r2969 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2971)
@@ -5565,7 +5554,7 @@ label232:
 store i64 %r2963, i64* %r2993
 br label %label234
 label233:
-%r2983 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r2983 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 2)
 %r2978 = tail call fastcc i64 @"fun-get-function-env"(i64 %r2983)
 %r2980 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r2978)
 %r2981 = tail call fastcc i64 @"fun-get-function-func"(i64 %r2983)
@@ -5586,12 +5575,12 @@ label234:
 store i64 %r2994, i64* %r3047
 br label %label231
 label230:
-%r3003 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 35)
+%r3003 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
 %r2998 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3003)
 %r3000 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r2998)
 %r3001 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3003)
 %r2997 = inttoptr i64 %r3001 to i64 (i64)*
-%r3010 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 43)
+%r3010 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 44)
 %r3005 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3010)
 %r3007 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3005)
 %r3008 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3010)
@@ -5602,12 +5591,12 @@ label230:
 %r3013 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3006, i64 %r3007)
 %r3009 = tail call fastcc i64 %r3004(i64 %r3007)
 %r3043 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3000, i64 1, i64 %r3009)
-%r3020 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 39)
+%r3020 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 40)
 %r3015 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3020)
 %r3017 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3015)
 %r3018 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3020)
 %r3014 = inttoptr i64 %r3018 to i64 (i64)*
-%r3027 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 44)
+%r3027 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 45)
 %r3022 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3027)
 %r3024 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3022)
 %r3025 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3027)
@@ -5622,7 +5611,7 @@ label230:
 %r3032 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3016, i64 %r3017)
 %r3019 = tail call fastcc i64 %r3014(i64 %r3017)
 %r3044 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3000, i64 2, i64 %r3019)
-%r3039 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 46)
+%r3039 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 47)
 %r3034 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3039)
 %r3036 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3034)
 %r3037 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3039)
@@ -5684,7 +5673,7 @@ ret i64 %r3074
 }
 
 define fastcc i64 @"fun103-let-vars"(i64 %"env") nounwind {
-%r3071 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 7)
+%r3071 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 6)
 %r3066 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3071)
 %r3068 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3066)
 %r3069 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3071)
@@ -5708,7 +5697,7 @@ ret i64 %r3093
 }
 
 define fastcc i64 @"fun105-let-vals"(i64 %"env") nounwind {
-%r3090 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 7)
+%r3090 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 6)
 %r3085 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3090)
 %r3087 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3085)
 %r3088 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3090)
@@ -5734,7 +5723,7 @@ ret i64 %r3103
 define fastcc i64 @"fun108-let->lambda"(i64 %"env") nounwind {
 %r3112 = ptrtoint [7 x i8]* @r3111 to i64
 %r3110 = tail call fastcc i64 @"fun-make-symbol"(i64 %r3112, i64 6)
-%r3120 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 47)
+%r3120 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 48)
 %r3115 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3120)
 %r3117 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3115)
 %r3118 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3120)
@@ -5744,7 +5733,7 @@ define fastcc i64 @"fun108-let->lambda"(i64 %"env") nounwind {
 %r3116 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3120)
 %r3123 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3116, i64 %r3117)
 %r3119 = tail call fastcc i64 %r3114(i64 %r3117)
-%r3130 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 49)
+%r3130 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 50)
 %r3125 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3130)
 %r3127 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3125)
 %r3128 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3130)
@@ -5756,7 +5745,7 @@ define fastcc i64 @"fun108-let->lambda"(i64 %"env") nounwind {
 %r3129 = tail call fastcc i64 %r3124(i64 %r3127)
 %r3113 = tail call fastcc i64 @"fun-cons"(i64 %r3119, i64 %r3129)
 %r3109 = tail call fastcc i64 @"fun-cons"(i64 %r3110, i64 %r3113)
-%r3140 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 48)
+%r3140 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 49)
 %r3135 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3140)
 %r3137 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3135)
 %r3138 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3140)
@@ -5802,7 +5791,7 @@ label236:
 %r3221 = icmp ne i64 %r3220, 0
 br i1 %r3221, label %label238, label %label239
 label238:
-%r3169 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 53)
+%r3169 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 54)
 %r3164 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3169)
 %r3166 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3164)
 %r3167 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3169)
@@ -5824,7 +5813,7 @@ label239:
 %r3217 = icmp ne i64 %r3216, 0
 br i1 %r3217, label %label241, label %label242
 label241:
-%r3183 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 8)
+%r3183 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 7)
 %r3178 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3183)
 %r3180 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3178)
 %r3181 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3183)
@@ -5832,7 +5821,7 @@ label241:
 %r3185 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3184 = tail call fastcc i64 @"fun-car"(i64 %r3185)
 %r3197 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3180, i64 1, i64 %r3184)
-%r3192 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 53)
+%r3192 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 54)
 %r3187 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3192)
 %r3189 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3187)
 %r3190 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3192)
@@ -5852,7 +5841,7 @@ br label %label243
 label242:
 %r3202 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r3201 = tail call fastcc i64 @"fun-car"(i64 %r3202)
-%r3209 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 53)
+%r3209 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 54)
 %r3204 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3209)
 %r3206 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3204)
 %r3207 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3209)
@@ -5880,7 +5869,7 @@ ret i64 %r3223
 }
 
 define fastcc i64 @"fun112-append-code"(i64 %"env") nounwind {
-%r3235 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 53)
+%r3235 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 54)
 %r3230 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3235)
 %r3232 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3230)
 %r3233 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3235)
@@ -5895,7 +5884,7 @@ ret i64 %r3234
 
 define fastcc i64 @"fun113-make-code"(i64 %"env") nounwind {
 %r3243 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r3250 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 53)
+%r3250 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 54)
 %r3245 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3250)
 %r3247 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3245)
 %r3248 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3250)
@@ -5921,7 +5910,7 @@ label244:
 store i64 %r3262, i64* %r3288
 br label %label246
 label245:
-%r3269 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 14)
+%r3269 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 13)
 %r3264 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3269)
 %r3266 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3264)
 %r3267 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3269)
@@ -5982,13 +5971,13 @@ ret i64 %r3308
 
 define fastcc i64 @"fun117-init-generators"(i64 %"env") nounwind {
 %r3313 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r3312 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 58, i64 %r3313)
+%r3312 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 59, i64 %r3313)
 %r3315 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r3314 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 61, i64 %r3315)
+%r3314 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 62, i64 %r3315)
 %r3317 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r3316 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 63, i64 %r3317)
+%r3316 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 64, i64 %r3317)
 %r3319 = tail call fastcc i64 @"fun-make-null"()
-%r3318 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 68, i64 %r3319)
+%r3318 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 69, i64 %r3319)
 %r3324 = ptrtoint [9 x i8]* @r3323 to i64
 %r3322 = tail call fastcc i64 @"fun-make-symbol"(i64 %r3324, i64 8)
 %r3328 = ptrtoint [6 x i8]* @r3327 to i64
@@ -6008,18 +5997,18 @@ define fastcc i64 @"fun117-init-generators"(i64 %"env") nounwind {
 %r3329 = tail call fastcc i64 @"fun-cons"(i64 %r3330, i64 %r3333)
 %r3325 = tail call fastcc i64 @"fun-cons"(i64 %r3326, i64 %r3329)
 %r3321 = tail call fastcc i64 @"fun-cons"(i64 %r3322, i64 %r3325)
-%r3320 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 66, i64 %r3321)
+%r3320 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 67, i64 %r3321)
 %r3347 = tail call fastcc i64 @"fun-make-null"()
-%r3346 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 71, i64 %r3347)
+%r3346 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 72, i64 %r3347)
 ret i64 %r3346
 }
 
 define fastcc i64 @"fun118-make-var"(i64 %"env") nounwind {
 %r3355 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r3356 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 58)
+%r3356 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
 %r3354 = tail call fastcc i64 @"fun-+"(i64 %r3355, i64 %r3356)
-%r3353 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 58, i64 %r3354)
-%r3363 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r3353 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 59, i64 %r3354)
+%r3363 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r3358 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3363)
 %r3360 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3358)
 %r3361 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3363)
@@ -6027,12 +6016,12 @@ define fastcc i64 @"fun118-make-var"(i64 %"env") nounwind {
 %r3366 = ptrtoint [3 x i8]* @r3365 to i64
 %r3364 = tail call fastcc i64 @"fun-make-string"(i64 %r3366, i64 2)
 %r3377 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3360, i64 1, i64 %r3364)
-%r3373 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
+%r3373 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 9)
 %r3368 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3373)
 %r3370 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3368)
 %r3371 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3373)
 %r3367 = inttoptr i64 %r3371 to i64 (i64)*
-%r3374 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 58)
+%r3374 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
 %r3375 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3370, i64 1, i64 %r3374)
 %r3369 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3373)
 %r3376 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3369, i64 %r3370)
@@ -6046,10 +6035,10 @@ ret i64 %r3362
 
 define fastcc i64 @"fun119-make-global-var"(i64 %"env") nounwind {
 %r3385 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r3386 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 58)
+%r3386 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
 %r3384 = tail call fastcc i64 @"fun-+"(i64 %r3385, i64 %r3386)
-%r3383 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 58, i64 %r3384)
-%r3393 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r3383 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 59, i64 %r3384)
+%r3393 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r3388 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3393)
 %r3390 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3388)
 %r3391 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3393)
@@ -6057,12 +6046,12 @@ define fastcc i64 @"fun119-make-global-var"(i64 %"env") nounwind {
 %r3396 = ptrtoint [3 x i8]* @r3395 to i64
 %r3394 = tail call fastcc i64 @"fun-make-string"(i64 %r3396, i64 2)
 %r3407 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3390, i64 1, i64 %r3394)
-%r3403 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
+%r3403 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 9)
 %r3398 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3403)
 %r3400 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3398)
 %r3401 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3403)
 %r3397 = inttoptr i64 %r3401 to i64 (i64)*
-%r3404 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 58)
+%r3404 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
 %r3405 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3400, i64 1, i64 %r3404)
 %r3399 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3403)
 %r3406 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3399, i64 %r3400)
@@ -6076,10 +6065,10 @@ ret i64 %r3392
 
 define fastcc i64 @"fun120-make-label"(i64 %"env") nounwind {
 %r3417 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r3418 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 61)
+%r3418 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 62)
 %r3416 = tail call fastcc i64 @"fun-+"(i64 %r3417, i64 %r3418)
-%r3415 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 61, i64 %r3416)
-%r3425 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r3415 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 62, i64 %r3416)
+%r3425 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r3420 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3425)
 %r3422 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3420)
 %r3423 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3425)
@@ -6087,12 +6076,12 @@ define fastcc i64 @"fun120-make-label"(i64 %"env") nounwind {
 %r3428 = ptrtoint [6 x i8]* @r3427 to i64
 %r3426 = tail call fastcc i64 @"fun-make-string"(i64 %r3428, i64 5)
 %r3439 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3422, i64 1, i64 %r3426)
-%r3435 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
+%r3435 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 9)
 %r3430 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3435)
 %r3432 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3430)
 %r3433 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3435)
 %r3429 = inttoptr i64 %r3433 to i64 (i64)*
-%r3436 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 61)
+%r3436 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 62)
 %r3437 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3432, i64 1, i64 %r3436)
 %r3431 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3435)
 %r3438 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3431, i64 %r3432)
@@ -6106,10 +6095,10 @@ ret i64 %r3424
 
 define fastcc i64 @"fun121-make-raw-function-name"(i64 %"env") nounwind {
 %r3449 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r3450 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 63)
+%r3450 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 64)
 %r3448 = tail call fastcc i64 @"fun-+"(i64 %r3449, i64 %r3450)
-%r3447 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 63, i64 %r3448)
-%r3457 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r3447 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 64, i64 %r3448)
+%r3457 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r3452 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3457)
 %r3454 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3452)
 %r3455 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3457)
@@ -6117,12 +6106,12 @@ define fastcc i64 @"fun121-make-raw-function-name"(i64 %"env") nounwind {
 %r3460 = ptrtoint [4 x i8]* @r3459 to i64
 %r3458 = tail call fastcc i64 @"fun-make-string"(i64 %r3460, i64 3)
 %r3471 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3454, i64 1, i64 %r3458)
-%r3467 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
+%r3467 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 9)
 %r3462 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3467)
 %r3464 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3462)
 %r3465 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3467)
 %r3461 = inttoptr i64 %r3465 to i64 (i64)*
-%r3468 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 63)
+%r3468 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 64)
 %r3469 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3464, i64 1, i64 %r3468)
 %r3463 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3467)
 %r3470 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3463, i64 %r3464)
@@ -6135,7 +6124,7 @@ ret i64 %r3456
 }
 
 define fastcc i64 @"fun122-make-function-name"(i64 %"env") nounwind {
-%r3483 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r3483 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r3478 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3483)
 %r3480 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3478)
 %r3481 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3483)
@@ -6143,7 +6132,7 @@ define fastcc i64 @"fun122-make-function-name"(i64 %"env") nounwind {
 %r3486 = ptrtoint [2 x i8]* @r3485 to i64
 %r3484 = tail call fastcc i64 @"fun-make-string"(i64 %r3486, i64 1)
 %r3495 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3480, i64 1, i64 %r3484)
-%r3493 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 64)
+%r3493 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 65)
 %r3488 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3493)
 %r3490 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r3488)
 %r3491 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3493)
@@ -6160,9 +6149,9 @@ ret i64 %r3482
 
 define fastcc i64 @"fun123-add-llvm-function-name"(i64 %"env") nounwind {
 %r3505 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r3506 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 66)
+%r3506 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 67)
 %r3504 = tail call fastcc i64 @"fun-cons"(i64 %r3505, i64 %r3506)
-%r3503 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 66, i64 %r3504)
+%r3503 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 1, i64 67, i64 %r3504)
 ret i64 %r3503
 }
 
@@ -6179,7 +6168,7 @@ label247:
 store i64 %r3517, i64* %r3570
 br label %label249
 label248:
-%r3526 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
+%r3526 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r3521 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3526)
 %r3523 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r3521)
 %r3524 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3526)
@@ -6187,7 +6176,7 @@ label248:
 %r3529 = ptrtoint [5 x i8]* @r3528 to i64
 %r3527 = tail call fastcc i64 @"fun-make-string"(i64 %r3529, i64 4)
 %r3565 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3523, i64 1, i64 %r3527)
-%r3536 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 82)
+%r3536 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 83)
 %r3531 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3536)
 %r3533 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3531)
 %r3534 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3536)
@@ -6245,24 +6234,24 @@ define fastcc i64 @fun126(i64 %"env") nounwind {
 %r3513 = ptrtoint i64 (i64)* @"fun125-build-params" to i64
 %r3514 = tail call fastcc i64 @"fun-make-function"(i64 %r3513, i64 %"env", i64 0)
 %r3512 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r3514)
-%r3581 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 8)
+%r3581 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
 %r3576 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3581)
 %r3578 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3576)
 %r3579 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3581)
 %r3575 = inttoptr i64 %r3579 to i64 (i64)*
-%r3582 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 68)
+%r3582 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 69)
 %r3687 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3578, i64 1, i64 %r3582)
-%r3589 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 12)
+%r3589 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 11)
 %r3584 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3589)
 %r3586 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3584)
 %r3587 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3589)
 %r3583 = inttoptr i64 %r3587 to i64 (i64)*
-%r3596 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 54)
+%r3596 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
 %r3591 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3596)
 %r3593 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r3591)
 %r3594 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3596)
 %r3590 = inttoptr i64 %r3594 to i64 (i64)*
-%r3603 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r3603 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r3598 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3603)
 %r3600 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r3598)
 %r3601 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3603)
@@ -6270,7 +6259,7 @@ define fastcc i64 @fun126(i64 %"env") nounwind {
 %r3606 = ptrtoint [19 x i8]* @r3605 to i64
 %r3604 = tail call fastcc i64 @"fun-make-string"(i64 %r3606, i64 18)
 %r3633 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3600, i64 1, i64 %r3604)
-%r3613 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 81)
+%r3613 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 82)
 %r3608 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3613)
 %r3610 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3608)
 %r3611 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3613)
@@ -6302,7 +6291,7 @@ define fastcc i64 @fun126(i64 %"env") nounwind {
 %r3638 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3599, i64 %r3600)
 %r3602 = tail call fastcc i64 %r3597(i64 %r3600)
 %r3680 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3593, i64 1, i64 %r3602)
-%r3645 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
+%r3645 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
 %r3640 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3645)
 %r3642 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3640)
 %r3643 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3645)
@@ -6313,12 +6302,12 @@ define fastcc i64 @fun126(i64 %"env") nounwind {
 %r3648 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3641, i64 %r3642)
 %r3644 = tail call fastcc i64 %r3639(i64 %r3642)
 %r3681 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3593, i64 2, i64 %r3644)
-%r3655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
+%r3655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 88)
 %r3650 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3655)
 %r3652 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3650)
 %r3653 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3655)
 %r3649 = inttoptr i64 %r3653 to i64 (i64)*
-%r3662 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r3662 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
 %r3657 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3662)
 %r3659 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3657)
 %r3660 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3662)
@@ -6333,7 +6322,7 @@ define fastcc i64 @fun126(i64 %"env") nounwind {
 %r3667 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3651, i64 %r3652)
 %r3654 = tail call fastcc i64 %r3649(i64 %r3652)
 %r3682 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3593, i64 3, i64 %r3654)
-%r3674 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r3674 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r3669 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3674)
 %r3671 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3669)
 %r3672 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3674)
@@ -6356,7 +6345,7 @@ define fastcc i64 @fun126(i64 %"env") nounwind {
 %r3577 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3581)
 %r3689 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3577, i64 %r3578)
 %r3580 = tail call fastcc i64 %r3575(i64 %r3578)
-%r3574 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 2, i64 68, i64 %r3580)
+%r3574 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 2, i64 69, i64 %r3580)
 ret i64 %r3574
 }
 
@@ -6592,19 +6581,19 @@ ret i64 %r3877
 }
 
 define fastcc i64 @fun133(i64 %"env") nounwind {
-%r3898 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 8)
+%r3898 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
 %r3893 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3898)
 %r3895 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3893)
 %r3896 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3898)
 %r3892 = inttoptr i64 %r3896 to i64 (i64)*
-%r3899 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 71)
+%r3899 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 72)
 %r3944 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3895, i64 1, i64 %r3899)
-%r3906 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 12)
+%r3906 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 11)
 %r3901 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3906)
 %r3903 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3901)
 %r3904 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3906)
 %r3900 = inttoptr i64 %r3904 to i64 (i64)*
-%r3913 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r3913 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r3908 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3913)
 %r3910 = tail call fastcc i64 @"fun-make-env"(i64 6, i64 %r3908)
 %r3911 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3913)
@@ -6619,7 +6608,7 @@ define fastcc i64 @fun133(i64 %"env") nounwind {
 %r3921 = ptrtoint [4 x i8]* @r3920 to i64
 %r3919 = tail call fastcc i64 @"fun-make-string"(i64 %r3921, i64 3)
 %r3938 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3910, i64 4, i64 %r3919)
-%r3928 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 70)
+%r3928 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 71)
 %r3923 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3928)
 %r3925 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3923)
 %r3926 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3928)
@@ -6644,8 +6633,8 @@ define fastcc i64 @fun133(i64 %"env") nounwind {
 %r3894 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r3898)
 %r3946 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r3894, i64 %r3895)
 %r3897 = tail call fastcc i64 %r3892(i64 %r3895)
-%r3891 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 2, i64 71, i64 %r3897)
-%r3953 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r3891 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 2, i64 72, i64 %r3897)
+%r3953 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r3948 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3953)
 %r3950 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r3948)
 %r3951 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3953)
@@ -6668,7 +6657,7 @@ define fastcc i64 @"fun132-add-llvm-string"(i64 %"env") nounwind {
 %r3886 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3884)
 %r3887 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3890)
 %r3883 = inttoptr i64 %r3887 to i64 (i64)*
-%r3967 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r3967 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r3962 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3967)
 %r3964 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r3962)
 %r3965 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3967)
@@ -6676,7 +6665,7 @@ define fastcc i64 @"fun132-add-llvm-string"(i64 %"env") nounwind {
 %r3970 = ptrtoint [2 x i8]* @r3969 to i64
 %r3968 = tail call fastcc i64 @"fun-make-string"(i64 %r3970, i64 1)
 %r3987 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3964, i64 1, i64 %r3968)
-%r3977 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r3977 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r3972 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3977)
 %r3974 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r3972)
 %r3975 = tail call fastcc i64 @"fun-get-function-func"(i64 %r3977)
@@ -6792,14 +6781,14 @@ define fastcc i64 @fun139(i64 %"env") nounwind {
 %r4101 = icmp ne i64 %r4100, 0
 br i1 %r4101, label %label271, label %label272
 label271:
-%r4076 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 76)
+%r4076 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 77)
 %r4071 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4076)
 %r4073 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4071)
 %r4074 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4076)
 %r4070 = inttoptr i64 %r4074 to i64 (i64)*
 %r4077 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
 %r4091 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4073, i64 1, i64 %r4077)
-%r4084 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 75)
+%r4084 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 76)
 %r4079 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4084)
 %r4081 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4079)
 %r4082 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4084)
@@ -6858,7 +6847,7 @@ label269:
 %r4102 = inttoptr i64 %r4106 to i64 (i64)*
 %r4109 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r4121 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4105, i64 1, i64 %r4109)
-%r4116 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 74)
+%r4116 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 75)
 %r4111 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4116)
 %r4113 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4111)
 %r4114 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4116)
@@ -6892,14 +6881,14 @@ ret i64 %r4133
 }
 
 define fastcc i64 @"fun141-llvm-instr-name"(i64 %"env") nounwind {
-%r4352 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 13)
+%r4352 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 12)
 %r4347 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4352)
 %r4349 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4347)
 %r4350 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4352)
 %r4346 = inttoptr i64 %r4350 to i64 (i64)*
 %r4353 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r4355 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4349, i64 1, i64 %r4353)
-%r4354 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 77)
+%r4354 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 78)
 %r4356 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4349, i64 2, i64 %r4354)
 %r4348 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r4352)
 %r4357 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r4348, i64 %r4349)
@@ -6916,7 +6905,7 @@ define fastcc i64 @"fun142-llvm-global-repr"(i64 %"env") nounwind {
 %r4402 = icmp ne i64 %r4401, 0
 br i1 %r4402, label %label274, label %label275
 label274:
-%r4369 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
+%r4369 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 9)
 %r4364 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4369)
 %r4366 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4364)
 %r4367 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4369)
@@ -6936,7 +6925,7 @@ label275:
 %r4398 = icmp ne i64 %r4397, 0
 br i1 %r4398, label %label277, label %label278
 label277:
-%r4381 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4381 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4376 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4381)
 %r4378 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4376)
 %r4379 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4381)
@@ -6976,7 +6965,7 @@ define fastcc i64 @"fun143-llvm-repr"(i64 %"env") nounwind {
 %r4447 = icmp ne i64 %r4446, 0
 br i1 %r4447, label %label280, label %label281
 label280:
-%r4414 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 10)
+%r4414 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 9)
 %r4409 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4414)
 %r4411 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4409)
 %r4412 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4414)
@@ -6996,7 +6985,7 @@ label281:
 %r4443 = icmp ne i64 %r4442, 0
 br i1 %r4443, label %label283, label %label284
 label283:
-%r4426 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4426 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4421 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4426)
 %r4423 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4421)
 %r4424 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4426)
@@ -7029,7 +7018,7 @@ ret i64 %r4445
 }
 
 define fastcc i64 @"fun144-llvm-instruction"(i64 %"env") nounwind {
-%r4457 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4457 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4452 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4457)
 %r4454 = tail call fastcc i64 @"fun-make-env"(i64 7, i64 %r4452)
 %r4455 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4457)
@@ -7039,7 +7028,7 @@ define fastcc i64 @"fun144-llvm-instruction"(i64 %"env") nounwind {
 %r4461 = ptrtoint [4 x i8]* @r4460 to i64
 %r4459 = tail call fastcc i64 @"fun-make-string"(i64 %r4461, i64 3)
 %r4499 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4454, i64 2, i64 %r4459)
-%r4468 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 80)
+%r4468 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 81)
 %r4463 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4468)
 %r4465 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4463)
 %r4466 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4468)
@@ -7053,7 +7042,7 @@ define fastcc i64 @"fun144-llvm-instruction"(i64 %"env") nounwind {
 %r4474 = ptrtoint [6 x i8]* @r4473 to i64
 %r4472 = tail call fastcc i64 @"fun-make-string"(i64 %r4474, i64 5)
 %r4501 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4454, i64 4, i64 %r4472)
-%r4481 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r4481 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r4476 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4481)
 %r4478 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4476)
 %r4479 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4481)
@@ -7067,7 +7056,7 @@ define fastcc i64 @"fun144-llvm-instruction"(i64 %"env") nounwind {
 %r4487 = ptrtoint [3 x i8]* @r4486 to i64
 %r4485 = tail call fastcc i64 @"fun-make-string"(i64 %r4487, i64 2)
 %r4503 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4454, i64 6, i64 %r4485)
-%r4494 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r4494 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r4489 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4494)
 %r4491 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4489)
 %r4492 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4494)
@@ -7085,7 +7074,7 @@ ret i64 %r4456
 }
 
 define fastcc i64 @"fun145-llvm-id"(i64 %"env") nounwind {
-%r4515 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
+%r4515 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 84)
 %r4510 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4515)
 %r4512 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r4510)
 %r4513 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4515)
@@ -7118,7 +7107,7 @@ label286:
 store i64 %r4535, i64* %r4599
 br label %label288
 label287:
-%r4544 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
+%r4544 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r4539 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4544)
 %r4541 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4539)
 %r4542 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4544)
@@ -7143,7 +7132,7 @@ br label %label291
 label291:
 %r4555 = load i64* %r4554
 %r4595 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4541, i64 1, i64 %r4555)
-%r4564 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
+%r4564 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r4559 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4564)
 %r4561 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4559)
 %r4562 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4564)
@@ -7151,7 +7140,7 @@ label291:
 %r4567 = ptrtoint [5 x i8]* @r4566 to i64
 %r4565 = tail call fastcc i64 @"fun-make-string"(i64 %r4567, i64 4)
 %r4579 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4561, i64 1, i64 %r4565)
-%r4574 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 82)
+%r4574 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 83)
 %r4569 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4574)
 %r4571 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4569)
 %r4572 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4574)
@@ -7195,7 +7184,7 @@ define fastcc i64 @fun148(i64 %"env") nounwind {
 %r4531 = ptrtoint i64 (i64)* @"fun147-build-arg-list" to i64
 %r4532 = tail call fastcc i64 @"fun-make-function"(i64 %r4531, i64 %"env", i64 0)
 %r4530 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r4532)
-%r4609 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r4609 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r4604 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4609)
 %r4606 = tail call fastcc i64 @"fun-make-env"(i64 6, i64 %r4604)
 %r4607 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4609)
@@ -7205,7 +7194,7 @@ define fastcc i64 @fun148(i64 %"env") nounwind {
 %r4613 = ptrtoint [25 x i8]* @r4612 to i64
 %r4611 = tail call fastcc i64 @"fun-make-string"(i64 %r4613, i64 24)
 %r4643 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4606, i64 2, i64 %r4611)
-%r4620 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 81)
+%r4620 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 82)
 %r4615 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4620)
 %r4617 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4615)
 %r4618 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4620)
@@ -7248,7 +7237,7 @@ ret i64 %r4651
 }
 
 define fastcc i64 @"fun149-llvm-call"(i64 %"env") nounwind {
-%r4661 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 85)
+%r4661 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 86)
 %r4656 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4661)
 %r4658 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4656)
 %r4659 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4661)
@@ -7266,7 +7255,7 @@ ret i64 %r4660
 }
 
 define fastcc i64 @"fun150-llvm-ret"(i64 %"env") nounwind {
-%r4678 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4678 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4673 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4678)
 %r4675 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4673)
 %r4676 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4678)
@@ -7274,7 +7263,7 @@ define fastcc i64 @"fun150-llvm-ret"(i64 %"env") nounwind {
 %r4681 = ptrtoint [9 x i8]* @r4680 to i64
 %r4679 = tail call fastcc i64 @"fun-make-string"(i64 %r4681, i64 8)
 %r4692 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4675, i64 1, i64 %r4679)
-%r4688 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r4688 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r4683 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4688)
 %r4685 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4683)
 %r4686 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4688)
@@ -7292,7 +7281,7 @@ ret i64 %r4677
 }
 
 define fastcc i64 @"fun151-llvm-ptrtoint"(i64 %"env") nounwind {
-%r4704 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4704 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4699 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4704)
 %r4701 = tail call fastcc i64 @"fun-make-env"(i64 7, i64 %r4699)
 %r4702 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4704)
@@ -7321,7 +7310,7 @@ ret i64 %r4703
 }
 
 define fastcc i64 @"fun152-llvm-inttoptr"(i64 %"env") nounwind {
-%r4735 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4735 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4730 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4735)
 %r4732 = tail call fastcc i64 @"fun-make-env"(i64 7, i64 %r4730)
 %r4733 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4735)
@@ -7350,7 +7339,7 @@ ret i64 %r4734
 }
 
 define fastcc i64 @"fun154-build-phi-list"(i64 %"env") nounwind {
-%r4769 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
+%r4769 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r4764 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4769)
 %r4766 = tail call fastcc i64 @"fun-make-env"(i64 6, i64 %r4764)
 %r4767 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4769)
@@ -7358,7 +7347,7 @@ define fastcc i64 @"fun154-build-phi-list"(i64 %"env") nounwind {
 %r4772 = ptrtoint [2 x i8]* @r4771 to i64
 %r4770 = tail call fastcc i64 @"fun-make-string"(i64 %r4772, i64 1)
 %r4828 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4766, i64 1, i64 %r4770)
-%r4779 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 82)
+%r4779 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 83)
 %r4774 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4779)
 %r4776 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r4774)
 %r4777 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4779)
@@ -7394,7 +7383,7 @@ label292:
 store i64 %r4797, i64* %r4824
 br label %label294
 label293:
-%r4806 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
+%r4806 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r4801 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4806)
 %r4803 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4801)
 %r4804 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4806)
@@ -7432,7 +7421,7 @@ define fastcc i64 @fun155(i64 %"env") nounwind {
 %r4761 = ptrtoint i64 (i64)* @"fun154-build-phi-list" to i64
 %r4762 = tail call fastcc i64 @"fun-make-function"(i64 %r4761, i64 %"env", i64 0)
 %r4760 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r4762)
-%r4841 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r4841 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r4836 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4841)
 %r4838 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r4836)
 %r4839 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4841)
@@ -7471,7 +7460,7 @@ ret i64 %r4868
 }
 
 define fastcc i64 @"fun156-llvm-label"(i64 %"env") nounwind {
-%r4878 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4878 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4873 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4878)
 %r4875 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4873)
 %r4876 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4878)
@@ -7488,7 +7477,7 @@ ret i64 %r4877
 }
 
 define fastcc i64 @"fun157-llvm-br"(i64 %"env") nounwind {
-%r4895 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r4895 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r4890 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4895)
 %r4892 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4890)
 %r4893 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4895)
@@ -7505,12 +7494,12 @@ ret i64 %r4894
 }
 
 define fastcc i64 @fun159(i64 %"env") nounwind {
-%r4920 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 54)
+%r4920 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
 %r4915 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4920)
 %r4917 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4915)
 %r4918 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4920)
 %r4914 = inttoptr i64 %r4918 to i64 (i64)*
-%r4927 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
+%r4927 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
 %r4922 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4927)
 %r4924 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r4922)
 %r4925 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4927)
@@ -7526,7 +7515,7 @@ define fastcc i64 @fun159(i64 %"env") nounwind {
 %r4936 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r4923, i64 %r4924)
 %r4926 = tail call fastcc i64 %r4921(i64 %r4924)
 %r4983 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4917, i64 1, i64 %r4926)
-%r4943 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r4943 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r4938 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4943)
 %r4940 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r4938)
 %r4941 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4943)
@@ -7545,7 +7534,7 @@ define fastcc i64 @fun159(i64 %"env") nounwind {
 %r4956 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r4939, i64 %r4940)
 %r4942 = tail call fastcc i64 %r4937(i64 %r4940)
 %r4984 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4917, i64 2, i64 %r4942)
-%r4963 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r4963 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r4958 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4963)
 %r4960 = tail call fastcc i64 @"fun-make-env"(i64 6, i64 %r4958)
 %r4961 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4963)
@@ -7582,7 +7571,7 @@ define fastcc i64 @"fun158-llvm-bool-br"(i64 %"env") nounwind {
 %r4909 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r4907)
 %r4910 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4913)
 %r4906 = inttoptr i64 %r4910 to i64 (i64)*
-%r4993 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r4993 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r4988 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4993)
 %r4990 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r4988)
 %r4991 = tail call fastcc i64 @"fun-get-function-func"(i64 %r4993)
@@ -7591,7 +7580,7 @@ define fastcc i64 @"fun158-llvm-bool-br"(i64 %"env") nounwind {
 %r4994 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r4989, i64 %r4990)
 %r4992 = tail call fastcc i64 %r4987(i64 %r4990)
 %r5003 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4909, i64 1, i64 %r4992)
-%r5001 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r5001 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r4996 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5001)
 %r4998 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r4996)
 %r4999 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5001)
@@ -7607,7 +7596,7 @@ ret i64 %r4911
 }
 
 define fastcc i64 @"fun160-llvm-store"(i64 %"env") nounwind {
-%r5015 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r5015 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r5010 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5015)
 %r5012 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5010)
 %r5013 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5015)
@@ -7629,7 +7618,7 @@ ret i64 %r5014
 }
 
 define fastcc i64 @"fun161-llvm-load"(i64 %"env") nounwind {
-%r5038 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r5038 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r5033 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5038)
 %r5035 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r5033)
 %r5036 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5038)
@@ -7648,7 +7637,7 @@ ret i64 %r5037
 }
 
 define fastcc i64 @"fun162-llvm-alloca-var"(i64 %"env") nounwind {
-%r5057 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r5057 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r5052 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5057)
 %r5054 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5052)
 %r5055 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5057)
@@ -7665,7 +7654,7 @@ ret i64 %r5056
 }
 
 define fastcc i64 @"fun163-llvm-shift-op"(i64 %"env") nounwind {
-%r5074 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r5074 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r5069 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5074)
 %r5071 = tail call fastcc i64 @"fun-make-env"(i64 7, i64 %r5069)
 %r5072 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5074)
@@ -7675,7 +7664,7 @@ define fastcc i64 @"fun163-llvm-shift-op"(i64 %"env") nounwind {
 %r5078 = ptrtoint [4 x i8]* @r5077 to i64
 %r5076 = tail call fastcc i64 @"fun-make-string"(i64 %r5078, i64 3)
 %r5107 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5071, i64 2, i64 %r5076)
-%r5085 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 80)
+%r5085 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 81)
 %r5080 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5085)
 %r5082 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5080)
 %r5083 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5085)
@@ -7689,7 +7678,7 @@ define fastcc i64 @"fun163-llvm-shift-op"(i64 %"env") nounwind {
 %r5091 = ptrtoint [6 x i8]* @r5090 to i64
 %r5089 = tail call fastcc i64 @"fun-make-string"(i64 %r5091, i64 5)
 %r5109 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5071, i64 4, i64 %r5089)
-%r5098 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5098 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5093 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5098)
 %r5095 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5093)
 %r5096 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5098)
@@ -7712,12 +7701,12 @@ ret i64 %r5073
 }
 
 define fastcc i64 @fun165(i64 %"env") nounwind {
-%r5131 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 54)
+%r5131 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
 %r5126 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5131)
 %r5128 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5126)
 %r5129 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5131)
 %r5125 = inttoptr i64 %r5129 to i64 (i64)*
-%r5138 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 89)
+%r5138 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 90)
 %r5133 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5138)
 %r5135 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5133)
 %r5136 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5138)
@@ -7736,7 +7725,7 @@ define fastcc i64 @fun165(i64 %"env") nounwind {
 %r5151 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5134, i64 %r5135)
 %r5137 = tail call fastcc i64 %r5132(i64 %r5135)
 %r5174 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5128, i64 1, i64 %r5137)
-%r5158 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
+%r5158 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
 %r5153 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5158)
 %r5155 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r5153)
 %r5156 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5158)
@@ -7770,7 +7759,7 @@ define fastcc i64 @"fun164-llvm-getelementptr"(i64 %"env") nounwind {
 %r5120 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5118)
 %r5121 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5124)
 %r5117 = inttoptr i64 %r5121 to i64 (i64)*
-%r5183 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r5183 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r5178 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5183)
 %r5180 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r5178)
 %r5181 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5183)
@@ -7786,7 +7775,7 @@ ret i64 %r5122
 }
 
 define fastcc i64 @"fun166-llvm-vector-ref"(i64 %"env") nounwind {
-%r5196 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 86)
+%r5196 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 87)
 %r5191 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5196)
 %r5193 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5191)
 %r5194 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5196)
@@ -7796,7 +7785,7 @@ define fastcc i64 @"fun166-llvm-vector-ref"(i64 %"env") nounwind {
 %r5200 = ptrtoint [11 x i8]* @r5199 to i64
 %r5198 = tail call fastcc i64 @"fun-make-symbol"(i64 %r5200, i64 10)
 %r5222 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5193, i64 2, i64 %r5198)
-%r5207 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5207 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5202 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5207)
 %r5204 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5202)
 %r5205 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5207)
@@ -7807,7 +7796,7 @@ define fastcc i64 @"fun166-llvm-vector-ref"(i64 %"env") nounwind {
 %r5210 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5203, i64 %r5204)
 %r5206 = tail call fastcc i64 %r5201(i64 %r5204)
 %r5223 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5193, i64 3, i64 %r5206)
-%r5217 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5217 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5212 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5217)
 %r5214 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5212)
 %r5215 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5217)
@@ -7825,12 +7814,12 @@ ret i64 %r5195
 }
 
 define fastcc i64 @"fun167-llvm-vector-set!"(i64 %"env") nounwind {
-%r5235 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 86)
+%r5235 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 87)
 %r5230 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5235)
 %r5232 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r5230)
 %r5233 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5235)
 %r5229 = inttoptr i64 %r5233 to i64 (i64)*
-%r5242 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r5242 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r5237 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5242)
 %r5239 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r5237)
 %r5240 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5242)
@@ -7842,7 +7831,7 @@ define fastcc i64 @"fun167-llvm-vector-set!"(i64 %"env") nounwind {
 %r5246 = ptrtoint [12 x i8]* @r5245 to i64
 %r5244 = tail call fastcc i64 @"fun-make-symbol"(i64 %r5246, i64 11)
 %r5278 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5232, i64 2, i64 %r5244)
-%r5253 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5253 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5248 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5253)
 %r5250 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5248)
 %r5251 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5253)
@@ -7853,7 +7842,7 @@ define fastcc i64 @"fun167-llvm-vector-set!"(i64 %"env") nounwind {
 %r5256 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5249, i64 %r5250)
 %r5252 = tail call fastcc i64 %r5247(i64 %r5250)
 %r5279 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5232, i64 3, i64 %r5252)
-%r5263 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5263 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5258 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5263)
 %r5260 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5258)
 %r5261 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5263)
@@ -7864,7 +7853,7 @@ define fastcc i64 @"fun167-llvm-vector-set!"(i64 %"env") nounwind {
 %r5266 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5259, i64 %r5260)
 %r5262 = tail call fastcc i64 %r5257(i64 %r5260)
 %r5280 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5232, i64 4, i64 %r5262)
-%r5273 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5273 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5268 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5273)
 %r5270 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5268)
 %r5271 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5273)
@@ -7882,7 +7871,7 @@ ret i64 %r5234
 }
 
 define fastcc i64 @"fun168-block-comment"(i64 %"env") nounwind {
-%r5293 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r5293 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r5288 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5293)
 %r5290 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5288)
 %r5291 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5293)
@@ -7929,7 +7918,7 @@ ret i64 %r5328
 }
 
 define fastcc i64 @"fun169-comment"(i64 %"env") nounwind {
-%r5341 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r5341 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r5336 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5341)
 %r5338 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5336)
 %r5339 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5341)
@@ -7956,7 +7945,7 @@ ret i64 %r5354
 
 define fastcc i64 @"fun170-compile"(i64 %"env") nounwind {
 %r5731 = alloca i64
-%r5366 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 3)
+%r5366 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 4)
 %r5361 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5366)
 %r5363 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5361)
 %r5364 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5366)
@@ -7970,7 +7959,7 @@ define fastcc i64 @"fun170-compile"(i64 %"env") nounwind {
 %r5734 = icmp ne i64 %r5733, 0
 br i1 %r5734, label %label295, label %label296
 label295:
-%r5376 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
+%r5376 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 105)
 %r5371 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5376)
 %r5373 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5371)
 %r5374 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5376)
@@ -7986,7 +7975,7 @@ store i64 %r5375, i64* %r5731
 br label %label297
 label296:
 %r5727 = alloca i64
-%r5388 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 4)
+%r5388 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 5)
 %r5383 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5388)
 %r5385 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5383)
 %r5386 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5388)
@@ -8000,7 +7989,7 @@ label296:
 %r5730 = icmp ne i64 %r5729, 0
 br i1 %r5730, label %label298, label %label299
 label298:
-%r5398 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 105)
+%r5398 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 106)
 %r5393 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5398)
 %r5395 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5393)
 %r5396 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5398)
@@ -8016,7 +8005,7 @@ store i64 %r5397, i64* %r5727
 br label %label300
 label299:
 %r5723 = alloca i64
-%r5410 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 11)
+%r5410 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 12)
 %r5405 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5410)
 %r5407 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5405)
 %r5408 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5410)
@@ -8030,12 +8019,12 @@ label299:
 %r5726 = icmp ne i64 %r5725, 0
 br i1 %r5726, label %label301, label %label302
 label301:
-%r5420 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
+%r5420 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 105)
 %r5415 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5420)
 %r5417 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5415)
 %r5418 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5420)
 %r5414 = inttoptr i64 %r5418 to i64 (i64)*
-%r5427 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 29)
+%r5427 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 30)
 %r5422 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5427)
 %r5424 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5422)
 %r5425 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5427)
@@ -8055,7 +8044,7 @@ store i64 %r5419, i64* %r5723
 br label %label303
 label302:
 %r5719 = alloca i64
-%r5442 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 5)
+%r5442 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 6)
 %r5437 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5442)
 %r5439 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5437)
 %r5440 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5442)
@@ -8065,7 +8054,7 @@ label302:
 %r5438 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r5442)
 %r5445 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5438, i64 %r5439)
 %r5441 = tail call fastcc i64 %r5436(i64 %r5439)
-%r5452 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 6)
+%r5452 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 7)
 %r5447 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5452)
 %r5449 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5447)
 %r5450 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5452)
@@ -8080,7 +8069,7 @@ label302:
 %r5722 = icmp ne i64 %r5721, 0
 br i1 %r5722, label %label304, label %label305
 label304:
-%r5462 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 106)
+%r5462 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 107)
 %r5457 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5462)
 %r5459 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5457)
 %r5460 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5462)
@@ -8096,7 +8085,7 @@ store i64 %r5461, i64* %r5719
 br label %label306
 label305:
 %r5715 = alloca i64
-%r5474 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 7)
+%r5474 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 8)
 %r5469 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5474)
 %r5471 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5469)
 %r5472 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5474)
@@ -8110,7 +8099,7 @@ label305:
 %r5718 = icmp ne i64 %r5717, 0
 br i1 %r5718, label %label307, label %label308
 label307:
-%r5484 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 107)
+%r5484 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 108)
 %r5479 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5484)
 %r5481 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5479)
 %r5482 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5484)
@@ -8126,7 +8115,7 @@ store i64 %r5483, i64* %r5715
 br label %label309
 label308:
 %r5711 = alloca i64
-%r5496 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 8)
+%r5496 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 9)
 %r5491 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5496)
 %r5493 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5491)
 %r5494 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5496)
@@ -8140,12 +8129,12 @@ label308:
 %r5714 = icmp ne i64 %r5713, 0
 br i1 %r5714, label %label310, label %label311
 label310:
-%r5506 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 107)
+%r5506 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 108)
 %r5501 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5506)
 %r5503 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5501)
 %r5504 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5506)
 %r5500 = inttoptr i64 %r5504 to i64 (i64)*
-%r5513 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 45)
+%r5513 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 46)
 %r5508 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5513)
 %r5510 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5508)
 %r5511 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5513)
@@ -8165,7 +8154,7 @@ store i64 %r5505, i64* %r5711
 br label %label312
 label311:
 %r5707 = alloca i64
-%r5527 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 9)
+%r5527 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 10)
 %r5522 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5527)
 %r5524 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5522)
 %r5525 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5527)
@@ -8179,7 +8168,7 @@ label311:
 %r5710 = icmp ne i64 %r5709, 0
 br i1 %r5710, label %label313, label %label314
 label313:
-%r5537 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 110)
+%r5537 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 111)
 %r5532 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5537)
 %r5534 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5532)
 %r5535 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5537)
@@ -8195,7 +8184,7 @@ store i64 %r5536, i64* %r5707
 br label %label315
 label314:
 %r5703 = alloca i64
-%r5549 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 12)
+%r5549 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 13)
 %r5544 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5549)
 %r5546 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5544)
 %r5547 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5549)
@@ -8209,12 +8198,12 @@ label314:
 %r5706 = icmp ne i64 %r5705, 0
 br i1 %r5706, label %label316, label %label317
 label316:
-%r5559 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 103)
+%r5559 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
 %r5554 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5559)
 %r5556 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5554)
 %r5557 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5559)
 %r5553 = inttoptr i64 %r5557 to i64 (i64)*
-%r5566 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 50)
+%r5566 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 51)
 %r5561 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5566)
 %r5563 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5561)
 %r5564 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5566)
@@ -8234,7 +8223,7 @@ store i64 %r5558, i64* %r5703
 br label %label318
 label317:
 %r5699 = alloca i64
-%r5580 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 10)
+%r5580 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 11)
 %r5575 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5580)
 %r5577 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5575)
 %r5578 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5580)
@@ -8248,12 +8237,12 @@ label317:
 %r5702 = icmp ne i64 %r5701, 0
 br i1 %r5702, label %label319, label %label320
 label319:
-%r5590 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 108)
+%r5590 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 109)
 %r5585 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5590)
 %r5587 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5585)
 %r5588 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5590)
 %r5584 = inttoptr i64 %r5588 to i64 (i64)*
-%r5597 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 27)
+%r5597 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 28)
 %r5592 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5597)
 %r5594 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5592)
 %r5595 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5597)
@@ -8273,7 +8262,7 @@ store i64 %r5589, i64* %r5699
 br label %label321
 label320:
 %r5695 = alloca i64
-%r5611 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 15)
+%r5611 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 16)
 %r5606 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5611)
 %r5608 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5606)
 %r5609 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5611)
@@ -8287,7 +8276,7 @@ label320:
 %r5698 = icmp ne i64 %r5697, 0
 br i1 %r5698, label %label322, label %label323
 label322:
-%r5621 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 113)
+%r5621 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 114)
 %r5616 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5621)
 %r5618 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5616)
 %r5619 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5621)
@@ -8303,7 +8292,7 @@ store i64 %r5620, i64* %r5695
 br label %label324
 label323:
 %r5691 = alloca i64
-%r5633 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 14)
+%r5633 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 15)
 %r5628 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5633)
 %r5630 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5628)
 %r5631 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5633)
@@ -8317,7 +8306,7 @@ label323:
 %r5694 = icmp ne i64 %r5693, 0
 br i1 %r5694, label %label325, label %label326
 label325:
-%r5643 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 112)
+%r5643 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 113)
 %r5638 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5643)
 %r5640 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5638)
 %r5641 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5643)
@@ -8333,7 +8322,7 @@ store i64 %r5642, i64* %r5691
 br label %label327
 label326:
 %r5687 = alloca i64
-%r5655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 13)
+%r5655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 14)
 %r5650 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5655)
 %r5652 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5650)
 %r5653 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5655)
@@ -8347,7 +8336,7 @@ label326:
 %r5690 = icmp ne i64 %r5689, 0
 br i1 %r5690, label %label328, label %label329
 label328:
-%r5665 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 114)
+%r5665 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 115)
 %r5660 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5665)
 %r5662 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5660)
 %r5663 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5665)
@@ -8362,7 +8351,7 @@ label328:
 store i64 %r5664, i64* %r5687
 br label %label330
 label329:
-%r5677 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r5677 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r5672 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5677)
 %r5674 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5672)
 %r5675 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5677)
@@ -8428,19 +8417,19 @@ ret i64 %r5732
 }
 
 define fastcc i64 @fun173(i64 %"env") nounwind {
-%r5835 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 54)
+%r5835 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r5830 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5835)
 %r5832 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5830)
 %r5833 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5835)
 %r5829 = inttoptr i64 %r5833 to i64 (i64)*
-%r5842 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 88)
+%r5842 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 89)
 %r5837 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5842)
 %r5839 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5837)
 %r5840 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5842)
 %r5836 = inttoptr i64 %r5840 to i64 (i64)*
 %r5843 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r5860 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5839, i64 1, i64 %r5843)
-%r5850 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 72)
+%r5850 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 73)
 %r5845 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5850)
 %r5847 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5845)
 %r5848 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5850)
@@ -8462,7 +8451,7 @@ define fastcc i64 @fun173(i64 %"env") nounwind {
 %r5864 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5838, i64 %r5839)
 %r5841 = tail call fastcc i64 %r5836(i64 %r5839)
 %r5884 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5832, i64 1, i64 %r5841)
-%r5871 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r5871 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r5866 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5871)
 %r5868 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5866)
 %r5869 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5871)
@@ -8488,19 +8477,19 @@ ret i64 %r5834
 }
 
 define fastcc i64 @fun174(i64 %"env") nounwind {
-%r5922 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 54)
+%r5922 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r5917 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5922)
 %r5919 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5917)
 %r5920 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5922)
 %r5916 = inttoptr i64 %r5920 to i64 (i64)*
-%r5929 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 88)
+%r5929 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 89)
 %r5924 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5929)
 %r5926 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5924)
 %r5927 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5929)
 %r5923 = inttoptr i64 %r5927 to i64 (i64)*
 %r5930 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r5947 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5926, i64 1, i64 %r5930)
-%r5937 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 72)
+%r5937 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 73)
 %r5932 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5937)
 %r5934 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5932)
 %r5935 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5937)
@@ -8522,7 +8511,7 @@ define fastcc i64 @fun174(i64 %"env") nounwind {
 %r5951 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5925, i64 %r5926)
 %r5928 = tail call fastcc i64 %r5923(i64 %r5926)
 %r5971 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5919, i64 1, i64 %r5928)
-%r5958 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r5958 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r5953 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5958)
 %r5955 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r5953)
 %r5956 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5958)
@@ -8548,12 +8537,12 @@ ret i64 %r5921
 }
 
 define fastcc i64 @fun175(i64 %"env") nounwind {
-%r6028 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 54)
+%r6028 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r6023 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6028)
 %r6025 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6023)
 %r6026 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6028)
 %r6022 = inttoptr i64 %r6026 to i64 (i64)*
-%r6035 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r6035 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r6030 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6035)
 %r6032 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6030)
 %r6033 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6035)
@@ -8564,7 +8553,7 @@ define fastcc i64 @fun175(i64 %"env") nounwind {
 %r6038 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6031, i64 %r6032)
 %r6034 = tail call fastcc i64 %r6029(i64 %r6032)
 %r6085 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6025, i64 1, i64 %r6034)
-%r6045 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r6045 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r6040 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6045)
 %r6042 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6040)
 %r6043 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6045)
@@ -8575,7 +8564,7 @@ define fastcc i64 @fun175(i64 %"env") nounwind {
 %r6048 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6041, i64 %r6042)
 %r6044 = tail call fastcc i64 %r6039(i64 %r6042)
 %r6086 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6025, i64 2, i64 %r6044)
-%r6055 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r6055 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r6050 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6055)
 %r6052 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r6050)
 %r6053 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6055)
@@ -8585,7 +8574,7 @@ define fastcc i64 @fun175(i64 %"env") nounwind {
 %r6059 = ptrtoint [5 x i8]* @r6058 to i64
 %r6057 = tail call fastcc i64 @"fun-make-symbol"(i64 %r6059, i64 4)
 %r6081 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6052, i64 2, i64 %r6057)
-%r6066 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r6066 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r6061 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6066)
 %r6063 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6061)
 %r6064 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6066)
@@ -8596,7 +8585,7 @@ define fastcc i64 @fun175(i64 %"env") nounwind {
 %r6069 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6062, i64 %r6063)
 %r6065 = tail call fastcc i64 %r6060(i64 %r6063)
 %r6082 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6052, i64 3, i64 %r6065)
-%r6076 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r6076 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r6071 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6076)
 %r6073 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6071)
 %r6074 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6076)
@@ -8618,7 +8607,7 @@ ret i64 %r6027
 }
 
 define fastcc i64 @fun172(i64 %"env") nounwind {
-%r5790 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r5790 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r5785 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5790)
 %r5787 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5785)
 %r5788 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5790)
@@ -8632,7 +8621,7 @@ define fastcc i64 @fun172(i64 %"env") nounwind {
 %r6153 = icmp ne i64 %r6152, 0
 br i1 %r6153, label %label334, label %label335
 label334:
-%r5800 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
+%r5800 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
 %r5795 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5800)
 %r5797 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r5795)
 %r5798 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5800)
@@ -8642,7 +8631,7 @@ label334:
 %r5804 = ptrtoint [12 x i8]* @r5803 to i64
 %r5802 = tail call fastcc i64 @"fun-make-symbol"(i64 %r5804, i64 11)
 %r5816 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5797, i64 2, i64 %r5802)
-%r5811 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 82)
+%r5811 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 83)
 %r5806 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5811)
 %r5808 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5806)
 %r5809 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5811)
@@ -8672,7 +8661,7 @@ label337:
 %r5824 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5822)
 %r5825 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5828)
 %r5821 = inttoptr i64 %r5825 to i64 (i64)*
-%r5893 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
+%r5893 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 61)
 %r5888 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5893)
 %r5890 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r5888)
 %r5891 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5893)
@@ -8681,7 +8670,7 @@ label337:
 %r5894 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5889, i64 %r5890)
 %r5892 = tail call fastcc i64 %r5887(i64 %r5890)
 %r5903 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5824, i64 1, i64 %r5892)
-%r5901 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r5901 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r5896 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5901)
 %r5898 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r5896)
 %r5899 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5901)
@@ -8709,7 +8698,7 @@ label340:
 %r5911 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r5909)
 %r5912 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5915)
 %r5908 = inttoptr i64 %r5912 to i64 (i64)*
-%r5980 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
+%r5980 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 61)
 %r5975 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5980)
 %r5977 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r5975)
 %r5978 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5980)
@@ -8718,7 +8707,7 @@ label340:
 %r5981 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5976, i64 %r5977)
 %r5979 = tail call fastcc i64 %r5974(i64 %r5977)
 %r5992 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5911, i64 1, i64 %r5979)
-%r5988 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r5988 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r5983 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5988)
 %r5985 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r5983)
 %r5986 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5988)
@@ -8743,7 +8732,7 @@ label341:
 %r6141 = icmp ne i64 %r6140, 0
 br i1 %r6141, label %label343, label %label344
 label343:
-%r6004 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
+%r6004 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
 %r5999 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6004)
 %r6001 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5999)
 %r6002 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6004)
@@ -8772,7 +8761,7 @@ label346:
 %r6017 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6015)
 %r6018 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6021)
 %r6014 = inttoptr i64 %r6018 to i64 (i64)*
-%r6095 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
+%r6095 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 105)
 %r6090 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6095)
 %r6092 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6090)
 %r6093 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6095)
@@ -8786,7 +8775,7 @@ label346:
 %r6101 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6091, i64 %r6092)
 %r6094 = tail call fastcc i64 %r6089(i64 %r6092)
 %r6115 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6017, i64 1, i64 %r6094)
-%r6108 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
+%r6108 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 105)
 %r6103 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6108)
 %r6105 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6103)
 %r6106 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6108)
@@ -8806,7 +8795,7 @@ label346:
 store i64 %r6019, i64* %r6134
 br label %label348
 label347:
-%r6124 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r6124 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 2)
 %r6119 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6124)
 %r6121 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6119)
 %r6122 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6124)
@@ -8869,12 +8858,12 @@ define fastcc i64 @"fun171-compile-self-evaluating"(i64 %"env") nounwind {
 %r6170 = icmp ne i64 %r6169, 0
 br i1 %r6170, label %label331, label %label332
 label331:
-%r5761 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 55)
+%r5761 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r5756 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5761)
 %r5758 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r5756)
 %r5759 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5761)
 %r5755 = inttoptr i64 %r5759 to i64 (i64)*
-%r5768 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r5768 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r5763 = tail call fastcc i64 @"fun-get-function-env"(i64 %r5768)
 %r5765 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5763)
 %r5766 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5768)
@@ -8899,7 +8888,7 @@ label332:
 %r5779 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r5777)
 %r5780 = tail call fastcc i64 @"fun-get-function-func"(i64 %r5783)
 %r5776 = inttoptr i64 %r5780 to i64 (i64)*
-%r6163 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r6163 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r6158 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6163)
 %r6160 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6158)
 %r6161 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6163)
@@ -8926,7 +8915,7 @@ define fastcc i64 @fun177(i64 %"env") nounwind {
 %r6271 = icmp ne i64 %r6270, 0
 br i1 %r6271, label %label352, label %label353
 label352:
-%r6225 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r6225 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 2)
 %r6220 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6225)
 %r6222 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6220)
 %r6223 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6225)
@@ -8942,14 +8931,14 @@ label352:
 store i64 %r6224, i64* %r6268
 br label %label354
 label353:
-%r6239 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r6239 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r6234 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6239)
 %r6236 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6234)
 %r6237 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6239)
 %r6233 = inttoptr i64 %r6237 to i64 (i64)*
 %r6240 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r6265 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6236, i64 1, i64 %r6240)
-%r6247 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
+%r6247 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
 %r6242 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6247)
 %r6244 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r6242)
 %r6245 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6247)
@@ -9001,12 +8990,12 @@ define fastcc i64 @"fun176-compile-variable"(i64 %"env") nounwind {
 %r6300 = icmp ne i64 %r6299, 0
 br i1 %r6300, label %label349, label %label350
 label349:
-%r6194 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 55)
+%r6194 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
 %r6189 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6194)
 %r6191 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6189)
 %r6192 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6194)
 %r6188 = inttoptr i64 %r6192 to i64 (i64)*
-%r6201 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 82)
+%r6201 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 83)
 %r6196 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6201)
 %r6198 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6196)
 %r6199 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6201)
@@ -9031,7 +9020,7 @@ label350:
 %r6212 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6210)
 %r6213 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6216)
 %r6209 = inttoptr i64 %r6213 to i64 (i64)*
-%r6278 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r6278 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r6273 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6278)
 %r6275 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6273)
 %r6276 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6278)
@@ -9040,7 +9029,7 @@ label350:
 %r6279 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6274, i64 %r6275)
 %r6277 = tail call fastcc i64 %r6272(i64 %r6275)
 %r6294 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6212, i64 1, i64 %r6277)
-%r6286 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 76)
+%r6286 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 77)
 %r6281 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6286)
 %r6283 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6281)
 %r6284 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6286)
@@ -9073,7 +9062,7 @@ define fastcc i64 @fun179(i64 %"env") nounwind {
 %r6390 = icmp ne i64 %r6389, 0
 br i1 %r6390, label %label355, label %label356
 label355:
-%r6320 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
+%r6320 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 2)
 %r6315 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6320)
 %r6317 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6315)
 %r6318 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6320)
@@ -9090,14 +9079,14 @@ label355:
 store i64 %r6319, i64* %r6387
 br label %label357
 label356:
-%r6336 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r6336 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r6331 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6336)
 %r6333 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6331)
 %r6334 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6336)
 %r6330 = inttoptr i64 %r6334 to i64 (i64)*
 %r6337 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r6383 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6333, i64 1, i64 %r6337)
-%r6344 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
+%r6344 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
 %r6339 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6344)
 %r6341 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6339)
 %r6342 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6344)
@@ -9108,7 +9097,7 @@ label356:
 %r6347 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6340, i64 %r6341)
 %r6343 = tail call fastcc i64 %r6338(i64 %r6341)
 %r6384 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6333, i64 2, i64 %r6343)
-%r6354 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
+%r6354 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
 %r6349 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6354)
 %r6351 = tail call fastcc i64 @"fun-make-env"(i64 6, i64 %r6349)
 %r6352 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6354)
@@ -9127,7 +9116,7 @@ label356:
 %r6365 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r6364 = tail call fastcc i64 @"fun-cdr"(i64 %r6365)
 %r6380 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6351, i64 5, i64 %r6364)
-%r6372 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r6372 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
 %r6367 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6372)
 %r6369 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6367)
 %r6370 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6372)
@@ -9159,7 +9148,7 @@ define fastcc i64 @"fun178-compile-assignment"(i64 %"env") nounwind {
 %r6307 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6305)
 %r6308 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6311)
 %r6304 = inttoptr i64 %r6308 to i64 (i64)*
-%r6397 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r6397 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r6392 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6397)
 %r6394 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6392)
 %r6395 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6397)
@@ -9168,12 +9157,12 @@ define fastcc i64 @"fun178-compile-assignment"(i64 %"env") nounwind {
 %r6398 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6393, i64 %r6394)
 %r6396 = tail call fastcc i64 %r6391(i64 %r6394)
 %r6498 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6307, i64 1, i64 %r6396)
-%r6405 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 76)
+%r6405 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 77)
 %r6400 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6405)
 %r6402 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6400)
 %r6403 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6405)
 %r6399 = inttoptr i64 %r6403 to i64 (i64)*
-%r6412 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 30)
+%r6412 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
 %r6407 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6412)
 %r6409 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6407)
 %r6410 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6412)
@@ -9193,12 +9182,12 @@ define fastcc i64 @"fun178-compile-assignment"(i64 %"env") nounwind {
 %r6404 = tail call fastcc i64 %r6399(i64 %r6402)
 %r6499 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6307, i64 2, i64 %r6404)
 %r6494 = alloca i64
-%r6428 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 9)
+%r6428 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 10)
 %r6423 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6428)
 %r6425 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6423)
 %r6426 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6428)
 %r6422 = inttoptr i64 %r6426 to i64 (i64)*
-%r6435 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
+%r6435 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 32)
 %r6430 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6435)
 %r6432 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6430)
 %r6433 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6435)
@@ -9216,12 +9205,12 @@ define fastcc i64 @"fun178-compile-assignment"(i64 %"env") nounwind {
 %r6497 = icmp ne i64 %r6496, 0
 br i1 %r6497, label %label358, label %label359
 label358:
-%r6447 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 111)
+%r6447 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 112)
 %r6442 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6447)
 %r6444 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6442)
 %r6445 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6447)
 %r6441 = inttoptr i64 %r6445 to i64 (i64)*
-%r6454 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
+%r6454 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 32)
 %r6449 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6454)
 %r6451 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6449)
 %r6452 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6454)
@@ -9234,7 +9223,7 @@ label358:
 %r6469 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6444, i64 1, i64 %r6453)
 %r6458 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r6470 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6444, i64 2, i64 %r6458)
-%r6465 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 30)
+%r6465 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
 %r6460 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6465)
 %r6462 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6460)
 %r6463 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6465)
@@ -9251,12 +9240,12 @@ label358:
 store i64 %r6446, i64* %r6494
 br label %label360
 label359:
-%r6479 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 103)
+%r6479 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
 %r6474 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6479)
 %r6476 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6474)
 %r6477 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6479)
 %r6473 = inttoptr i64 %r6477 to i64 (i64)*
-%r6486 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
+%r6486 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 32)
 %r6481 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6486)
 %r6483 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6481)
 %r6484 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6486)
@@ -9284,14 +9273,14 @@ ret i64 %r6309
 }
 
 define fastcc i64 @fun181(i64 %"env") nounwind {
-%r6519 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r6519 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r6514 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6519)
 %r6516 = tail call fastcc i64 @"fun-make-env"(i64 14, i64 %r6514)
 %r6517 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6519)
 %r6513 = inttoptr i64 %r6517 to i64 (i64)*
 %r6520 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 8)
 %r6688 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 1, i64 %r6520)
-%r6527 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 96)
+%r6527 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 97)
 %r6522 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6527)
 %r6524 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6522)
 %r6525 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6527)
@@ -9302,7 +9291,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6530 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6523, i64 %r6524)
 %r6526 = tail call fastcc i64 %r6521(i64 %r6524)
 %r6689 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 2, i64 %r6526)
-%r6537 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
+%r6537 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
 %r6532 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6537)
 %r6534 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6532)
 %r6535 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6537)
@@ -9313,12 +9302,12 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6540 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6533, i64 %r6534)
 %r6536 = tail call fastcc i64 %r6531(i64 %r6534)
 %r6690 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 3, i64 %r6536)
-%r6547 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 93)
+%r6547 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 94)
 %r6542 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6547)
 %r6544 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6542)
 %r6545 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6547)
 %r6541 = inttoptr i64 %r6545 to i64 (i64)*
-%r6554 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r6554 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
 %r6549 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6554)
 %r6551 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6549)
 %r6552 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6554)
@@ -9337,7 +9326,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6563 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6543, i64 %r6544)
 %r6546 = tail call fastcc i64 %r6541(i64 %r6544)
 %r6691 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 4, i64 %r6546)
-%r6570 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 91)
+%r6570 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 92)
 %r6565 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6570)
 %r6567 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6565)
 %r6568 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6570)
@@ -9348,7 +9337,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6573 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6566, i64 %r6567)
 %r6569 = tail call fastcc i64 %r6564(i64 %r6567)
 %r6692 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 5, i64 %r6569)
-%r6580 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
+%r6580 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
 %r6575 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6580)
 %r6577 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6575)
 %r6578 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6580)
@@ -9359,14 +9348,14 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6583 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6576, i64 %r6577)
 %r6579 = tail call fastcc i64 %r6574(i64 %r6577)
 %r6693 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 6, i64 %r6579)
-%r6590 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 94)
+%r6590 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 95)
 %r6585 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6590)
 %r6587 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6585)
 %r6588 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6590)
 %r6584 = inttoptr i64 %r6588 to i64 (i64)*
 %r6591 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 7)
 %r6602 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6587, i64 1, i64 %r6591)
-%r6598 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r6598 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
 %r6593 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6598)
 %r6595 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6593)
 %r6596 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6598)
@@ -9381,7 +9370,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6604 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6586, i64 %r6587)
 %r6589 = tail call fastcc i64 %r6584(i64 %r6587)
 %r6694 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 7, i64 %r6589)
-%r6611 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 92)
+%r6611 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 93)
 %r6606 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6611)
 %r6608 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6606)
 %r6609 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6611)
@@ -9392,7 +9381,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6614 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6607, i64 %r6608)
 %r6610 = tail call fastcc i64 %r6605(i64 %r6608)
 %r6695 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 8, i64 %r6610)
-%r6621 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 91)
+%r6621 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 92)
 %r6616 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6621)
 %r6618 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6616)
 %r6619 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6621)
@@ -9403,7 +9392,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6624 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6617, i64 %r6618)
 %r6620 = tail call fastcc i64 %r6615(i64 %r6618)
 %r6696 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 9, i64 %r6620)
-%r6631 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
+%r6631 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
 %r6626 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6631)
 %r6628 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6626)
 %r6629 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6631)
@@ -9414,14 +9403,14 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6634 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6627, i64 %r6628)
 %r6630 = tail call fastcc i64 %r6625(i64 %r6628)
 %r6697 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 10, i64 %r6630)
-%r6641 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 94)
+%r6641 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 95)
 %r6636 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6641)
 %r6638 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6636)
 %r6639 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6641)
 %r6635 = inttoptr i64 %r6639 to i64 (i64)*
 %r6642 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 7)
 %r6653 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6638, i64 1, i64 %r6642)
-%r6649 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r6649 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
 %r6644 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6649)
 %r6646 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6644)
 %r6647 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6649)
@@ -9436,7 +9425,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6655 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6637, i64 %r6638)
 %r6640 = tail call fastcc i64 %r6635(i64 %r6638)
 %r6698 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 11, i64 %r6640)
-%r6662 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 92)
+%r6662 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 93)
 %r6657 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6662)
 %r6659 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6657)
 %r6660 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6662)
@@ -9447,7 +9436,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6665 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6658, i64 %r6659)
 %r6661 = tail call fastcc i64 %r6656(i64 %r6659)
 %r6699 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 12, i64 %r6661)
-%r6672 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 91)
+%r6672 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 92)
 %r6667 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6672)
 %r6669 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6667)
 %r6670 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6672)
@@ -9458,7 +9447,7 @@ define fastcc i64 @fun181(i64 %"env") nounwind {
 %r6675 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6668, i64 %r6669)
 %r6671 = tail call fastcc i64 %r6666(i64 %r6669)
 %r6700 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6516, i64 13, i64 %r6671)
-%r6682 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 95)
+%r6682 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 96)
 %r6677 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6682)
 %r6679 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6677)
 %r6680 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6682)
@@ -9484,7 +9473,7 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6508 = tail call fastcc i64 @"fun-make-env"(i64 8, i64 %r6506)
 %r6509 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6512)
 %r6505 = inttoptr i64 %r6509 to i64 (i64)*
-%r6709 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 62)
+%r6709 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 63)
 %r6704 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6709)
 %r6706 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6704)
 %r6707 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6709)
@@ -9493,7 +9482,7 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6710 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6705, i64 %r6706)
 %r6708 = tail call fastcc i64 %r6703(i64 %r6706)
 %r6806 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 1, i64 %r6708)
-%r6717 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 62)
+%r6717 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 63)
 %r6712 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6717)
 %r6714 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6712)
 %r6715 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6717)
@@ -9502,7 +9491,7 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6718 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6713, i64 %r6714)
 %r6716 = tail call fastcc i64 %r6711(i64 %r6714)
 %r6807 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 2, i64 %r6716)
-%r6725 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 62)
+%r6725 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 63)
 %r6720 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6725)
 %r6722 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6720)
 %r6723 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6725)
@@ -9511,12 +9500,12 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6726 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6721, i64 %r6722)
 %r6724 = tail call fastcc i64 %r6719(i64 %r6722)
 %r6808 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 3, i64 %r6724)
-%r6733 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 103)
+%r6733 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
 %r6728 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6733)
 %r6730 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6728)
 %r6731 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6733)
 %r6727 = inttoptr i64 %r6731 to i64 (i64)*
-%r6740 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 32)
+%r6740 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 33)
 %r6735 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6740)
 %r6737 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6735)
 %r6738 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6740)
@@ -9533,12 +9522,12 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6747 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6729, i64 %r6730)
 %r6732 = tail call fastcc i64 %r6727(i64 %r6730)
 %r6809 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 4, i64 %r6732)
-%r6754 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 103)
+%r6754 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
 %r6749 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6754)
 %r6751 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6749)
 %r6752 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6754)
 %r6748 = inttoptr i64 %r6752 to i64 (i64)*
-%r6761 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 33)
+%r6761 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 34)
 %r6756 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6761)
 %r6758 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6756)
 %r6759 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6761)
@@ -9555,12 +9544,12 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6768 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6750, i64 %r6751)
 %r6753 = tail call fastcc i64 %r6748(i64 %r6751)
 %r6810 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 5, i64 %r6753)
-%r6775 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 103)
+%r6775 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
 %r6770 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6775)
 %r6772 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6770)
 %r6773 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6775)
 %r6769 = inttoptr i64 %r6773 to i64 (i64)*
-%r6782 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 34)
+%r6782 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 35)
 %r6777 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6782)
 %r6779 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6777)
 %r6780 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6782)
@@ -9577,7 +9566,7 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6789 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6771, i64 %r6772)
 %r6774 = tail call fastcc i64 %r6769(i64 %r6772)
 %r6811 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 6, i64 %r6774)
-%r6796 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r6796 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r6791 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6796)
 %r6793 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6791)
 %r6794 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6796)
@@ -9586,7 +9575,7 @@ define fastcc i64 @"fun180-compile-if"(i64 %"env") nounwind {
 %r6797 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6792, i64 %r6793)
 %r6795 = tail call fastcc i64 %r6790(i64 %r6793)
 %r6812 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6508, i64 7, i64 %r6795)
-%r6804 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r6804 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r6799 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6804)
 %r6801 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r6799)
 %r6802 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6804)
@@ -9614,7 +9603,7 @@ store i64 %r6823, i64* %r6919
 br label %label363
 label362:
 %r6915 = alloca i64
-%r6830 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
+%r6830 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
 %r6825 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6830)
 %r6827 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6825)
 %r6828 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6830)
@@ -9629,7 +9618,7 @@ label362:
 %r6918 = icmp ne i64 %r6917, 0
 br i1 %r6918, label %label364, label %label365
 label364:
-%r6842 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 30)
+%r6842 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 31)
 %r6837 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6842)
 %r6839 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6837)
 %r6840 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6842)
@@ -9656,7 +9645,7 @@ store i64 %r6835, i64* %r6915
 br label %label366
 label365:
 %r6911 = alloca i64
-%r6864 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 14)
+%r6864 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 15)
 %r6859 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6864)
 %r6861 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6859)
 %r6862 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6864)
@@ -9671,12 +9660,12 @@ label365:
 %r6914 = icmp ne i64 %r6913, 0
 br i1 %r6914, label %label367, label %label368
 label367:
-%r6875 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 67)
+%r6875 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 68)
 %r6870 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6875)
 %r6872 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6870)
 %r6873 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6875)
 %r6869 = inttoptr i64 %r6873 to i64 (i64)*
-%r6882 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 30)
+%r6882 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 31)
 %r6877 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6882)
 %r6879 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6877)
 %r6880 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6882)
@@ -9732,12 +9721,12 @@ ret i64 %r6920
 }
 
 define fastcc i64 @fun185(i64 %"env") nounwind {
-%r6950 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 55)
+%r6950 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 56)
 %r6945 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6950)
 %r6947 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r6945)
 %r6948 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6950)
 %r6944 = inttoptr i64 %r6948 to i64 (i64)*
-%r6957 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 52)
+%r6957 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 53)
 %r6952 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6957)
 %r6954 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6952)
 %r6955 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6957)
@@ -9750,7 +9739,7 @@ define fastcc i64 @fun185(i64 %"env") nounwind {
 %r6972 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6947, i64 1, i64 %r6956)
 %r6961 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 2)
 %r6973 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6947, i64 2, i64 %r6961)
-%r6968 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 51)
+%r6968 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 52)
 %r6963 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6968)
 %r6965 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6963)
 %r6966 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6968)
@@ -9769,7 +9758,7 @@ ret i64 %r6949
 
 define fastcc i64 @"fun184-append-sequences"(i64 %"env") nounwind {
 %r7038 = alloca i64
-%r6932 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 28)
+%r6932 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 29)
 %r6927 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6932)
 %r6929 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6927)
 %r6930 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6932)
@@ -9789,7 +9778,7 @@ label370:
 %r6939 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r6937)
 %r6940 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6943)
 %r6936 = inttoptr i64 %r6940 to i64 (i64)*
-%r6982 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 103)
+%r6982 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 104)
 %r6977 = tail call fastcc i64 @"fun-get-function-env"(i64 %r6982)
 %r6979 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r6977)
 %r6980 = tail call fastcc i64 @"fun-get-function-func"(i64 %r6982)
@@ -9817,19 +9806,19 @@ label371:
 %r6999 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r6998 = tail call fastcc i64 @"fun-cdr"(i64 %r6999)
 %r7034 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6994, i64 1, i64 %r6998)
-%r7006 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 54)
+%r7006 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r7001 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7006)
 %r7003 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7001)
 %r7004 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7006)
 %r7000 = inttoptr i64 %r7004 to i64 (i64)*
 %r7007 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r7030 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7003, i64 1, i64 %r7007)
-%r7014 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7014 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7009 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7014)
 %r7011 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7009)
 %r7012 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7014)
 %r7008 = inttoptr i64 %r7012 to i64 (i64)*
-%r7021 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 103)
+%r7021 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 104)
 %r7016 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7021)
 %r7018 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7016)
 %r7019 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7021)
@@ -9864,7 +9853,7 @@ ret i64 %r7039
 }
 
 define fastcc i64 @fun187(i64 %"env") nounwind {
-%r7080 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 69)
+%r7080 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 70)
 %r7075 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7080)
 %r7077 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7075)
 %r7078 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7080)
@@ -9881,14 +9870,14 @@ define fastcc i64 @fun187(i64 %"env") nounwind {
 %r7076 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r7080)
 %r7091 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7076, i64 %r7077)
 %r7079 = tail call fastcc i64 %r7074(i64 %r7077)
-%r7098 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 55)
+%r7098 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 56)
 %r7093 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7098)
 %r7095 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7093)
 %r7096 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7098)
 %r7092 = inttoptr i64 %r7096 to i64 (i64)*
 %r7099 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 5)
 %r7143 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7095, i64 1, i64 %r7099)
-%r7106 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 86)
+%r7106 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 87)
 %r7101 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7106)
 %r7103 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r7101)
 %r7104 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7106)
@@ -9898,7 +9887,7 @@ define fastcc i64 @fun187(i64 %"env") nounwind {
 %r7110 = ptrtoint [9 x i8]* @r7109 to i64
 %r7108 = tail call fastcc i64 @"fun-make-symbol"(i64 %r7110, i64 8)
 %r7125 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7103, i64 2, i64 %r7108)
-%r7117 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 5, i64 5)
+%r7117 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 1)
 %r7112 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7117)
 %r7114 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7112)
 %r7115 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7117)
@@ -9916,7 +9905,7 @@ define fastcc i64 @fun187(i64 %"env") nounwind {
 %r7128 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7102, i64 %r7103)
 %r7105 = tail call fastcc i64 %r7100(i64 %r7103)
 %r7144 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7095, i64 2, i64 %r7105)
-%r7135 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 86)
+%r7135 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 87)
 %r7130 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7135)
 %r7132 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7130)
 %r7133 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7135)
@@ -9977,7 +9966,7 @@ label374:
 %r7168 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7150, i64 1, i64 %r7154)
 %r7155 = tail call fastcc i64 @"fun-make-null"()
 %r7169 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7150, i64 2, i64 %r7155)
-%r7162 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 73)
+%r7162 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 74)
 %r7157 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7162)
 %r7159 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7157)
 %r7160 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7162)
@@ -9994,7 +9983,7 @@ label374:
 %r7171 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7149, i64 %r7150)
 %r7152 = tail call fastcc i64 %r7147(i64 %r7150)
 %r7204 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7069, i64 1, i64 %r7152)
-%r7178 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 65)
+%r7178 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 66)
 %r7173 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7178)
 %r7175 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7173)
 %r7176 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7178)
@@ -10003,7 +9992,7 @@ label374:
 %r7179 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7174, i64 %r7175)
 %r7177 = tail call fastcc i64 %r7172(i64 %r7175)
 %r7205 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7069, i64 2, i64 %r7177)
-%r7186 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 59)
+%r7186 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 60)
 %r7181 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7186)
 %r7183 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7181)
 %r7184 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7186)
@@ -10012,7 +10001,7 @@ label374:
 %r7187 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7182, i64 %r7183)
 %r7185 = tail call fastcc i64 %r7180(i64 %r7183)
 %r7206 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7069, i64 3, i64 %r7185)
-%r7194 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 59)
+%r7194 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 60)
 %r7189 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7194)
 %r7191 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7189)
 %r7192 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7194)
@@ -10021,7 +10010,7 @@ label374:
 %r7195 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7190, i64 %r7191)
 %r7193 = tail call fastcc i64 %r7188(i64 %r7191)
 %r7207 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7069, i64 4, i64 %r7193)
-%r7202 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 59)
+%r7202 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 60)
 %r7197 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7202)
 %r7199 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7197)
 %r7200 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7202)
@@ -10077,7 +10066,7 @@ ret i64 %r7228
 }
 
 define fastcc i64 @fun190(i64 %"env") nounwind {
-%r7246 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 69)
+%r7246 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 70)
 %r7241 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7246)
 %r7243 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7241)
 %r7244 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7246)
@@ -10094,14 +10083,14 @@ define fastcc i64 @fun190(i64 %"env") nounwind {
 %r7242 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r7246)
 %r7257 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7242, i64 %r7243)
 %r7245 = tail call fastcc i64 %r7240(i64 %r7243)
-%r7264 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r7264 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r7259 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7264)
 %r7261 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7259)
 %r7262 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7264)
 %r7258 = inttoptr i64 %r7262 to i64 (i64)*
 %r7265 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r7341 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7261, i64 1, i64 %r7265)
-%r7272 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 88)
+%r7272 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 89)
 %r7267 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7272)
 %r7269 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r7267)
 %r7270 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7272)
@@ -10120,7 +10109,7 @@ define fastcc i64 @fun190(i64 %"env") nounwind {
 %r7285 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7268, i64 %r7269)
 %r7271 = tail call fastcc i64 %r7266(i64 %r7269)
 %r7342 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7261, i64 2, i64 %r7271)
-%r7292 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
+%r7292 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 87)
 %r7287 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7292)
 %r7289 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r7287)
 %r7290 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7292)
@@ -10136,7 +10125,7 @@ define fastcc i64 @fun190(i64 %"env") nounwind {
 %r7298 = tail call fastcc i64 @"fun-make-symbol"(i64 %r7300, i64 3)
 %r7338 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7289, i64 4, i64 %r7298)
 %r7331 = alloca i64
-%r7307 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
+%r7307 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 38)
 %r7302 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7307)
 %r7304 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7302)
 %r7305 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7307)
@@ -10150,12 +10139,12 @@ define fastcc i64 @fun190(i64 %"env") nounwind {
 %r7334 = icmp ne i64 %r7333, 0
 br i1 %r7334, label %label376, label %label377
 label376:
-%r7317 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 5)
+%r7317 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 1)
 %r7312 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7317)
 %r7314 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7312)
 %r7315 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7317)
 %r7311 = inttoptr i64 %r7315 to i64 (i64)*
-%r7324 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
+%r7324 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
 %r7319 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7324)
 %r7321 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7319)
 %r7322 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7324)
@@ -10195,7 +10184,7 @@ define fastcc i64 @"fun189-compile-lambda-with-name"(i64 %"env") nounwind {
 %r7235 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7233)
 %r7236 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7239)
 %r7232 = inttoptr i64 %r7236 to i64 (i64)*
-%r7351 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r7351 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r7346 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7351)
 %r7348 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7346)
 %r7349 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7351)
@@ -10204,7 +10193,7 @@ define fastcc i64 @"fun189-compile-lambda-with-name"(i64 %"env") nounwind {
 %r7352 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7347, i64 %r7348)
 %r7350 = tail call fastcc i64 %r7345(i64 %r7348)
 %r7402 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7235, i64 1, i64 %r7350)
-%r7359 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r7359 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r7354 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7359)
 %r7356 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7354)
 %r7357 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7359)
@@ -10213,12 +10202,12 @@ define fastcc i64 @"fun189-compile-lambda-with-name"(i64 %"env") nounwind {
 %r7360 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7355, i64 %r7356)
 %r7358 = tail call fastcc i64 %r7353(i64 %r7356)
 %r7403 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7235, i64 2, i64 %r7358)
-%r7367 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 108)
+%r7367 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 109)
 %r7362 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7367)
 %r7364 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7362)
 %r7365 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7367)
 %r7361 = inttoptr i64 %r7365 to i64 (i64)*
-%r7374 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 38)
+%r7374 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 39)
 %r7369 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7374)
 %r7371 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7369)
 %r7372 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7374)
@@ -10229,12 +10218,12 @@ define fastcc i64 @"fun189-compile-lambda-with-name"(i64 %"env") nounwind {
 %r7377 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7370, i64 %r7371)
 %r7373 = tail call fastcc i64 %r7368(i64 %r7371)
 %r7399 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7364, i64 1, i64 %r7373)
-%r7384 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 73)
+%r7384 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 74)
 %r7379 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7384)
 %r7381 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7379)
 %r7382 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7384)
 %r7378 = inttoptr i64 %r7382 to i64 (i64)*
-%r7391 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 36)
+%r7391 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 37)
 %r7386 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7391)
 %r7388 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7386)
 %r7389 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7391)
@@ -10262,7 +10251,7 @@ ret i64 %r7237
 }
 
 define fastcc i64 @"fun191-compile-lambda"(i64 %"env") nounwind {
-%r7415 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 109)
+%r7415 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 110)
 %r7410 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7415)
 %r7412 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7410)
 %r7413 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7415)
@@ -10271,7 +10260,7 @@ define fastcc i64 @"fun191-compile-lambda"(i64 %"env") nounwind {
 %r7426 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7412, i64 1, i64 %r7416)
 %r7417 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r7427 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7412, i64 2, i64 %r7417)
-%r7424 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 65)
+%r7424 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 66)
 %r7419 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7424)
 %r7421 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7419)
 %r7422 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7424)
@@ -10287,7 +10276,7 @@ ret i64 %r7414
 }
 
 define fastcc i64 @"fun192-compile-named-lambda"(i64 %"env") nounwind {
-%r7439 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 109)
+%r7439 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 110)
 %r7434 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7439)
 %r7436 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7434)
 %r7437 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7439)
@@ -10296,7 +10285,7 @@ define fastcc i64 @"fun192-compile-named-lambda"(i64 %"env") nounwind {
 %r7474 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7436, i64 1, i64 %r7440)
 %r7441 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r7475 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7436, i64 2, i64 %r7441)
-%r7448 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 56)
+%r7448 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
 %r7443 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7448)
 %r7445 = tail call fastcc i64 @"fun-make-env"(i64 5, i64 %r7443)
 %r7446 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7448)
@@ -10304,7 +10293,7 @@ define fastcc i64 @"fun192-compile-named-lambda"(i64 %"env") nounwind {
 %r7451 = ptrtoint [3 x i8]* @r7450 to i64
 %r7449 = tail call fastcc i64 @"fun-make-string"(i64 %r7451, i64 2)
 %r7468 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7445, i64 1, i64 %r7449)
-%r7458 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 64)
+%r7458 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 65)
 %r7453 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7458)
 %r7455 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7453)
 %r7456 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7458)
@@ -10333,14 +10322,14 @@ ret i64 %r7438
 }
 
 define fastcc i64 @fun194(i64 %"env") nounwind {
-%r7495 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 69)
+%r7495 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 70)
 %r7490 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7495)
 %r7492 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7490)
 %r7493 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7495)
 %r7489 = inttoptr i64 %r7493 to i64 (i64)*
 %r7496 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r7530 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7492, i64 1, i64 %r7496)
-%r7503 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 36)
+%r7503 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 37)
 %r7498 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7503)
 %r7500 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7498)
 %r7501 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7503)
@@ -10351,12 +10340,12 @@ define fastcc i64 @fun194(i64 %"env") nounwind {
 %r7506 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7499, i64 %r7500)
 %r7502 = tail call fastcc i64 %r7497(i64 %r7500)
 %r7531 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7492, i64 2, i64 %r7502)
-%r7513 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 108)
+%r7513 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 109)
 %r7508 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7513)
 %r7510 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7508)
 %r7511 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7513)
 %r7507 = inttoptr i64 %r7511 to i64 (i64)*
-%r7520 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 38)
+%r7520 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 39)
 %r7515 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7520)
 %r7517 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7515)
 %r7518 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7520)
@@ -10377,7 +10366,7 @@ define fastcc i64 @fun194(i64 %"env") nounwind {
 %r7491 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r7495)
 %r7533 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7491, i64 %r7492)
 %r7494 = tail call fastcc i64 %r7489(i64 %r7492)
-%r7540 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r7540 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r7535 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7540)
 %r7537 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7535)
 %r7538 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7540)
@@ -10399,7 +10388,7 @@ define fastcc i64 @"fun193-compile-llvm-definition"(i64 %"env") nounwind {
 %r7484 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7482)
 %r7485 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7488)
 %r7481 = inttoptr i64 %r7485 to i64 (i64)*
-%r7552 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 30)
+%r7552 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
 %r7547 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7552)
 %r7549 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7547)
 %r7550 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7552)
@@ -10410,7 +10399,7 @@ define fastcc i64 @"fun193-compile-llvm-definition"(i64 %"env") nounwind {
 %r7555 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7548, i64 %r7549)
 %r7551 = tail call fastcc i64 %r7546(i64 %r7549)
 %r7574 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7484, i64 1, i64 %r7551)
-%r7562 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 31)
+%r7562 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 32)
 %r7557 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7562)
 %r7559 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7557)
 %r7560 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7562)
@@ -10421,7 +10410,7 @@ define fastcc i64 @"fun193-compile-llvm-definition"(i64 %"env") nounwind {
 %r7565 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7558, i64 %r7559)
 %r7561 = tail call fastcc i64 %r7556(i64 %r7559)
 %r7575 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7484, i64 2, i64 %r7561)
-%r7572 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r7572 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r7567 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7572)
 %r7569 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r7567)
 %r7570 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7572)
@@ -10437,14 +10426,14 @@ ret i64 %r7486
 }
 
 define fastcc i64 @fun197(i64 %"env") nounwind {
-%r7613 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r7613 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r7608 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7613)
 %r7610 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7608)
 %r7611 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7613)
 %r7607 = inttoptr i64 %r7611 to i64 (i64)*
 %r7614 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r7646 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7610, i64 1, i64 %r7614)
-%r7621 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7621 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7616 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7621)
 %r7618 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7616)
 %r7619 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7621)
@@ -10455,14 +10444,14 @@ define fastcc i64 @fun197(i64 %"env") nounwind {
 %r7624 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7617, i64 %r7618)
 %r7620 = tail call fastcc i64 %r7615(i64 %r7618)
 %r7647 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7610, i64 2, i64 %r7620)
-%r7631 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 95)
+%r7631 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 96)
 %r7626 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7631)
 %r7628 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7626)
 %r7629 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7631)
 %r7625 = inttoptr i64 %r7629 to i64 (i64)*
 %r7632 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r7643 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7628, i64 1, i64 %r7632)
-%r7639 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7639 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7634 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7639)
 %r7636 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7634)
 %r7637 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7639)
@@ -10484,12 +10473,12 @@ ret i64 %r7612
 }
 
 define fastcc i64 @fun198(i64 %"env") nounwind {
-%r7697 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r7697 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r7692 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7697)
 %r7694 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r7692)
 %r7695 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7697)
 %r7691 = inttoptr i64 %r7695 to i64 (i64)*
-%r7704 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7704 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7699 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7704)
 %r7701 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7699)
 %r7702 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7704)
@@ -10500,7 +10489,7 @@ define fastcc i64 @fun198(i64 %"env") nounwind {
 %r7707 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7700, i64 %r7701)
 %r7703 = tail call fastcc i64 %r7698(i64 %r7701)
 %r7758 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7694, i64 1, i64 %r7703)
-%r7714 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7714 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7709 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7714)
 %r7711 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7709)
 %r7712 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7714)
@@ -10511,7 +10500,7 @@ define fastcc i64 @fun198(i64 %"env") nounwind {
 %r7717 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7710, i64 %r7711)
 %r7713 = tail call fastcc i64 %r7708(i64 %r7711)
 %r7759 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7694, i64 2, i64 %r7713)
-%r7724 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7724 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7719 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7724)
 %r7721 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7719)
 %r7722 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7724)
@@ -10522,12 +10511,12 @@ define fastcc i64 @fun198(i64 %"env") nounwind {
 %r7727 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7720, i64 %r7721)
 %r7723 = tail call fastcc i64 %r7718(i64 %r7721)
 %r7760 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7694, i64 3, i64 %r7723)
-%r7734 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 94)
+%r7734 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 95)
 %r7729 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7734)
 %r7731 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7729)
 %r7732 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7734)
 %r7728 = inttoptr i64 %r7732 to i64 (i64)*
-%r7741 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7741 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7736 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7741)
 %r7738 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7736)
 %r7739 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7741)
@@ -10538,7 +10527,7 @@ define fastcc i64 @fun198(i64 %"env") nounwind {
 %r7744 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7737, i64 %r7738)
 %r7740 = tail call fastcc i64 %r7735(i64 %r7738)
 %r7755 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7731, i64 1, i64 %r7740)
-%r7751 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7751 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7746 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7751)
 %r7748 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7746)
 %r7749 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7751)
@@ -10560,14 +10549,14 @@ ret i64 %r7696
 }
 
 define fastcc i64 @fun199(i64 %"env") nounwind {
-%r7832 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r7832 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r7827 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7832)
 %r7829 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r7827)
 %r7830 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7832)
 %r7826 = inttoptr i64 %r7830 to i64 (i64)*
 %r7833 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r7886 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7829, i64 1, i64 %r7833)
-%r7840 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7840 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7835 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7840)
 %r7837 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7835)
 %r7838 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7840)
@@ -10578,7 +10567,7 @@ define fastcc i64 @fun199(i64 %"env") nounwind {
 %r7843 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7836, i64 %r7837)
 %r7839 = tail call fastcc i64 %r7834(i64 %r7837)
 %r7887 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7829, i64 2, i64 %r7839)
-%r7850 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7850 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7845 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7850)
 %r7847 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7845)
 %r7848 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7850)
@@ -10589,14 +10578,14 @@ define fastcc i64 @fun199(i64 %"env") nounwind {
 %r7853 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7846, i64 %r7847)
 %r7849 = tail call fastcc i64 %r7844(i64 %r7847)
 %r7888 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7829, i64 3, i64 %r7849)
-%r7860 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 98)
+%r7860 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 99)
 %r7855 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7860)
 %r7857 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7855)
 %r7858 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7860)
 %r7854 = inttoptr i64 %r7858 to i64 (i64)*
 %r7861 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r7882 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7857, i64 1, i64 %r7861)
-%r7868 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7868 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7863 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7868)
 %r7865 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7863)
 %r7866 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7868)
@@ -10607,7 +10596,7 @@ define fastcc i64 @fun199(i64 %"env") nounwind {
 %r7871 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7864, i64 %r7865)
 %r7867 = tail call fastcc i64 %r7862(i64 %r7865)
 %r7883 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7857, i64 2, i64 %r7867)
-%r7878 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7878 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7873 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7878)
 %r7875 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7873)
 %r7876 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7878)
@@ -10629,14 +10618,14 @@ ret i64 %r7831
 }
 
 define fastcc i64 @fun200(i64 %"env") nounwind {
-%r7960 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r7960 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r7955 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7960)
 %r7957 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r7955)
 %r7958 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7960)
 %r7954 = inttoptr i64 %r7958 to i64 (i64)*
 %r7961 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8015 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7957, i64 1, i64 %r7961)
-%r7968 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r7968 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r7963 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7968)
 %r7965 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7963)
 %r7966 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7968)
@@ -10647,14 +10636,14 @@ define fastcc i64 @fun200(i64 %"env") nounwind {
 %r7971 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7964, i64 %r7965)
 %r7967 = tail call fastcc i64 %r7962(i64 %r7965)
 %r8016 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7957, i64 2, i64 %r7967)
-%r7978 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 88)
+%r7978 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 89)
 %r7973 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7978)
 %r7975 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r7973)
 %r7976 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7978)
 %r7972 = inttoptr i64 %r7976 to i64 (i64)*
 %r7979 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8010 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7975, i64 1, i64 %r7979)
-%r7986 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 24)
+%r7986 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 25)
 %r7981 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7986)
 %r7983 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7981)
 %r7984 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7986)
@@ -10665,7 +10654,7 @@ define fastcc i64 @fun200(i64 %"env") nounwind {
 %r7989 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7982, i64 %r7983)
 %r7985 = tail call fastcc i64 %r7980(i64 %r7983)
 %r8011 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7975, i64 2, i64 %r7985)
-%r7996 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r7996 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r7991 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7996)
 %r7993 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7991)
 %r7994 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7996)
@@ -10676,7 +10665,7 @@ define fastcc i64 @fun200(i64 %"env") nounwind {
 %r7999 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7992, i64 %r7993)
 %r7995 = tail call fastcc i64 %r7990(i64 %r7993)
 %r8012 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7975, i64 3, i64 %r7995)
-%r8006 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 26)
+%r8006 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 27)
 %r8001 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8006)
 %r8003 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8001)
 %r8004 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8006)
@@ -10698,14 +10687,14 @@ ret i64 %r7959
 }
 
 define fastcc i64 @fun201(i64 %"env") nounwind {
-%r8066 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r8066 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r8061 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8066)
 %r8063 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8061)
 %r8064 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8066)
 %r8060 = inttoptr i64 %r8064 to i64 (i64)*
 %r8067 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8121 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8063, i64 1, i64 %r8067)
-%r8074 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8074 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8069 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8074)
 %r8071 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8069)
 %r8072 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8074)
@@ -10716,14 +10705,14 @@ define fastcc i64 @fun201(i64 %"env") nounwind {
 %r8077 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8070, i64 %r8071)
 %r8073 = tail call fastcc i64 %r8068(i64 %r8071)
 %r8122 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8063, i64 2, i64 %r8073)
-%r8084 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 89)
+%r8084 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 90)
 %r8079 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8084)
 %r8081 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8079)
 %r8082 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8084)
 %r8078 = inttoptr i64 %r8082 to i64 (i64)*
 %r8085 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8116 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8081, i64 1, i64 %r8085)
-%r8092 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 24)
+%r8092 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 25)
 %r8087 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8092)
 %r8089 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8087)
 %r8090 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8092)
@@ -10734,7 +10723,7 @@ define fastcc i64 @fun201(i64 %"env") nounwind {
 %r8095 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8088, i64 %r8089)
 %r8091 = tail call fastcc i64 %r8086(i64 %r8089)
 %r8117 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8081, i64 2, i64 %r8091)
-%r8102 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8102 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8097 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8102)
 %r8099 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8097)
 %r8100 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8102)
@@ -10745,7 +10734,7 @@ define fastcc i64 @fun201(i64 %"env") nounwind {
 %r8105 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8098, i64 %r8099)
 %r8101 = tail call fastcc i64 %r8096(i64 %r8099)
 %r8118 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8081, i64 3, i64 %r8101)
-%r8112 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 26)
+%r8112 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 27)
 %r8107 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8112)
 %r8109 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8107)
 %r8110 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8112)
@@ -10767,12 +10756,12 @@ ret i64 %r8065
 }
 
 define fastcc i64 @fun202(i64 %"env") nounwind {
-%r8172 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r8172 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r8167 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8172)
 %r8169 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8167)
 %r8170 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8172)
 %r8166 = inttoptr i64 %r8170 to i64 (i64)*
-%r8179 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8179 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8174 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8179)
 %r8176 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8174)
 %r8177 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8179)
@@ -10783,7 +10772,7 @@ define fastcc i64 @fun202(i64 %"env") nounwind {
 %r8182 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8175, i64 %r8176)
 %r8178 = tail call fastcc i64 %r8173(i64 %r8176)
 %r8212 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8169, i64 1, i64 %r8178)
-%r8189 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8189 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8184 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8189)
 %r8186 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8184)
 %r8187 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8189)
@@ -10794,12 +10783,12 @@ define fastcc i64 @fun202(i64 %"env") nounwind {
 %r8192 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8185, i64 %r8186)
 %r8188 = tail call fastcc i64 %r8183(i64 %r8186)
 %r8213 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8169, i64 2, i64 %r8188)
-%r8199 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
+%r8199 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 88)
 %r8194 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8199)
 %r8196 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8194)
 %r8197 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8199)
 %r8193 = inttoptr i64 %r8197 to i64 (i64)*
-%r8206 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8206 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8201 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8206)
 %r8203 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8201)
 %r8204 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8206)
@@ -10821,14 +10810,14 @@ ret i64 %r8171
 }
 
 define fastcc i64 @fun203(i64 %"env") nounwind {
-%r8274 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r8274 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r8269 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8274)
 %r8271 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8269)
 %r8272 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8274)
 %r8268 = inttoptr i64 %r8272 to i64 (i64)*
 %r8275 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8339 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8271, i64 1, i64 %r8275)
-%r8282 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8282 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8277 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8282)
 %r8279 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8277)
 %r8280 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8282)
@@ -10839,7 +10828,7 @@ define fastcc i64 @fun203(i64 %"env") nounwind {
 %r8285 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8278, i64 %r8279)
 %r8281 = tail call fastcc i64 %r8276(i64 %r8279)
 %r8340 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8271, i64 2, i64 %r8281)
-%r8292 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8292 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8287 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8292)
 %r8289 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8287)
 %r8290 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8292)
@@ -10850,14 +10839,14 @@ define fastcc i64 @fun203(i64 %"env") nounwind {
 %r8295 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8288, i64 %r8289)
 %r8291 = tail call fastcc i64 %r8286(i64 %r8289)
 %r8341 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8271, i64 3, i64 %r8291)
-%r8302 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 97)
+%r8302 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 98)
 %r8297 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8302)
 %r8299 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8297)
 %r8300 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8302)
 %r8296 = inttoptr i64 %r8300 to i64 (i64)*
 %r8303 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8334 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8299, i64 1, i64 %r8303)
-%r8310 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 22)
+%r8310 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 23)
 %r8305 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8310)
 %r8307 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8305)
 %r8308 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8310)
@@ -10868,7 +10857,7 @@ define fastcc i64 @fun203(i64 %"env") nounwind {
 %r8313 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8306, i64 %r8307)
 %r8309 = tail call fastcc i64 %r8304(i64 %r8307)
 %r8335 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8299, i64 2, i64 %r8309)
-%r8320 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8320 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8315 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8320)
 %r8317 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8315)
 %r8318 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8320)
@@ -10879,7 +10868,7 @@ define fastcc i64 @fun203(i64 %"env") nounwind {
 %r8323 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8316, i64 %r8317)
 %r8319 = tail call fastcc i64 %r8314(i64 %r8317)
 %r8336 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8299, i64 3, i64 %r8319)
-%r8330 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8330 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8325 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8330)
 %r8327 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8325)
 %r8328 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8330)
@@ -10901,14 +10890,14 @@ ret i64 %r8273
 }
 
 define fastcc i64 @fun204(i64 %"env") nounwind {
-%r8424 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r8424 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r8419 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8424)
 %r8421 = tail call fastcc i64 @"fun-make-env"(i64 6, i64 %r8419)
 %r8422 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8424)
 %r8418 = inttoptr i64 %r8422 to i64 (i64)*
 %r8425 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8525 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8421, i64 1, i64 %r8425)
-%r8432 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8432 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8427 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8432)
 %r8429 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8427)
 %r8430 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8432)
@@ -10919,7 +10908,7 @@ define fastcc i64 @fun204(i64 %"env") nounwind {
 %r8435 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8428, i64 %r8429)
 %r8431 = tail call fastcc i64 %r8426(i64 %r8429)
 %r8526 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8421, i64 2, i64 %r8431)
-%r8442 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8442 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8437 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8442)
 %r8439 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8437)
 %r8440 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8442)
@@ -10930,14 +10919,14 @@ define fastcc i64 @fun204(i64 %"env") nounwind {
 %r8445 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8438, i64 %r8439)
 %r8441 = tail call fastcc i64 %r8436(i64 %r8439)
 %r8527 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8421, i64 3, i64 %r8441)
-%r8452 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 83)
+%r8452 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 84)
 %r8447 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8452)
 %r8449 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8447)
 %r8450 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8452)
 %r8446 = inttoptr i64 %r8450 to i64 (i64)*
 %r8453 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 3)
 %r8484 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8449, i64 1, i64 %r8453)
-%r8460 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 22)
+%r8460 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 23)
 %r8455 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8460)
 %r8457 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8455)
 %r8458 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8460)
@@ -10948,7 +10937,7 @@ define fastcc i64 @fun204(i64 %"env") nounwind {
 %r8463 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8456, i64 %r8457)
 %r8459 = tail call fastcc i64 %r8454(i64 %r8457)
 %r8485 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8449, i64 2, i64 %r8459)
-%r8470 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8470 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8465 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8470)
 %r8467 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8465)
 %r8468 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8470)
@@ -10959,7 +10948,7 @@ define fastcc i64 @fun204(i64 %"env") nounwind {
 %r8473 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8466, i64 %r8467)
 %r8469 = tail call fastcc i64 %r8464(i64 %r8467)
 %r8486 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8449, i64 3, i64 %r8469)
-%r8480 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8480 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8475 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8480)
 %r8477 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8475)
 %r8478 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8480)
@@ -10974,7 +10963,7 @@ define fastcc i64 @fun204(i64 %"env") nounwind {
 %r8488 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8448, i64 %r8449)
 %r8451 = tail call fastcc i64 %r8446(i64 %r8449)
 %r8528 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8421, i64 4, i64 %r8451)
-%r8495 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
+%r8495 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r8490 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8495)
 %r8492 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8490)
 %r8493 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8495)
@@ -10993,7 +10982,7 @@ define fastcc i64 @fun204(i64 %"env") nounwind {
 %r8508 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8491, i64 %r8492)
 %r8494 = tail call fastcc i64 %r8489(i64 %r8492)
 %r8529 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8421, i64 5, i64 %r8494)
-%r8515 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r8515 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r8510 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8515)
 %r8512 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8510)
 %r8513 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8515)
@@ -11016,14 +11005,14 @@ ret i64 %r8423
 }
 
 define fastcc i64 @fun205(i64 %"env") nounwind {
-%r8609 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r8609 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r8604 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8609)
 %r8606 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8604)
 %r8607 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8609)
 %r8603 = inttoptr i64 %r8607 to i64 (i64)*
 %r8610 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8674 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8606, i64 1, i64 %r8610)
-%r8617 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8617 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8612 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8617)
 %r8614 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8612)
 %r8615 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8617)
@@ -11034,7 +11023,7 @@ define fastcc i64 @fun205(i64 %"env") nounwind {
 %r8620 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8613, i64 %r8614)
 %r8616 = tail call fastcc i64 %r8611(i64 %r8614)
 %r8675 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8606, i64 2, i64 %r8616)
-%r8627 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8627 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8622 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8627)
 %r8624 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8622)
 %r8625 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8627)
@@ -11045,14 +11034,14 @@ define fastcc i64 @fun205(i64 %"env") nounwind {
 %r8630 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8623, i64 %r8624)
 %r8626 = tail call fastcc i64 %r8621(i64 %r8624)
 %r8676 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8606, i64 3, i64 %r8626)
-%r8637 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 83)
+%r8637 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 84)
 %r8632 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8637)
 %r8634 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8632)
 %r8635 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8637)
 %r8631 = inttoptr i64 %r8635 to i64 (i64)*
 %r8638 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r8669 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8634, i64 1, i64 %r8638)
-%r8645 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 22)
+%r8645 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 23)
 %r8640 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8645)
 %r8642 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8640)
 %r8643 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8645)
@@ -11063,7 +11052,7 @@ define fastcc i64 @fun205(i64 %"env") nounwind {
 %r8648 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8641, i64 %r8642)
 %r8644 = tail call fastcc i64 %r8639(i64 %r8642)
 %r8670 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8634, i64 2, i64 %r8644)
-%r8655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8655 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8650 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8655)
 %r8652 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8650)
 %r8653 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8655)
@@ -11074,7 +11063,7 @@ define fastcc i64 @fun205(i64 %"env") nounwind {
 %r8658 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8651, i64 %r8652)
 %r8654 = tail call fastcc i64 %r8649(i64 %r8652)
 %r8671 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8634, i64 3, i64 %r8654)
-%r8665 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8665 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8660 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8665)
 %r8662 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8660)
 %r8663 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8665)
@@ -11097,7 +11086,7 @@ ret i64 %r8608
 
 define fastcc i64 @fun196(i64 %"env") nounwind {
 %r8752 = alloca i64
-%r7595 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 16)
+%r7595 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 17)
 %r7590 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7595)
 %r7592 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7590)
 %r7593 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7595)
@@ -11117,12 +11106,12 @@ label379:
 %r7602 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7600)
 %r7603 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7606)
 %r7599 = inttoptr i64 %r7603 to i64 (i64)*
-%r7656 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r7656 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r7651 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7656)
 %r7653 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7651)
 %r7654 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7656)
 %r7650 = inttoptr i64 %r7654 to i64 (i64)*
-%r7663 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r7663 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r7658 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7663)
 %r7660 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7658)
 %r7661 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7663)
@@ -11146,7 +11135,7 @@ store i64 %r7604, i64* %r8752
 br label %label381
 label380:
 %r8748 = alloca i64
-%r7679 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 17)
+%r7679 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 18)
 %r7674 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7679)
 %r7676 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7674)
 %r7677 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7679)
@@ -11166,12 +11155,12 @@ label382:
 %r7686 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7684)
 %r7687 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7690)
 %r7683 = inttoptr i64 %r7687 to i64 (i64)*
-%r7769 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r7769 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r7764 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7769)
 %r7766 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7764)
 %r7767 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7769)
 %r7763 = inttoptr i64 %r7767 to i64 (i64)*
-%r7776 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r7776 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r7771 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7776)
 %r7773 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7771)
 %r7774 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7776)
@@ -11188,12 +11177,12 @@ label382:
 %r7783 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7765, i64 %r7766)
 %r7768 = tail call fastcc i64 %r7763(i64 %r7766)
 %r7805 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7686, i64 1, i64 %r7768)
-%r7790 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r7790 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r7785 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7790)
 %r7787 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7785)
 %r7788 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7790)
 %r7784 = inttoptr i64 %r7788 to i64 (i64)*
-%r7797 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r7797 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r7792 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7797)
 %r7794 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7792)
 %r7795 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7797)
@@ -11217,7 +11206,7 @@ store i64 %r7688, i64* %r8748
 br label %label384
 label383:
 %r8744 = alloca i64
-%r7814 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 18)
+%r7814 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 19)
 %r7809 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7814)
 %r7811 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7809)
 %r7812 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7814)
@@ -11237,12 +11226,12 @@ label385:
 %r7821 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7819)
 %r7822 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7825)
 %r7818 = inttoptr i64 %r7822 to i64 (i64)*
-%r7897 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r7897 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r7892 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7897)
 %r7894 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7892)
 %r7895 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7897)
 %r7891 = inttoptr i64 %r7895 to i64 (i64)*
-%r7904 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r7904 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r7899 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7904)
 %r7901 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7899)
 %r7902 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7904)
@@ -11259,12 +11248,12 @@ label385:
 %r7911 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7893, i64 %r7894)
 %r7896 = tail call fastcc i64 %r7891(i64 %r7894)
 %r7933 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7821, i64 1, i64 %r7896)
-%r7918 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r7918 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r7913 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7918)
 %r7915 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r7913)
 %r7916 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7918)
 %r7912 = inttoptr i64 %r7916 to i64 (i64)*
-%r7925 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r7925 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r7920 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7925)
 %r7922 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7920)
 %r7923 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7925)
@@ -11288,7 +11277,7 @@ store i64 %r7823, i64* %r8744
 br label %label387
 label386:
 %r8740 = alloca i64
-%r7942 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 19)
+%r7942 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 20)
 %r7937 = tail call fastcc i64 @"fun-get-function-env"(i64 %r7942)
 %r7939 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7937)
 %r7940 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7942)
@@ -11308,12 +11297,12 @@ label388:
 %r7949 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7947)
 %r7950 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7953)
 %r7946 = inttoptr i64 %r7950 to i64 (i64)*
-%r8025 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8025 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8020 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8025)
 %r8022 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8020)
 %r8023 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8025)
 %r8019 = inttoptr i64 %r8023 to i64 (i64)*
-%r8032 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r8032 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r8027 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8032)
 %r8029 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8027)
 %r8030 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8032)
@@ -11337,7 +11326,7 @@ store i64 %r7951, i64* %r8740
 br label %label390
 label389:
 %r8736 = alloca i64
-%r8048 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 20)
+%r8048 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 21)
 %r8043 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8048)
 %r8045 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8043)
 %r8046 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8048)
@@ -11357,12 +11346,12 @@ label391:
 %r8055 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8053)
 %r8056 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8059)
 %r8052 = inttoptr i64 %r8056 to i64 (i64)*
-%r8131 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8131 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8126 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8131)
 %r8128 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8126)
 %r8129 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8131)
 %r8125 = inttoptr i64 %r8129 to i64 (i64)*
-%r8138 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r8138 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r8133 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8138)
 %r8135 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8133)
 %r8136 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8138)
@@ -11386,7 +11375,7 @@ store i64 %r8057, i64* %r8736
 br label %label393
 label392:
 %r8732 = alloca i64
-%r8154 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 21)
+%r8154 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
 %r8149 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8154)
 %r8151 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8149)
 %r8152 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8154)
@@ -11406,12 +11395,12 @@ label394:
 %r8161 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8159)
 %r8162 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8165)
 %r8158 = inttoptr i64 %r8162 to i64 (i64)*
-%r8222 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8222 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8217 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8222)
 %r8219 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8217)
 %r8220 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8222)
 %r8216 = inttoptr i64 %r8220 to i64 (i64)*
-%r8229 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r8229 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r8224 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8229)
 %r8226 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8224)
 %r8227 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8229)
@@ -11440,7 +11429,7 @@ label395:
 %r8242 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8240)
 %r8243 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8245)
 %r8239 = inttoptr i64 %r8243 to i64 (i64)*
-%r8252 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r8252 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
 %r8247 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8252)
 %r8249 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8247)
 %r8250 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8252)
@@ -11451,7 +11440,7 @@ label395:
 %r8255 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8248, i64 %r8249)
 %r8251 = tail call fastcc i64 %r8246(i64 %r8249)
 %r8257 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8242, i64 1, i64 %r8251)
-%r8256 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 79)
+%r8256 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 80)
 %r8258 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8242, i64 2, i64 %r8256)
 %r8241 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r8245)
 %r8259 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8241, i64 %r8242)
@@ -11466,12 +11455,12 @@ label397:
 %r8263 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8261)
 %r8264 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8267)
 %r8260 = inttoptr i64 %r8264 to i64 (i64)*
-%r8350 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8350 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8345 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8350)
 %r8347 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8345)
 %r8348 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8350)
 %r8344 = inttoptr i64 %r8348 to i64 (i64)*
-%r8357 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r8357 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r8352 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8357)
 %r8354 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8352)
 %r8355 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8357)
@@ -11488,12 +11477,12 @@ label397:
 %r8364 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8346, i64 %r8347)
 %r8349 = tail call fastcc i64 %r8344(i64 %r8347)
 %r8386 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8263, i64 1, i64 %r8349)
-%r8371 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8371 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8366 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8371)
 %r8368 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8366)
 %r8369 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8371)
 %r8365 = inttoptr i64 %r8369 to i64 (i64)*
-%r8378 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r8378 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r8373 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8378)
 %r8375 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8373)
 %r8376 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8378)
@@ -11522,7 +11511,7 @@ label398:
 %r8392 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8390)
 %r8393 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8395)
 %r8389 = inttoptr i64 %r8393 to i64 (i64)*
-%r8402 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r8402 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
 %r8397 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8402)
 %r8399 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8397)
 %r8400 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8402)
@@ -11533,7 +11522,7 @@ label398:
 %r8405 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8398, i64 %r8399)
 %r8401 = tail call fastcc i64 %r8396(i64 %r8399)
 %r8407 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8392, i64 1, i64 %r8401)
-%r8406 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 78)
+%r8406 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 79)
 %r8408 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8392, i64 2, i64 %r8406)
 %r8391 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r8395)
 %r8409 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8391, i64 %r8392)
@@ -11548,12 +11537,12 @@ label400:
 %r8413 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8411)
 %r8414 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8417)
 %r8410 = inttoptr i64 %r8414 to i64 (i64)*
-%r8538 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8538 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8533 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8538)
 %r8535 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8533)
 %r8536 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8538)
 %r8532 = inttoptr i64 %r8536 to i64 (i64)*
-%r8545 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r8545 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r8540 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8545)
 %r8542 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8540)
 %r8543 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8545)
@@ -11570,12 +11559,12 @@ label400:
 %r8552 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8534, i64 %r8535)
 %r8537 = tail call fastcc i64 %r8532(i64 %r8535)
 %r8590 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8413, i64 1, i64 %r8537)
-%r8559 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8559 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8554 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8559)
 %r8556 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8554)
 %r8557 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8559)
 %r8553 = inttoptr i64 %r8557 to i64 (i64)*
-%r8566 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r8566 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r8561 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8566)
 %r8563 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8561)
 %r8564 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8566)
@@ -11592,7 +11581,7 @@ label400:
 %r8573 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8555, i64 %r8556)
 %r8558 = tail call fastcc i64 %r8553(i64 %r8556)
 %r8591 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8413, i64 2, i64 %r8558)
-%r8580 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r8580 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r8575 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8580)
 %r8577 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r8575)
 %r8578 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8580)
@@ -11601,7 +11590,7 @@ label400:
 %r8581 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8576, i64 %r8577)
 %r8579 = tail call fastcc i64 %r8574(i64 %r8577)
 %r8592 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8413, i64 3, i64 %r8579)
-%r8588 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r8588 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r8583 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8588)
 %r8585 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r8583)
 %r8586 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8588)
@@ -11622,12 +11611,12 @@ label401:
 %r8598 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8596)
 %r8599 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8602)
 %r8595 = inttoptr i64 %r8599 to i64 (i64)*
-%r8685 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8685 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8680 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8685)
 %r8682 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8680)
 %r8683 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8685)
 %r8679 = inttoptr i64 %r8683 to i64 (i64)*
-%r8692 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
+%r8692 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
 %r8687 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8692)
 %r8689 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8687)
 %r8690 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8692)
@@ -11644,12 +11633,12 @@ label401:
 %r8699 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8681, i64 %r8682)
 %r8684 = tail call fastcc i64 %r8679(i64 %r8682)
 %r8721 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8598, i64 1, i64 %r8684)
-%r8706 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r8706 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r8701 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8706)
 %r8703 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8701)
 %r8704 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8706)
 %r8700 = inttoptr i64 %r8704 to i64 (i64)*
-%r8713 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 25)
+%r8713 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 26)
 %r8708 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8713)
 %r8710 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8708)
 %r8711 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8713)
@@ -11711,7 +11700,7 @@ define fastcc i64 @"fun195-compile-llvm-instruction"(i64 %"env") nounwind {
 %r7584 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r7582)
 %r7585 = tail call fastcc i64 @"fun-get-function-func"(i64 %r7588)
 %r7581 = inttoptr i64 %r7585 to i64 (i64)*
-%r8762 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r8762 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r8757 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8762)
 %r8759 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r8757)
 %r8760 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8762)
@@ -11738,12 +11727,12 @@ label403:
 store i64 %r8774, i64* %r8838
 br label %label405
 label404:
-%r8781 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 54)
+%r8781 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
 %r8776 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8781)
 %r8778 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8776)
 %r8779 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8781)
 %r8775 = inttoptr i64 %r8779 to i64 (i64)*
-%r8788 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8788 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8783 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8788)
 %r8785 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8783)
 %r8786 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8788)
@@ -11755,7 +11744,7 @@ label404:
 %r8792 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8784, i64 %r8785)
 %r8787 = tail call fastcc i64 %r8782(i64 %r8785)
 %r8834 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8778, i64 1, i64 %r8787)
-%r8799 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 100)
+%r8799 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 101)
 %r8794 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8799)
 %r8796 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8794)
 %r8797 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8799)
@@ -11764,7 +11753,7 @@ label404:
 %r8813 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8796, i64 1, i64 %r8800)
 %r8801 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 3)
 %r8814 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8796, i64 2, i64 %r8801)
-%r8808 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8808 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8803 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8808)
 %r8805 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8803)
 %r8806 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8808)
@@ -11809,14 +11798,14 @@ ret i64 %r8839
 }
 
 define fastcc i64 @fun208(i64 %"env") nounwind {
-%r8889 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 55)
+%r8889 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 56)
 %r8884 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8889)
 %r8886 = tail call fastcc i64 @"fun-make-env"(i64 10, i64 %r8884)
 %r8887 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8889)
 %r8883 = inttoptr i64 %r8887 to i64 (i64)*
 %r8890 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 6)
 %r9085 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 1, i64 %r8890)
-%r8897 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 51)
+%r8897 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
 %r8892 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8897)
 %r8894 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8892)
 %r8895 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8897)
@@ -11827,7 +11816,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8900 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8893, i64 %r8894)
 %r8896 = tail call fastcc i64 %r8891(i64 %r8894)
 %r9086 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 2, i64 %r8896)
-%r8907 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r8907 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r8902 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8907)
 %r8904 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8902)
 %r8905 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8907)
@@ -11837,7 +11826,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8911 = ptrtoint [17 x i8]* @r8910 to i64
 %r8909 = tail call fastcc i64 @"fun-make-symbol"(i64 %r8911, i64 16)
 %r8923 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8904, i64 2, i64 %r8909)
-%r8918 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8918 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8913 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8918)
 %r8915 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8913)
 %r8916 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8918)
@@ -11852,7 +11841,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8925 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8903, i64 %r8904)
 %r8906 = tail call fastcc i64 %r8901(i64 %r8904)
 %r9087 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 3, i64 %r8906)
-%r8932 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r8932 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r8927 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8932)
 %r8929 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8927)
 %r8930 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8932)
@@ -11862,12 +11851,12 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8936 = ptrtoint [9 x i8]* @r8935 to i64
 %r8934 = tail call fastcc i64 @"fun-make-symbol"(i64 %r8936, i64 8)
 %r8958 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8929, i64 2, i64 %r8934)
-%r8943 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 5)
+%r8943 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 1)
 %r8938 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8943)
 %r8940 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8938)
 %r8941 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8943)
 %r8937 = inttoptr i64 %r8941 to i64 (i64)*
-%r8950 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 23)
+%r8950 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 24)
 %r8945 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8950)
 %r8947 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8945)
 %r8948 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8950)
@@ -11888,7 +11877,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8961 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8928, i64 %r8929)
 %r8931 = tail call fastcc i64 %r8926(i64 %r8929)
 %r9088 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 4, i64 %r8931)
-%r8968 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r8968 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r8963 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8968)
 %r8965 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r8963)
 %r8966 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8968)
@@ -11898,7 +11887,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8972 = ptrtoint [18 x i8]* @r8971 to i64
 %r8970 = tail call fastcc i64 @"fun-make-symbol"(i64 %r8972, i64 17)
 %r8984 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8965, i64 2, i64 %r8970)
-%r8979 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r8979 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r8974 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8979)
 %r8976 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8974)
 %r8977 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8979)
@@ -11913,7 +11902,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r8986 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8964, i64 %r8965)
 %r8967 = tail call fastcc i64 %r8962(i64 %r8965)
 %r9089 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 5, i64 %r8967)
-%r8993 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 89)
+%r8993 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 90)
 %r8988 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8993)
 %r8990 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r8988)
 %r8991 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8993)
@@ -11947,7 +11936,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r9020 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9009, i64 %r9010)
 %r9012 = tail call fastcc i64 %r9007(i64 %r9010)
 %r9091 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 7, i64 %r9012)
-%r9027 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r9027 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r9022 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9027)
 %r9024 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r9022)
 %r9025 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9027)
@@ -11957,7 +11946,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r9031 = ptrtoint [21 x i8]* @r9030 to i64
 %r9029 = tail call fastcc i64 @"fun-make-symbol"(i64 %r9031, i64 20)
 %r9043 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9024, i64 2, i64 %r9029)
-%r9038 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 52)
+%r9038 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 53)
 %r9033 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9038)
 %r9035 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r9033)
 %r9036 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9038)
@@ -11972,12 +11961,12 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r9045 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9023, i64 %r9024)
 %r9026 = tail call fastcc i64 %r9021(i64 %r9024)
 %r9092 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 8, i64 %r9026)
-%r9052 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r9052 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r9047 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9052)
 %r9049 = tail call fastcc i64 @"fun-make-env"(i64 4, i64 %r9047)
 %r9050 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9052)
 %r9046 = inttoptr i64 %r9050 to i64 (i64)*
-%r9059 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 59)
+%r9059 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 60)
 %r9054 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9059)
 %r9056 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9054)
 %r9057 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9059)
@@ -11997,7 +11986,7 @@ define fastcc i64 @fun208(i64 %"env") nounwind {
 %r9070 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9048, i64 %r9049)
 %r9051 = tail call fastcc i64 %r9046(i64 %r9049)
 %r9093 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8886, i64 9, i64 %r9051)
-%r9077 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 86)
+%r9077 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 87)
 %r9072 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9077)
 %r9074 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r9072)
 %r9075 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9077)
@@ -12019,7 +12008,7 @@ ret i64 %r8888
 }
 
 define fastcc i64 @fun209(i64 %"env") nounwind {
-%r9180 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 103)
+%r9180 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 104)
 %r9175 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9180)
 %r9177 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9175)
 %r9178 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9180)
@@ -12044,7 +12033,7 @@ define fastcc i64 @fun210(i64 %"env") nounwind {
 %r8845 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8843)
 %r8846 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8848)
 %r8842 = inttoptr i64 %r8846 to i64 (i64)*
-%r8855 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r8855 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
 %r8850 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8855)
 %r8852 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r8850)
 %r8853 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8855)
@@ -12055,7 +12044,7 @@ define fastcc i64 @fun210(i64 %"env") nounwind {
 %r8858 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8851, i64 %r8852)
 %r8854 = tail call fastcc i64 %r8849(i64 %r8852)
 %r8860 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8845, i64 1, i64 %r8854)
-%r8859 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 66)
+%r8859 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 67)
 %r8861 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8845, i64 2, i64 %r8859)
 %r8844 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r8848)
 %r8862 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r8844, i64 %r8845)
@@ -12064,7 +12053,7 @@ define fastcc i64 @fun210(i64 %"env") nounwind {
 %r9211 = icmp ne i64 %r9210, 0
 br i1 %r9211, label %label406, label %label407
 label406:
-%r8869 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 115)
+%r8869 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 116)
 %r8864 = tail call fastcc i64 @"fun-get-function-env"(i64 %r8869)
 %r8866 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r8864)
 %r8867 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8869)
@@ -12085,7 +12074,7 @@ label407:
 %r8878 = tail call fastcc i64 @"fun-make-env"(i64 8, i64 %r8876)
 %r8879 = tail call fastcc i64 @"fun-get-function-func"(i64 %r8882)
 %r8875 = inttoptr i64 %r8879 to i64 (i64)*
-%r9102 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r9102 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r9097 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9102)
 %r9099 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9097)
 %r9100 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9102)
@@ -12094,7 +12083,7 @@ label407:
 %r9103 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9098, i64 %r9099)
 %r9101 = tail call fastcc i64 %r9096(i64 %r9099)
 %r9199 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 1, i64 %r9101)
-%r9110 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r9110 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r9105 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9110)
 %r9107 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9105)
 %r9108 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9110)
@@ -12103,7 +12092,7 @@ label407:
 %r9111 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9106, i64 %r9107)
 %r9109 = tail call fastcc i64 %r9104(i64 %r9107)
 %r9200 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 2, i64 %r9109)
-%r9118 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r9118 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r9113 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9118)
 %r9115 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9113)
 %r9116 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9118)
@@ -12112,7 +12101,7 @@ label407:
 %r9119 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9114, i64 %r9115)
 %r9117 = tail call fastcc i64 %r9112(i64 %r9115)
 %r9201 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 3, i64 %r9117)
-%r9126 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r9126 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r9121 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9126)
 %r9123 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9121)
 %r9124 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9126)
@@ -12121,7 +12110,7 @@ label407:
 %r9127 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9122, i64 %r9123)
 %r9125 = tail call fastcc i64 %r9120(i64 %r9123)
 %r9202 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 4, i64 %r9125)
-%r9134 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r9134 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r9129 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9134)
 %r9131 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9129)
 %r9132 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9134)
@@ -12130,7 +12119,7 @@ label407:
 %r9135 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9130, i64 %r9131)
 %r9133 = tail call fastcc i64 %r9128(i64 %r9131)
 %r9203 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 5, i64 %r9133)
-%r9142 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 59)
+%r9142 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 60)
 %r9137 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9142)
 %r9139 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9137)
 %r9140 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9142)
@@ -12139,12 +12128,12 @@ label407:
 %r9143 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9138, i64 %r9139)
 %r9141 = tail call fastcc i64 %r9136(i64 %r9139)
 %r9204 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 6, i64 %r9141)
-%r9150 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r9150 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r9145 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9150)
 %r9147 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9145)
 %r9148 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9150)
 %r9144 = inttoptr i64 %r9148 to i64 (i64)*
-%r9157 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r9157 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
 %r9152 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9157)
 %r9154 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r9152)
 %r9155 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9157)
@@ -12161,7 +12150,7 @@ label407:
 %r9164 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9146, i64 %r9147)
 %r9149 = tail call fastcc i64 %r9144(i64 %r9147)
 %r9205 = tail call fastcc i64 @"fun-vector-set!"(i64 %r8878, i64 7, i64 %r9149)
-%r9171 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
+%r9171 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
 %r9166 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9171)
 %r9168 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9166)
 %r9169 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9171)
@@ -12169,7 +12158,7 @@ label407:
 %r9172 = ptrtoint i64 (i64)* @fun209 to i64
 %r9173 = tail call fastcc i64 @"fun-make-function"(i64 %r9172, i64 %"env", i64 0)
 %r9196 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9168, i64 1, i64 %r9173)
-%r9192 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
+%r9192 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 24)
 %r9187 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9192)
 %r9189 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r9187)
 %r9190 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9192)
@@ -12201,24 +12190,24 @@ ret i64 %r9214
 }
 
 define fastcc i64 @fun212(i64 %"env") nounwind {
-%r9232 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 55)
+%r9232 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
 %r9227 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9232)
 %r9229 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r9227)
 %r9230 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9232)
 %r9226 = inttoptr i64 %r9230 to i64 (i64)*
 %r9233 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r9289 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9229, i64 1, i64 %r9233)
-%r9240 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
+%r9240 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 54)
 %r9235 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9240)
 %r9237 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r9235)
 %r9238 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9240)
 %r9234 = inttoptr i64 %r9238 to i64 (i64)*
-%r9247 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
+%r9247 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
 %r9242 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9247)
 %r9244 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9242)
 %r9245 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9247)
 %r9241 = inttoptr i64 %r9245 to i64 (i64)*
-%r9248 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
+%r9248 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
 %r9250 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9244, i64 1, i64 %r9248)
 %r9249 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r9251 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9244, i64 2, i64 %r9249)
@@ -12230,14 +12219,14 @@ define fastcc i64 @fun212(i64 %"env") nounwind {
 %r9254 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9236, i64 %r9237)
 %r9239 = tail call fastcc i64 %r9234(i64 %r9237)
 %r9290 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9229, i64 2, i64 %r9239)
-%r9261 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 85)
+%r9261 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 86)
 %r9256 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9261)
 %r9258 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r9256)
 %r9259 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9261)
 %r9255 = inttoptr i64 %r9259 to i64 (i64)*
 %r9262 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r9285 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9258, i64 1, i64 %r9262)
-%r9269 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 22)
+%r9269 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 23)
 %r9264 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9269)
 %r9266 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r9264)
 %r9267 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9269)
@@ -12248,12 +12237,12 @@ define fastcc i64 @fun212(i64 %"env") nounwind {
 %r9272 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9265, i64 %r9266)
 %r9268 = tail call fastcc i64 %r9263(i64 %r9266)
 %r9286 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9258, i64 2, i64 %r9268)
-%r9279 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
+%r9279 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
 %r9274 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9279)
 %r9276 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9274)
 %r9277 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9279)
 %r9273 = inttoptr i64 %r9277 to i64 (i64)*
-%r9280 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r9280 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
 %r9282 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9276, i64 1, i64 %r9280)
 %r9281 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r9283 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9276, i64 2, i64 %r9281)
@@ -12272,7 +12261,7 @@ ret i64 %r9231
 }
 
 define fastcc i64 @fun213(i64 %"env") nounwind {
-%r9316 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 103)
+%r9316 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 104)
 %r9311 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9316)
 %r9313 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9311)
 %r9314 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9316)
@@ -12294,7 +12283,7 @@ define fastcc i64 @"fun211-compile-llvm-application"(i64 %"env") nounwind {
 %r9221 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9219)
 %r9222 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9225)
 %r9218 = inttoptr i64 %r9222 to i64 (i64)*
-%r9299 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 59)
+%r9299 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 60)
 %r9294 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9299)
 %r9296 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r9294)
 %r9297 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9299)
@@ -12303,7 +12292,7 @@ define fastcc i64 @"fun211-compile-llvm-application"(i64 %"env") nounwind {
 %r9300 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r9295, i64 %r9296)
 %r9298 = tail call fastcc i64 %r9293(i64 %r9296)
 %r9335 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9221, i64 1, i64 %r9298)
-%r9307 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 7)
+%r9307 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 6)
 %r9302 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9307)
 %r9304 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r9302)
 %r9305 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9307)
@@ -12311,7 +12300,7 @@ define fastcc i64 @"fun211-compile-llvm-application"(i64 %"env") nounwind {
 %r9308 = ptrtoint i64 (i64)* @fun213 to i64
 %r9309 = tail call fastcc i64 @"fun-make-function"(i64 %r9308, i64 %"env", i64 0)
 %r9332 = tail call fastcc i64 @"fun-vector-set!"(i64 %r9304, i64 1, i64 %r9309)
-%r9328 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 23)
+%r9328 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 24)
 %r9323 = tail call fastcc i64 @"fun-get-function-env"(i64 %r9328)
 %r9325 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r9323)
 %r9326 = tail call fastcc i64 @"fun-get-function-func"(i64 %r9328)
@@ -12333,399 +12322,402 @@ ret i64 %r9223
 }
 
 define fastcc i64 @fun216(i64 %"env") nounwind {
-%r16919 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 7)
-%r16914 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16919)
-%r16916 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16914)
-%r16917 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16919)
-%r16913 = inttoptr i64 %r16917 to i64 (i64)*
-%r16920 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
-%r16922 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16916, i64 1, i64 %r16920)
-%r16921 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r16923 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16916, i64 2, i64 %r16921)
-%r16915 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16919)
-%r16924 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16915, i64 %r16916)
-%r16918 = tail call fastcc i64 %r16913(i64 %r16916)
-%r16931 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 1)
-%r16926 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16931)
-%r16928 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16926)
-%r16929 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16931)
-%r16925 = inttoptr i64 %r16929 to i64 (i64)*
-%r16927 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16931)
-%r16932 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16927, i64 %r16928)
-%r16930 = tail call fastcc i64 %r16925(i64 %r16928)
-ret i64 %r16930
+%r16853 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 6)
+%r16848 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16853)
+%r16850 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16848)
+%r16851 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16853)
+%r16847 = inttoptr i64 %r16851 to i64 (i64)*
+%r16854 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
+%r16856 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16850, i64 1, i64 %r16854)
+%r16855 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r16857 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16850, i64 2, i64 %r16855)
+%r16849 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16853)
+%r16858 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16849, i64 %r16850)
+%r16852 = tail call fastcc i64 %r16847(i64 %r16850)
+%r16865 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 4, i64 1)
+%r16860 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16865)
+%r16862 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16860)
+%r16863 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16865)
+%r16859 = inttoptr i64 %r16863 to i64 (i64)*
+%r16861 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16865)
+%r16866 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16861, i64 %r16862)
+%r16864 = tail call fastcc i64 %r16859(i64 %r16862)
+ret i64 %r16864
 }
 
 define fastcc i64 @fun215(i64 %"env") nounwind {
-%r16839 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
-%r16834 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16839)
-%r16836 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16834)
-%r16837 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16839)
-%r16833 = inttoptr i64 %r16837 to i64 (i64)*
-%r16840 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r16842 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16836, i64 1, i64 %r16840)
-%r16841 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 71)
-%r16843 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16836, i64 2, i64 %r16841)
-%r16835 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16839)
-%r16844 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16835, i64 %r16836)
-%r16838 = tail call fastcc i64 %r16833(i64 %r16836)
-%r16846 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 116)
-%r16845 = tail call fastcc i64 @"fun-display"(i64 %r16846)
-%r16850 = ptrtoint [42 x i8]* @r16849 to i64
-%r16848 = tail call fastcc i64 @"fun-make-string"(i64 %r16850, i64 41)
-%r16847 = tail call fastcc i64 @"fun-display"(i64 %r16848)
-%r16857 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
-%r16852 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16857)
-%r16854 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16852)
-%r16855 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16857)
-%r16851 = inttoptr i64 %r16855 to i64 (i64)*
-%r16858 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r16869 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16854, i64 1, i64 %r16858)
-%r16865 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 51)
-%r16860 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16865)
-%r16862 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16860)
-%r16863 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16865)
-%r16859 = inttoptr i64 %r16863 to i64 (i64)*
-%r16866 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r16867 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16862, i64 1, i64 %r16866)
-%r16861 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16865)
-%r16868 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16861, i64 %r16862)
-%r16864 = tail call fastcc i64 %r16859(i64 %r16862)
-%r16870 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16854, i64 2, i64 %r16864)
-%r16853 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16857)
-%r16871 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16853, i64 %r16854)
-%r16856 = tail call fastcc i64 %r16851(i64 %r16854)
-%r16879 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 56)
-%r16874 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16879)
-%r16876 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r16874)
-%r16877 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16879)
-%r16873 = inttoptr i64 %r16877 to i64 (i64)*
-%r16882 = ptrtoint [9 x i8]* @r16881 to i64
-%r16880 = tail call fastcc i64 @"fun-make-string"(i64 %r16882, i64 8)
-%r16896 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16876, i64 1, i64 %r16880)
-%r16889 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
-%r16884 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16889)
-%r16886 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16884)
-%r16887 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16889)
-%r16883 = inttoptr i64 %r16887 to i64 (i64)*
-%r16890 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
-%r16891 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16886, i64 1, i64 %r16890)
-%r16885 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16889)
-%r16892 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16885, i64 %r16886)
-%r16888 = tail call fastcc i64 %r16883(i64 %r16886)
-%r16897 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16876, i64 2, i64 %r16888)
-%r16895 = ptrtoint [4 x i8]* @r16894 to i64
-%r16893 = tail call fastcc i64 @"fun-make-string"(i64 %r16895, i64 3)
-%r16898 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16876, i64 3, i64 %r16893)
-%r16875 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16879)
-%r16899 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16875, i64 %r16876)
-%r16878 = tail call fastcc i64 %r16873(i64 %r16876)
-%r16872 = tail call fastcc i64 @"fun-display"(i64 %r16878)
-%r16903 = ptrtoint [13 x i8]* @r16902 to i64
-%r16901 = tail call fastcc i64 @"fun-make-string"(i64 %r16903, i64 12)
-%r16900 = tail call fastcc i64 @"fun-display"(i64 %r16901)
-%r16910 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 7)
-%r16905 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16910)
-%r16907 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16905)
-%r16908 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16910)
-%r16904 = inttoptr i64 %r16908 to i64 (i64)*
-%r16911 = ptrtoint i64 (i64)* @fun216 to i64
-%r16912 = tail call fastcc i64 @"fun-make-function"(i64 %r16911, i64 %"env", i64 0)
-%r16934 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16907, i64 1, i64 %r16912)
-%r16933 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 68)
-%r16935 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16907, i64 2, i64 %r16933)
-%r16906 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16910)
-%r16936 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16906, i64 %r16907)
-%r16909 = tail call fastcc i64 %r16904(i64 %r16907)
-ret i64 %r16909
+%r16773 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
+%r16768 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16773)
+%r16770 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16768)
+%r16771 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16773)
+%r16767 = inttoptr i64 %r16771 to i64 (i64)*
+%r16774 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r16776 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16770, i64 1, i64 %r16774)
+%r16775 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 72)
+%r16777 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16770, i64 2, i64 %r16775)
+%r16769 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16773)
+%r16778 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16769, i64 %r16770)
+%r16772 = tail call fastcc i64 %r16767(i64 %r16770)
+%r16780 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 117)
+%r16779 = tail call fastcc i64 @"fun-display"(i64 %r16780)
+%r16784 = ptrtoint [42 x i8]* @r16783 to i64
+%r16782 = tail call fastcc i64 @"fun-make-string"(i64 %r16784, i64 41)
+%r16781 = tail call fastcc i64 @"fun-display"(i64 %r16782)
+%r16791 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
+%r16786 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16791)
+%r16788 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16786)
+%r16789 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16791)
+%r16785 = inttoptr i64 %r16789 to i64 (i64)*
+%r16792 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r16803 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16788, i64 1, i64 %r16792)
+%r16799 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 52)
+%r16794 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16799)
+%r16796 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16794)
+%r16797 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16799)
+%r16793 = inttoptr i64 %r16797 to i64 (i64)*
+%r16800 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r16801 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16796, i64 1, i64 %r16800)
+%r16795 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16799)
+%r16802 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16795, i64 %r16796)
+%r16798 = tail call fastcc i64 %r16793(i64 %r16796)
+%r16804 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16788, i64 2, i64 %r16798)
+%r16787 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16791)
+%r16805 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16787, i64 %r16788)
+%r16790 = tail call fastcc i64 %r16785(i64 %r16788)
+%r16813 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 57)
+%r16808 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16813)
+%r16810 = tail call fastcc i64 @"fun-make-env"(i64 3, i64 %r16808)
+%r16811 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16813)
+%r16807 = inttoptr i64 %r16811 to i64 (i64)*
+%r16816 = ptrtoint [9 x i8]* @r16815 to i64
+%r16814 = tail call fastcc i64 @"fun-make-string"(i64 %r16816, i64 8)
+%r16830 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16810, i64 1, i64 %r16814)
+%r16823 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 53)
+%r16818 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16823)
+%r16820 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16818)
+%r16821 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16823)
+%r16817 = inttoptr i64 %r16821 to i64 (i64)*
+%r16824 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
+%r16825 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16820, i64 1, i64 %r16824)
+%r16819 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16823)
+%r16826 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16819, i64 %r16820)
+%r16822 = tail call fastcc i64 %r16817(i64 %r16820)
+%r16831 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16810, i64 2, i64 %r16822)
+%r16829 = ptrtoint [4 x i8]* @r16828 to i64
+%r16827 = tail call fastcc i64 @"fun-make-string"(i64 %r16829, i64 3)
+%r16832 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16810, i64 3, i64 %r16827)
+%r16809 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16813)
+%r16833 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16809, i64 %r16810)
+%r16812 = tail call fastcc i64 %r16807(i64 %r16810)
+%r16806 = tail call fastcc i64 @"fun-display"(i64 %r16812)
+%r16837 = ptrtoint [13 x i8]* @r16836 to i64
+%r16835 = tail call fastcc i64 @"fun-make-string"(i64 %r16837, i64 12)
+%r16834 = tail call fastcc i64 @"fun-display"(i64 %r16835)
+%r16844 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 6)
+%r16839 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16844)
+%r16841 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16839)
+%r16842 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16844)
+%r16838 = inttoptr i64 %r16842 to i64 (i64)*
+%r16845 = ptrtoint i64 (i64)* @fun216 to i64
+%r16846 = tail call fastcc i64 @"fun-make-function"(i64 %r16845, i64 %"env", i64 0)
+%r16868 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16841, i64 1, i64 %r16846)
+%r16867 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 69)
+%r16869 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16841, i64 2, i64 %r16867)
+%r16840 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16844)
+%r16870 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16840, i64 %r16841)
+%r16843 = tail call fastcc i64 %r16838(i64 %r16841)
+ret i64 %r16843
 }
 
 define fastcc i64 @fun217(i64 %"env") nounwind {
-%r16940 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r16939 = tail call fastcc i64 @"fun-display"(i64 %r16940)
-%r16947 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 1)
-%r16942 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16947)
-%r16944 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16942)
-%r16945 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16947)
-%r16941 = inttoptr i64 %r16945 to i64 (i64)*
-%r16943 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16947)
-%r16948 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16943, i64 %r16944)
-%r16946 = tail call fastcc i64 %r16941(i64 %r16944)
-ret i64 %r16946
+%r16874 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r16873 = tail call fastcc i64 @"fun-display"(i64 %r16874)
+%r16881 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 1)
+%r16876 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16881)
+%r16878 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16876)
+%r16879 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16881)
+%r16875 = inttoptr i64 %r16879 to i64 (i64)*
+%r16877 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16881)
+%r16882 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16877, i64 %r16878)
+%r16880 = tail call fastcc i64 %r16875(i64 %r16878)
+ret i64 %r16880
 }
 
 define fastcc i64 @"fun214-compiler"(i64 %"env") nounwind {
-%r16823 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 57)
-%r16818 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16823)
-%r16820 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16818)
-%r16821 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16823)
-%r16817 = inttoptr i64 %r16821 to i64 (i64)*
-%r16819 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16823)
-%r16824 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16819, i64 %r16820)
-%r16822 = tail call fastcc i64 %r16817(i64 %r16820)
-%r16831 = ptrtoint i64 (i64)* @fun215 to i64
-%r16832 = tail call fastcc i64 @"fun-make-function"(i64 %r16831, i64 %"env", i64 0)
-%r16826 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16832)
-%r16828 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16826)
-%r16829 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16832)
-%r16825 = inttoptr i64 %r16829 to i64 (i64)*
-%r16937 = ptrtoint i64 (i64)* @fun217 to i64
-%r16938 = tail call fastcc i64 @"fun-make-function"(i64 %r16937, i64 %"env", i64 0)
-%r16972 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16828, i64 1, i64 %r16938)
-%r16955 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 103)
-%r16950 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16955)
-%r16952 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16950)
-%r16953 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16955)
-%r16949 = inttoptr i64 %r16953 to i64 (i64)*
-%r16962 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 8)
-%r16957 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16962)
-%r16959 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16957)
-%r16960 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16962)
-%r16956 = inttoptr i64 %r16960 to i64 (i64)*
-%r16963 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 117)
-%r16965 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16959, i64 1, i64 %r16963)
-%r16964 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
-%r16966 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16959, i64 2, i64 %r16964)
-%r16958 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16962)
-%r16967 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16958, i64 %r16959)
-%r16961 = tail call fastcc i64 %r16956(i64 %r16959)
-%r16969 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16952, i64 1, i64 %r16961)
-%r16968 = tail call fastcc i64 @"fun-make-null"()
-%r16970 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16952, i64 2, i64 %r16968)
-%r16951 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16955)
-%r16971 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16951, i64 %r16952)
-%r16954 = tail call fastcc i64 %r16949(i64 %r16952)
-%r16973 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16828, i64 2, i64 %r16954)
-%r16827 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16832)
-%r16974 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16827, i64 %r16828)
-%r16830 = tail call fastcc i64 %r16825(i64 %r16828)
-%r16975 = tail call fastcc i64 @"fun-make-number"(i64 0)
-ret i64 %r16975
+%r16757 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 58)
+%r16752 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16757)
+%r16754 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16752)
+%r16755 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16757)
+%r16751 = inttoptr i64 %r16755 to i64 (i64)*
+%r16753 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16757)
+%r16758 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16753, i64 %r16754)
+%r16756 = tail call fastcc i64 %r16751(i64 %r16754)
+%r16765 = ptrtoint i64 (i64)* @fun215 to i64
+%r16766 = tail call fastcc i64 @"fun-make-function"(i64 %r16765, i64 %"env", i64 0)
+%r16760 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16766)
+%r16762 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16760)
+%r16763 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16766)
+%r16759 = inttoptr i64 %r16763 to i64 (i64)*
+%r16871 = ptrtoint i64 (i64)* @fun217 to i64
+%r16872 = tail call fastcc i64 @"fun-make-function"(i64 %r16871, i64 %"env", i64 0)
+%r16906 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16762, i64 1, i64 %r16872)
+%r16889 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 104)
+%r16884 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16889)
+%r16886 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16884)
+%r16887 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16889)
+%r16883 = inttoptr i64 %r16887 to i64 (i64)*
+%r16896 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 2, i64 7)
+%r16891 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16896)
+%r16893 = tail call fastcc i64 @"fun-make-env"(i64 2, i64 %r16891)
+%r16894 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16896)
+%r16890 = inttoptr i64 %r16894 to i64 (i64)*
+%r16897 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 118)
+%r16899 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16893, i64 1, i64 %r16897)
+%r16898 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
+%r16900 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16893, i64 2, i64 %r16898)
+%r16892 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16896)
+%r16901 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16892, i64 %r16893)
+%r16895 = tail call fastcc i64 %r16890(i64 %r16893)
+%r16903 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16886, i64 1, i64 %r16895)
+%r16902 = tail call fastcc i64 @"fun-make-null"()
+%r16904 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16886, i64 2, i64 %r16902)
+%r16885 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16889)
+%r16905 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16885, i64 %r16886)
+%r16888 = tail call fastcc i64 %r16883(i64 %r16886)
+%r16907 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16762, i64 2, i64 %r16888)
+%r16761 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16766)
+%r16908 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16761, i64 %r16762)
+%r16764 = tail call fastcc i64 %r16759(i64 %r16762)
+%r16909 = tail call fastcc i64 @"fun-make-number"(i64 0)
+ret i64 %r16909
 }
 
 define fastcc i64 @fun218(i64 %"env") nounwind {
+%r2258 = ptrtoint i64 (i64)* @"fun53-length" to i64
+%r2259 = tail call fastcc i64 @"fun-make-function"(i64 %r2258, i64 %"env", i64 0)
+%r2257 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2259)
 %r2281 = ptrtoint i64 (i64)* @"fun54-error" to i64
 %r2282 = tail call fastcc i64 @"fun-make-function"(i64 %r2281, i64 %"env", i64 0)
-%r2280 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 1, i64 %r2282)
+%r2280 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 2, i64 %r2282)
 %r2302 = ptrtoint i64 (i64)* @"fun55-tagged-list?" to i64
 %r2303 = tail call fastcc i64 @"fun-make-function"(i64 %r2302, i64 %"env", i64 0)
-%r2301 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 2, i64 %r2303)
+%r2301 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 3, i64 %r2303)
 %r2327 = ptrtoint i64 (i64)* @"fun56-self-evaluating?" to i64
 %r2328 = tail call fastcc i64 @"fun-make-function"(i64 %r2327, i64 %"env", i64 0)
-%r2326 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 3, i64 %r2328)
+%r2326 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 4, i64 %r2328)
 %r2335 = ptrtoint i64 (i64)* @"fun57-variable?" to i64
 %r2336 = tail call fastcc i64 @"fun-make-function"(i64 %r2335, i64 %"env", i64 0)
-%r2334 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 4, i64 %r2336)
+%r2334 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 5, i64 %r2336)
 %r2340 = ptrtoint i64 (i64)* @"fun58-assignment?" to i64
 %r2341 = tail call fastcc i64 @"fun-make-function"(i64 %r2340, i64 %"env", i64 0)
-%r2339 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 5, i64 %r2341)
+%r2339 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 6, i64 %r2341)
 %r2357 = ptrtoint i64 (i64)* @"fun59-definition?" to i64
 %r2358 = tail call fastcc i64 @"fun-make-function"(i64 %r2357, i64 %"env", i64 0)
-%r2356 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 6, i64 %r2358)
+%r2356 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 7, i64 %r2358)
 %r2374 = ptrtoint i64 (i64)* @"fun60-if?" to i64
 %r2375 = tail call fastcc i64 @"fun-make-function"(i64 %r2374, i64 %"env", i64 0)
-%r2373 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 7, i64 %r2375)
+%r2373 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 8, i64 %r2375)
 %r2391 = ptrtoint i64 (i64)* @"fun61-cond?" to i64
 %r2392 = tail call fastcc i64 @"fun-make-function"(i64 %r2391, i64 %"env", i64 0)
-%r2390 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 8, i64 %r2392)
+%r2390 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 9, i64 %r2392)
 %r2408 = ptrtoint i64 (i64)* @"fun62-lambda?" to i64
 %r2409 = tail call fastcc i64 @"fun-make-function"(i64 %r2408, i64 %"env", i64 0)
-%r2407 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 9, i64 %r2409)
+%r2407 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 10, i64 %r2409)
 %r2425 = ptrtoint i64 (i64)* @"fun63-begin?" to i64
 %r2426 = tail call fastcc i64 @"fun-make-function"(i64 %r2425, i64 %"env", i64 0)
-%r2424 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 10, i64 %r2426)
+%r2424 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 11, i64 %r2426)
 %r2442 = ptrtoint i64 (i64)* @"fun64-quote?" to i64
 %r2443 = tail call fastcc i64 @"fun-make-function"(i64 %r2442, i64 %"env", i64 0)
-%r2441 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 11, i64 %r2443)
+%r2441 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 12, i64 %r2443)
 %r2459 = ptrtoint i64 (i64)* @"fun65-let?" to i64
 %r2460 = tail call fastcc i64 @"fun-make-function"(i64 %r2459, i64 %"env", i64 0)
-%r2458 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 12, i64 %r2460)
+%r2458 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 13, i64 %r2460)
 %r2476 = ptrtoint i64 (i64)* @"fun66-application?" to i64
 %r2477 = tail call fastcc i64 @"fun-make-function"(i64 %r2476, i64 %"env", i64 0)
-%r2475 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 13, i64 %r2477)
+%r2475 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 14, i64 %r2477)
 %r2481 = ptrtoint i64 (i64)* @"fun67-llvm-definition?" to i64
 %r2482 = tail call fastcc i64 @"fun-make-function"(i64 %r2481, i64 %"env", i64 0)
-%r2480 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 14, i64 %r2482)
+%r2480 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 15, i64 %r2482)
 %r2498 = ptrtoint i64 (i64)* @"fun68-llvm-instruction?" to i64
 %r2499 = tail call fastcc i64 @"fun-make-function"(i64 %r2498, i64 %"env", i64 0)
-%r2497 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 15, i64 %r2499)
+%r2497 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 16, i64 %r2499)
 %r2522 = ptrtoint i64 (i64)* @"fun69-llvm-load?" to i64
 %r2523 = tail call fastcc i64 @"fun-make-function"(i64 %r2522, i64 %"env", i64 0)
-%r2521 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 16, i64 %r2523)
+%r2521 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 17, i64 %r2523)
 %r2539 = ptrtoint i64 (i64)* @"fun70-llvm-store?" to i64
 %r2540 = tail call fastcc i64 @"fun-make-function"(i64 %r2539, i64 %"env", i64 0)
-%r2538 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 17, i64 %r2540)
+%r2538 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 18, i64 %r2540)
 %r2556 = ptrtoint i64 (i64)* @"fun71-llvm-getelementptr?" to i64
 %r2557 = tail call fastcc i64 @"fun-make-function"(i64 %r2556, i64 %"env", i64 0)
-%r2555 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 18, i64 %r2557)
+%r2555 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 19, i64 %r2557)
 %r2573 = ptrtoint i64 (i64)* @"fun72-llvm-ptrtoint?" to i64
 %r2574 = tail call fastcc i64 @"fun-make-function"(i64 %r2573, i64 %"env", i64 0)
-%r2572 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 19, i64 %r2574)
+%r2572 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 20, i64 %r2574)
 %r2590 = ptrtoint i64 (i64)* @"fun73-llvm-inttoptr?" to i64
 %r2591 = tail call fastcc i64 @"fun-make-function"(i64 %r2590, i64 %"env", i64 0)
-%r2589 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 20, i64 %r2591)
+%r2589 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 21, i64 %r2591)
 %r2607 = ptrtoint i64 (i64)* @"fun74-llvm-ret?" to i64
 %r2608 = tail call fastcc i64 @"fun-make-function"(i64 %r2607, i64 %"env", i64 0)
-%r2606 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 21, i64 %r2608)
+%r2606 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 22, i64 %r2608)
 %r2624 = ptrtoint i64 (i64)* @"fun75-operator" to i64
 %r2625 = tail call fastcc i64 @"fun-make-function"(i64 %r2624, i64 %"env", i64 0)
-%r2623 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 22, i64 %r2625)
+%r2623 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 23, i64 %r2625)
 %r2629 = ptrtoint i64 (i64)* @"fun76-operands" to i64
 %r2630 = tail call fastcc i64 @"fun-make-function"(i64 %r2629, i64 %"env", i64 0)
-%r2628 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 23, i64 %r2630)
+%r2628 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 24, i64 %r2630)
 %r2634 = ptrtoint i64 (i64)* @"fun77-first-arg" to i64
 %r2635 = tail call fastcc i64 @"fun-make-function"(i64 %r2634, i64 %"env", i64 0)
-%r2633 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 24, i64 %r2635)
+%r2633 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 25, i64 %r2635)
 %r2639 = ptrtoint i64 (i64)* @"fun78-second-arg" to i64
 %r2640 = tail call fastcc i64 @"fun-make-function"(i64 %r2639, i64 %"env", i64 0)
-%r2638 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 25, i64 %r2640)
+%r2638 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 26, i64 %r2640)
 %r2644 = ptrtoint i64 (i64)* @"fun79-third-arg" to i64
 %r2645 = tail call fastcc i64 @"fun-make-function"(i64 %r2644, i64 %"env", i64 0)
-%r2643 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 26, i64 %r2645)
+%r2643 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 27, i64 %r2645)
 %r2649 = ptrtoint i64 (i64)* @"fun80-begin-actions" to i64
 %r2650 = tail call fastcc i64 @"fun-make-function"(i64 %r2649, i64 %"env", i64 0)
-%r2648 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 27, i64 %r2650)
+%r2648 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 28, i64 %r2650)
 %r2654 = ptrtoint i64 (i64)* @"fun81-last-exp?" to i64
 %r2655 = tail call fastcc i64 @"fun-make-function"(i64 %r2654, i64 %"env", i64 0)
-%r2653 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 28, i64 %r2655)
+%r2653 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 29, i64 %r2655)
 %r2660 = ptrtoint i64 (i64)* @"fun82-text-of-quotation" to i64
 %r2661 = tail call fastcc i64 @"fun-make-function"(i64 %r2660, i64 %"env", i64 0)
-%r2659 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 29, i64 %r2661)
+%r2659 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 30, i64 %r2661)
 %r2665 = ptrtoint i64 (i64)* @"fun83-definition-variable" to i64
 %r2666 = tail call fastcc i64 @"fun-make-function"(i64 %r2665, i64 %"env", i64 0)
-%r2664 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 30, i64 %r2666)
+%r2664 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 31, i64 %r2666)
 %r2679 = ptrtoint i64 (i64)* @"fun84-definition-value" to i64
 %r2680 = tail call fastcc i64 @"fun-make-function"(i64 %r2679, i64 %"env", i64 0)
-%r2678 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 31, i64 %r2680)
+%r2678 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 32, i64 %r2680)
 %r2700 = ptrtoint i64 (i64)* @"fun85-if-predicate" to i64
 %r2701 = tail call fastcc i64 @"fun-make-function"(i64 %r2700, i64 %"env", i64 0)
-%r2699 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 32, i64 %r2701)
+%r2699 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 33, i64 %r2701)
 %r2705 = ptrtoint i64 (i64)* @"fun86-if-consequent" to i64
 %r2706 = tail call fastcc i64 @"fun-make-function"(i64 %r2705, i64 %"env", i64 0)
-%r2704 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 33, i64 %r2706)
+%r2704 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 34, i64 %r2706)
 %r2710 = ptrtoint i64 (i64)* @"fun87-if-alternative" to i64
 %r2711 = tail call fastcc i64 @"fun-make-function"(i64 %r2710, i64 %"env", i64 0)
-%r2709 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 34, i64 %r2711)
+%r2709 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 35, i64 %r2711)
 %r2724 = ptrtoint i64 (i64)* @"fun88-make-if" to i64
 %r2725 = tail call fastcc i64 @"fun-make-function"(i64 %r2724, i64 %"env", i64 0)
-%r2723 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 35, i64 %r2725)
+%r2723 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 36, i64 %r2725)
 %r2745 = ptrtoint i64 (i64)* @"fun89-lambda-parameters" to i64
 %r2746 = tail call fastcc i64 @"fun-make-function"(i64 %r2745, i64 %"env", i64 0)
-%r2744 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 36, i64 %r2746)
+%r2744 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 37, i64 %r2746)
 %r2806 = ptrtoint i64 (i64)* @"fun92-lambda-arbitrary-args?" to i64
 %r2807 = tail call fastcc i64 @"fun-make-function"(i64 %r2806, i64 %"env", i64 0)
-%r2805 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 37, i64 %r2807)
+%r2805 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 38, i64 %r2807)
 %r2821 = ptrtoint i64 (i64)* @"fun93-lambda-body" to i64
 %r2822 = tail call fastcc i64 @"fun-make-function"(i64 %r2821, i64 %"env", i64 0)
-%r2820 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 38, i64 %r2822)
+%r2820 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 39, i64 %r2822)
 %r2826 = ptrtoint i64 (i64)* @"fun94-sequence->exp" to i64
 %r2827 = tail call fastcc i64 @"fun-make-function"(i64 %r2826, i64 %"env", i64 0)
-%r2825 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 39, i64 %r2827)
+%r2825 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 40, i64 %r2827)
 %r2862 = ptrtoint i64 (i64)* @"fun95-make-begin" to i64
 %r2863 = tail call fastcc i64 @"fun-make-function"(i64 %r2862, i64 %"env", i64 0)
-%r2861 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 40, i64 %r2863)
+%r2861 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 41, i64 %r2863)
 %r2870 = ptrtoint i64 (i64)* @"fun96-cond-clauses" to i64
 %r2871 = tail call fastcc i64 @"fun-make-function"(i64 %r2870, i64 %"env", i64 0)
-%r2869 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 41, i64 %r2871)
+%r2869 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 42, i64 %r2871)
 %r2875 = ptrtoint i64 (i64)* @"fun97-cond-else-clause?" to i64
 %r2876 = tail call fastcc i64 @"fun-make-function"(i64 %r2875, i64 %"env", i64 0)
-%r2874 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 42, i64 %r2876)
+%r2874 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 43, i64 %r2876)
 %r2901 = ptrtoint i64 (i64)* @"fun98-cond-predicate" to i64
 %r2902 = tail call fastcc i64 @"fun-make-function"(i64 %r2901, i64 %"env", i64 0)
-%r2900 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 43, i64 %r2902)
+%r2900 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 44, i64 %r2902)
 %r2906 = ptrtoint i64 (i64)* @"fun99-cond-actions" to i64
 %r2907 = tail call fastcc i64 @"fun-make-function"(i64 %r2906, i64 %"env", i64 0)
-%r2905 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 44, i64 %r2907)
+%r2905 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 45, i64 %r2907)
 %r2911 = ptrtoint i64 (i64)* @"fun100-cond->if" to i64
 %r2912 = tail call fastcc i64 @"fun-make-function"(i64 %r2911, i64 %"env", i64 0)
-%r2910 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 45, i64 %r2912)
+%r2910 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 46, i64 %r2912)
 %r2933 = ptrtoint i64 (i64)* @"fun101-expand-clauses" to i64
 %r2934 = tail call fastcc i64 @"fun-make-function"(i64 %r2933, i64 %"env", i64 0)
-%r2932 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 46, i64 %r2934)
+%r2932 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 47, i64 %r2934)
 %r3063 = ptrtoint i64 (i64)* @"fun103-let-vars" to i64
 %r3064 = tail call fastcc i64 @"fun-make-function"(i64 %r3063, i64 %"env", i64 0)
-%r3062 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 47, i64 %r3064)
+%r3062 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 48, i64 %r3064)
 %r3082 = ptrtoint i64 (i64)* @"fun105-let-vals" to i64
 %r3083 = tail call fastcc i64 @"fun-make-function"(i64 %r3082, i64 %"env", i64 0)
-%r3081 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 48, i64 %r3083)
+%r3081 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 49, i64 %r3083)
 %r3101 = ptrtoint i64 (i64)* @"fun107-let-body" to i64
 %r3102 = tail call fastcc i64 @"fun-make-function"(i64 %r3101, i64 %"env", i64 0)
-%r3100 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 49, i64 %r3102)
+%r3100 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 50, i64 %r3102)
 %r3106 = ptrtoint i64 (i64)* @"fun108-let->lambda" to i64
 %r3107 = tail call fastcc i64 @"fun-make-function"(i64 %r3106, i64 %"env", i64 0)
-%r3105 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 50, i64 %r3107)
+%r3105 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 51, i64 %r3107)
 %r3145 = ptrtoint i64 (i64)* @"fun109-compiled-code" to i64
 %r3146 = tail call fastcc i64 @"fun-make-function"(i64 %r3145, i64 %"env", i64 0)
-%r3144 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 51, i64 %r3146)
+%r3144 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 52, i64 %r3146)
 %r3150 = ptrtoint i64 (i64)* @"fun110-compiled-target" to i64
 %r3151 = tail call fastcc i64 @"fun-make-function"(i64 %r3150, i64 %"env", i64 0)
-%r3149 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 52, i64 %r3151)
+%r3149 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 53, i64 %r3151)
 %r3155 = ptrtoint i64 (i64)* @"fun111-append-code2" to i64
 %r3156 = tail call fastcc i64 @"fun-make-function"(i64 %r3155, i64 %"env", i64 0)
-%r3154 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 53, i64 %r3156)
+%r3154 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 54, i64 %r3156)
 %r3227 = ptrtoint i64 (i64)* @"fun112-append-code" to i64
 %r3228 = tail call fastcc i64 @"fun-make-function"(i64 %r3227, i64 %"env", i64 1)
-%r3226 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 54, i64 %r3228)
+%r3226 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 55, i64 %r3228)
 %r3240 = ptrtoint i64 (i64)* @"fun113-make-code" to i64
 %r3241 = tail call fastcc i64 @"fun-make-function"(i64 %r3240, i64 %"env", i64 2)
-%r3239 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 55, i64 %r3241)
+%r3239 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 56, i64 %r3241)
 %r3255 = ptrtoint i64 (i64)* @"fun114-c" to i64
 %r3256 = tail call fastcc i64 @"fun-make-function"(i64 %r3255, i64 %"env", i64 1)
-%r3254 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 56, i64 %r3256)
+%r3254 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 57, i64 %r3256)
 %r3310 = ptrtoint i64 (i64)* @"fun117-init-generators" to i64
 %r3311 = tail call fastcc i64 @"fun-make-function"(i64 %r3310, i64 %"env", i64 0)
-%r3309 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 57, i64 %r3311)
+%r3309 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 58, i64 %r3311)
 %r3349 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r3348 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 58, i64 %r3349)
+%r3348 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 59, i64 %r3349)
 %r3351 = ptrtoint i64 (i64)* @"fun118-make-var" to i64
 %r3352 = tail call fastcc i64 @"fun-make-function"(i64 %r3351, i64 %"env", i64 0)
-%r3350 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 59, i64 %r3352)
+%r3350 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 60, i64 %r3352)
 %r3381 = ptrtoint i64 (i64)* @"fun119-make-global-var" to i64
 %r3382 = tail call fastcc i64 @"fun-make-function"(i64 %r3381, i64 %"env", i64 0)
-%r3380 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 60, i64 %r3382)
+%r3380 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 61, i64 %r3382)
 %r3411 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r3410 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 61, i64 %r3411)
+%r3410 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 62, i64 %r3411)
 %r3413 = ptrtoint i64 (i64)* @"fun120-make-label" to i64
 %r3414 = tail call fastcc i64 @"fun-make-function"(i64 %r3413, i64 %"env", i64 0)
-%r3412 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 62, i64 %r3414)
+%r3412 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 63, i64 %r3414)
 %r3443 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r3442 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 63, i64 %r3443)
+%r3442 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 64, i64 %r3443)
 %r3445 = ptrtoint i64 (i64)* @"fun121-make-raw-function-name" to i64
 %r3446 = tail call fastcc i64 @"fun-make-function"(i64 %r3445, i64 %"env", i64 0)
-%r3444 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 64, i64 %r3446)
+%r3444 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 65, i64 %r3446)
 %r3475 = ptrtoint i64 (i64)* @"fun122-make-function-name" to i64
 %r3476 = tail call fastcc i64 @"fun-make-function"(i64 %r3475, i64 %"env", i64 0)
-%r3474 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 65, i64 %r3476)
+%r3474 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 66, i64 %r3476)
 %r3499 = tail call fastcc i64 @"fun-make-null"()
-%r3498 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 66, i64 %r3499)
+%r3498 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 67, i64 %r3499)
 %r3501 = ptrtoint i64 (i64)* @"fun123-add-llvm-function-name" to i64
 %r3502 = tail call fastcc i64 @"fun-make-function"(i64 %r3501, i64 %"env", i64 0)
-%r3500 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 67, i64 %r3502)
+%r3500 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 68, i64 %r3502)
 %r3508 = tail call fastcc i64 @"fun-make-null"()
-%r3507 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 68, i64 %r3508)
+%r3507 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 69, i64 %r3508)
 %r3510 = ptrtoint i64 (i64)* @"fun124-add-llvm-function" to i64
 %r3511 = tail call fastcc i64 @"fun-make-function"(i64 %r3510, i64 %"env", i64 0)
-%r3509 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 69, i64 %r3511)
+%r3509 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 70, i64 %r3511)
 %r3694 = ptrtoint i64 (i64)* @"fun127-fix-string-format" to i64
 %r3695 = tail call fastcc i64 @"fun-make-function"(i64 %r3694, i64 %"env", i64 0)
-%r3693 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 70, i64 %r3695)
+%r3693 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 71, i64 %r3695)
 %r3879 = tail call fastcc i64 @"fun-make-null"()
-%r3878 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 71, i64 %r3879)
+%r3878 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 72, i64 %r3879)
 %r3881 = ptrtoint i64 (i64)* @"fun132-add-llvm-string" to i64
 %r3882 = tail call fastcc i64 @"fun-make-function"(i64 %r3881, i64 %"env", i64 0)
-%r3880 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 72, i64 %r3882)
+%r3880 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 73, i64 %r3882)
 %r3994 = ptrtoint i64 (i64)* @"fun134-extend-c-t-env" to i64
 %r3995 = tail call fastcc i64 @"fun-make-function"(i64 %r3994, i64 %"env", i64 0)
-%r3993 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 73, i64 %r3995)
+%r3993 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 74, i64 %r3995)
 %r4000 = ptrtoint i64 (i64)* @"fun135-current-c-t-env" to i64
 %r4001 = tail call fastcc i64 @"fun-make-function"(i64 %r4000, i64 %"env", i64 0)
-%r3999 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 74, i64 %r4001)
+%r3999 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 75, i64 %r4001)
 %r4005 = ptrtoint i64 (i64)* @"fun136-outer-c-t-env" to i64
 %r4006 = tail call fastcc i64 @"fun-make-function"(i64 %r4005, i64 %"env", i64 0)
-%r4004 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 75, i64 %r4006)
+%r4004 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 76, i64 %r4006)
 %r4010 = ptrtoint i64 (i64)* @"fun137-find-var" to i64
 %r4011 = tail call fastcc i64 @"fun-make-function"(i64 %r4010, i64 %"env", i64 0)
-%r4009 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 76, i64 %r4011)
+%r4009 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 77, i64 %r4011)
 %r4139 = ptrtoint [4 x i8]* @r4138 to i64
 %r4137 = tail call fastcc i64 @"fun-make-symbol"(i64 %r4139, i64 3)
 %r4142 = ptrtoint [4 x i8]* @r4141 to i64
@@ -12858,7 +12850,7 @@ define fastcc i64 @fun218(i64 %"env") nounwind {
 %r4151 = tail call fastcc i64 @"fun-cons"(i64 %r4152, i64 %r4159)
 %r4143 = tail call fastcc i64 @"fun-cons"(i64 %r4144, i64 %r4151)
 %r4135 = tail call fastcc i64 @"fun-cons"(i64 %r4136, i64 %r4143)
-%r4134 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 77, i64 %r4135)
+%r4134 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 78, i64 %r4135)
 %r4310 = ptrtoint [6 x i8]* @r4309 to i64
 %r4308 = tail call fastcc i64 @"fun-make-symbol"(i64 %r4310, i64 5)
 %r4314 = ptrtoint [6 x i8]* @r4313 to i64
@@ -12878,7 +12870,7 @@ define fastcc i64 @fun218(i64 %"env") nounwind {
 %r4315 = tail call fastcc i64 @"fun-cons"(i64 %r4316, i64 %r4319)
 %r4311 = tail call fastcc i64 @"fun-cons"(i64 %r4312, i64 %r4315)
 %r4307 = tail call fastcc i64 @"fun-cons"(i64 %r4308, i64 %r4311)
-%r4306 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 78, i64 %r4307)
+%r4306 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 79, i64 %r4307)
 %r4336 = ptrtoint [8 x i8]* @r4335 to i64
 %r4334 = tail call fastcc i64 @"fun-make-symbol"(i64 %r4336, i64 7)
 %r4340 = ptrtoint [8 x i8]* @r4339 to i64
@@ -12886,118 +12878,118 @@ define fastcc i64 @fun218(i64 %"env") nounwind {
 %r4341 = tail call fastcc i64 @"fun-make-null"()
 %r4337 = tail call fastcc i64 @"fun-cons"(i64 %r4338, i64 %r4341)
 %r4333 = tail call fastcc i64 @"fun-cons"(i64 %r4334, i64 %r4337)
-%r4332 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 79, i64 %r4333)
+%r4332 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 80, i64 %r4333)
 %r4343 = ptrtoint i64 (i64)* @"fun141-llvm-instr-name" to i64
 %r4344 = tail call fastcc i64 @"fun-make-function"(i64 %r4343, i64 %"env", i64 0)
-%r4342 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 80, i64 %r4344)
+%r4342 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 81, i64 %r4344)
 %r4359 = ptrtoint i64 (i64)* @"fun142-llvm-global-repr" to i64
 %r4360 = tail call fastcc i64 @"fun-make-function"(i64 %r4359, i64 %"env", i64 0)
-%r4358 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 81, i64 %r4360)
+%r4358 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 82, i64 %r4360)
 %r4404 = ptrtoint i64 (i64)* @"fun143-llvm-repr" to i64
 %r4405 = tail call fastcc i64 @"fun-make-function"(i64 %r4404, i64 %"env", i64 0)
-%r4403 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 82, i64 %r4405)
+%r4403 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 83, i64 %r4405)
 %r4449 = ptrtoint i64 (i64)* @"fun144-llvm-instruction" to i64
 %r4450 = tail call fastcc i64 @"fun-make-function"(i64 %r4449, i64 %"env", i64 0)
-%r4448 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 83, i64 %r4450)
+%r4448 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 84, i64 %r4450)
 %r4507 = ptrtoint i64 (i64)* @"fun145-llvm-id" to i64
 %r4508 = tail call fastcc i64 @"fun-make-function"(i64 %r4507, i64 %"env", i64 0)
-%r4506 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 84, i64 %r4508)
+%r4506 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 85, i64 %r4508)
 %r4528 = ptrtoint i64 (i64)* @"fun146-llvm-call2" to i64
 %r4529 = tail call fastcc i64 @"fun-make-function"(i64 %r4528, i64 %"env", i64 0)
-%r4527 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 85, i64 %r4529)
+%r4527 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 86, i64 %r4529)
 %r4653 = ptrtoint i64 (i64)* @"fun149-llvm-call" to i64
 %r4654 = tail call fastcc i64 @"fun-make-function"(i64 %r4653, i64 %"env", i64 3)
-%r4652 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 86, i64 %r4654)
+%r4652 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 87, i64 %r4654)
 %r4670 = ptrtoint i64 (i64)* @"fun150-llvm-ret" to i64
 %r4671 = tail call fastcc i64 @"fun-make-function"(i64 %r4670, i64 %"env", i64 0)
-%r4669 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 87, i64 %r4671)
+%r4669 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 88, i64 %r4671)
 %r4696 = ptrtoint i64 (i64)* @"fun151-llvm-ptrtoint" to i64
 %r4697 = tail call fastcc i64 @"fun-make-function"(i64 %r4696, i64 %"env", i64 0)
-%r4695 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 88, i64 %r4697)
+%r4695 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 89, i64 %r4697)
 %r4727 = ptrtoint i64 (i64)* @"fun152-llvm-inttoptr" to i64
 %r4728 = tail call fastcc i64 @"fun-make-function"(i64 %r4727, i64 %"env", i64 0)
-%r4726 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 89, i64 %r4728)
+%r4726 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 90, i64 %r4728)
 %r4758 = ptrtoint i64 (i64)* @"fun153-llvm-phi" to i64
 %r4759 = tail call fastcc i64 @"fun-make-function"(i64 %r4758, i64 %"env", i64 0)
-%r4757 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 90, i64 %r4759)
+%r4757 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 91, i64 %r4759)
 %r4870 = ptrtoint i64 (i64)* @"fun156-llvm-label" to i64
 %r4871 = tail call fastcc i64 @"fun-make-function"(i64 %r4870, i64 %"env", i64 0)
-%r4869 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 91, i64 %r4871)
+%r4869 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 92, i64 %r4871)
 %r4887 = ptrtoint i64 (i64)* @"fun157-llvm-br" to i64
 %r4888 = tail call fastcc i64 @"fun-make-function"(i64 %r4887, i64 %"env", i64 0)
-%r4886 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 92, i64 %r4888)
+%r4886 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 93, i64 %r4888)
 %r4904 = ptrtoint i64 (i64)* @"fun158-llvm-bool-br" to i64
 %r4905 = tail call fastcc i64 @"fun-make-function"(i64 %r4904, i64 %"env", i64 0)
-%r4903 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 93, i64 %r4905)
+%r4903 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 94, i64 %r4905)
 %r5007 = ptrtoint i64 (i64)* @"fun160-llvm-store" to i64
 %r5008 = tail call fastcc i64 @"fun-make-function"(i64 %r5007, i64 %"env", i64 0)
-%r5006 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 94, i64 %r5008)
+%r5006 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 95, i64 %r5008)
 %r5030 = ptrtoint i64 (i64)* @"fun161-llvm-load" to i64
 %r5031 = tail call fastcc i64 @"fun-make-function"(i64 %r5030, i64 %"env", i64 0)
-%r5029 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 95, i64 %r5031)
+%r5029 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 96, i64 %r5031)
 %r5049 = ptrtoint i64 (i64)* @"fun162-llvm-alloca-var" to i64
 %r5050 = tail call fastcc i64 @"fun-make-function"(i64 %r5049, i64 %"env", i64 0)
-%r5048 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 96, i64 %r5050)
+%r5048 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 97, i64 %r5050)
 %r5066 = ptrtoint i64 (i64)* @"fun163-llvm-shift-op" to i64
 %r5067 = tail call fastcc i64 @"fun-make-function"(i64 %r5066, i64 %"env", i64 0)
-%r5065 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 97, i64 %r5067)
+%r5065 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 98, i64 %r5067)
 %r5115 = ptrtoint i64 (i64)* @"fun164-llvm-getelementptr" to i64
 %r5116 = tail call fastcc i64 @"fun-make-function"(i64 %r5115, i64 %"env", i64 0)
-%r5114 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 98, i64 %r5116)
+%r5114 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 99, i64 %r5116)
 %r5188 = ptrtoint i64 (i64)* @"fun166-llvm-vector-ref" to i64
 %r5189 = tail call fastcc i64 @"fun-make-function"(i64 %r5188, i64 %"env", i64 0)
-%r5187 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 99, i64 %r5189)
+%r5187 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 100, i64 %r5189)
 %r5227 = ptrtoint i64 (i64)* @"fun167-llvm-vector-set!" to i64
 %r5228 = tail call fastcc i64 @"fun-make-function"(i64 %r5227, i64 %"env", i64 0)
-%r5226 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 100, i64 %r5228)
+%r5226 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 101, i64 %r5228)
 %r5284 = ptrtoint i64 (i64)* @"fun168-block-comment" to i64
 %r5285 = tail call fastcc i64 @"fun-make-function"(i64 %r5284, i64 %"env", i64 0)
-%r5283 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 101, i64 %r5285)
+%r5283 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 102, i64 %r5285)
 %r5332 = ptrtoint i64 (i64)* @"fun169-comment" to i64
 %r5333 = tail call fastcc i64 @"fun-make-function"(i64 %r5332, i64 %"env", i64 0)
-%r5331 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 102, i64 %r5333)
+%r5331 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 103, i64 %r5333)
 %r5358 = ptrtoint i64 (i64)* @"fun170-compile" to i64
 %r5359 = tail call fastcc i64 @"fun-make-function"(i64 %r5358, i64 %"env", i64 0)
-%r5357 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 103, i64 %r5359)
+%r5357 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 104, i64 %r5359)
 %r5736 = ptrtoint i64 (i64)* @"fun171-compile-self-evaluating" to i64
 %r5737 = tail call fastcc i64 @"fun-make-function"(i64 %r5736, i64 %"env", i64 0)
-%r5735 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 104, i64 %r5737)
+%r5735 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 105, i64 %r5737)
 %r6172 = ptrtoint i64 (i64)* @"fun176-compile-variable" to i64
 %r6173 = tail call fastcc i64 @"fun-make-function"(i64 %r6172, i64 %"env", i64 0)
-%r6171 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 105, i64 %r6173)
+%r6171 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 106, i64 %r6173)
 %r6302 = ptrtoint i64 (i64)* @"fun178-compile-assignment" to i64
 %r6303 = tail call fastcc i64 @"fun-make-function"(i64 %r6302, i64 %"env", i64 0)
-%r6301 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 106, i64 %r6303)
+%r6301 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 107, i64 %r6303)
 %r6503 = ptrtoint i64 (i64)* @"fun180-compile-if" to i64
 %r6504 = tail call fastcc i64 @"fun-make-function"(i64 %r6503, i64 %"env", i64 0)
-%r6502 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 107, i64 %r6504)
+%r6502 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 108, i64 %r6504)
 %r6816 = ptrtoint i64 (i64)* @"fun182-compile-sequence" to i64
 %r6817 = tail call fastcc i64 @"fun-make-function"(i64 %r6816, i64 %"env", i64 0)
-%r6815 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 108, i64 %r6817)
+%r6815 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 109, i64 %r6817)
 %r7230 = ptrtoint i64 (i64)* @"fun189-compile-lambda-with-name" to i64
 %r7231 = tail call fastcc i64 @"fun-make-function"(i64 %r7230, i64 %"env", i64 0)
-%r7229 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 109, i64 %r7231)
+%r7229 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 110, i64 %r7231)
 %r7407 = ptrtoint i64 (i64)* @"fun191-compile-lambda" to i64
 %r7408 = tail call fastcc i64 @"fun-make-function"(i64 %r7407, i64 %"env", i64 0)
-%r7406 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 110, i64 %r7408)
+%r7406 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 111, i64 %r7408)
 %r7431 = ptrtoint i64 (i64)* @"fun192-compile-named-lambda" to i64
 %r7432 = tail call fastcc i64 @"fun-make-function"(i64 %r7431, i64 %"env", i64 0)
-%r7430 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 111, i64 %r7432)
+%r7430 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 112, i64 %r7432)
 %r7479 = ptrtoint i64 (i64)* @"fun193-compile-llvm-definition" to i64
 %r7480 = tail call fastcc i64 @"fun-make-function"(i64 %r7479, i64 %"env", i64 0)
-%r7478 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 112, i64 %r7480)
+%r7478 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 113, i64 %r7480)
 %r7579 = ptrtoint i64 (i64)* @"fun195-compile-llvm-instruction" to i64
 %r7580 = tail call fastcc i64 @"fun-make-function"(i64 %r7579, i64 %"env", i64 0)
-%r7578 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 113, i64 %r7580)
+%r7578 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 114, i64 %r7580)
 %r8767 = ptrtoint i64 (i64)* @"fun206-compile-application" to i64
 %r8768 = tail call fastcc i64 @"fun-make-function"(i64 %r8767, i64 %"env", i64 0)
-%r8766 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 114, i64 %r8768)
+%r8766 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 115, i64 %r8768)
 %r9216 = ptrtoint i64 (i64)* @"fun211-compile-llvm-application" to i64
 %r9217 = tail call fastcc i64 @"fun-make-function"(i64 %r9216, i64 %"env", i64 0)
-%r9215 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 115, i64 %r9217)
+%r9215 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 116, i64 %r9217)
 %r9341 = ptrtoint [1831 x i8]* @r9340 to i64
 %r9339 = tail call fastcc i64 @"fun-make-string"(i64 %r9341, i64 1830)
-%r9338 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 116, i64 %r9339)
+%r9338 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 117, i64 %r9339)
 %r9346 = ptrtoint [6 x i8]* @r9345 to i64
 %r9344 = tail call fastcc i64 @"fun-make-symbol"(i64 %r9346, i64 5)
 %r9351 = ptrtoint [12 x i8]* @r9350 to i64
@@ -16836,2208 +16828,2153 @@ define fastcc i64 @fun218(i64 %"env") nounwind {
 %r14048 = tail call fastcc i64 @"fun-cons"(i64 %r14049, i64 %r14052)
 %r14147 = ptrtoint [7 x i8]* @r14146 to i64
 %r14145 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14147, i64 6)
-%r14152 = ptrtoint [7 x i8]* @r14151 to i64
-%r14150 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14152, i64 6)
+%r14152 = ptrtoint [4 x i8]* @r14151 to i64
+%r14150 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14152, i64 3)
 %r14156 = ptrtoint [4 x i8]* @r14155 to i64
 %r14154 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14156, i64 3)
-%r14157 = tail call fastcc i64 @"fun-make-null"()
+%r14160 = ptrtoint [3 x i8]* @r14159 to i64
+%r14158 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14160, i64 2)
+%r14161 = tail call fastcc i64 @"fun-make-null"()
+%r14157 = tail call fastcc i64 @"fun-cons"(i64 %r14158, i64 %r14161)
 %r14153 = tail call fastcc i64 @"fun-cons"(i64 %r14154, i64 %r14157)
 %r14149 = tail call fastcc i64 @"fun-cons"(i64 %r14150, i64 %r14153)
-%r14162 = ptrtoint [5 x i8]* @r14161 to i64
-%r14160 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14162, i64 4)
-%r14168 = ptrtoint [6 x i8]* @r14167 to i64
-%r14166 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14168, i64 5)
-%r14172 = ptrtoint [4 x i8]* @r14171 to i64
-%r14170 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14172, i64 3)
-%r14173 = tail call fastcc i64 @"fun-make-null"()
+%r14166 = ptrtoint [5 x i8]* @r14165 to i64
+%r14164 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14166, i64 4)
+%r14172 = ptrtoint [6 x i8]* @r14171 to i64
+%r14170 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14172, i64 5)
+%r14176 = ptrtoint [4 x i8]* @r14175 to i64
+%r14174 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14176, i64 3)
+%r14177 = tail call fastcc i64 @"fun-make-null"()
+%r14173 = tail call fastcc i64 @"fun-cons"(i64 %r14174, i64 %r14177)
 %r14169 = tail call fastcc i64 @"fun-cons"(i64 %r14170, i64 %r14173)
-%r14165 = tail call fastcc i64 @"fun-cons"(i64 %r14166, i64 %r14169)
-%r14175 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r14176 = tail call fastcc i64 @"fun-make-null"()
-%r14174 = tail call fastcc i64 @"fun-cons"(i64 %r14175, i64 %r14176)
-%r14164 = tail call fastcc i64 @"fun-cons"(i64 %r14165, i64 %r14174)
-%r14181 = ptrtoint [5 x i8]* @r14180 to i64
-%r14179 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14181, i64 4)
-%r14186 = ptrtoint [2 x i8]* @r14185 to i64
-%r14184 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14186, i64 1)
-%r14188 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r14193 = ptrtoint [7 x i8]* @r14192 to i64
-%r14191 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14193, i64 6)
-%r14198 = ptrtoint [4 x i8]* @r14197 to i64
-%r14196 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14198, i64 3)
-%r14202 = ptrtoint [4 x i8]* @r14201 to i64
-%r14200 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14202, i64 3)
-%r14203 = tail call fastcc i64 @"fun-make-null"()
-%r14199 = tail call fastcc i64 @"fun-cons"(i64 %r14200, i64 %r14203)
-%r14195 = tail call fastcc i64 @"fun-cons"(i64 %r14196, i64 %r14199)
-%r14204 = tail call fastcc i64 @"fun-make-null"()
-%r14194 = tail call fastcc i64 @"fun-cons"(i64 %r14195, i64 %r14204)
-%r14190 = tail call fastcc i64 @"fun-cons"(i64 %r14191, i64 %r14194)
-%r14205 = tail call fastcc i64 @"fun-make-null"()
-%r14189 = tail call fastcc i64 @"fun-cons"(i64 %r14190, i64 %r14205)
-%r14187 = tail call fastcc i64 @"fun-cons"(i64 %r14188, i64 %r14189)
-%r14183 = tail call fastcc i64 @"fun-cons"(i64 %r14184, i64 %r14187)
-%r14206 = tail call fastcc i64 @"fun-make-null"()
-%r14182 = tail call fastcc i64 @"fun-cons"(i64 %r14183, i64 %r14206)
-%r14178 = tail call fastcc i64 @"fun-cons"(i64 %r14179, i64 %r14182)
-%r14207 = tail call fastcc i64 @"fun-make-null"()
-%r14177 = tail call fastcc i64 @"fun-cons"(i64 %r14178, i64 %r14207)
-%r14163 = tail call fastcc i64 @"fun-cons"(i64 %r14164, i64 %r14177)
-%r14159 = tail call fastcc i64 @"fun-cons"(i64 %r14160, i64 %r14163)
-%r14208 = tail call fastcc i64 @"fun-make-null"()
-%r14158 = tail call fastcc i64 @"fun-cons"(i64 %r14159, i64 %r14208)
-%r14148 = tail call fastcc i64 @"fun-cons"(i64 %r14149, i64 %r14158)
-%r14144 = tail call fastcc i64 @"fun-cons"(i64 %r14145, i64 %r14148)
-%r14213 = ptrtoint [7 x i8]* @r14212 to i64
-%r14211 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14213, i64 6)
-%r14218 = ptrtoint [4 x i8]* @r14217 to i64
-%r14216 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14218, i64 3)
-%r14222 = ptrtoint [4 x i8]* @r14221 to i64
-%r14220 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14222, i64 3)
-%r14226 = ptrtoint [3 x i8]* @r14225 to i64
-%r14224 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14226, i64 2)
-%r14227 = tail call fastcc i64 @"fun-make-null"()
-%r14223 = tail call fastcc i64 @"fun-cons"(i64 %r14224, i64 %r14227)
-%r14219 = tail call fastcc i64 @"fun-cons"(i64 %r14220, i64 %r14223)
-%r14215 = tail call fastcc i64 @"fun-cons"(i64 %r14216, i64 %r14219)
-%r14232 = ptrtoint [5 x i8]* @r14231 to i64
-%r14230 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14232, i64 4)
-%r14238 = ptrtoint [6 x i8]* @r14237 to i64
-%r14236 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14238, i64 5)
-%r14242 = ptrtoint [4 x i8]* @r14241 to i64
-%r14240 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14242, i64 3)
+%r14182 = ptrtoint [6 x i8]* @r14181 to i64
+%r14180 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14182, i64 5)
+%r14184 = tail call fastcc i64 @"fun-make-null"()
+%r14185 = tail call fastcc i64 @"fun-make-null"()
+%r14183 = tail call fastcc i64 @"fun-cons"(i64 %r14184, i64 %r14185)
+%r14179 = tail call fastcc i64 @"fun-cons"(i64 %r14180, i64 %r14183)
+%r14186 = tail call fastcc i64 @"fun-make-null"()
+%r14178 = tail call fastcc i64 @"fun-cons"(i64 %r14179, i64 %r14186)
+%r14168 = tail call fastcc i64 @"fun-cons"(i64 %r14169, i64 %r14178)
+%r14192 = ptrtoint [2 x i8]* @r14191 to i64
+%r14190 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14192, i64 1)
+%r14196 = ptrtoint [3 x i8]* @r14195 to i64
+%r14194 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14196, i64 2)
+%r14198 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r14199 = tail call fastcc i64 @"fun-make-null"()
+%r14197 = tail call fastcc i64 @"fun-cons"(i64 %r14198, i64 %r14199)
+%r14193 = tail call fastcc i64 @"fun-cons"(i64 %r14194, i64 %r14197)
+%r14189 = tail call fastcc i64 @"fun-cons"(i64 %r14190, i64 %r14193)
+%r14204 = ptrtoint [4 x i8]* @r14203 to i64
+%r14202 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14204, i64 3)
+%r14208 = ptrtoint [4 x i8]* @r14207 to i64
+%r14206 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14208, i64 3)
+%r14209 = tail call fastcc i64 @"fun-make-null"()
+%r14205 = tail call fastcc i64 @"fun-cons"(i64 %r14206, i64 %r14209)
+%r14201 = tail call fastcc i64 @"fun-cons"(i64 %r14202, i64 %r14205)
+%r14210 = tail call fastcc i64 @"fun-make-null"()
+%r14200 = tail call fastcc i64 @"fun-cons"(i64 %r14201, i64 %r14210)
+%r14188 = tail call fastcc i64 @"fun-cons"(i64 %r14189, i64 %r14200)
+%r14215 = ptrtoint [5 x i8]* @r14214 to i64
+%r14213 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14215, i64 4)
+%r14220 = ptrtoint [4 x i8]* @r14219 to i64
+%r14218 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14220, i64 3)
+%r14225 = ptrtoint [4 x i8]* @r14224 to i64
+%r14223 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14225, i64 3)
+%r14229 = ptrtoint [4 x i8]* @r14228 to i64
+%r14227 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14229, i64 3)
+%r14230 = tail call fastcc i64 @"fun-make-null"()
+%r14226 = tail call fastcc i64 @"fun-cons"(i64 %r14227, i64 %r14230)
+%r14222 = tail call fastcc i64 @"fun-cons"(i64 %r14223, i64 %r14226)
+%r14235 = ptrtoint [2 x i8]* @r14234 to i64
+%r14233 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14235, i64 1)
+%r14239 = ptrtoint [3 x i8]* @r14238 to i64
+%r14237 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14239, i64 2)
+%r14241 = tail call fastcc i64 @"fun-make-number"(i64 1)
+%r14242 = tail call fastcc i64 @"fun-make-null"()
+%r14240 = tail call fastcc i64 @"fun-cons"(i64 %r14241, i64 %r14242)
+%r14236 = tail call fastcc i64 @"fun-cons"(i64 %r14237, i64 %r14240)
+%r14232 = tail call fastcc i64 @"fun-cons"(i64 %r14233, i64 %r14236)
 %r14243 = tail call fastcc i64 @"fun-make-null"()
-%r14239 = tail call fastcc i64 @"fun-cons"(i64 %r14240, i64 %r14243)
-%r14235 = tail call fastcc i64 @"fun-cons"(i64 %r14236, i64 %r14239)
-%r14248 = ptrtoint [6 x i8]* @r14247 to i64
-%r14246 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14248, i64 5)
-%r14250 = tail call fastcc i64 @"fun-make-null"()
-%r14251 = tail call fastcc i64 @"fun-make-null"()
-%r14249 = tail call fastcc i64 @"fun-cons"(i64 %r14250, i64 %r14251)
-%r14245 = tail call fastcc i64 @"fun-cons"(i64 %r14246, i64 %r14249)
-%r14252 = tail call fastcc i64 @"fun-make-null"()
-%r14244 = tail call fastcc i64 @"fun-cons"(i64 %r14245, i64 %r14252)
-%r14234 = tail call fastcc i64 @"fun-cons"(i64 %r14235, i64 %r14244)
-%r14258 = ptrtoint [2 x i8]* @r14257 to i64
-%r14256 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14258, i64 1)
-%r14262 = ptrtoint [3 x i8]* @r14261 to i64
-%r14260 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14262, i64 2)
-%r14264 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r14231 = tail call fastcc i64 @"fun-cons"(i64 %r14232, i64 %r14243)
+%r14221 = tail call fastcc i64 @"fun-cons"(i64 %r14222, i64 %r14231)
+%r14217 = tail call fastcc i64 @"fun-cons"(i64 %r14218, i64 %r14221)
+%r14244 = tail call fastcc i64 @"fun-make-null"()
+%r14216 = tail call fastcc i64 @"fun-cons"(i64 %r14217, i64 %r14244)
+%r14212 = tail call fastcc i64 @"fun-cons"(i64 %r14213, i64 %r14216)
+%r14245 = tail call fastcc i64 @"fun-make-null"()
+%r14211 = tail call fastcc i64 @"fun-cons"(i64 %r14212, i64 %r14245)
+%r14187 = tail call fastcc i64 @"fun-cons"(i64 %r14188, i64 %r14211)
+%r14167 = tail call fastcc i64 @"fun-cons"(i64 %r14168, i64 %r14187)
+%r14163 = tail call fastcc i64 @"fun-cons"(i64 %r14164, i64 %r14167)
+%r14246 = tail call fastcc i64 @"fun-make-null"()
+%r14162 = tail call fastcc i64 @"fun-cons"(i64 %r14163, i64 %r14246)
+%r14148 = tail call fastcc i64 @"fun-cons"(i64 %r14149, i64 %r14162)
+%r14144 = tail call fastcc i64 @"fun-cons"(i64 %r14145, i64 %r14148)
+%r14251 = ptrtoint [7 x i8]* @r14250 to i64
+%r14249 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14251, i64 6)
+%r14256 = ptrtoint [4 x i8]* @r14255 to i64
+%r14254 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14256, i64 3)
+%r14260 = ptrtoint [3 x i8]* @r14259 to i64
+%r14258 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14260, i64 2)
+%r14264 = ptrtoint [4 x i8]* @r14263 to i64
+%r14262 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14264, i64 3)
 %r14265 = tail call fastcc i64 @"fun-make-null"()
-%r14263 = tail call fastcc i64 @"fun-cons"(i64 %r14264, i64 %r14265)
-%r14259 = tail call fastcc i64 @"fun-cons"(i64 %r14260, i64 %r14263)
-%r14255 = tail call fastcc i64 @"fun-cons"(i64 %r14256, i64 %r14259)
-%r14270 = ptrtoint [4 x i8]* @r14269 to i64
-%r14268 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14270, i64 3)
-%r14274 = ptrtoint [4 x i8]* @r14273 to i64
-%r14272 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14274, i64 3)
-%r14275 = tail call fastcc i64 @"fun-make-null"()
-%r14271 = tail call fastcc i64 @"fun-cons"(i64 %r14272, i64 %r14275)
-%r14267 = tail call fastcc i64 @"fun-cons"(i64 %r14268, i64 %r14271)
-%r14276 = tail call fastcc i64 @"fun-make-null"()
-%r14266 = tail call fastcc i64 @"fun-cons"(i64 %r14267, i64 %r14276)
-%r14254 = tail call fastcc i64 @"fun-cons"(i64 %r14255, i64 %r14266)
-%r14281 = ptrtoint [5 x i8]* @r14280 to i64
-%r14279 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14281, i64 4)
-%r14286 = ptrtoint [4 x i8]* @r14285 to i64
-%r14284 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14286, i64 3)
-%r14291 = ptrtoint [4 x i8]* @r14290 to i64
-%r14289 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14291, i64 3)
-%r14295 = ptrtoint [4 x i8]* @r14294 to i64
-%r14293 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14295, i64 3)
-%r14296 = tail call fastcc i64 @"fun-make-null"()
-%r14292 = tail call fastcc i64 @"fun-cons"(i64 %r14293, i64 %r14296)
-%r14288 = tail call fastcc i64 @"fun-cons"(i64 %r14289, i64 %r14292)
-%r14301 = ptrtoint [2 x i8]* @r14300 to i64
-%r14299 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14301, i64 1)
+%r14261 = tail call fastcc i64 @"fun-cons"(i64 %r14262, i64 %r14265)
+%r14257 = tail call fastcc i64 @"fun-cons"(i64 %r14258, i64 %r14261)
+%r14253 = tail call fastcc i64 @"fun-cons"(i64 %r14254, i64 %r14257)
+%r14270 = ptrtoint [5 x i8]* @r14269 to i64
+%r14268 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14270, i64 4)
+%r14276 = ptrtoint [6 x i8]* @r14275 to i64
+%r14274 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14276, i64 5)
+%r14280 = ptrtoint [4 x i8]* @r14279 to i64
+%r14278 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14280, i64 3)
+%r14281 = tail call fastcc i64 @"fun-make-null"()
+%r14277 = tail call fastcc i64 @"fun-cons"(i64 %r14278, i64 %r14281)
+%r14273 = tail call fastcc i64 @"fun-cons"(i64 %r14274, i64 %r14277)
+%r14286 = ptrtoint [6 x i8]* @r14285 to i64
+%r14284 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14286, i64 5)
+%r14288 = tail call fastcc i64 @"fun-make-null"()
+%r14289 = tail call fastcc i64 @"fun-make-null"()
+%r14287 = tail call fastcc i64 @"fun-cons"(i64 %r14288, i64 %r14289)
+%r14283 = tail call fastcc i64 @"fun-cons"(i64 %r14284, i64 %r14287)
+%r14290 = tail call fastcc i64 @"fun-make-null"()
+%r14282 = tail call fastcc i64 @"fun-cons"(i64 %r14283, i64 %r14290)
+%r14272 = tail call fastcc i64 @"fun-cons"(i64 %r14273, i64 %r14282)
+%r14295 = ptrtoint [5 x i8]* @r14294 to i64
+%r14293 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14295, i64 4)
+%r14300 = ptrtoint [5 x i8]* @r14299 to i64
+%r14298 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14300, i64 4)
 %r14305 = ptrtoint [3 x i8]* @r14304 to i64
 %r14303 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14305, i64 2)
-%r14307 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r14308 = tail call fastcc i64 @"fun-make-null"()
-%r14306 = tail call fastcc i64 @"fun-cons"(i64 %r14307, i64 %r14308)
+%r14310 = ptrtoint [4 x i8]* @r14309 to i64
+%r14308 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14310, i64 3)
+%r14314 = ptrtoint [4 x i8]* @r14313 to i64
+%r14312 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14314, i64 3)
+%r14315 = tail call fastcc i64 @"fun-make-null"()
+%r14311 = tail call fastcc i64 @"fun-cons"(i64 %r14312, i64 %r14315)
+%r14307 = tail call fastcc i64 @"fun-cons"(i64 %r14308, i64 %r14311)
+%r14316 = tail call fastcc i64 @"fun-make-null"()
+%r14306 = tail call fastcc i64 @"fun-cons"(i64 %r14307, i64 %r14316)
 %r14302 = tail call fastcc i64 @"fun-cons"(i64 %r14303, i64 %r14306)
-%r14298 = tail call fastcc i64 @"fun-cons"(i64 %r14299, i64 %r14302)
-%r14309 = tail call fastcc i64 @"fun-make-null"()
-%r14297 = tail call fastcc i64 @"fun-cons"(i64 %r14298, i64 %r14309)
-%r14287 = tail call fastcc i64 @"fun-cons"(i64 %r14288, i64 %r14297)
-%r14283 = tail call fastcc i64 @"fun-cons"(i64 %r14284, i64 %r14287)
-%r14310 = tail call fastcc i64 @"fun-make-null"()
-%r14282 = tail call fastcc i64 @"fun-cons"(i64 %r14283, i64 %r14310)
-%r14278 = tail call fastcc i64 @"fun-cons"(i64 %r14279, i64 %r14282)
-%r14311 = tail call fastcc i64 @"fun-make-null"()
-%r14277 = tail call fastcc i64 @"fun-cons"(i64 %r14278, i64 %r14311)
-%r14253 = tail call fastcc i64 @"fun-cons"(i64 %r14254, i64 %r14277)
-%r14233 = tail call fastcc i64 @"fun-cons"(i64 %r14234, i64 %r14253)
-%r14229 = tail call fastcc i64 @"fun-cons"(i64 %r14230, i64 %r14233)
-%r14312 = tail call fastcc i64 @"fun-make-null"()
-%r14228 = tail call fastcc i64 @"fun-cons"(i64 %r14229, i64 %r14312)
-%r14214 = tail call fastcc i64 @"fun-cons"(i64 %r14215, i64 %r14228)
-%r14210 = tail call fastcc i64 @"fun-cons"(i64 %r14211, i64 %r14214)
-%r14317 = ptrtoint [7 x i8]* @r14316 to i64
-%r14315 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14317, i64 6)
-%r14322 = ptrtoint [4 x i8]* @r14321 to i64
-%r14320 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14322, i64 3)
-%r14326 = ptrtoint [3 x i8]* @r14325 to i64
-%r14324 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14326, i64 2)
+%r14321 = ptrtoint [4 x i8]* @r14320 to i64
+%r14319 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14321, i64 3)
+%r14325 = ptrtoint [3 x i8]* @r14324 to i64
+%r14323 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14325, i64 2)
 %r14330 = ptrtoint [4 x i8]* @r14329 to i64
 %r14328 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14330, i64 3)
-%r14331 = tail call fastcc i64 @"fun-make-null"()
+%r14334 = ptrtoint [4 x i8]* @r14333 to i64
+%r14332 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14334, i64 3)
+%r14335 = tail call fastcc i64 @"fun-make-null"()
+%r14331 = tail call fastcc i64 @"fun-cons"(i64 %r14332, i64 %r14335)
 %r14327 = tail call fastcc i64 @"fun-cons"(i64 %r14328, i64 %r14331)
-%r14323 = tail call fastcc i64 @"fun-cons"(i64 %r14324, i64 %r14327)
-%r14319 = tail call fastcc i64 @"fun-cons"(i64 %r14320, i64 %r14323)
-%r14336 = ptrtoint [5 x i8]* @r14335 to i64
-%r14334 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14336, i64 4)
-%r14342 = ptrtoint [6 x i8]* @r14341 to i64
-%r14340 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14342, i64 5)
-%r14346 = ptrtoint [4 x i8]* @r14345 to i64
-%r14344 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14346, i64 3)
-%r14347 = tail call fastcc i64 @"fun-make-null"()
-%r14343 = tail call fastcc i64 @"fun-cons"(i64 %r14344, i64 %r14347)
-%r14339 = tail call fastcc i64 @"fun-cons"(i64 %r14340, i64 %r14343)
-%r14352 = ptrtoint [6 x i8]* @r14351 to i64
-%r14350 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14352, i64 5)
-%r14354 = tail call fastcc i64 @"fun-make-null"()
-%r14355 = tail call fastcc i64 @"fun-make-null"()
-%r14353 = tail call fastcc i64 @"fun-cons"(i64 %r14354, i64 %r14355)
-%r14349 = tail call fastcc i64 @"fun-cons"(i64 %r14350, i64 %r14353)
-%r14356 = tail call fastcc i64 @"fun-make-null"()
-%r14348 = tail call fastcc i64 @"fun-cons"(i64 %r14349, i64 %r14356)
-%r14338 = tail call fastcc i64 @"fun-cons"(i64 %r14339, i64 %r14348)
-%r14361 = ptrtoint [5 x i8]* @r14360 to i64
-%r14359 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14361, i64 4)
-%r14366 = ptrtoint [5 x i8]* @r14365 to i64
-%r14364 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14366, i64 4)
-%r14371 = ptrtoint [3 x i8]* @r14370 to i64
-%r14369 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14371, i64 2)
-%r14376 = ptrtoint [4 x i8]* @r14375 to i64
-%r14374 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14376, i64 3)
-%r14380 = ptrtoint [4 x i8]* @r14379 to i64
-%r14378 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14380, i64 3)
-%r14381 = tail call fastcc i64 @"fun-make-null"()
-%r14377 = tail call fastcc i64 @"fun-cons"(i64 %r14378, i64 %r14381)
-%r14373 = tail call fastcc i64 @"fun-cons"(i64 %r14374, i64 %r14377)
-%r14382 = tail call fastcc i64 @"fun-make-null"()
-%r14372 = tail call fastcc i64 @"fun-cons"(i64 %r14373, i64 %r14382)
-%r14368 = tail call fastcc i64 @"fun-cons"(i64 %r14369, i64 %r14372)
-%r14387 = ptrtoint [4 x i8]* @r14386 to i64
-%r14385 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14387, i64 3)
-%r14391 = ptrtoint [3 x i8]* @r14390 to i64
-%r14389 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14391, i64 2)
-%r14396 = ptrtoint [4 x i8]* @r14395 to i64
-%r14394 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14396, i64 3)
-%r14400 = ptrtoint [4 x i8]* @r14399 to i64
-%r14398 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14400, i64 3)
-%r14401 = tail call fastcc i64 @"fun-make-null"()
-%r14397 = tail call fastcc i64 @"fun-cons"(i64 %r14398, i64 %r14401)
-%r14393 = tail call fastcc i64 @"fun-cons"(i64 %r14394, i64 %r14397)
-%r14402 = tail call fastcc i64 @"fun-make-null"()
-%r14392 = tail call fastcc i64 @"fun-cons"(i64 %r14393, i64 %r14402)
-%r14388 = tail call fastcc i64 @"fun-cons"(i64 %r14389, i64 %r14392)
-%r14384 = tail call fastcc i64 @"fun-cons"(i64 %r14385, i64 %r14388)
-%r14403 = tail call fastcc i64 @"fun-make-null"()
-%r14383 = tail call fastcc i64 @"fun-cons"(i64 %r14384, i64 %r14403)
-%r14367 = tail call fastcc i64 @"fun-cons"(i64 %r14368, i64 %r14383)
-%r14363 = tail call fastcc i64 @"fun-cons"(i64 %r14364, i64 %r14367)
-%r14404 = tail call fastcc i64 @"fun-make-null"()
-%r14362 = tail call fastcc i64 @"fun-cons"(i64 %r14363, i64 %r14404)
-%r14358 = tail call fastcc i64 @"fun-cons"(i64 %r14359, i64 %r14362)
-%r14405 = tail call fastcc i64 @"fun-make-null"()
-%r14357 = tail call fastcc i64 @"fun-cons"(i64 %r14358, i64 %r14405)
-%r14337 = tail call fastcc i64 @"fun-cons"(i64 %r14338, i64 %r14357)
-%r14333 = tail call fastcc i64 @"fun-cons"(i64 %r14334, i64 %r14337)
-%r14406 = tail call fastcc i64 @"fun-make-null"()
-%r14332 = tail call fastcc i64 @"fun-cons"(i64 %r14333, i64 %r14406)
-%r14318 = tail call fastcc i64 @"fun-cons"(i64 %r14319, i64 %r14332)
-%r14314 = tail call fastcc i64 @"fun-cons"(i64 %r14315, i64 %r14318)
-%r14411 = ptrtoint [7 x i8]* @r14410 to i64
-%r14409 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14411, i64 6)
-%r14416 = ptrtoint [7 x i8]* @r14415 to i64
-%r14414 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14416, i64 6)
-%r14420 = ptrtoint [3 x i8]* @r14419 to i64
-%r14418 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14420, i64 2)
-%r14424 = ptrtoint [3 x i8]* @r14423 to i64
-%r14422 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14424, i64 2)
-%r14425 = tail call fastcc i64 @"fun-make-null"()
-%r14421 = tail call fastcc i64 @"fun-cons"(i64 %r14422, i64 %r14425)
-%r14417 = tail call fastcc i64 @"fun-cons"(i64 %r14418, i64 %r14421)
-%r14413 = tail call fastcc i64 @"fun-cons"(i64 %r14414, i64 %r14417)
-%r14430 = ptrtoint [5 x i8]* @r14429 to i64
-%r14428 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14430, i64 4)
-%r14436 = ptrtoint [6 x i8]* @r14435 to i64
-%r14434 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14436, i64 5)
-%r14440 = ptrtoint [3 x i8]* @r14439 to i64
-%r14438 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14440, i64 2)
-%r14441 = tail call fastcc i64 @"fun-make-null"()
-%r14437 = tail call fastcc i64 @"fun-cons"(i64 %r14438, i64 %r14441)
-%r14433 = tail call fastcc i64 @"fun-cons"(i64 %r14434, i64 %r14437)
-%r14445 = ptrtoint [3 x i8]* @r14444 to i64
-%r14443 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14445, i64 2)
-%r14446 = tail call fastcc i64 @"fun-make-null"()
-%r14442 = tail call fastcc i64 @"fun-cons"(i64 %r14443, i64 %r14446)
-%r14432 = tail call fastcc i64 @"fun-cons"(i64 %r14433, i64 %r14442)
-%r14451 = ptrtoint [5 x i8]* @r14450 to i64
-%r14449 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14451, i64 4)
-%r14456 = ptrtoint [5 x i8]* @r14455 to i64
-%r14454 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14456, i64 4)
-%r14461 = ptrtoint [4 x i8]* @r14460 to i64
-%r14459 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14461, i64 3)
-%r14465 = ptrtoint [3 x i8]* @r14464 to i64
-%r14463 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14465, i64 2)
-%r14466 = tail call fastcc i64 @"fun-make-null"()
-%r14462 = tail call fastcc i64 @"fun-cons"(i64 %r14463, i64 %r14466)
-%r14458 = tail call fastcc i64 @"fun-cons"(i64 %r14459, i64 %r14462)
-%r14471 = ptrtoint [7 x i8]* @r14470 to i64
-%r14469 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14471, i64 6)
-%r14476 = ptrtoint [4 x i8]* @r14475 to i64
-%r14474 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14476, i64 3)
-%r14480 = ptrtoint [3 x i8]* @r14479 to i64
-%r14478 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14480, i64 2)
-%r14481 = tail call fastcc i64 @"fun-make-null"()
-%r14477 = tail call fastcc i64 @"fun-cons"(i64 %r14478, i64 %r14481)
-%r14473 = tail call fastcc i64 @"fun-cons"(i64 %r14474, i64 %r14477)
-%r14485 = ptrtoint [3 x i8]* @r14484 to i64
-%r14483 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14485, i64 2)
-%r14486 = tail call fastcc i64 @"fun-make-null"()
-%r14482 = tail call fastcc i64 @"fun-cons"(i64 %r14483, i64 %r14486)
-%r14472 = tail call fastcc i64 @"fun-cons"(i64 %r14473, i64 %r14482)
-%r14468 = tail call fastcc i64 @"fun-cons"(i64 %r14469, i64 %r14472)
-%r14487 = tail call fastcc i64 @"fun-make-null"()
-%r14467 = tail call fastcc i64 @"fun-cons"(i64 %r14468, i64 %r14487)
-%r14457 = tail call fastcc i64 @"fun-cons"(i64 %r14458, i64 %r14467)
-%r14453 = tail call fastcc i64 @"fun-cons"(i64 %r14454, i64 %r14457)
-%r14488 = tail call fastcc i64 @"fun-make-null"()
-%r14452 = tail call fastcc i64 @"fun-cons"(i64 %r14453, i64 %r14488)
-%r14448 = tail call fastcc i64 @"fun-cons"(i64 %r14449, i64 %r14452)
-%r14489 = tail call fastcc i64 @"fun-make-null"()
-%r14447 = tail call fastcc i64 @"fun-cons"(i64 %r14448, i64 %r14489)
-%r14431 = tail call fastcc i64 @"fun-cons"(i64 %r14432, i64 %r14447)
-%r14427 = tail call fastcc i64 @"fun-cons"(i64 %r14428, i64 %r14431)
-%r14490 = tail call fastcc i64 @"fun-make-null"()
-%r14426 = tail call fastcc i64 @"fun-cons"(i64 %r14427, i64 %r14490)
-%r14412 = tail call fastcc i64 @"fun-cons"(i64 %r14413, i64 %r14426)
-%r14408 = tail call fastcc i64 @"fun-cons"(i64 %r14409, i64 %r14412)
-%r14495 = ptrtoint [7 x i8]* @r14494 to i64
-%r14493 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14495, i64 6)
-%r14500 = ptrtoint [8 x i8]* @r14499 to i64
-%r14498 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14500, i64 7)
-%r14504 = ptrtoint [4 x i8]* @r14503 to i64
-%r14502 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14504, i64 3)
-%r14505 = tail call fastcc i64 @"fun-make-null"()
-%r14501 = tail call fastcc i64 @"fun-cons"(i64 %r14502, i64 %r14505)
-%r14497 = tail call fastcc i64 @"fun-cons"(i64 %r14498, i64 %r14501)
-%r14510 = ptrtoint [3 x i8]* @r14509 to i64
-%r14508 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14510, i64 2)
-%r14515 = ptrtoint [6 x i8]* @r14514 to i64
-%r14513 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14515, i64 5)
-%r14519 = ptrtoint [4 x i8]* @r14518 to i64
-%r14517 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14519, i64 3)
-%r14520 = tail call fastcc i64 @"fun-make-null"()
-%r14516 = tail call fastcc i64 @"fun-cons"(i64 %r14517, i64 %r14520)
-%r14512 = tail call fastcc i64 @"fun-cons"(i64 %r14513, i64 %r14516)
-%r14524 = ptrtoint [4 x i8]* @r14523 to i64
-%r14522 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14524, i64 3)
-%r14529 = ptrtoint [7 x i8]* @r14528 to i64
-%r14527 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14529, i64 6)
-%r14534 = ptrtoint [8 x i8]* @r14533 to i64
-%r14532 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14534, i64 7)
-%r14539 = ptrtoint [4 x i8]* @r14538 to i64
-%r14537 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14539, i64 3)
-%r14543 = ptrtoint [4 x i8]* @r14542 to i64
-%r14541 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14543, i64 3)
-%r14544 = tail call fastcc i64 @"fun-make-null"()
-%r14540 = tail call fastcc i64 @"fun-cons"(i64 %r14541, i64 %r14544)
-%r14536 = tail call fastcc i64 @"fun-cons"(i64 %r14537, i64 %r14540)
-%r14545 = tail call fastcc i64 @"fun-make-null"()
-%r14535 = tail call fastcc i64 @"fun-cons"(i64 %r14536, i64 %r14545)
-%r14531 = tail call fastcc i64 @"fun-cons"(i64 %r14532, i64 %r14535)
-%r14550 = ptrtoint [5 x i8]* @r14549 to i64
-%r14548 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14550, i64 4)
-%r14555 = ptrtoint [4 x i8]* @r14554 to i64
-%r14553 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14555, i64 3)
-%r14559 = ptrtoint [4 x i8]* @r14558 to i64
-%r14557 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14559, i64 3)
-%r14560 = tail call fastcc i64 @"fun-make-null"()
+%r14336 = tail call fastcc i64 @"fun-make-null"()
+%r14326 = tail call fastcc i64 @"fun-cons"(i64 %r14327, i64 %r14336)
+%r14322 = tail call fastcc i64 @"fun-cons"(i64 %r14323, i64 %r14326)
+%r14318 = tail call fastcc i64 @"fun-cons"(i64 %r14319, i64 %r14322)
+%r14337 = tail call fastcc i64 @"fun-make-null"()
+%r14317 = tail call fastcc i64 @"fun-cons"(i64 %r14318, i64 %r14337)
+%r14301 = tail call fastcc i64 @"fun-cons"(i64 %r14302, i64 %r14317)
+%r14297 = tail call fastcc i64 @"fun-cons"(i64 %r14298, i64 %r14301)
+%r14338 = tail call fastcc i64 @"fun-make-null"()
+%r14296 = tail call fastcc i64 @"fun-cons"(i64 %r14297, i64 %r14338)
+%r14292 = tail call fastcc i64 @"fun-cons"(i64 %r14293, i64 %r14296)
+%r14339 = tail call fastcc i64 @"fun-make-null"()
+%r14291 = tail call fastcc i64 @"fun-cons"(i64 %r14292, i64 %r14339)
+%r14271 = tail call fastcc i64 @"fun-cons"(i64 %r14272, i64 %r14291)
+%r14267 = tail call fastcc i64 @"fun-cons"(i64 %r14268, i64 %r14271)
+%r14340 = tail call fastcc i64 @"fun-make-null"()
+%r14266 = tail call fastcc i64 @"fun-cons"(i64 %r14267, i64 %r14340)
+%r14252 = tail call fastcc i64 @"fun-cons"(i64 %r14253, i64 %r14266)
+%r14248 = tail call fastcc i64 @"fun-cons"(i64 %r14249, i64 %r14252)
+%r14345 = ptrtoint [7 x i8]* @r14344 to i64
+%r14343 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14345, i64 6)
+%r14350 = ptrtoint [7 x i8]* @r14349 to i64
+%r14348 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14350, i64 6)
+%r14354 = ptrtoint [3 x i8]* @r14353 to i64
+%r14352 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14354, i64 2)
+%r14358 = ptrtoint [3 x i8]* @r14357 to i64
+%r14356 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14358, i64 2)
+%r14359 = tail call fastcc i64 @"fun-make-null"()
+%r14355 = tail call fastcc i64 @"fun-cons"(i64 %r14356, i64 %r14359)
+%r14351 = tail call fastcc i64 @"fun-cons"(i64 %r14352, i64 %r14355)
+%r14347 = tail call fastcc i64 @"fun-cons"(i64 %r14348, i64 %r14351)
+%r14364 = ptrtoint [5 x i8]* @r14363 to i64
+%r14362 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14364, i64 4)
+%r14370 = ptrtoint [6 x i8]* @r14369 to i64
+%r14368 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14370, i64 5)
+%r14374 = ptrtoint [3 x i8]* @r14373 to i64
+%r14372 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14374, i64 2)
+%r14375 = tail call fastcc i64 @"fun-make-null"()
+%r14371 = tail call fastcc i64 @"fun-cons"(i64 %r14372, i64 %r14375)
+%r14367 = tail call fastcc i64 @"fun-cons"(i64 %r14368, i64 %r14371)
+%r14379 = ptrtoint [3 x i8]* @r14378 to i64
+%r14377 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14379, i64 2)
+%r14380 = tail call fastcc i64 @"fun-make-null"()
+%r14376 = tail call fastcc i64 @"fun-cons"(i64 %r14377, i64 %r14380)
+%r14366 = tail call fastcc i64 @"fun-cons"(i64 %r14367, i64 %r14376)
+%r14385 = ptrtoint [5 x i8]* @r14384 to i64
+%r14383 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14385, i64 4)
+%r14390 = ptrtoint [5 x i8]* @r14389 to i64
+%r14388 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14390, i64 4)
+%r14395 = ptrtoint [4 x i8]* @r14394 to i64
+%r14393 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14395, i64 3)
+%r14399 = ptrtoint [3 x i8]* @r14398 to i64
+%r14397 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14399, i64 2)
+%r14400 = tail call fastcc i64 @"fun-make-null"()
+%r14396 = tail call fastcc i64 @"fun-cons"(i64 %r14397, i64 %r14400)
+%r14392 = tail call fastcc i64 @"fun-cons"(i64 %r14393, i64 %r14396)
+%r14405 = ptrtoint [7 x i8]* @r14404 to i64
+%r14403 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14405, i64 6)
+%r14410 = ptrtoint [4 x i8]* @r14409 to i64
+%r14408 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14410, i64 3)
+%r14414 = ptrtoint [3 x i8]* @r14413 to i64
+%r14412 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14414, i64 2)
+%r14415 = tail call fastcc i64 @"fun-make-null"()
+%r14411 = tail call fastcc i64 @"fun-cons"(i64 %r14412, i64 %r14415)
+%r14407 = tail call fastcc i64 @"fun-cons"(i64 %r14408, i64 %r14411)
+%r14419 = ptrtoint [3 x i8]* @r14418 to i64
+%r14417 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14419, i64 2)
+%r14420 = tail call fastcc i64 @"fun-make-null"()
+%r14416 = tail call fastcc i64 @"fun-cons"(i64 %r14417, i64 %r14420)
+%r14406 = tail call fastcc i64 @"fun-cons"(i64 %r14407, i64 %r14416)
+%r14402 = tail call fastcc i64 @"fun-cons"(i64 %r14403, i64 %r14406)
+%r14421 = tail call fastcc i64 @"fun-make-null"()
+%r14401 = tail call fastcc i64 @"fun-cons"(i64 %r14402, i64 %r14421)
+%r14391 = tail call fastcc i64 @"fun-cons"(i64 %r14392, i64 %r14401)
+%r14387 = tail call fastcc i64 @"fun-cons"(i64 %r14388, i64 %r14391)
+%r14422 = tail call fastcc i64 @"fun-make-null"()
+%r14386 = tail call fastcc i64 @"fun-cons"(i64 %r14387, i64 %r14422)
+%r14382 = tail call fastcc i64 @"fun-cons"(i64 %r14383, i64 %r14386)
+%r14423 = tail call fastcc i64 @"fun-make-null"()
+%r14381 = tail call fastcc i64 @"fun-cons"(i64 %r14382, i64 %r14423)
+%r14365 = tail call fastcc i64 @"fun-cons"(i64 %r14366, i64 %r14381)
+%r14361 = tail call fastcc i64 @"fun-cons"(i64 %r14362, i64 %r14365)
+%r14424 = tail call fastcc i64 @"fun-make-null"()
+%r14360 = tail call fastcc i64 @"fun-cons"(i64 %r14361, i64 %r14424)
+%r14346 = tail call fastcc i64 @"fun-cons"(i64 %r14347, i64 %r14360)
+%r14342 = tail call fastcc i64 @"fun-cons"(i64 %r14343, i64 %r14346)
+%r14429 = ptrtoint [7 x i8]* @r14428 to i64
+%r14427 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14429, i64 6)
+%r14434 = ptrtoint [8 x i8]* @r14433 to i64
+%r14432 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14434, i64 7)
+%r14438 = ptrtoint [4 x i8]* @r14437 to i64
+%r14436 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14438, i64 3)
+%r14439 = tail call fastcc i64 @"fun-make-null"()
+%r14435 = tail call fastcc i64 @"fun-cons"(i64 %r14436, i64 %r14439)
+%r14431 = tail call fastcc i64 @"fun-cons"(i64 %r14432, i64 %r14435)
+%r14444 = ptrtoint [3 x i8]* @r14443 to i64
+%r14442 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14444, i64 2)
+%r14449 = ptrtoint [6 x i8]* @r14448 to i64
+%r14447 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14449, i64 5)
+%r14453 = ptrtoint [4 x i8]* @r14452 to i64
+%r14451 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14453, i64 3)
+%r14454 = tail call fastcc i64 @"fun-make-null"()
+%r14450 = tail call fastcc i64 @"fun-cons"(i64 %r14451, i64 %r14454)
+%r14446 = tail call fastcc i64 @"fun-cons"(i64 %r14447, i64 %r14450)
+%r14458 = ptrtoint [4 x i8]* @r14457 to i64
+%r14456 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14458, i64 3)
+%r14463 = ptrtoint [7 x i8]* @r14462 to i64
+%r14461 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14463, i64 6)
+%r14468 = ptrtoint [8 x i8]* @r14467 to i64
+%r14466 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14468, i64 7)
+%r14473 = ptrtoint [4 x i8]* @r14472 to i64
+%r14471 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14473, i64 3)
+%r14477 = ptrtoint [4 x i8]* @r14476 to i64
+%r14475 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14477, i64 3)
+%r14478 = tail call fastcc i64 @"fun-make-null"()
+%r14474 = tail call fastcc i64 @"fun-cons"(i64 %r14475, i64 %r14478)
+%r14470 = tail call fastcc i64 @"fun-cons"(i64 %r14471, i64 %r14474)
+%r14479 = tail call fastcc i64 @"fun-make-null"()
+%r14469 = tail call fastcc i64 @"fun-cons"(i64 %r14470, i64 %r14479)
+%r14465 = tail call fastcc i64 @"fun-cons"(i64 %r14466, i64 %r14469)
+%r14484 = ptrtoint [5 x i8]* @r14483 to i64
+%r14482 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14484, i64 4)
+%r14489 = ptrtoint [4 x i8]* @r14488 to i64
+%r14487 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14489, i64 3)
+%r14493 = ptrtoint [4 x i8]* @r14492 to i64
+%r14491 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14493, i64 3)
+%r14494 = tail call fastcc i64 @"fun-make-null"()
+%r14490 = tail call fastcc i64 @"fun-cons"(i64 %r14491, i64 %r14494)
+%r14486 = tail call fastcc i64 @"fun-cons"(i64 %r14487, i64 %r14490)
+%r14495 = tail call fastcc i64 @"fun-make-null"()
+%r14485 = tail call fastcc i64 @"fun-cons"(i64 %r14486, i64 %r14495)
+%r14481 = tail call fastcc i64 @"fun-cons"(i64 %r14482, i64 %r14485)
+%r14496 = tail call fastcc i64 @"fun-make-null"()
+%r14480 = tail call fastcc i64 @"fun-cons"(i64 %r14481, i64 %r14496)
+%r14464 = tail call fastcc i64 @"fun-cons"(i64 %r14465, i64 %r14480)
+%r14460 = tail call fastcc i64 @"fun-cons"(i64 %r14461, i64 %r14464)
+%r14497 = tail call fastcc i64 @"fun-make-null"()
+%r14459 = tail call fastcc i64 @"fun-cons"(i64 %r14460, i64 %r14497)
+%r14455 = tail call fastcc i64 @"fun-cons"(i64 %r14456, i64 %r14459)
+%r14445 = tail call fastcc i64 @"fun-cons"(i64 %r14446, i64 %r14455)
+%r14441 = tail call fastcc i64 @"fun-cons"(i64 %r14442, i64 %r14445)
+%r14498 = tail call fastcc i64 @"fun-make-null"()
+%r14440 = tail call fastcc i64 @"fun-cons"(i64 %r14441, i64 %r14498)
+%r14430 = tail call fastcc i64 @"fun-cons"(i64 %r14431, i64 %r14440)
+%r14426 = tail call fastcc i64 @"fun-cons"(i64 %r14427, i64 %r14430)
+%r14503 = ptrtoint [7 x i8]* @r14502 to i64
+%r14501 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14503, i64 6)
+%r14508 = ptrtoint [15 x i8]* @r14507 to i64
+%r14506 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14508, i64 14)
+%r14512 = ptrtoint [2 x i8]* @r14511 to i64
+%r14510 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14512, i64 1)
+%r14513 = tail call fastcc i64 @"fun-make-null"()
+%r14509 = tail call fastcc i64 @"fun-cons"(i64 %r14510, i64 %r14513)
+%r14505 = tail call fastcc i64 @"fun-cons"(i64 %r14506, i64 %r14509)
+%r14518 = ptrtoint [7 x i8]* @r14517 to i64
+%r14516 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14518, i64 6)
+%r14523 = ptrtoint [8 x i8]* @r14522 to i64
+%r14521 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14523, i64 7)
+%r14527 = ptrtoint [2 x i8]* @r14526 to i64
+%r14525 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14527, i64 1)
+%r14531 = ptrtoint [4 x i8]* @r14530 to i64
+%r14529 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14531, i64 3)
+%r14532 = tail call fastcc i64 @"fun-make-null"()
+%r14528 = tail call fastcc i64 @"fun-cons"(i64 %r14529, i64 %r14532)
+%r14524 = tail call fastcc i64 @"fun-cons"(i64 %r14525, i64 %r14528)
+%r14520 = tail call fastcc i64 @"fun-cons"(i64 %r14521, i64 %r14524)
+%r14537 = ptrtoint [3 x i8]* @r14536 to i64
+%r14535 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14537, i64 2)
+%r14542 = ptrtoint [2 x i8]* @r14541 to i64
+%r14540 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14542, i64 1)
+%r14546 = ptrtoint [2 x i8]* @r14545 to i64
+%r14544 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14546, i64 1)
+%r14548 = tail call fastcc i64 @"fun-make-number"(i64 9)
+%r14549 = tail call fastcc i64 @"fun-make-null"()
+%r14547 = tail call fastcc i64 @"fun-cons"(i64 %r14548, i64 %r14549)
+%r14543 = tail call fastcc i64 @"fun-cons"(i64 %r14544, i64 %r14547)
+%r14539 = tail call fastcc i64 @"fun-cons"(i64 %r14540, i64 %r14543)
+%r14554 = ptrtoint [8 x i8]* @r14553 to i64
+%r14552 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14554, i64 7)
+%r14559 = ptrtoint [2 x i8]* @r14558 to i64
+%r14557 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14559, i64 1)
+%r14563 = ptrtoint [2 x i8]* @r14562 to i64
+%r14561 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14563, i64 1)
+%r14565 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r14566 = tail call fastcc i64 @"fun-make-null"()
+%r14564 = tail call fastcc i64 @"fun-cons"(i64 %r14565, i64 %r14566)
+%r14560 = tail call fastcc i64 @"fun-cons"(i64 %r14561, i64 %r14564)
 %r14556 = tail call fastcc i64 @"fun-cons"(i64 %r14557, i64 %r14560)
-%r14552 = tail call fastcc i64 @"fun-cons"(i64 %r14553, i64 %r14556)
-%r14561 = tail call fastcc i64 @"fun-make-null"()
-%r14551 = tail call fastcc i64 @"fun-cons"(i64 %r14552, i64 %r14561)
-%r14547 = tail call fastcc i64 @"fun-cons"(i64 %r14548, i64 %r14551)
-%r14562 = tail call fastcc i64 @"fun-make-null"()
-%r14546 = tail call fastcc i64 @"fun-cons"(i64 %r14547, i64 %r14562)
-%r14530 = tail call fastcc i64 @"fun-cons"(i64 %r14531, i64 %r14546)
-%r14526 = tail call fastcc i64 @"fun-cons"(i64 %r14527, i64 %r14530)
-%r14563 = tail call fastcc i64 @"fun-make-null"()
-%r14525 = tail call fastcc i64 @"fun-cons"(i64 %r14526, i64 %r14563)
-%r14521 = tail call fastcc i64 @"fun-cons"(i64 %r14522, i64 %r14525)
-%r14511 = tail call fastcc i64 @"fun-cons"(i64 %r14512, i64 %r14521)
-%r14507 = tail call fastcc i64 @"fun-cons"(i64 %r14508, i64 %r14511)
-%r14564 = tail call fastcc i64 @"fun-make-null"()
-%r14506 = tail call fastcc i64 @"fun-cons"(i64 %r14507, i64 %r14564)
-%r14496 = tail call fastcc i64 @"fun-cons"(i64 %r14497, i64 %r14506)
-%r14492 = tail call fastcc i64 @"fun-cons"(i64 %r14493, i64 %r14496)
-%r14569 = ptrtoint [7 x i8]* @r14568 to i64
-%r14567 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14569, i64 6)
-%r14574 = ptrtoint [15 x i8]* @r14573 to i64
-%r14572 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14574, i64 14)
-%r14578 = ptrtoint [2 x i8]* @r14577 to i64
-%r14576 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14578, i64 1)
-%r14579 = tail call fastcc i64 @"fun-make-null"()
-%r14575 = tail call fastcc i64 @"fun-cons"(i64 %r14576, i64 %r14579)
-%r14571 = tail call fastcc i64 @"fun-cons"(i64 %r14572, i64 %r14575)
-%r14584 = ptrtoint [7 x i8]* @r14583 to i64
-%r14582 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14584, i64 6)
-%r14589 = ptrtoint [8 x i8]* @r14588 to i64
-%r14587 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14589, i64 7)
-%r14593 = ptrtoint [2 x i8]* @r14592 to i64
-%r14591 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14593, i64 1)
+%r14571 = ptrtoint [5 x i8]* @r14570 to i64
+%r14569 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14571, i64 4)
+%r14576 = ptrtoint [4 x i8]* @r14575 to i64
+%r14574 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14576, i64 3)
+%r14580 = ptrtoint [13 x i8]* @r14579 to i64
+%r14578 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14580, i64 12)
+%r14585 = ptrtoint [2 x i8]* @r14584 to i64
+%r14583 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14585, i64 1)
+%r14589 = ptrtoint [2 x i8]* @r14588 to i64
+%r14587 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14589, i64 1)
+%r14591 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r14592 = tail call fastcc i64 @"fun-make-null"()
+%r14590 = tail call fastcc i64 @"fun-cons"(i64 %r14591, i64 %r14592)
+%r14586 = tail call fastcc i64 @"fun-cons"(i64 %r14587, i64 %r14590)
+%r14582 = tail call fastcc i64 @"fun-cons"(i64 %r14583, i64 %r14586)
+%r14593 = tail call fastcc i64 @"fun-make-null"()
+%r14581 = tail call fastcc i64 @"fun-cons"(i64 %r14582, i64 %r14593)
+%r14577 = tail call fastcc i64 @"fun-cons"(i64 %r14578, i64 %r14581)
+%r14573 = tail call fastcc i64 @"fun-cons"(i64 %r14574, i64 %r14577)
 %r14597 = ptrtoint [4 x i8]* @r14596 to i64
 %r14595 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14597, i64 3)
 %r14598 = tail call fastcc i64 @"fun-make-null"()
 %r14594 = tail call fastcc i64 @"fun-cons"(i64 %r14595, i64 %r14598)
-%r14590 = tail call fastcc i64 @"fun-cons"(i64 %r14591, i64 %r14594)
-%r14586 = tail call fastcc i64 @"fun-cons"(i64 %r14587, i64 %r14590)
-%r14603 = ptrtoint [3 x i8]* @r14602 to i64
-%r14601 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14603, i64 2)
-%r14608 = ptrtoint [2 x i8]* @r14607 to i64
-%r14606 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14608, i64 1)
-%r14612 = ptrtoint [2 x i8]* @r14611 to i64
-%r14610 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14612, i64 1)
-%r14614 = tail call fastcc i64 @"fun-make-number"(i64 9)
-%r14615 = tail call fastcc i64 @"fun-make-null"()
-%r14613 = tail call fastcc i64 @"fun-cons"(i64 %r14614, i64 %r14615)
-%r14609 = tail call fastcc i64 @"fun-cons"(i64 %r14610, i64 %r14613)
-%r14605 = tail call fastcc i64 @"fun-cons"(i64 %r14606, i64 %r14609)
-%r14620 = ptrtoint [8 x i8]* @r14619 to i64
-%r14618 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14620, i64 7)
-%r14625 = ptrtoint [2 x i8]* @r14624 to i64
-%r14623 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14625, i64 1)
-%r14629 = ptrtoint [2 x i8]* @r14628 to i64
-%r14627 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14629, i64 1)
-%r14631 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r14632 = tail call fastcc i64 @"fun-make-null"()
-%r14630 = tail call fastcc i64 @"fun-cons"(i64 %r14631, i64 %r14632)
-%r14626 = tail call fastcc i64 @"fun-cons"(i64 %r14627, i64 %r14630)
-%r14622 = tail call fastcc i64 @"fun-cons"(i64 %r14623, i64 %r14626)
-%r14637 = ptrtoint [5 x i8]* @r14636 to i64
-%r14635 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14637, i64 4)
-%r14642 = ptrtoint [4 x i8]* @r14641 to i64
-%r14640 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14642, i64 3)
-%r14646 = ptrtoint [13 x i8]* @r14645 to i64
-%r14644 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14646, i64 12)
-%r14651 = ptrtoint [2 x i8]* @r14650 to i64
-%r14649 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14651, i64 1)
-%r14655 = ptrtoint [2 x i8]* @r14654 to i64
-%r14653 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14655, i64 1)
-%r14657 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r14658 = tail call fastcc i64 @"fun-make-null"()
-%r14656 = tail call fastcc i64 @"fun-cons"(i64 %r14657, i64 %r14658)
-%r14652 = tail call fastcc i64 @"fun-cons"(i64 %r14653, i64 %r14656)
-%r14648 = tail call fastcc i64 @"fun-cons"(i64 %r14649, i64 %r14652)
-%r14659 = tail call fastcc i64 @"fun-make-null"()
-%r14647 = tail call fastcc i64 @"fun-cons"(i64 %r14648, i64 %r14659)
-%r14643 = tail call fastcc i64 @"fun-cons"(i64 %r14644, i64 %r14647)
-%r14639 = tail call fastcc i64 @"fun-cons"(i64 %r14640, i64 %r14643)
-%r14663 = ptrtoint [4 x i8]* @r14662 to i64
-%r14661 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14663, i64 3)
-%r14664 = tail call fastcc i64 @"fun-make-null"()
-%r14660 = tail call fastcc i64 @"fun-cons"(i64 %r14661, i64 %r14664)
-%r14638 = tail call fastcc i64 @"fun-cons"(i64 %r14639, i64 %r14660)
-%r14634 = tail call fastcc i64 @"fun-cons"(i64 %r14635, i64 %r14638)
+%r14572 = tail call fastcc i64 @"fun-cons"(i64 %r14573, i64 %r14594)
+%r14568 = tail call fastcc i64 @"fun-cons"(i64 %r14569, i64 %r14572)
+%r14599 = tail call fastcc i64 @"fun-make-null"()
+%r14567 = tail call fastcc i64 @"fun-cons"(i64 %r14568, i64 %r14599)
+%r14555 = tail call fastcc i64 @"fun-cons"(i64 %r14556, i64 %r14567)
+%r14551 = tail call fastcc i64 @"fun-cons"(i64 %r14552, i64 %r14555)
+%r14604 = ptrtoint [5 x i8]* @r14603 to i64
+%r14602 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14604, i64 4)
+%r14609 = ptrtoint [4 x i8]* @r14608 to i64
+%r14607 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14609, i64 3)
+%r14613 = ptrtoint [13 x i8]* @r14612 to i64
+%r14611 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14613, i64 12)
+%r14617 = ptrtoint [2 x i8]* @r14616 to i64
+%r14615 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14617, i64 1)
+%r14618 = tail call fastcc i64 @"fun-make-null"()
+%r14614 = tail call fastcc i64 @"fun-cons"(i64 %r14615, i64 %r14618)
+%r14610 = tail call fastcc i64 @"fun-cons"(i64 %r14611, i64 %r14614)
+%r14606 = tail call fastcc i64 @"fun-cons"(i64 %r14607, i64 %r14610)
+%r14622 = ptrtoint [4 x i8]* @r14621 to i64
+%r14620 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14622, i64 3)
+%r14623 = tail call fastcc i64 @"fun-make-null"()
+%r14619 = tail call fastcc i64 @"fun-cons"(i64 %r14620, i64 %r14623)
+%r14605 = tail call fastcc i64 @"fun-cons"(i64 %r14606, i64 %r14619)
+%r14601 = tail call fastcc i64 @"fun-cons"(i64 %r14602, i64 %r14605)
+%r14624 = tail call fastcc i64 @"fun-make-null"()
+%r14600 = tail call fastcc i64 @"fun-cons"(i64 %r14601, i64 %r14624)
+%r14550 = tail call fastcc i64 @"fun-cons"(i64 %r14551, i64 %r14600)
+%r14538 = tail call fastcc i64 @"fun-cons"(i64 %r14539, i64 %r14550)
+%r14534 = tail call fastcc i64 @"fun-cons"(i64 %r14535, i64 %r14538)
+%r14625 = tail call fastcc i64 @"fun-make-null"()
+%r14533 = tail call fastcc i64 @"fun-cons"(i64 %r14534, i64 %r14625)
+%r14519 = tail call fastcc i64 @"fun-cons"(i64 %r14520, i64 %r14533)
+%r14515 = tail call fastcc i64 @"fun-cons"(i64 %r14516, i64 %r14519)
+%r14630 = ptrtoint [13 x i8]* @r14629 to i64
+%r14628 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14630, i64 12)
+%r14635 = ptrtoint [8 x i8]* @r14634 to i64
+%r14633 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14635, i64 7)
+%r14639 = ptrtoint [2 x i8]* @r14638 to i64
+%r14637 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14639, i64 1)
+%r14644 = ptrtoint [6 x i8]* @r14643 to i64
+%r14642 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14644, i64 5)
+%r14646 = tail call fastcc i64 @"fun-make-null"()
+%r14647 = tail call fastcc i64 @"fun-make-null"()
+%r14645 = tail call fastcc i64 @"fun-cons"(i64 %r14646, i64 %r14647)
+%r14641 = tail call fastcc i64 @"fun-cons"(i64 %r14642, i64 %r14645)
+%r14648 = tail call fastcc i64 @"fun-make-null"()
+%r14640 = tail call fastcc i64 @"fun-cons"(i64 %r14641, i64 %r14648)
+%r14636 = tail call fastcc i64 @"fun-cons"(i64 %r14637, i64 %r14640)
+%r14632 = tail call fastcc i64 @"fun-cons"(i64 %r14633, i64 %r14636)
+%r14649 = tail call fastcc i64 @"fun-make-null"()
+%r14631 = tail call fastcc i64 @"fun-cons"(i64 %r14632, i64 %r14649)
+%r14627 = tail call fastcc i64 @"fun-cons"(i64 %r14628, i64 %r14631)
+%r14650 = tail call fastcc i64 @"fun-make-null"()
+%r14626 = tail call fastcc i64 @"fun-cons"(i64 %r14627, i64 %r14650)
+%r14514 = tail call fastcc i64 @"fun-cons"(i64 %r14515, i64 %r14626)
+%r14504 = tail call fastcc i64 @"fun-cons"(i64 %r14505, i64 %r14514)
+%r14500 = tail call fastcc i64 @"fun-cons"(i64 %r14501, i64 %r14504)
+%r14655 = ptrtoint [7 x i8]* @r14654 to i64
+%r14653 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14655, i64 6)
+%r14660 = ptrtoint [6 x i8]* @r14659 to i64
+%r14658 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14660, i64 5)
+%r14664 = ptrtoint [2 x i8]* @r14663 to i64
+%r14662 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14664, i64 1)
 %r14665 = tail call fastcc i64 @"fun-make-null"()
-%r14633 = tail call fastcc i64 @"fun-cons"(i64 %r14634, i64 %r14665)
-%r14621 = tail call fastcc i64 @"fun-cons"(i64 %r14622, i64 %r14633)
-%r14617 = tail call fastcc i64 @"fun-cons"(i64 %r14618, i64 %r14621)
+%r14661 = tail call fastcc i64 @"fun-cons"(i64 %r14662, i64 %r14665)
+%r14657 = tail call fastcc i64 @"fun-cons"(i64 %r14658, i64 %r14661)
 %r14670 = ptrtoint [5 x i8]* @r14669 to i64
 %r14668 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14670, i64 4)
-%r14675 = ptrtoint [4 x i8]* @r14674 to i64
-%r14673 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14675, i64 3)
-%r14679 = ptrtoint [13 x i8]* @r14678 to i64
-%r14677 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14679, i64 12)
-%r14683 = ptrtoint [2 x i8]* @r14682 to i64
-%r14681 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14683, i64 1)
+%r14676 = ptrtoint [6 x i8]* @r14675 to i64
+%r14674 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14676, i64 5)
+%r14680 = ptrtoint [2 x i8]* @r14679 to i64
+%r14678 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14680, i64 1)
+%r14681 = tail call fastcc i64 @"fun-make-null"()
+%r14677 = tail call fastcc i64 @"fun-cons"(i64 %r14678, i64 %r14681)
+%r14673 = tail call fastcc i64 @"fun-cons"(i64 %r14674, i64 %r14677)
+%r14683 = tail call fastcc i64 @"fun-make-number"(i64 1)
 %r14684 = tail call fastcc i64 @"fun-make-null"()
-%r14680 = tail call fastcc i64 @"fun-cons"(i64 %r14681, i64 %r14684)
-%r14676 = tail call fastcc i64 @"fun-cons"(i64 %r14677, i64 %r14680)
-%r14672 = tail call fastcc i64 @"fun-cons"(i64 %r14673, i64 %r14676)
-%r14688 = ptrtoint [4 x i8]* @r14687 to i64
-%r14686 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14688, i64 3)
-%r14689 = tail call fastcc i64 @"fun-make-null"()
-%r14685 = tail call fastcc i64 @"fun-cons"(i64 %r14686, i64 %r14689)
+%r14682 = tail call fastcc i64 @"fun-cons"(i64 %r14683, i64 %r14684)
+%r14672 = tail call fastcc i64 @"fun-cons"(i64 %r14673, i64 %r14682)
+%r14690 = ptrtoint [6 x i8]* @r14689 to i64
+%r14688 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14690, i64 5)
+%r14694 = ptrtoint [2 x i8]* @r14693 to i64
+%r14692 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14694, i64 1)
+%r14695 = tail call fastcc i64 @"fun-make-null"()
+%r14691 = tail call fastcc i64 @"fun-cons"(i64 %r14692, i64 %r14695)
+%r14687 = tail call fastcc i64 @"fun-cons"(i64 %r14688, i64 %r14691)
+%r14700 = ptrtoint [6 x i8]* @r14699 to i64
+%r14698 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14700, i64 5)
+%r14705 = ptrtoint [4 x i8]* @r14704 to i64
+%r14703 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14705, i64 3)
+%r14709 = ptrtoint [2 x i8]* @r14708 to i64
+%r14707 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14709, i64 1)
+%r14710 = tail call fastcc i64 @"fun-make-null"()
+%r14706 = tail call fastcc i64 @"fun-cons"(i64 %r14707, i64 %r14710)
+%r14702 = tail call fastcc i64 @"fun-cons"(i64 %r14703, i64 %r14706)
+%r14711 = tail call fastcc i64 @"fun-make-null"()
+%r14701 = tail call fastcc i64 @"fun-cons"(i64 %r14702, i64 %r14711)
+%r14697 = tail call fastcc i64 @"fun-cons"(i64 %r14698, i64 %r14701)
+%r14712 = tail call fastcc i64 @"fun-make-null"()
+%r14696 = tail call fastcc i64 @"fun-cons"(i64 %r14697, i64 %r14712)
+%r14686 = tail call fastcc i64 @"fun-cons"(i64 %r14687, i64 %r14696)
+%r14717 = ptrtoint [5 x i8]* @r14716 to i64
+%r14715 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14717, i64 4)
+%r14722 = ptrtoint [6 x i8]* @r14721 to i64
+%r14720 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14722, i64 5)
+%r14724 = tail call fastcc i64 @"fun-make-null"()
+%r14725 = tail call fastcc i64 @"fun-make-null"()
+%r14723 = tail call fastcc i64 @"fun-cons"(i64 %r14724, i64 %r14725)
+%r14719 = tail call fastcc i64 @"fun-cons"(i64 %r14720, i64 %r14723)
+%r14726 = tail call fastcc i64 @"fun-make-null"()
+%r14718 = tail call fastcc i64 @"fun-cons"(i64 %r14719, i64 %r14726)
+%r14714 = tail call fastcc i64 @"fun-cons"(i64 %r14715, i64 %r14718)
+%r14727 = tail call fastcc i64 @"fun-make-null"()
+%r14713 = tail call fastcc i64 @"fun-cons"(i64 %r14714, i64 %r14727)
+%r14685 = tail call fastcc i64 @"fun-cons"(i64 %r14686, i64 %r14713)
 %r14671 = tail call fastcc i64 @"fun-cons"(i64 %r14672, i64 %r14685)
 %r14667 = tail call fastcc i64 @"fun-cons"(i64 %r14668, i64 %r14671)
-%r14690 = tail call fastcc i64 @"fun-make-null"()
-%r14666 = tail call fastcc i64 @"fun-cons"(i64 %r14667, i64 %r14690)
-%r14616 = tail call fastcc i64 @"fun-cons"(i64 %r14617, i64 %r14666)
-%r14604 = tail call fastcc i64 @"fun-cons"(i64 %r14605, i64 %r14616)
-%r14600 = tail call fastcc i64 @"fun-cons"(i64 %r14601, i64 %r14604)
-%r14691 = tail call fastcc i64 @"fun-make-null"()
-%r14599 = tail call fastcc i64 @"fun-cons"(i64 %r14600, i64 %r14691)
-%r14585 = tail call fastcc i64 @"fun-cons"(i64 %r14586, i64 %r14599)
-%r14581 = tail call fastcc i64 @"fun-cons"(i64 %r14582, i64 %r14585)
-%r14696 = ptrtoint [13 x i8]* @r14695 to i64
-%r14694 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14696, i64 12)
-%r14701 = ptrtoint [8 x i8]* @r14700 to i64
-%r14699 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14701, i64 7)
-%r14705 = ptrtoint [2 x i8]* @r14704 to i64
-%r14703 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14705, i64 1)
-%r14710 = ptrtoint [6 x i8]* @r14709 to i64
-%r14708 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14710, i64 5)
-%r14712 = tail call fastcc i64 @"fun-make-null"()
-%r14713 = tail call fastcc i64 @"fun-make-null"()
-%r14711 = tail call fastcc i64 @"fun-cons"(i64 %r14712, i64 %r14713)
-%r14707 = tail call fastcc i64 @"fun-cons"(i64 %r14708, i64 %r14711)
-%r14714 = tail call fastcc i64 @"fun-make-null"()
-%r14706 = tail call fastcc i64 @"fun-cons"(i64 %r14707, i64 %r14714)
-%r14702 = tail call fastcc i64 @"fun-cons"(i64 %r14703, i64 %r14706)
-%r14698 = tail call fastcc i64 @"fun-cons"(i64 %r14699, i64 %r14702)
-%r14715 = tail call fastcc i64 @"fun-make-null"()
-%r14697 = tail call fastcc i64 @"fun-cons"(i64 %r14698, i64 %r14715)
-%r14693 = tail call fastcc i64 @"fun-cons"(i64 %r14694, i64 %r14697)
-%r14716 = tail call fastcc i64 @"fun-make-null"()
-%r14692 = tail call fastcc i64 @"fun-cons"(i64 %r14693, i64 %r14716)
-%r14580 = tail call fastcc i64 @"fun-cons"(i64 %r14581, i64 %r14692)
-%r14570 = tail call fastcc i64 @"fun-cons"(i64 %r14571, i64 %r14580)
-%r14566 = tail call fastcc i64 @"fun-cons"(i64 %r14567, i64 %r14570)
-%r14721 = ptrtoint [7 x i8]* @r14720 to i64
-%r14719 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14721, i64 6)
-%r14726 = ptrtoint [6 x i8]* @r14725 to i64
-%r14724 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14726, i64 5)
-%r14730 = ptrtoint [2 x i8]* @r14729 to i64
-%r14728 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14730, i64 1)
-%r14731 = tail call fastcc i64 @"fun-make-null"()
-%r14727 = tail call fastcc i64 @"fun-cons"(i64 %r14728, i64 %r14731)
-%r14723 = tail call fastcc i64 @"fun-cons"(i64 %r14724, i64 %r14727)
-%r14736 = ptrtoint [5 x i8]* @r14735 to i64
-%r14734 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14736, i64 4)
-%r14742 = ptrtoint [6 x i8]* @r14741 to i64
-%r14740 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14742, i64 5)
+%r14728 = tail call fastcc i64 @"fun-make-null"()
+%r14666 = tail call fastcc i64 @"fun-cons"(i64 %r14667, i64 %r14728)
+%r14656 = tail call fastcc i64 @"fun-cons"(i64 %r14657, i64 %r14666)
+%r14652 = tail call fastcc i64 @"fun-cons"(i64 %r14653, i64 %r14656)
+%r14733 = ptrtoint [7 x i8]* @r14732 to i64
+%r14731 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14733, i64 6)
+%r14737 = ptrtoint [5 x i8]* @r14736 to i64
+%r14735 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14737, i64 4)
+%r14742 = ptrtoint [7 x i8]* @r14741 to i64
+%r14740 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14742, i64 6)
 %r14746 = ptrtoint [2 x i8]* @r14745 to i64
 %r14744 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14746, i64 1)
-%r14747 = tail call fastcc i64 @"fun-make-null"()
+%r14750 = ptrtoint [2 x i8]* @r14749 to i64
+%r14748 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14750, i64 1)
+%r14751 = tail call fastcc i64 @"fun-make-null"()
+%r14747 = tail call fastcc i64 @"fun-cons"(i64 %r14748, i64 %r14751)
 %r14743 = tail call fastcc i64 @"fun-cons"(i64 %r14744, i64 %r14747)
 %r14739 = tail call fastcc i64 @"fun-cons"(i64 %r14740, i64 %r14743)
-%r14749 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r14750 = tail call fastcc i64 @"fun-make-null"()
-%r14748 = tail call fastcc i64 @"fun-cons"(i64 %r14749, i64 %r14750)
-%r14738 = tail call fastcc i64 @"fun-cons"(i64 %r14739, i64 %r14748)
-%r14756 = ptrtoint [6 x i8]* @r14755 to i64
-%r14754 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14756, i64 5)
-%r14760 = ptrtoint [2 x i8]* @r14759 to i64
-%r14758 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14760, i64 1)
-%r14761 = tail call fastcc i64 @"fun-make-null"()
-%r14757 = tail call fastcc i64 @"fun-cons"(i64 %r14758, i64 %r14761)
-%r14753 = tail call fastcc i64 @"fun-cons"(i64 %r14754, i64 %r14757)
-%r14766 = ptrtoint [6 x i8]* @r14765 to i64
-%r14764 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14766, i64 5)
-%r14771 = ptrtoint [4 x i8]* @r14770 to i64
-%r14769 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14771, i64 3)
-%r14775 = ptrtoint [2 x i8]* @r14774 to i64
-%r14773 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14775, i64 1)
-%r14776 = tail call fastcc i64 @"fun-make-null"()
-%r14772 = tail call fastcc i64 @"fun-cons"(i64 %r14773, i64 %r14776)
-%r14768 = tail call fastcc i64 @"fun-cons"(i64 %r14769, i64 %r14772)
-%r14777 = tail call fastcc i64 @"fun-make-null"()
-%r14767 = tail call fastcc i64 @"fun-cons"(i64 %r14768, i64 %r14777)
+%r14752 = tail call fastcc i64 @"fun-make-null"()
+%r14738 = tail call fastcc i64 @"fun-cons"(i64 %r14739, i64 %r14752)
+%r14734 = tail call fastcc i64 @"fun-cons"(i64 %r14735, i64 %r14738)
+%r14730 = tail call fastcc i64 @"fun-cons"(i64 %r14731, i64 %r14734)
+%r14757 = ptrtoint [7 x i8]* @r14756 to i64
+%r14755 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14757, i64 6)
+%r14762 = ptrtoint [6 x i8]* @r14761 to i64
+%r14760 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14762, i64 5)
+%r14766 = ptrtoint [2 x i8]* @r14765 to i64
+%r14764 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14766, i64 1)
+%r14770 = ptrtoint [4 x i8]* @r14769 to i64
+%r14768 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14770, i64 3)
+%r14771 = tail call fastcc i64 @"fun-make-null"()
+%r14767 = tail call fastcc i64 @"fun-cons"(i64 %r14768, i64 %r14771)
 %r14763 = tail call fastcc i64 @"fun-cons"(i64 %r14764, i64 %r14767)
-%r14778 = tail call fastcc i64 @"fun-make-null"()
-%r14762 = tail call fastcc i64 @"fun-cons"(i64 %r14763, i64 %r14778)
-%r14752 = tail call fastcc i64 @"fun-cons"(i64 %r14753, i64 %r14762)
-%r14783 = ptrtoint [5 x i8]* @r14782 to i64
-%r14781 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14783, i64 4)
-%r14788 = ptrtoint [6 x i8]* @r14787 to i64
-%r14786 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14788, i64 5)
-%r14790 = tail call fastcc i64 @"fun-make-null"()
-%r14791 = tail call fastcc i64 @"fun-make-null"()
-%r14789 = tail call fastcc i64 @"fun-cons"(i64 %r14790, i64 %r14791)
-%r14785 = tail call fastcc i64 @"fun-cons"(i64 %r14786, i64 %r14789)
-%r14792 = tail call fastcc i64 @"fun-make-null"()
-%r14784 = tail call fastcc i64 @"fun-cons"(i64 %r14785, i64 %r14792)
-%r14780 = tail call fastcc i64 @"fun-cons"(i64 %r14781, i64 %r14784)
-%r14793 = tail call fastcc i64 @"fun-make-null"()
-%r14779 = tail call fastcc i64 @"fun-cons"(i64 %r14780, i64 %r14793)
-%r14751 = tail call fastcc i64 @"fun-cons"(i64 %r14752, i64 %r14779)
-%r14737 = tail call fastcc i64 @"fun-cons"(i64 %r14738, i64 %r14751)
-%r14733 = tail call fastcc i64 @"fun-cons"(i64 %r14734, i64 %r14737)
+%r14759 = tail call fastcc i64 @"fun-cons"(i64 %r14760, i64 %r14763)
+%r14776 = ptrtoint [5 x i8]* @r14775 to i64
+%r14774 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14776, i64 4)
+%r14782 = ptrtoint [6 x i8]* @r14781 to i64
+%r14780 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14782, i64 5)
+%r14786 = ptrtoint [4 x i8]* @r14785 to i64
+%r14784 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14786, i64 3)
+%r14787 = tail call fastcc i64 @"fun-make-null"()
+%r14783 = tail call fastcc i64 @"fun-cons"(i64 %r14784, i64 %r14787)
+%r14779 = tail call fastcc i64 @"fun-cons"(i64 %r14780, i64 %r14783)
+%r14792 = ptrtoint [6 x i8]* @r14791 to i64
+%r14790 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14792, i64 5)
 %r14794 = tail call fastcc i64 @"fun-make-null"()
-%r14732 = tail call fastcc i64 @"fun-cons"(i64 %r14733, i64 %r14794)
-%r14722 = tail call fastcc i64 @"fun-cons"(i64 %r14723, i64 %r14732)
-%r14718 = tail call fastcc i64 @"fun-cons"(i64 %r14719, i64 %r14722)
-%r14799 = ptrtoint [7 x i8]* @r14798 to i64
-%r14797 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14799, i64 6)
-%r14803 = ptrtoint [5 x i8]* @r14802 to i64
-%r14801 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14803, i64 4)
-%r14808 = ptrtoint [7 x i8]* @r14807 to i64
-%r14806 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14808, i64 6)
-%r14812 = ptrtoint [2 x i8]* @r14811 to i64
-%r14810 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14812, i64 1)
-%r14816 = ptrtoint [2 x i8]* @r14815 to i64
-%r14814 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14816, i64 1)
-%r14817 = tail call fastcc i64 @"fun-make-null"()
+%r14795 = tail call fastcc i64 @"fun-make-null"()
+%r14793 = tail call fastcc i64 @"fun-cons"(i64 %r14794, i64 %r14795)
+%r14789 = tail call fastcc i64 @"fun-cons"(i64 %r14790, i64 %r14793)
+%r14796 = tail call fastcc i64 @"fun-make-null"()
+%r14788 = tail call fastcc i64 @"fun-cons"(i64 %r14789, i64 %r14796)
+%r14778 = tail call fastcc i64 @"fun-cons"(i64 %r14779, i64 %r14788)
+%r14802 = ptrtoint [4 x i8]* @r14801 to i64
+%r14800 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14802, i64 3)
+%r14806 = ptrtoint [2 x i8]* @r14805 to i64
+%r14804 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14806, i64 1)
+%r14811 = ptrtoint [4 x i8]* @r14810 to i64
+%r14809 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14811, i64 3)
+%r14816 = ptrtoint [4 x i8]* @r14815 to i64
+%r14814 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14816, i64 3)
+%r14820 = ptrtoint [4 x i8]* @r14819 to i64
+%r14818 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14820, i64 3)
+%r14821 = tail call fastcc i64 @"fun-make-null"()
+%r14817 = tail call fastcc i64 @"fun-cons"(i64 %r14818, i64 %r14821)
 %r14813 = tail call fastcc i64 @"fun-cons"(i64 %r14814, i64 %r14817)
-%r14809 = tail call fastcc i64 @"fun-cons"(i64 %r14810, i64 %r14813)
-%r14805 = tail call fastcc i64 @"fun-cons"(i64 %r14806, i64 %r14809)
-%r14818 = tail call fastcc i64 @"fun-make-null"()
-%r14804 = tail call fastcc i64 @"fun-cons"(i64 %r14805, i64 %r14818)
-%r14800 = tail call fastcc i64 @"fun-cons"(i64 %r14801, i64 %r14804)
-%r14796 = tail call fastcc i64 @"fun-cons"(i64 %r14797, i64 %r14800)
-%r14823 = ptrtoint [7 x i8]* @r14822 to i64
-%r14821 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14823, i64 6)
-%r14828 = ptrtoint [6 x i8]* @r14827 to i64
-%r14826 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14828, i64 5)
-%r14832 = ptrtoint [2 x i8]* @r14831 to i64
-%r14830 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14832, i64 1)
-%r14836 = ptrtoint [4 x i8]* @r14835 to i64
-%r14834 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14836, i64 3)
-%r14837 = tail call fastcc i64 @"fun-make-null"()
-%r14833 = tail call fastcc i64 @"fun-cons"(i64 %r14834, i64 %r14837)
+%r14822 = tail call fastcc i64 @"fun-make-null"()
+%r14812 = tail call fastcc i64 @"fun-cons"(i64 %r14813, i64 %r14822)
+%r14808 = tail call fastcc i64 @"fun-cons"(i64 %r14809, i64 %r14812)
+%r14823 = tail call fastcc i64 @"fun-make-null"()
+%r14807 = tail call fastcc i64 @"fun-cons"(i64 %r14808, i64 %r14823)
+%r14803 = tail call fastcc i64 @"fun-cons"(i64 %r14804, i64 %r14807)
+%r14799 = tail call fastcc i64 @"fun-cons"(i64 %r14800, i64 %r14803)
+%r14828 = ptrtoint [4 x i8]* @r14827 to i64
+%r14826 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14828, i64 3)
+%r14832 = ptrtoint [4 x i8]* @r14831 to i64
+%r14830 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14832, i64 3)
+%r14833 = tail call fastcc i64 @"fun-make-null"()
 %r14829 = tail call fastcc i64 @"fun-cons"(i64 %r14830, i64 %r14833)
 %r14825 = tail call fastcc i64 @"fun-cons"(i64 %r14826, i64 %r14829)
-%r14842 = ptrtoint [5 x i8]* @r14841 to i64
-%r14840 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14842, i64 4)
-%r14848 = ptrtoint [6 x i8]* @r14847 to i64
-%r14846 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14848, i64 5)
-%r14852 = ptrtoint [4 x i8]* @r14851 to i64
-%r14850 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14852, i64 3)
-%r14853 = tail call fastcc i64 @"fun-make-null"()
-%r14849 = tail call fastcc i64 @"fun-cons"(i64 %r14850, i64 %r14853)
+%r14834 = tail call fastcc i64 @"fun-make-null"()
+%r14824 = tail call fastcc i64 @"fun-cons"(i64 %r14825, i64 %r14834)
+%r14798 = tail call fastcc i64 @"fun-cons"(i64 %r14799, i64 %r14824)
+%r14839 = ptrtoint [5 x i8]* @r14838 to i64
+%r14837 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14839, i64 4)
+%r14844 = ptrtoint [6 x i8]* @r14843 to i64
+%r14842 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14844, i64 5)
+%r14848 = ptrtoint [2 x i8]* @r14847 to i64
+%r14846 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14848, i64 1)
+%r14853 = ptrtoint [4 x i8]* @r14852 to i64
+%r14851 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14853, i64 3)
+%r14857 = ptrtoint [4 x i8]* @r14856 to i64
+%r14855 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14857, i64 3)
+%r14858 = tail call fastcc i64 @"fun-make-null"()
+%r14854 = tail call fastcc i64 @"fun-cons"(i64 %r14855, i64 %r14858)
+%r14850 = tail call fastcc i64 @"fun-cons"(i64 %r14851, i64 %r14854)
+%r14859 = tail call fastcc i64 @"fun-make-null"()
+%r14849 = tail call fastcc i64 @"fun-cons"(i64 %r14850, i64 %r14859)
 %r14845 = tail call fastcc i64 @"fun-cons"(i64 %r14846, i64 %r14849)
-%r14858 = ptrtoint [6 x i8]* @r14857 to i64
-%r14856 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14858, i64 5)
+%r14841 = tail call fastcc i64 @"fun-cons"(i64 %r14842, i64 %r14845)
 %r14860 = tail call fastcc i64 @"fun-make-null"()
+%r14840 = tail call fastcc i64 @"fun-cons"(i64 %r14841, i64 %r14860)
+%r14836 = tail call fastcc i64 @"fun-cons"(i64 %r14837, i64 %r14840)
 %r14861 = tail call fastcc i64 @"fun-make-null"()
-%r14859 = tail call fastcc i64 @"fun-cons"(i64 %r14860, i64 %r14861)
-%r14855 = tail call fastcc i64 @"fun-cons"(i64 %r14856, i64 %r14859)
+%r14835 = tail call fastcc i64 @"fun-cons"(i64 %r14836, i64 %r14861)
+%r14797 = tail call fastcc i64 @"fun-cons"(i64 %r14798, i64 %r14835)
+%r14777 = tail call fastcc i64 @"fun-cons"(i64 %r14778, i64 %r14797)
+%r14773 = tail call fastcc i64 @"fun-cons"(i64 %r14774, i64 %r14777)
 %r14862 = tail call fastcc i64 @"fun-make-null"()
-%r14854 = tail call fastcc i64 @"fun-cons"(i64 %r14855, i64 %r14862)
-%r14844 = tail call fastcc i64 @"fun-cons"(i64 %r14845, i64 %r14854)
-%r14868 = ptrtoint [4 x i8]* @r14867 to i64
-%r14866 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14868, i64 3)
-%r14872 = ptrtoint [2 x i8]* @r14871 to i64
-%r14870 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14872, i64 1)
-%r14877 = ptrtoint [4 x i8]* @r14876 to i64
-%r14875 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14877, i64 3)
-%r14882 = ptrtoint [4 x i8]* @r14881 to i64
-%r14880 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14882, i64 3)
-%r14886 = ptrtoint [4 x i8]* @r14885 to i64
-%r14884 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14886, i64 3)
-%r14887 = tail call fastcc i64 @"fun-make-null"()
-%r14883 = tail call fastcc i64 @"fun-cons"(i64 %r14884, i64 %r14887)
-%r14879 = tail call fastcc i64 @"fun-cons"(i64 %r14880, i64 %r14883)
-%r14888 = tail call fastcc i64 @"fun-make-null"()
-%r14878 = tail call fastcc i64 @"fun-cons"(i64 %r14879, i64 %r14888)
-%r14874 = tail call fastcc i64 @"fun-cons"(i64 %r14875, i64 %r14878)
-%r14889 = tail call fastcc i64 @"fun-make-null"()
-%r14873 = tail call fastcc i64 @"fun-cons"(i64 %r14874, i64 %r14889)
+%r14772 = tail call fastcc i64 @"fun-cons"(i64 %r14773, i64 %r14862)
+%r14758 = tail call fastcc i64 @"fun-cons"(i64 %r14759, i64 %r14772)
+%r14754 = tail call fastcc i64 @"fun-cons"(i64 %r14755, i64 %r14758)
+%r14867 = ptrtoint [7 x i8]* @r14866 to i64
+%r14865 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14867, i64 6)
+%r14872 = ptrtoint [14 x i8]* @r14871 to i64
+%r14870 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14872, i64 13)
+%r14876 = ptrtoint [5 x i8]* @r14875 to i64
+%r14874 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14876, i64 4)
+%r14880 = ptrtoint [5 x i8]* @r14879 to i64
+%r14878 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14880, i64 4)
+%r14881 = tail call fastcc i64 @"fun-make-null"()
+%r14877 = tail call fastcc i64 @"fun-cons"(i64 %r14878, i64 %r14881)
+%r14873 = tail call fastcc i64 @"fun-cons"(i64 %r14874, i64 %r14877)
 %r14869 = tail call fastcc i64 @"fun-cons"(i64 %r14870, i64 %r14873)
-%r14865 = tail call fastcc i64 @"fun-cons"(i64 %r14866, i64 %r14869)
-%r14894 = ptrtoint [4 x i8]* @r14893 to i64
-%r14892 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14894, i64 3)
-%r14898 = ptrtoint [4 x i8]* @r14897 to i64
-%r14896 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14898, i64 3)
-%r14899 = tail call fastcc i64 @"fun-make-null"()
-%r14895 = tail call fastcc i64 @"fun-cons"(i64 %r14896, i64 %r14899)
-%r14891 = tail call fastcc i64 @"fun-cons"(i64 %r14892, i64 %r14895)
-%r14900 = tail call fastcc i64 @"fun-make-null"()
-%r14890 = tail call fastcc i64 @"fun-cons"(i64 %r14891, i64 %r14900)
-%r14864 = tail call fastcc i64 @"fun-cons"(i64 %r14865, i64 %r14890)
-%r14905 = ptrtoint [5 x i8]* @r14904 to i64
-%r14903 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14905, i64 4)
-%r14910 = ptrtoint [6 x i8]* @r14909 to i64
-%r14908 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14910, i64 5)
-%r14914 = ptrtoint [2 x i8]* @r14913 to i64
-%r14912 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14914, i64 1)
-%r14919 = ptrtoint [4 x i8]* @r14918 to i64
-%r14917 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14919, i64 3)
-%r14923 = ptrtoint [4 x i8]* @r14922 to i64
-%r14921 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14923, i64 3)
-%r14924 = tail call fastcc i64 @"fun-make-null"()
+%r14886 = ptrtoint [13 x i8]* @r14885 to i64
+%r14884 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14886, i64 12)
+%r14891 = ptrtoint [7 x i8]* @r14890 to i64
+%r14889 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14891, i64 6)
+%r14896 = ptrtoint [13 x i8]* @r14895 to i64
+%r14894 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14896, i64 12)
+%r14900 = ptrtoint [5 x i8]* @r14899 to i64
+%r14898 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14900, i64 4)
+%r14901 = tail call fastcc i64 @"fun-make-null"()
+%r14897 = tail call fastcc i64 @"fun-cons"(i64 %r14898, i64 %r14901)
+%r14893 = tail call fastcc i64 @"fun-cons"(i64 %r14894, i64 %r14897)
+%r14906 = ptrtoint [13 x i8]* @r14905 to i64
+%r14904 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14906, i64 12)
+%r14910 = ptrtoint [5 x i8]* @r14909 to i64
+%r14908 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14910, i64 4)
+%r14911 = tail call fastcc i64 @"fun-make-null"()
+%r14907 = tail call fastcc i64 @"fun-cons"(i64 %r14908, i64 %r14911)
+%r14903 = tail call fastcc i64 @"fun-cons"(i64 %r14904, i64 %r14907)
+%r14912 = tail call fastcc i64 @"fun-make-null"()
+%r14902 = tail call fastcc i64 @"fun-cons"(i64 %r14903, i64 %r14912)
+%r14892 = tail call fastcc i64 @"fun-cons"(i64 %r14893, i64 %r14902)
+%r14888 = tail call fastcc i64 @"fun-cons"(i64 %r14889, i64 %r14892)
+%r14913 = tail call fastcc i64 @"fun-make-null"()
+%r14887 = tail call fastcc i64 @"fun-cons"(i64 %r14888, i64 %r14913)
+%r14883 = tail call fastcc i64 @"fun-cons"(i64 %r14884, i64 %r14887)
+%r14914 = tail call fastcc i64 @"fun-make-null"()
+%r14882 = tail call fastcc i64 @"fun-cons"(i64 %r14883, i64 %r14914)
+%r14868 = tail call fastcc i64 @"fun-cons"(i64 %r14869, i64 %r14882)
+%r14864 = tail call fastcc i64 @"fun-cons"(i64 %r14865, i64 %r14868)
+%r14919 = ptrtoint [7 x i8]* @r14918 to i64
+%r14917 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14919, i64 6)
+%r14923 = ptrtoint [15 x i8]* @r14922 to i64
+%r14921 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14923, i64 14)
+%r14928 = ptrtoint [6 x i8]* @r14927 to i64
+%r14926 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14928, i64 5)
+%r14930 = tail call fastcc i64 @"fun-make-null"()
+%r14931 = tail call fastcc i64 @"fun-make-null"()
+%r14929 = tail call fastcc i64 @"fun-cons"(i64 %r14930, i64 %r14931)
+%r14925 = tail call fastcc i64 @"fun-cons"(i64 %r14926, i64 %r14929)
+%r14932 = tail call fastcc i64 @"fun-make-null"()
+%r14924 = tail call fastcc i64 @"fun-cons"(i64 %r14925, i64 %r14932)
 %r14920 = tail call fastcc i64 @"fun-cons"(i64 %r14921, i64 %r14924)
 %r14916 = tail call fastcc i64 @"fun-cons"(i64 %r14917, i64 %r14920)
-%r14925 = tail call fastcc i64 @"fun-make-null"()
-%r14915 = tail call fastcc i64 @"fun-cons"(i64 %r14916, i64 %r14925)
-%r14911 = tail call fastcc i64 @"fun-cons"(i64 %r14912, i64 %r14915)
-%r14907 = tail call fastcc i64 @"fun-cons"(i64 %r14908, i64 %r14911)
-%r14926 = tail call fastcc i64 @"fun-make-null"()
-%r14906 = tail call fastcc i64 @"fun-cons"(i64 %r14907, i64 %r14926)
-%r14902 = tail call fastcc i64 @"fun-cons"(i64 %r14903, i64 %r14906)
-%r14927 = tail call fastcc i64 @"fun-make-null"()
-%r14901 = tail call fastcc i64 @"fun-cons"(i64 %r14902, i64 %r14927)
-%r14863 = tail call fastcc i64 @"fun-cons"(i64 %r14864, i64 %r14901)
-%r14843 = tail call fastcc i64 @"fun-cons"(i64 %r14844, i64 %r14863)
-%r14839 = tail call fastcc i64 @"fun-cons"(i64 %r14840, i64 %r14843)
-%r14928 = tail call fastcc i64 @"fun-make-null"()
-%r14838 = tail call fastcc i64 @"fun-cons"(i64 %r14839, i64 %r14928)
-%r14824 = tail call fastcc i64 @"fun-cons"(i64 %r14825, i64 %r14838)
-%r14820 = tail call fastcc i64 @"fun-cons"(i64 %r14821, i64 %r14824)
-%r14933 = ptrtoint [7 x i8]* @r14932 to i64
-%r14931 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14933, i64 6)
-%r14938 = ptrtoint [14 x i8]* @r14937 to i64
-%r14936 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14938, i64 13)
-%r14942 = ptrtoint [5 x i8]* @r14941 to i64
-%r14940 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14942, i64 4)
-%r14946 = ptrtoint [5 x i8]* @r14945 to i64
-%r14944 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14946, i64 4)
-%r14947 = tail call fastcc i64 @"fun-make-null"()
-%r14943 = tail call fastcc i64 @"fun-cons"(i64 %r14944, i64 %r14947)
+%r14937 = ptrtoint [7 x i8]* @r14936 to i64
+%r14935 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14937, i64 6)
+%r14942 = ptrtoint [10 x i8]* @r14941 to i64
+%r14940 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14942, i64 9)
+%r14943 = tail call fastcc i64 @"fun-make-null"()
 %r14939 = tail call fastcc i64 @"fun-cons"(i64 %r14940, i64 %r14943)
-%r14935 = tail call fastcc i64 @"fun-cons"(i64 %r14936, i64 %r14939)
-%r14952 = ptrtoint [13 x i8]* @r14951 to i64
-%r14950 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14952, i64 12)
-%r14957 = ptrtoint [7 x i8]* @r14956 to i64
-%r14955 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14957, i64 6)
-%r14962 = ptrtoint [13 x i8]* @r14961 to i64
-%r14960 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14962, i64 12)
-%r14966 = ptrtoint [5 x i8]* @r14965 to i64
-%r14964 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14966, i64 4)
-%r14967 = tail call fastcc i64 @"fun-make-null"()
-%r14963 = tail call fastcc i64 @"fun-cons"(i64 %r14964, i64 %r14967)
-%r14959 = tail call fastcc i64 @"fun-cons"(i64 %r14960, i64 %r14963)
-%r14972 = ptrtoint [13 x i8]* @r14971 to i64
-%r14970 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14972, i64 12)
-%r14976 = ptrtoint [5 x i8]* @r14975 to i64
-%r14974 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14976, i64 4)
-%r14977 = tail call fastcc i64 @"fun-make-null"()
-%r14973 = tail call fastcc i64 @"fun-cons"(i64 %r14974, i64 %r14977)
-%r14969 = tail call fastcc i64 @"fun-cons"(i64 %r14970, i64 %r14973)
-%r14978 = tail call fastcc i64 @"fun-make-null"()
-%r14968 = tail call fastcc i64 @"fun-cons"(i64 %r14969, i64 %r14978)
-%r14958 = tail call fastcc i64 @"fun-cons"(i64 %r14959, i64 %r14968)
-%r14954 = tail call fastcc i64 @"fun-cons"(i64 %r14955, i64 %r14958)
+%r14948 = ptrtoint [5 x i8]* @r14947 to i64
+%r14946 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14948, i64 4)
+%r14954 = ptrtoint [6 x i8]* @r14953 to i64
+%r14952 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14954, i64 5)
+%r14958 = ptrtoint [15 x i8]* @r14957 to i64
+%r14956 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14958, i64 14)
+%r14959 = tail call fastcc i64 @"fun-make-null"()
+%r14955 = tail call fastcc i64 @"fun-cons"(i64 %r14956, i64 %r14959)
+%r14951 = tail call fastcc i64 @"fun-cons"(i64 %r14952, i64 %r14955)
+%r14964 = ptrtoint [5 x i8]* @r14963 to i64
+%r14962 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14964, i64 4)
+%r14968 = ptrtoint [15 x i8]* @r14967 to i64
+%r14966 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14968, i64 14)
+%r14973 = ptrtoint [10 x i8]* @r14972 to i64
+%r14971 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14973, i64 9)
+%r14978 = ptrtoint [9 x i8]* @r14977 to i64
+%r14976 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14978, i64 8)
 %r14979 = tail call fastcc i64 @"fun-make-null"()
-%r14953 = tail call fastcc i64 @"fun-cons"(i64 %r14954, i64 %r14979)
-%r14949 = tail call fastcc i64 @"fun-cons"(i64 %r14950, i64 %r14953)
+%r14975 = tail call fastcc i64 @"fun-cons"(i64 %r14976, i64 %r14979)
 %r14980 = tail call fastcc i64 @"fun-make-null"()
-%r14948 = tail call fastcc i64 @"fun-cons"(i64 %r14949, i64 %r14980)
-%r14934 = tail call fastcc i64 @"fun-cons"(i64 %r14935, i64 %r14948)
-%r14930 = tail call fastcc i64 @"fun-cons"(i64 %r14931, i64 %r14934)
-%r14985 = ptrtoint [7 x i8]* @r14984 to i64
-%r14983 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14985, i64 6)
-%r14989 = ptrtoint [15 x i8]* @r14988 to i64
-%r14987 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14989, i64 14)
-%r14994 = ptrtoint [6 x i8]* @r14993 to i64
-%r14992 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14994, i64 5)
-%r14996 = tail call fastcc i64 @"fun-make-null"()
-%r14997 = tail call fastcc i64 @"fun-make-null"()
-%r14995 = tail call fastcc i64 @"fun-cons"(i64 %r14996, i64 %r14997)
-%r14991 = tail call fastcc i64 @"fun-cons"(i64 %r14992, i64 %r14995)
-%r14998 = tail call fastcc i64 @"fun-make-null"()
-%r14990 = tail call fastcc i64 @"fun-cons"(i64 %r14991, i64 %r14998)
-%r14986 = tail call fastcc i64 @"fun-cons"(i64 %r14987, i64 %r14990)
+%r14974 = tail call fastcc i64 @"fun-cons"(i64 %r14975, i64 %r14980)
+%r14970 = tail call fastcc i64 @"fun-cons"(i64 %r14971, i64 %r14974)
+%r14981 = tail call fastcc i64 @"fun-make-null"()
+%r14969 = tail call fastcc i64 @"fun-cons"(i64 %r14970, i64 %r14981)
+%r14965 = tail call fastcc i64 @"fun-cons"(i64 %r14966, i64 %r14969)
+%r14961 = tail call fastcc i64 @"fun-cons"(i64 %r14962, i64 %r14965)
+%r14985 = ptrtoint [15 x i8]* @r14984 to i64
+%r14983 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14985, i64 14)
+%r14986 = tail call fastcc i64 @"fun-make-null"()
 %r14982 = tail call fastcc i64 @"fun-cons"(i64 %r14983, i64 %r14986)
+%r14960 = tail call fastcc i64 @"fun-cons"(i64 %r14961, i64 %r14982)
+%r14950 = tail call fastcc i64 @"fun-cons"(i64 %r14951, i64 %r14960)
+%r14991 = ptrtoint [5 x i8]* @r14990 to i64
+%r14989 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14991, i64 4)
+%r14995 = ptrtoint [15 x i8]* @r14994 to i64
+%r14993 = tail call fastcc i64 @"fun-make-symbol"(i64 %r14995, i64 14)
+%r14996 = tail call fastcc i64 @"fun-make-null"()
+%r14992 = tail call fastcc i64 @"fun-cons"(i64 %r14993, i64 %r14996)
+%r14988 = tail call fastcc i64 @"fun-cons"(i64 %r14989, i64 %r14992)
+%r14997 = tail call fastcc i64 @"fun-make-null"()
+%r14987 = tail call fastcc i64 @"fun-cons"(i64 %r14988, i64 %r14997)
+%r14949 = tail call fastcc i64 @"fun-cons"(i64 %r14950, i64 %r14987)
+%r14945 = tail call fastcc i64 @"fun-cons"(i64 %r14946, i64 %r14949)
+%r14998 = tail call fastcc i64 @"fun-make-null"()
+%r14944 = tail call fastcc i64 @"fun-cons"(i64 %r14945, i64 %r14998)
+%r14938 = tail call fastcc i64 @"fun-cons"(i64 %r14939, i64 %r14944)
+%r14934 = tail call fastcc i64 @"fun-cons"(i64 %r14935, i64 %r14938)
 %r15003 = ptrtoint [7 x i8]* @r15002 to i64
 %r15001 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15003, i64 6)
 %r15008 = ptrtoint [10 x i8]* @r15007 to i64
 %r15006 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15008, i64 9)
 %r15009 = tail call fastcc i64 @"fun-make-null"()
 %r15005 = tail call fastcc i64 @"fun-cons"(i64 %r15006, i64 %r15009)
-%r15014 = ptrtoint [5 x i8]* @r15013 to i64
-%r15012 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15014, i64 4)
-%r15020 = ptrtoint [6 x i8]* @r15019 to i64
-%r15018 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15020, i64 5)
-%r15024 = ptrtoint [15 x i8]* @r15023 to i64
-%r15022 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15024, i64 14)
-%r15025 = tail call fastcc i64 @"fun-make-null"()
-%r15021 = tail call fastcc i64 @"fun-cons"(i64 %r15022, i64 %r15025)
-%r15017 = tail call fastcc i64 @"fun-cons"(i64 %r15018, i64 %r15021)
-%r15030 = ptrtoint [5 x i8]* @r15029 to i64
-%r15028 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15030, i64 4)
-%r15034 = ptrtoint [15 x i8]* @r15033 to i64
-%r15032 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15034, i64 14)
-%r15039 = ptrtoint [10 x i8]* @r15038 to i64
-%r15037 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15039, i64 9)
-%r15044 = ptrtoint [9 x i8]* @r15043 to i64
-%r15042 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15044, i64 8)
-%r15045 = tail call fastcc i64 @"fun-make-null"()
-%r15041 = tail call fastcc i64 @"fun-cons"(i64 %r15042, i64 %r15045)
-%r15046 = tail call fastcc i64 @"fun-make-null"()
-%r15040 = tail call fastcc i64 @"fun-cons"(i64 %r15041, i64 %r15046)
-%r15036 = tail call fastcc i64 @"fun-cons"(i64 %r15037, i64 %r15040)
-%r15047 = tail call fastcc i64 @"fun-make-null"()
-%r15035 = tail call fastcc i64 @"fun-cons"(i64 %r15036, i64 %r15047)
+%r15014 = ptrtoint [7 x i8]* @r15013 to i64
+%r15012 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15014, i64 6)
+%r15018 = ptrtoint [5 x i8]* @r15017 to i64
+%r15016 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15018, i64 4)
+%r15022 = ptrtoint [15 x i8]* @r15021 to i64
+%r15020 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15022, i64 14)
+%r15023 = tail call fastcc i64 @"fun-make-null"()
+%r15019 = tail call fastcc i64 @"fun-cons"(i64 %r15020, i64 %r15023)
+%r15015 = tail call fastcc i64 @"fun-cons"(i64 %r15016, i64 %r15019)
+%r15011 = tail call fastcc i64 @"fun-cons"(i64 %r15012, i64 %r15015)
+%r15028 = ptrtoint [5 x i8]* @r15027 to i64
+%r15026 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15028, i64 4)
+%r15034 = ptrtoint [6 x i8]* @r15033 to i64
+%r15032 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15034, i64 5)
+%r15038 = ptrtoint [5 x i8]* @r15037 to i64
+%r15036 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15038, i64 4)
+%r15039 = tail call fastcc i64 @"fun-make-null"()
+%r15035 = tail call fastcc i64 @"fun-cons"(i64 %r15036, i64 %r15039)
 %r15031 = tail call fastcc i64 @"fun-cons"(i64 %r15032, i64 %r15035)
-%r15027 = tail call fastcc i64 @"fun-cons"(i64 %r15028, i64 %r15031)
-%r15051 = ptrtoint [15 x i8]* @r15050 to i64
-%r15049 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15051, i64 14)
+%r15044 = ptrtoint [10 x i8]* @r15043 to i64
+%r15042 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15044, i64 9)
+%r15049 = ptrtoint [9 x i8]* @r15048 to i64
+%r15047 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15049, i64 8)
+%r15050 = tail call fastcc i64 @"fun-make-null"()
+%r15046 = tail call fastcc i64 @"fun-cons"(i64 %r15047, i64 %r15050)
+%r15051 = tail call fastcc i64 @"fun-make-null"()
+%r15045 = tail call fastcc i64 @"fun-cons"(i64 %r15046, i64 %r15051)
+%r15041 = tail call fastcc i64 @"fun-cons"(i64 %r15042, i64 %r15045)
 %r15052 = tail call fastcc i64 @"fun-make-null"()
-%r15048 = tail call fastcc i64 @"fun-cons"(i64 %r15049, i64 %r15052)
-%r15026 = tail call fastcc i64 @"fun-cons"(i64 %r15027, i64 %r15048)
-%r15016 = tail call fastcc i64 @"fun-cons"(i64 %r15017, i64 %r15026)
+%r15040 = tail call fastcc i64 @"fun-cons"(i64 %r15041, i64 %r15052)
+%r15030 = tail call fastcc i64 @"fun-cons"(i64 %r15031, i64 %r15040)
 %r15057 = ptrtoint [5 x i8]* @r15056 to i64
 %r15055 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15057, i64 4)
-%r15061 = ptrtoint [15 x i8]* @r15060 to i64
-%r15059 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15061, i64 14)
-%r15062 = tail call fastcc i64 @"fun-make-null"()
-%r15058 = tail call fastcc i64 @"fun-cons"(i64 %r15059, i64 %r15062)
+%r15062 = ptrtoint [5 x i8]* @r15061 to i64
+%r15060 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15062, i64 4)
+%r15066 = ptrtoint [15 x i8]* @r15065 to i64
+%r15064 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15066, i64 14)
+%r15071 = ptrtoint [6 x i8]* @r15070 to i64
+%r15069 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15071, i64 5)
+%r15073 = tail call fastcc i64 @"fun-make-null"()
+%r15074 = tail call fastcc i64 @"fun-make-null"()
+%r15072 = tail call fastcc i64 @"fun-cons"(i64 %r15073, i64 %r15074)
+%r15068 = tail call fastcc i64 @"fun-cons"(i64 %r15069, i64 %r15072)
+%r15075 = tail call fastcc i64 @"fun-make-null"()
+%r15067 = tail call fastcc i64 @"fun-cons"(i64 %r15068, i64 %r15075)
+%r15063 = tail call fastcc i64 @"fun-cons"(i64 %r15064, i64 %r15067)
+%r15059 = tail call fastcc i64 @"fun-cons"(i64 %r15060, i64 %r15063)
+%r15079 = ptrtoint [5 x i8]* @r15078 to i64
+%r15077 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15079, i64 4)
+%r15080 = tail call fastcc i64 @"fun-make-null"()
+%r15076 = tail call fastcc i64 @"fun-cons"(i64 %r15077, i64 %r15080)
+%r15058 = tail call fastcc i64 @"fun-cons"(i64 %r15059, i64 %r15076)
 %r15054 = tail call fastcc i64 @"fun-cons"(i64 %r15055, i64 %r15058)
-%r15063 = tail call fastcc i64 @"fun-make-null"()
-%r15053 = tail call fastcc i64 @"fun-cons"(i64 %r15054, i64 %r15063)
-%r15015 = tail call fastcc i64 @"fun-cons"(i64 %r15016, i64 %r15053)
-%r15011 = tail call fastcc i64 @"fun-cons"(i64 %r15012, i64 %r15015)
-%r15064 = tail call fastcc i64 @"fun-make-null"()
-%r15010 = tail call fastcc i64 @"fun-cons"(i64 %r15011, i64 %r15064)
+%r15081 = tail call fastcc i64 @"fun-make-null"()
+%r15053 = tail call fastcc i64 @"fun-cons"(i64 %r15054, i64 %r15081)
+%r15029 = tail call fastcc i64 @"fun-cons"(i64 %r15030, i64 %r15053)
+%r15025 = tail call fastcc i64 @"fun-cons"(i64 %r15026, i64 %r15029)
+%r15082 = tail call fastcc i64 @"fun-make-null"()
+%r15024 = tail call fastcc i64 @"fun-cons"(i64 %r15025, i64 %r15082)
+%r15010 = tail call fastcc i64 @"fun-cons"(i64 %r15011, i64 %r15024)
 %r15004 = tail call fastcc i64 @"fun-cons"(i64 %r15005, i64 %r15010)
 %r15000 = tail call fastcc i64 @"fun-cons"(i64 %r15001, i64 %r15004)
-%r15069 = ptrtoint [7 x i8]* @r15068 to i64
-%r15067 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15069, i64 6)
-%r15074 = ptrtoint [10 x i8]* @r15073 to i64
-%r15072 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15074, i64 9)
-%r15075 = tail call fastcc i64 @"fun-make-null"()
-%r15071 = tail call fastcc i64 @"fun-cons"(i64 %r15072, i64 %r15075)
-%r15080 = ptrtoint [7 x i8]* @r15079 to i64
-%r15078 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15080, i64 6)
-%r15084 = ptrtoint [5 x i8]* @r15083 to i64
-%r15082 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15084, i64 4)
-%r15088 = ptrtoint [15 x i8]* @r15087 to i64
-%r15086 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15088, i64 14)
-%r15089 = tail call fastcc i64 @"fun-make-null"()
-%r15085 = tail call fastcc i64 @"fun-cons"(i64 %r15086, i64 %r15089)
-%r15081 = tail call fastcc i64 @"fun-cons"(i64 %r15082, i64 %r15085)
-%r15077 = tail call fastcc i64 @"fun-cons"(i64 %r15078, i64 %r15081)
-%r15094 = ptrtoint [5 x i8]* @r15093 to i64
-%r15092 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15094, i64 4)
-%r15100 = ptrtoint [6 x i8]* @r15099 to i64
-%r15098 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15100, i64 5)
-%r15104 = ptrtoint [5 x i8]* @r15103 to i64
-%r15102 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15104, i64 4)
-%r15105 = tail call fastcc i64 @"fun-make-null"()
-%r15101 = tail call fastcc i64 @"fun-cons"(i64 %r15102, i64 %r15105)
-%r15097 = tail call fastcc i64 @"fun-cons"(i64 %r15098, i64 %r15101)
-%r15110 = ptrtoint [10 x i8]* @r15109 to i64
-%r15108 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15110, i64 9)
-%r15115 = ptrtoint [9 x i8]* @r15114 to i64
-%r15113 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15115, i64 8)
-%r15116 = tail call fastcc i64 @"fun-make-null"()
-%r15112 = tail call fastcc i64 @"fun-cons"(i64 %r15113, i64 %r15116)
-%r15117 = tail call fastcc i64 @"fun-make-null"()
-%r15111 = tail call fastcc i64 @"fun-cons"(i64 %r15112, i64 %r15117)
-%r15107 = tail call fastcc i64 @"fun-cons"(i64 %r15108, i64 %r15111)
+%r15087 = ptrtoint [7 x i8]* @r15086 to i64
+%r15085 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15087, i64 6)
+%r15091 = ptrtoint [13 x i8]* @r15090 to i64
+%r15089 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15091, i64 12)
+%r15096 = ptrtoint [6 x i8]* @r15095 to i64
+%r15094 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15096, i64 5)
+%r15099 = tail call fastcc i64 @"fun-make-number"(i64 48)
+%r15101 = tail call fastcc i64 @"fun-make-number"(i64 49)
+%r15103 = tail call fastcc i64 @"fun-make-number"(i64 50)
+%r15105 = tail call fastcc i64 @"fun-make-number"(i64 51)
+%r15107 = tail call fastcc i64 @"fun-make-number"(i64 52)
+%r15109 = tail call fastcc i64 @"fun-make-number"(i64 53)
+%r15111 = tail call fastcc i64 @"fun-make-number"(i64 54)
+%r15113 = tail call fastcc i64 @"fun-make-number"(i64 55)
+%r15115 = tail call fastcc i64 @"fun-make-number"(i64 56)
+%r15117 = tail call fastcc i64 @"fun-make-number"(i64 57)
 %r15118 = tail call fastcc i64 @"fun-make-null"()
-%r15106 = tail call fastcc i64 @"fun-cons"(i64 %r15107, i64 %r15118)
-%r15096 = tail call fastcc i64 @"fun-cons"(i64 %r15097, i64 %r15106)
-%r15123 = ptrtoint [5 x i8]* @r15122 to i64
-%r15121 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15123, i64 4)
-%r15128 = ptrtoint [5 x i8]* @r15127 to i64
-%r15126 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15128, i64 4)
-%r15132 = ptrtoint [15 x i8]* @r15131 to i64
-%r15130 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15132, i64 14)
-%r15137 = ptrtoint [6 x i8]* @r15136 to i64
-%r15135 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15137, i64 5)
-%r15139 = tail call fastcc i64 @"fun-make-null"()
-%r15140 = tail call fastcc i64 @"fun-make-null"()
-%r15138 = tail call fastcc i64 @"fun-cons"(i64 %r15139, i64 %r15140)
-%r15134 = tail call fastcc i64 @"fun-cons"(i64 %r15135, i64 %r15138)
-%r15141 = tail call fastcc i64 @"fun-make-null"()
-%r15133 = tail call fastcc i64 @"fun-cons"(i64 %r15134, i64 %r15141)
-%r15129 = tail call fastcc i64 @"fun-cons"(i64 %r15130, i64 %r15133)
-%r15125 = tail call fastcc i64 @"fun-cons"(i64 %r15126, i64 %r15129)
-%r15145 = ptrtoint [5 x i8]* @r15144 to i64
-%r15143 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15145, i64 4)
-%r15146 = tail call fastcc i64 @"fun-make-null"()
+%r15116 = tail call fastcc i64 @"fun-cons"(i64 %r15117, i64 %r15118)
+%r15114 = tail call fastcc i64 @"fun-cons"(i64 %r15115, i64 %r15116)
+%r15112 = tail call fastcc i64 @"fun-cons"(i64 %r15113, i64 %r15114)
+%r15110 = tail call fastcc i64 @"fun-cons"(i64 %r15111, i64 %r15112)
+%r15108 = tail call fastcc i64 @"fun-cons"(i64 %r15109, i64 %r15110)
+%r15106 = tail call fastcc i64 @"fun-cons"(i64 %r15107, i64 %r15108)
+%r15104 = tail call fastcc i64 @"fun-cons"(i64 %r15105, i64 %r15106)
+%r15102 = tail call fastcc i64 @"fun-cons"(i64 %r15103, i64 %r15104)
+%r15100 = tail call fastcc i64 @"fun-cons"(i64 %r15101, i64 %r15102)
+%r15098 = tail call fastcc i64 @"fun-cons"(i64 %r15099, i64 %r15100)
+%r15119 = tail call fastcc i64 @"fun-make-null"()
+%r15097 = tail call fastcc i64 @"fun-cons"(i64 %r15098, i64 %r15119)
+%r15093 = tail call fastcc i64 @"fun-cons"(i64 %r15094, i64 %r15097)
+%r15120 = tail call fastcc i64 @"fun-make-null"()
+%r15092 = tail call fastcc i64 @"fun-cons"(i64 %r15093, i64 %r15120)
+%r15088 = tail call fastcc i64 @"fun-cons"(i64 %r15089, i64 %r15092)
+%r15084 = tail call fastcc i64 @"fun-cons"(i64 %r15085, i64 %r15088)
+%r15125 = ptrtoint [7 x i8]* @r15124 to i64
+%r15123 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15125, i64 6)
+%r15130 = ptrtoint [17 x i8]* @r15129 to i64
+%r15128 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15130, i64 16)
+%r15134 = ptrtoint [3 x i8]* @r15133 to i64
+%r15132 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15134, i64 2)
+%r15135 = tail call fastcc i64 @"fun-make-null"()
+%r15131 = tail call fastcc i64 @"fun-cons"(i64 %r15132, i64 %r15135)
+%r15127 = tail call fastcc i64 @"fun-cons"(i64 %r15128, i64 %r15131)
+%r15140 = ptrtoint [3 x i8]* @r15139 to i64
+%r15138 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15140, i64 2)
+%r15145 = ptrtoint [4 x i8]* @r15144 to i64
+%r15143 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15145, i64 3)
+%r15149 = ptrtoint [3 x i8]* @r15148 to i64
+%r15147 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15149, i64 2)
+%r15151 = tail call fastcc i64 @"fun-make-number"(i64 32)
+%r15152 = tail call fastcc i64 @"fun-make-null"()
+%r15150 = tail call fastcc i64 @"fun-cons"(i64 %r15151, i64 %r15152)
+%r15146 = tail call fastcc i64 @"fun-cons"(i64 %r15147, i64 %r15150)
 %r15142 = tail call fastcc i64 @"fun-cons"(i64 %r15143, i64 %r15146)
-%r15124 = tail call fastcc i64 @"fun-cons"(i64 %r15125, i64 %r15142)
-%r15120 = tail call fastcc i64 @"fun-cons"(i64 %r15121, i64 %r15124)
-%r15147 = tail call fastcc i64 @"fun-make-null"()
-%r15119 = tail call fastcc i64 @"fun-cons"(i64 %r15120, i64 %r15147)
-%r15095 = tail call fastcc i64 @"fun-cons"(i64 %r15096, i64 %r15119)
-%r15091 = tail call fastcc i64 @"fun-cons"(i64 %r15092, i64 %r15095)
-%r15148 = tail call fastcc i64 @"fun-make-null"()
-%r15090 = tail call fastcc i64 @"fun-cons"(i64 %r15091, i64 %r15148)
-%r15076 = tail call fastcc i64 @"fun-cons"(i64 %r15077, i64 %r15090)
-%r15070 = tail call fastcc i64 @"fun-cons"(i64 %r15071, i64 %r15076)
-%r15066 = tail call fastcc i64 @"fun-cons"(i64 %r15067, i64 %r15070)
-%r15153 = ptrtoint [7 x i8]* @r15152 to i64
-%r15151 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15153, i64 6)
-%r15157 = ptrtoint [13 x i8]* @r15156 to i64
-%r15155 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15157, i64 12)
-%r15162 = ptrtoint [6 x i8]* @r15161 to i64
-%r15160 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15162, i64 5)
-%r15165 = tail call fastcc i64 @"fun-make-number"(i64 48)
-%r15167 = tail call fastcc i64 @"fun-make-number"(i64 49)
-%r15169 = tail call fastcc i64 @"fun-make-number"(i64 50)
-%r15171 = tail call fastcc i64 @"fun-make-number"(i64 51)
-%r15173 = tail call fastcc i64 @"fun-make-number"(i64 52)
-%r15175 = tail call fastcc i64 @"fun-make-number"(i64 53)
-%r15177 = tail call fastcc i64 @"fun-make-number"(i64 54)
-%r15179 = tail call fastcc i64 @"fun-make-number"(i64 55)
-%r15181 = tail call fastcc i64 @"fun-make-number"(i64 56)
-%r15183 = tail call fastcc i64 @"fun-make-number"(i64 57)
-%r15184 = tail call fastcc i64 @"fun-make-null"()
-%r15182 = tail call fastcc i64 @"fun-cons"(i64 %r15183, i64 %r15184)
-%r15180 = tail call fastcc i64 @"fun-cons"(i64 %r15181, i64 %r15182)
-%r15178 = tail call fastcc i64 @"fun-cons"(i64 %r15179, i64 %r15180)
-%r15176 = tail call fastcc i64 @"fun-cons"(i64 %r15177, i64 %r15178)
-%r15174 = tail call fastcc i64 @"fun-cons"(i64 %r15175, i64 %r15176)
-%r15172 = tail call fastcc i64 @"fun-cons"(i64 %r15173, i64 %r15174)
-%r15170 = tail call fastcc i64 @"fun-cons"(i64 %r15171, i64 %r15172)
-%r15168 = tail call fastcc i64 @"fun-cons"(i64 %r15169, i64 %r15170)
-%r15166 = tail call fastcc i64 @"fun-cons"(i64 %r15167, i64 %r15168)
-%r15164 = tail call fastcc i64 @"fun-cons"(i64 %r15165, i64 %r15166)
-%r15185 = tail call fastcc i64 @"fun-make-null"()
-%r15163 = tail call fastcc i64 @"fun-cons"(i64 %r15164, i64 %r15185)
+%r15157 = ptrtoint [3 x i8]* @r15156 to i64
+%r15155 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15157, i64 2)
+%r15162 = ptrtoint [4 x i8]* @r15161 to i64
+%r15160 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15162, i64 3)
+%r15166 = ptrtoint [3 x i8]* @r15165 to i64
+%r15164 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15166, i64 2)
+%r15168 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r15169 = tail call fastcc i64 @"fun-make-null"()
+%r15167 = tail call fastcc i64 @"fun-cons"(i64 %r15168, i64 %r15169)
+%r15163 = tail call fastcc i64 @"fun-cons"(i64 %r15164, i64 %r15167)
 %r15159 = tail call fastcc i64 @"fun-cons"(i64 %r15160, i64 %r15163)
-%r15186 = tail call fastcc i64 @"fun-make-null"()
-%r15158 = tail call fastcc i64 @"fun-cons"(i64 %r15159, i64 %r15186)
+%r15174 = ptrtoint [4 x i8]* @r15173 to i64
+%r15172 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15174, i64 3)
+%r15178 = ptrtoint [3 x i8]* @r15177 to i64
+%r15176 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15178, i64 2)
+%r15180 = tail call fastcc i64 @"fun-make-number"(i64 9)
+%r15181 = tail call fastcc i64 @"fun-make-null"()
+%r15179 = tail call fastcc i64 @"fun-cons"(i64 %r15180, i64 %r15181)
+%r15175 = tail call fastcc i64 @"fun-cons"(i64 %r15176, i64 %r15179)
+%r15171 = tail call fastcc i64 @"fun-cons"(i64 %r15172, i64 %r15175)
+%r15182 = tail call fastcc i64 @"fun-make-null"()
+%r15170 = tail call fastcc i64 @"fun-cons"(i64 %r15171, i64 %r15182)
+%r15158 = tail call fastcc i64 @"fun-cons"(i64 %r15159, i64 %r15170)
 %r15154 = tail call fastcc i64 @"fun-cons"(i64 %r15155, i64 %r15158)
-%r15150 = tail call fastcc i64 @"fun-cons"(i64 %r15151, i64 %r15154)
-%r15191 = ptrtoint [7 x i8]* @r15190 to i64
-%r15189 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15191, i64 6)
-%r15196 = ptrtoint [17 x i8]* @r15195 to i64
-%r15194 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15196, i64 16)
-%r15200 = ptrtoint [3 x i8]* @r15199 to i64
-%r15198 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15200, i64 2)
-%r15201 = tail call fastcc i64 @"fun-make-null"()
-%r15197 = tail call fastcc i64 @"fun-cons"(i64 %r15198, i64 %r15201)
-%r15193 = tail call fastcc i64 @"fun-cons"(i64 %r15194, i64 %r15197)
-%r15206 = ptrtoint [3 x i8]* @r15205 to i64
-%r15204 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15206, i64 2)
-%r15211 = ptrtoint [4 x i8]* @r15210 to i64
-%r15209 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15211, i64 3)
-%r15215 = ptrtoint [3 x i8]* @r15214 to i64
-%r15213 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15215, i64 2)
-%r15217 = tail call fastcc i64 @"fun-make-number"(i64 32)
-%r15218 = tail call fastcc i64 @"fun-make-null"()
-%r15216 = tail call fastcc i64 @"fun-cons"(i64 %r15217, i64 %r15218)
-%r15212 = tail call fastcc i64 @"fun-cons"(i64 %r15213, i64 %r15216)
-%r15208 = tail call fastcc i64 @"fun-cons"(i64 %r15209, i64 %r15212)
-%r15223 = ptrtoint [3 x i8]* @r15222 to i64
-%r15221 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15223, i64 2)
-%r15228 = ptrtoint [4 x i8]* @r15227 to i64
-%r15226 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15228, i64 3)
-%r15232 = ptrtoint [3 x i8]* @r15231 to i64
-%r15230 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15232, i64 2)
-%r15234 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r15235 = tail call fastcc i64 @"fun-make-null"()
-%r15233 = tail call fastcc i64 @"fun-cons"(i64 %r15234, i64 %r15235)
-%r15229 = tail call fastcc i64 @"fun-cons"(i64 %r15230, i64 %r15233)
+%r15183 = tail call fastcc i64 @"fun-make-null"()
+%r15153 = tail call fastcc i64 @"fun-cons"(i64 %r15154, i64 %r15183)
+%r15141 = tail call fastcc i64 @"fun-cons"(i64 %r15142, i64 %r15153)
+%r15137 = tail call fastcc i64 @"fun-cons"(i64 %r15138, i64 %r15141)
+%r15184 = tail call fastcc i64 @"fun-make-null"()
+%r15136 = tail call fastcc i64 @"fun-cons"(i64 %r15137, i64 %r15184)
+%r15126 = tail call fastcc i64 @"fun-cons"(i64 %r15127, i64 %r15136)
+%r15122 = tail call fastcc i64 @"fun-cons"(i64 %r15123, i64 %r15126)
+%r15189 = ptrtoint [7 x i8]* @r15188 to i64
+%r15187 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15189, i64 6)
+%r15194 = ptrtoint [14 x i8]* @r15193 to i64
+%r15192 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15194, i64 13)
+%r15198 = ptrtoint [3 x i8]* @r15197 to i64
+%r15196 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15198, i64 2)
+%r15199 = tail call fastcc i64 @"fun-make-null"()
+%r15195 = tail call fastcc i64 @"fun-cons"(i64 %r15196, i64 %r15199)
+%r15191 = tail call fastcc i64 @"fun-cons"(i64 %r15192, i64 %r15195)
+%r15204 = ptrtoint [7 x i8]* @r15203 to i64
+%r15202 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15204, i64 6)
+%r15208 = ptrtoint [3 x i8]* @r15207 to i64
+%r15206 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15208, i64 2)
+%r15212 = ptrtoint [13 x i8]* @r15211 to i64
+%r15210 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15212, i64 12)
+%r15213 = tail call fastcc i64 @"fun-make-null"()
+%r15209 = tail call fastcc i64 @"fun-cons"(i64 %r15210, i64 %r15213)
+%r15205 = tail call fastcc i64 @"fun-cons"(i64 %r15206, i64 %r15209)
+%r15201 = tail call fastcc i64 @"fun-cons"(i64 %r15202, i64 %r15205)
+%r15214 = tail call fastcc i64 @"fun-make-null"()
+%r15200 = tail call fastcc i64 @"fun-cons"(i64 %r15201, i64 %r15214)
+%r15190 = tail call fastcc i64 @"fun-cons"(i64 %r15191, i64 %r15200)
+%r15186 = tail call fastcc i64 @"fun-cons"(i64 %r15187, i64 %r15190)
+%r15219 = ptrtoint [7 x i8]* @r15218 to i64
+%r15217 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15219, i64 6)
+%r15224 = ptrtoint [17 x i8]* @r15223 to i64
+%r15222 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15224, i64 16)
+%r15228 = ptrtoint [3 x i8]* @r15227 to i64
+%r15226 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15228, i64 2)
+%r15229 = tail call fastcc i64 @"fun-make-null"()
 %r15225 = tail call fastcc i64 @"fun-cons"(i64 %r15226, i64 %r15229)
-%r15240 = ptrtoint [4 x i8]* @r15239 to i64
-%r15238 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15240, i64 3)
-%r15244 = ptrtoint [3 x i8]* @r15243 to i64
-%r15242 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15244, i64 2)
-%r15246 = tail call fastcc i64 @"fun-make-number"(i64 9)
-%r15247 = tail call fastcc i64 @"fun-make-null"()
-%r15245 = tail call fastcc i64 @"fun-cons"(i64 %r15246, i64 %r15247)
-%r15241 = tail call fastcc i64 @"fun-cons"(i64 %r15242, i64 %r15245)
-%r15237 = tail call fastcc i64 @"fun-cons"(i64 %r15238, i64 %r15241)
-%r15248 = tail call fastcc i64 @"fun-make-null"()
-%r15236 = tail call fastcc i64 @"fun-cons"(i64 %r15237, i64 %r15248)
-%r15224 = tail call fastcc i64 @"fun-cons"(i64 %r15225, i64 %r15236)
-%r15220 = tail call fastcc i64 @"fun-cons"(i64 %r15221, i64 %r15224)
-%r15249 = tail call fastcc i64 @"fun-make-null"()
-%r15219 = tail call fastcc i64 @"fun-cons"(i64 %r15220, i64 %r15249)
-%r15207 = tail call fastcc i64 @"fun-cons"(i64 %r15208, i64 %r15219)
-%r15203 = tail call fastcc i64 @"fun-cons"(i64 %r15204, i64 %r15207)
-%r15250 = tail call fastcc i64 @"fun-make-null"()
-%r15202 = tail call fastcc i64 @"fun-cons"(i64 %r15203, i64 %r15250)
-%r15192 = tail call fastcc i64 @"fun-cons"(i64 %r15193, i64 %r15202)
-%r15188 = tail call fastcc i64 @"fun-cons"(i64 %r15189, i64 %r15192)
-%r15255 = ptrtoint [7 x i8]* @r15254 to i64
-%r15253 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15255, i64 6)
-%r15260 = ptrtoint [14 x i8]* @r15259 to i64
-%r15258 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15260, i64 13)
-%r15264 = ptrtoint [3 x i8]* @r15263 to i64
-%r15262 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15264, i64 2)
-%r15265 = tail call fastcc i64 @"fun-make-null"()
-%r15261 = tail call fastcc i64 @"fun-cons"(i64 %r15262, i64 %r15265)
-%r15257 = tail call fastcc i64 @"fun-cons"(i64 %r15258, i64 %r15261)
-%r15270 = ptrtoint [7 x i8]* @r15269 to i64
-%r15268 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15270, i64 6)
-%r15274 = ptrtoint [3 x i8]* @r15273 to i64
-%r15272 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15274, i64 2)
-%r15278 = ptrtoint [13 x i8]* @r15277 to i64
-%r15276 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15278, i64 12)
-%r15279 = tail call fastcc i64 @"fun-make-null"()
-%r15275 = tail call fastcc i64 @"fun-cons"(i64 %r15276, i64 %r15279)
-%r15271 = tail call fastcc i64 @"fun-cons"(i64 %r15272, i64 %r15275)
-%r15267 = tail call fastcc i64 @"fun-cons"(i64 %r15268, i64 %r15271)
-%r15280 = tail call fastcc i64 @"fun-make-null"()
-%r15266 = tail call fastcc i64 @"fun-cons"(i64 %r15267, i64 %r15280)
-%r15256 = tail call fastcc i64 @"fun-cons"(i64 %r15257, i64 %r15266)
-%r15252 = tail call fastcc i64 @"fun-cons"(i64 %r15253, i64 %r15256)
-%r15285 = ptrtoint [7 x i8]* @r15284 to i64
-%r15283 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15285, i64 6)
-%r15290 = ptrtoint [17 x i8]* @r15289 to i64
-%r15288 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15290, i64 16)
+%r15221 = tail call fastcc i64 @"fun-cons"(i64 %r15222, i64 %r15225)
+%r15234 = ptrtoint [4 x i8]* @r15233 to i64
+%r15232 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15234, i64 3)
+%r15238 = ptrtoint [3 x i8]* @r15237 to i64
+%r15236 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15238, i64 2)
+%r15240 = tail call fastcc i64 @"fun-make-number"(i64 40)
+%r15241 = tail call fastcc i64 @"fun-make-null"()
+%r15239 = tail call fastcc i64 @"fun-cons"(i64 %r15240, i64 %r15241)
+%r15235 = tail call fastcc i64 @"fun-cons"(i64 %r15236, i64 %r15239)
+%r15231 = tail call fastcc i64 @"fun-cons"(i64 %r15232, i64 %r15235)
+%r15242 = tail call fastcc i64 @"fun-make-null"()
+%r15230 = tail call fastcc i64 @"fun-cons"(i64 %r15231, i64 %r15242)
+%r15220 = tail call fastcc i64 @"fun-cons"(i64 %r15221, i64 %r15230)
+%r15216 = tail call fastcc i64 @"fun-cons"(i64 %r15217, i64 %r15220)
+%r15247 = ptrtoint [7 x i8]* @r15246 to i64
+%r15245 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15247, i64 6)
+%r15252 = ptrtoint [18 x i8]* @r15251 to i64
+%r15250 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15252, i64 17)
+%r15256 = ptrtoint [3 x i8]* @r15255 to i64
+%r15254 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15256, i64 2)
+%r15257 = tail call fastcc i64 @"fun-make-null"()
+%r15253 = tail call fastcc i64 @"fun-cons"(i64 %r15254, i64 %r15257)
+%r15249 = tail call fastcc i64 @"fun-cons"(i64 %r15250, i64 %r15253)
+%r15262 = ptrtoint [4 x i8]* @r15261 to i64
+%r15260 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15262, i64 3)
+%r15266 = ptrtoint [3 x i8]* @r15265 to i64
+%r15264 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15266, i64 2)
+%r15268 = tail call fastcc i64 @"fun-make-number"(i64 41)
+%r15269 = tail call fastcc i64 @"fun-make-null"()
+%r15267 = tail call fastcc i64 @"fun-cons"(i64 %r15268, i64 %r15269)
+%r15263 = tail call fastcc i64 @"fun-cons"(i64 %r15264, i64 %r15267)
+%r15259 = tail call fastcc i64 @"fun-cons"(i64 %r15260, i64 %r15263)
+%r15270 = tail call fastcc i64 @"fun-make-null"()
+%r15258 = tail call fastcc i64 @"fun-cons"(i64 %r15259, i64 %r15270)
+%r15248 = tail call fastcc i64 @"fun-cons"(i64 %r15249, i64 %r15258)
+%r15244 = tail call fastcc i64 @"fun-cons"(i64 %r15245, i64 %r15248)
+%r15275 = ptrtoint [7 x i8]* @r15274 to i64
+%r15273 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15275, i64 6)
+%r15280 = ptrtoint [14 x i8]* @r15279 to i64
+%r15278 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15280, i64 13)
+%r15284 = ptrtoint [3 x i8]* @r15283 to i64
+%r15282 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15284, i64 2)
+%r15285 = tail call fastcc i64 @"fun-make-null"()
+%r15281 = tail call fastcc i64 @"fun-cons"(i64 %r15282, i64 %r15285)
+%r15277 = tail call fastcc i64 @"fun-cons"(i64 %r15278, i64 %r15281)
+%r15290 = ptrtoint [4 x i8]* @r15289 to i64
+%r15288 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15290, i64 3)
 %r15294 = ptrtoint [3 x i8]* @r15293 to i64
 %r15292 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15294, i64 2)
-%r15295 = tail call fastcc i64 @"fun-make-null"()
+%r15296 = tail call fastcc i64 @"fun-make-number"(i64 59)
+%r15297 = tail call fastcc i64 @"fun-make-null"()
+%r15295 = tail call fastcc i64 @"fun-cons"(i64 %r15296, i64 %r15297)
 %r15291 = tail call fastcc i64 @"fun-cons"(i64 %r15292, i64 %r15295)
 %r15287 = tail call fastcc i64 @"fun-cons"(i64 %r15288, i64 %r15291)
-%r15300 = ptrtoint [4 x i8]* @r15299 to i64
-%r15298 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15300, i64 3)
-%r15304 = ptrtoint [3 x i8]* @r15303 to i64
-%r15302 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15304, i64 2)
-%r15306 = tail call fastcc i64 @"fun-make-number"(i64 40)
-%r15307 = tail call fastcc i64 @"fun-make-null"()
-%r15305 = tail call fastcc i64 @"fun-cons"(i64 %r15306, i64 %r15307)
-%r15301 = tail call fastcc i64 @"fun-cons"(i64 %r15302, i64 %r15305)
-%r15297 = tail call fastcc i64 @"fun-cons"(i64 %r15298, i64 %r15301)
-%r15308 = tail call fastcc i64 @"fun-make-null"()
-%r15296 = tail call fastcc i64 @"fun-cons"(i64 %r15297, i64 %r15308)
-%r15286 = tail call fastcc i64 @"fun-cons"(i64 %r15287, i64 %r15296)
-%r15282 = tail call fastcc i64 @"fun-cons"(i64 %r15283, i64 %r15286)
-%r15313 = ptrtoint [7 x i8]* @r15312 to i64
-%r15311 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15313, i64 6)
-%r15318 = ptrtoint [18 x i8]* @r15317 to i64
-%r15316 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15318, i64 17)
+%r15298 = tail call fastcc i64 @"fun-make-null"()
+%r15286 = tail call fastcc i64 @"fun-cons"(i64 %r15287, i64 %r15298)
+%r15276 = tail call fastcc i64 @"fun-cons"(i64 %r15277, i64 %r15286)
+%r15272 = tail call fastcc i64 @"fun-cons"(i64 %r15273, i64 %r15276)
+%r15303 = ptrtoint [7 x i8]* @r15302 to i64
+%r15301 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15303, i64 6)
+%r15308 = ptrtoint [13 x i8]* @r15307 to i64
+%r15306 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15308, i64 12)
+%r15312 = ptrtoint [3 x i8]* @r15311 to i64
+%r15310 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15312, i64 2)
+%r15313 = tail call fastcc i64 @"fun-make-null"()
+%r15309 = tail call fastcc i64 @"fun-cons"(i64 %r15310, i64 %r15313)
+%r15305 = tail call fastcc i64 @"fun-cons"(i64 %r15306, i64 %r15309)
+%r15318 = ptrtoint [4 x i8]* @r15317 to i64
+%r15316 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15318, i64 3)
 %r15322 = ptrtoint [3 x i8]* @r15321 to i64
 %r15320 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15322, i64 2)
-%r15323 = tail call fastcc i64 @"fun-make-null"()
+%r15324 = tail call fastcc i64 @"fun-make-number"(i64 34)
+%r15325 = tail call fastcc i64 @"fun-make-null"()
+%r15323 = tail call fastcc i64 @"fun-cons"(i64 %r15324, i64 %r15325)
 %r15319 = tail call fastcc i64 @"fun-cons"(i64 %r15320, i64 %r15323)
 %r15315 = tail call fastcc i64 @"fun-cons"(i64 %r15316, i64 %r15319)
-%r15328 = ptrtoint [4 x i8]* @r15327 to i64
-%r15326 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15328, i64 3)
-%r15332 = ptrtoint [3 x i8]* @r15331 to i64
-%r15330 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15332, i64 2)
-%r15334 = tail call fastcc i64 @"fun-make-number"(i64 41)
-%r15335 = tail call fastcc i64 @"fun-make-null"()
-%r15333 = tail call fastcc i64 @"fun-cons"(i64 %r15334, i64 %r15335)
-%r15329 = tail call fastcc i64 @"fun-cons"(i64 %r15330, i64 %r15333)
-%r15325 = tail call fastcc i64 @"fun-cons"(i64 %r15326, i64 %r15329)
-%r15336 = tail call fastcc i64 @"fun-make-null"()
-%r15324 = tail call fastcc i64 @"fun-cons"(i64 %r15325, i64 %r15336)
-%r15314 = tail call fastcc i64 @"fun-cons"(i64 %r15315, i64 %r15324)
-%r15310 = tail call fastcc i64 @"fun-cons"(i64 %r15311, i64 %r15314)
-%r15341 = ptrtoint [7 x i8]* @r15340 to i64
-%r15339 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15341, i64 6)
-%r15346 = ptrtoint [14 x i8]* @r15345 to i64
-%r15344 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15346, i64 13)
+%r15326 = tail call fastcc i64 @"fun-make-null"()
+%r15314 = tail call fastcc i64 @"fun-cons"(i64 %r15315, i64 %r15326)
+%r15304 = tail call fastcc i64 @"fun-cons"(i64 %r15305, i64 %r15314)
+%r15300 = tail call fastcc i64 @"fun-cons"(i64 %r15301, i64 %r15304)
+%r15331 = ptrtoint [7 x i8]* @r15330 to i64
+%r15329 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15331, i64 6)
+%r15336 = ptrtoint [14 x i8]* @r15335 to i64
+%r15334 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15336, i64 13)
+%r15340 = ptrtoint [3 x i8]* @r15339 to i64
+%r15338 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15340, i64 2)
+%r15341 = tail call fastcc i64 @"fun-make-null"()
+%r15337 = tail call fastcc i64 @"fun-cons"(i64 %r15338, i64 %r15341)
+%r15333 = tail call fastcc i64 @"fun-cons"(i64 %r15334, i64 %r15337)
+%r15346 = ptrtoint [4 x i8]* @r15345 to i64
+%r15344 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15346, i64 3)
 %r15350 = ptrtoint [3 x i8]* @r15349 to i64
 %r15348 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15350, i64 2)
-%r15351 = tail call fastcc i64 @"fun-make-null"()
+%r15352 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r15353 = tail call fastcc i64 @"fun-make-null"()
+%r15351 = tail call fastcc i64 @"fun-cons"(i64 %r15352, i64 %r15353)
 %r15347 = tail call fastcc i64 @"fun-cons"(i64 %r15348, i64 %r15351)
 %r15343 = tail call fastcc i64 @"fun-cons"(i64 %r15344, i64 %r15347)
-%r15356 = ptrtoint [4 x i8]* @r15355 to i64
-%r15354 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15356, i64 3)
-%r15360 = ptrtoint [3 x i8]* @r15359 to i64
-%r15358 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15360, i64 2)
-%r15362 = tail call fastcc i64 @"fun-make-number"(i64 59)
-%r15363 = tail call fastcc i64 @"fun-make-null"()
-%r15361 = tail call fastcc i64 @"fun-cons"(i64 %r15362, i64 %r15363)
-%r15357 = tail call fastcc i64 @"fun-cons"(i64 %r15358, i64 %r15361)
-%r15353 = tail call fastcc i64 @"fun-cons"(i64 %r15354, i64 %r15357)
-%r15364 = tail call fastcc i64 @"fun-make-null"()
-%r15352 = tail call fastcc i64 @"fun-cons"(i64 %r15353, i64 %r15364)
-%r15342 = tail call fastcc i64 @"fun-cons"(i64 %r15343, i64 %r15352)
-%r15338 = tail call fastcc i64 @"fun-cons"(i64 %r15339, i64 %r15342)
-%r15369 = ptrtoint [7 x i8]* @r15368 to i64
-%r15367 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15369, i64 6)
-%r15374 = ptrtoint [13 x i8]* @r15373 to i64
-%r15372 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15374, i64 12)
+%r15354 = tail call fastcc i64 @"fun-make-null"()
+%r15342 = tail call fastcc i64 @"fun-cons"(i64 %r15343, i64 %r15354)
+%r15332 = tail call fastcc i64 @"fun-cons"(i64 %r15333, i64 %r15342)
+%r15328 = tail call fastcc i64 @"fun-cons"(i64 %r15329, i64 %r15332)
+%r15359 = ptrtoint [7 x i8]* @r15358 to i64
+%r15357 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15359, i64 6)
+%r15364 = ptrtoint [10 x i8]* @r15363 to i64
+%r15362 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15364, i64 9)
+%r15368 = ptrtoint [3 x i8]* @r15367 to i64
+%r15366 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15368, i64 2)
+%r15369 = tail call fastcc i64 @"fun-make-null"()
+%r15365 = tail call fastcc i64 @"fun-cons"(i64 %r15366, i64 %r15369)
+%r15361 = tail call fastcc i64 @"fun-cons"(i64 %r15362, i64 %r15365)
+%r15374 = ptrtoint [4 x i8]* @r15373 to i64
+%r15372 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15374, i64 3)
 %r15378 = ptrtoint [3 x i8]* @r15377 to i64
 %r15376 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15378, i64 2)
-%r15379 = tail call fastcc i64 @"fun-make-null"()
+%r15380 = tail call fastcc i64 @"fun-make-number"(i64 46)
+%r15381 = tail call fastcc i64 @"fun-make-null"()
+%r15379 = tail call fastcc i64 @"fun-cons"(i64 %r15380, i64 %r15381)
 %r15375 = tail call fastcc i64 @"fun-cons"(i64 %r15376, i64 %r15379)
 %r15371 = tail call fastcc i64 @"fun-cons"(i64 %r15372, i64 %r15375)
-%r15384 = ptrtoint [4 x i8]* @r15383 to i64
-%r15382 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15384, i64 3)
-%r15388 = ptrtoint [3 x i8]* @r15387 to i64
-%r15386 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15388, i64 2)
-%r15390 = tail call fastcc i64 @"fun-make-number"(i64 34)
-%r15391 = tail call fastcc i64 @"fun-make-null"()
-%r15389 = tail call fastcc i64 @"fun-cons"(i64 %r15390, i64 %r15391)
-%r15385 = tail call fastcc i64 @"fun-cons"(i64 %r15386, i64 %r15389)
-%r15381 = tail call fastcc i64 @"fun-cons"(i64 %r15382, i64 %r15385)
-%r15392 = tail call fastcc i64 @"fun-make-null"()
-%r15380 = tail call fastcc i64 @"fun-cons"(i64 %r15381, i64 %r15392)
-%r15370 = tail call fastcc i64 @"fun-cons"(i64 %r15371, i64 %r15380)
-%r15366 = tail call fastcc i64 @"fun-cons"(i64 %r15367, i64 %r15370)
-%r15397 = ptrtoint [7 x i8]* @r15396 to i64
-%r15395 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15397, i64 6)
-%r15402 = ptrtoint [14 x i8]* @r15401 to i64
-%r15400 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15402, i64 13)
+%r15382 = tail call fastcc i64 @"fun-make-null"()
+%r15370 = tail call fastcc i64 @"fun-cons"(i64 %r15371, i64 %r15382)
+%r15360 = tail call fastcc i64 @"fun-cons"(i64 %r15361, i64 %r15370)
+%r15356 = tail call fastcc i64 @"fun-cons"(i64 %r15357, i64 %r15360)
+%r15387 = ptrtoint [7 x i8]* @r15386 to i64
+%r15385 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15387, i64 6)
+%r15392 = ptrtoint [12 x i8]* @r15391 to i64
+%r15390 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15392, i64 11)
+%r15396 = ptrtoint [3 x i8]* @r15395 to i64
+%r15394 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15396, i64 2)
+%r15397 = tail call fastcc i64 @"fun-make-null"()
+%r15393 = tail call fastcc i64 @"fun-cons"(i64 %r15394, i64 %r15397)
+%r15389 = tail call fastcc i64 @"fun-cons"(i64 %r15390, i64 %r15393)
+%r15402 = ptrtoint [4 x i8]* @r15401 to i64
+%r15400 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15402, i64 3)
 %r15406 = ptrtoint [3 x i8]* @r15405 to i64
 %r15404 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15406, i64 2)
-%r15407 = tail call fastcc i64 @"fun-make-null"()
+%r15408 = tail call fastcc i64 @"fun-make-number"(i64 39)
+%r15409 = tail call fastcc i64 @"fun-make-null"()
+%r15407 = tail call fastcc i64 @"fun-cons"(i64 %r15408, i64 %r15409)
 %r15403 = tail call fastcc i64 @"fun-cons"(i64 %r15404, i64 %r15407)
 %r15399 = tail call fastcc i64 @"fun-cons"(i64 %r15400, i64 %r15403)
-%r15412 = ptrtoint [4 x i8]* @r15411 to i64
-%r15410 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15412, i64 3)
-%r15416 = ptrtoint [3 x i8]* @r15415 to i64
-%r15414 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15416, i64 2)
-%r15418 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r15419 = tail call fastcc i64 @"fun-make-null"()
-%r15417 = tail call fastcc i64 @"fun-cons"(i64 %r15418, i64 %r15419)
-%r15413 = tail call fastcc i64 @"fun-cons"(i64 %r15414, i64 %r15417)
-%r15409 = tail call fastcc i64 @"fun-cons"(i64 %r15410, i64 %r15413)
-%r15420 = tail call fastcc i64 @"fun-make-null"()
-%r15408 = tail call fastcc i64 @"fun-cons"(i64 %r15409, i64 %r15420)
-%r15398 = tail call fastcc i64 @"fun-cons"(i64 %r15399, i64 %r15408)
-%r15394 = tail call fastcc i64 @"fun-cons"(i64 %r15395, i64 %r15398)
-%r15425 = ptrtoint [7 x i8]* @r15424 to i64
-%r15423 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15425, i64 6)
-%r15430 = ptrtoint [10 x i8]* @r15429 to i64
-%r15428 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15430, i64 9)
+%r15410 = tail call fastcc i64 @"fun-make-null"()
+%r15398 = tail call fastcc i64 @"fun-cons"(i64 %r15399, i64 %r15410)
+%r15388 = tail call fastcc i64 @"fun-cons"(i64 %r15389, i64 %r15398)
+%r15384 = tail call fastcc i64 @"fun-cons"(i64 %r15385, i64 %r15388)
+%r15415 = ptrtoint [7 x i8]* @r15414 to i64
+%r15413 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15415, i64 6)
+%r15420 = ptrtoint [16 x i8]* @r15419 to i64
+%r15418 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15420, i64 15)
+%r15424 = ptrtoint [3 x i8]* @r15423 to i64
+%r15422 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15424, i64 2)
+%r15425 = tail call fastcc i64 @"fun-make-null"()
+%r15421 = tail call fastcc i64 @"fun-cons"(i64 %r15422, i64 %r15425)
+%r15417 = tail call fastcc i64 @"fun-cons"(i64 %r15418, i64 %r15421)
+%r15430 = ptrtoint [4 x i8]* @r15429 to i64
+%r15428 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15430, i64 3)
 %r15434 = ptrtoint [3 x i8]* @r15433 to i64
 %r15432 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15434, i64 2)
-%r15435 = tail call fastcc i64 @"fun-make-null"()
+%r15436 = tail call fastcc i64 @"fun-make-number"(i64 96)
+%r15437 = tail call fastcc i64 @"fun-make-null"()
+%r15435 = tail call fastcc i64 @"fun-cons"(i64 %r15436, i64 %r15437)
 %r15431 = tail call fastcc i64 @"fun-cons"(i64 %r15432, i64 %r15435)
 %r15427 = tail call fastcc i64 @"fun-cons"(i64 %r15428, i64 %r15431)
-%r15440 = ptrtoint [4 x i8]* @r15439 to i64
-%r15438 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15440, i64 3)
-%r15444 = ptrtoint [3 x i8]* @r15443 to i64
-%r15442 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15444, i64 2)
-%r15446 = tail call fastcc i64 @"fun-make-number"(i64 46)
-%r15447 = tail call fastcc i64 @"fun-make-null"()
-%r15445 = tail call fastcc i64 @"fun-cons"(i64 %r15446, i64 %r15447)
-%r15441 = tail call fastcc i64 @"fun-cons"(i64 %r15442, i64 %r15445)
-%r15437 = tail call fastcc i64 @"fun-cons"(i64 %r15438, i64 %r15441)
-%r15448 = tail call fastcc i64 @"fun-make-null"()
-%r15436 = tail call fastcc i64 @"fun-cons"(i64 %r15437, i64 %r15448)
-%r15426 = tail call fastcc i64 @"fun-cons"(i64 %r15427, i64 %r15436)
-%r15422 = tail call fastcc i64 @"fun-cons"(i64 %r15423, i64 %r15426)
-%r15453 = ptrtoint [7 x i8]* @r15452 to i64
-%r15451 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15453, i64 6)
-%r15458 = ptrtoint [12 x i8]* @r15457 to i64
-%r15456 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15458, i64 11)
+%r15438 = tail call fastcc i64 @"fun-make-null"()
+%r15426 = tail call fastcc i64 @"fun-cons"(i64 %r15427, i64 %r15438)
+%r15416 = tail call fastcc i64 @"fun-cons"(i64 %r15417, i64 %r15426)
+%r15412 = tail call fastcc i64 @"fun-cons"(i64 %r15413, i64 %r15416)
+%r15443 = ptrtoint [7 x i8]* @r15442 to i64
+%r15441 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15443, i64 6)
+%r15448 = ptrtoint [12 x i8]* @r15447 to i64
+%r15446 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15448, i64 11)
+%r15452 = ptrtoint [3 x i8]* @r15451 to i64
+%r15450 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15452, i64 2)
+%r15453 = tail call fastcc i64 @"fun-make-null"()
+%r15449 = tail call fastcc i64 @"fun-cons"(i64 %r15450, i64 %r15453)
+%r15445 = tail call fastcc i64 @"fun-cons"(i64 %r15446, i64 %r15449)
+%r15458 = ptrtoint [4 x i8]* @r15457 to i64
+%r15456 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15458, i64 3)
 %r15462 = ptrtoint [3 x i8]* @r15461 to i64
 %r15460 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15462, i64 2)
-%r15463 = tail call fastcc i64 @"fun-make-null"()
+%r15464 = tail call fastcc i64 @"fun-make-number"(i64 44)
+%r15465 = tail call fastcc i64 @"fun-make-null"()
+%r15463 = tail call fastcc i64 @"fun-cons"(i64 %r15464, i64 %r15465)
 %r15459 = tail call fastcc i64 @"fun-cons"(i64 %r15460, i64 %r15463)
 %r15455 = tail call fastcc i64 @"fun-cons"(i64 %r15456, i64 %r15459)
-%r15468 = ptrtoint [4 x i8]* @r15467 to i64
-%r15466 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15468, i64 3)
-%r15472 = ptrtoint [3 x i8]* @r15471 to i64
-%r15470 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15472, i64 2)
-%r15474 = tail call fastcc i64 @"fun-make-number"(i64 39)
-%r15475 = tail call fastcc i64 @"fun-make-null"()
-%r15473 = tail call fastcc i64 @"fun-cons"(i64 %r15474, i64 %r15475)
-%r15469 = tail call fastcc i64 @"fun-cons"(i64 %r15470, i64 %r15473)
-%r15465 = tail call fastcc i64 @"fun-cons"(i64 %r15466, i64 %r15469)
-%r15476 = tail call fastcc i64 @"fun-make-null"()
-%r15464 = tail call fastcc i64 @"fun-cons"(i64 %r15465, i64 %r15476)
-%r15454 = tail call fastcc i64 @"fun-cons"(i64 %r15455, i64 %r15464)
-%r15450 = tail call fastcc i64 @"fun-cons"(i64 %r15451, i64 %r15454)
-%r15481 = ptrtoint [7 x i8]* @r15480 to i64
-%r15479 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15481, i64 6)
-%r15486 = ptrtoint [16 x i8]* @r15485 to i64
-%r15484 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15486, i64 15)
+%r15466 = tail call fastcc i64 @"fun-make-null"()
+%r15454 = tail call fastcc i64 @"fun-cons"(i64 %r15455, i64 %r15466)
+%r15444 = tail call fastcc i64 @"fun-cons"(i64 %r15445, i64 %r15454)
+%r15440 = tail call fastcc i64 @"fun-cons"(i64 %r15441, i64 %r15444)
+%r15471 = ptrtoint [7 x i8]* @r15470 to i64
+%r15469 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15471, i64 6)
+%r15476 = ptrtoint [16 x i8]* @r15475 to i64
+%r15474 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15476, i64 15)
+%r15480 = ptrtoint [3 x i8]* @r15479 to i64
+%r15478 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15480, i64 2)
+%r15481 = tail call fastcc i64 @"fun-make-null"()
+%r15477 = tail call fastcc i64 @"fun-cons"(i64 %r15478, i64 %r15481)
+%r15473 = tail call fastcc i64 @"fun-cons"(i64 %r15474, i64 %r15477)
+%r15486 = ptrtoint [4 x i8]* @r15485 to i64
+%r15484 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15486, i64 3)
 %r15490 = ptrtoint [3 x i8]* @r15489 to i64
 %r15488 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15490, i64 2)
-%r15491 = tail call fastcc i64 @"fun-make-null"()
+%r15492 = tail call fastcc i64 @"fun-make-number"(i64 92)
+%r15493 = tail call fastcc i64 @"fun-make-null"()
+%r15491 = tail call fastcc i64 @"fun-cons"(i64 %r15492, i64 %r15493)
 %r15487 = tail call fastcc i64 @"fun-cons"(i64 %r15488, i64 %r15491)
 %r15483 = tail call fastcc i64 @"fun-cons"(i64 %r15484, i64 %r15487)
-%r15496 = ptrtoint [4 x i8]* @r15495 to i64
-%r15494 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15496, i64 3)
-%r15500 = ptrtoint [3 x i8]* @r15499 to i64
-%r15498 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15500, i64 2)
-%r15502 = tail call fastcc i64 @"fun-make-number"(i64 96)
-%r15503 = tail call fastcc i64 @"fun-make-null"()
-%r15501 = tail call fastcc i64 @"fun-cons"(i64 %r15502, i64 %r15503)
-%r15497 = tail call fastcc i64 @"fun-cons"(i64 %r15498, i64 %r15501)
-%r15493 = tail call fastcc i64 @"fun-cons"(i64 %r15494, i64 %r15497)
-%r15504 = tail call fastcc i64 @"fun-make-null"()
-%r15492 = tail call fastcc i64 @"fun-cons"(i64 %r15493, i64 %r15504)
-%r15482 = tail call fastcc i64 @"fun-cons"(i64 %r15483, i64 %r15492)
-%r15478 = tail call fastcc i64 @"fun-cons"(i64 %r15479, i64 %r15482)
-%r15509 = ptrtoint [7 x i8]* @r15508 to i64
-%r15507 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15509, i64 6)
-%r15514 = ptrtoint [12 x i8]* @r15513 to i64
-%r15512 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15514, i64 11)
+%r15494 = tail call fastcc i64 @"fun-make-null"()
+%r15482 = tail call fastcc i64 @"fun-cons"(i64 %r15483, i64 %r15494)
+%r15472 = tail call fastcc i64 @"fun-cons"(i64 %r15473, i64 %r15482)
+%r15468 = tail call fastcc i64 @"fun-cons"(i64 %r15469, i64 %r15472)
+%r15499 = ptrtoint [7 x i8]* @r15498 to i64
+%r15497 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15499, i64 6)
+%r15504 = ptrtoint [16 x i8]* @r15503 to i64
+%r15502 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15504, i64 15)
+%r15508 = ptrtoint [3 x i8]* @r15507 to i64
+%r15506 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15508, i64 2)
+%r15509 = tail call fastcc i64 @"fun-make-null"()
+%r15505 = tail call fastcc i64 @"fun-cons"(i64 %r15506, i64 %r15509)
+%r15501 = tail call fastcc i64 @"fun-cons"(i64 %r15502, i64 %r15505)
+%r15514 = ptrtoint [4 x i8]* @r15513 to i64
+%r15512 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15514, i64 3)
 %r15518 = ptrtoint [3 x i8]* @r15517 to i64
 %r15516 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15518, i64 2)
-%r15519 = tail call fastcc i64 @"fun-make-null"()
+%r15520 = tail call fastcc i64 @"fun-make-number"(i64 35)
+%r15521 = tail call fastcc i64 @"fun-make-null"()
+%r15519 = tail call fastcc i64 @"fun-cons"(i64 %r15520, i64 %r15521)
 %r15515 = tail call fastcc i64 @"fun-cons"(i64 %r15516, i64 %r15519)
 %r15511 = tail call fastcc i64 @"fun-cons"(i64 %r15512, i64 %r15515)
-%r15524 = ptrtoint [4 x i8]* @r15523 to i64
-%r15522 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15524, i64 3)
-%r15528 = ptrtoint [3 x i8]* @r15527 to i64
-%r15526 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15528, i64 2)
-%r15530 = tail call fastcc i64 @"fun-make-number"(i64 44)
-%r15531 = tail call fastcc i64 @"fun-make-null"()
-%r15529 = tail call fastcc i64 @"fun-cons"(i64 %r15530, i64 %r15531)
-%r15525 = tail call fastcc i64 @"fun-cons"(i64 %r15526, i64 %r15529)
-%r15521 = tail call fastcc i64 @"fun-cons"(i64 %r15522, i64 %r15525)
-%r15532 = tail call fastcc i64 @"fun-make-null"()
-%r15520 = tail call fastcc i64 @"fun-cons"(i64 %r15521, i64 %r15532)
-%r15510 = tail call fastcc i64 @"fun-cons"(i64 %r15511, i64 %r15520)
-%r15506 = tail call fastcc i64 @"fun-cons"(i64 %r15507, i64 %r15510)
-%r15537 = ptrtoint [7 x i8]* @r15536 to i64
-%r15535 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15537, i64 6)
-%r15542 = ptrtoint [16 x i8]* @r15541 to i64
-%r15540 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15542, i64 15)
-%r15546 = ptrtoint [3 x i8]* @r15545 to i64
-%r15544 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15546, i64 2)
+%r15522 = tail call fastcc i64 @"fun-make-null"()
+%r15510 = tail call fastcc i64 @"fun-cons"(i64 %r15511, i64 %r15522)
+%r15500 = tail call fastcc i64 @"fun-cons"(i64 %r15501, i64 %r15510)
+%r15496 = tail call fastcc i64 @"fun-cons"(i64 %r15497, i64 %r15500)
+%r15527 = ptrtoint [7 x i8]* @r15526 to i64
+%r15525 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15527, i64 6)
+%r15531 = ptrtoint [15 x i8]* @r15530 to i64
+%r15529 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15531, i64 14)
+%r15536 = ptrtoint [6 x i8]* @r15535 to i64
+%r15534 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15536, i64 5)
+%r15539 = tail call fastcc i64 @"fun-make-number"(i64 40)
+%r15541 = tail call fastcc i64 @"fun-make-number"(i64 41)
+%r15543 = tail call fastcc i64 @"fun-make-number"(i64 32)
+%r15545 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r15546 = tail call fastcc i64 @"fun-make-null"()
+%r15544 = tail call fastcc i64 @"fun-cons"(i64 %r15545, i64 %r15546)
+%r15542 = tail call fastcc i64 @"fun-cons"(i64 %r15543, i64 %r15544)
+%r15540 = tail call fastcc i64 @"fun-cons"(i64 %r15541, i64 %r15542)
+%r15538 = tail call fastcc i64 @"fun-cons"(i64 %r15539, i64 %r15540)
 %r15547 = tail call fastcc i64 @"fun-make-null"()
-%r15543 = tail call fastcc i64 @"fun-cons"(i64 %r15544, i64 %r15547)
-%r15539 = tail call fastcc i64 @"fun-cons"(i64 %r15540, i64 %r15543)
-%r15552 = ptrtoint [4 x i8]* @r15551 to i64
-%r15550 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15552, i64 3)
-%r15556 = ptrtoint [3 x i8]* @r15555 to i64
-%r15554 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15556, i64 2)
-%r15558 = tail call fastcc i64 @"fun-make-number"(i64 92)
+%r15537 = tail call fastcc i64 @"fun-cons"(i64 %r15538, i64 %r15547)
+%r15533 = tail call fastcc i64 @"fun-cons"(i64 %r15534, i64 %r15537)
+%r15548 = tail call fastcc i64 @"fun-make-null"()
+%r15532 = tail call fastcc i64 @"fun-cons"(i64 %r15533, i64 %r15548)
+%r15528 = tail call fastcc i64 @"fun-cons"(i64 %r15529, i64 %r15532)
+%r15524 = tail call fastcc i64 @"fun-cons"(i64 %r15525, i64 %r15528)
+%r15553 = ptrtoint [7 x i8]* @r15552 to i64
+%r15551 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15553, i64 6)
+%r15558 = ptrtoint [5 x i8]* @r15557 to i64
+%r15556 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15558, i64 4)
 %r15559 = tail call fastcc i64 @"fun-make-null"()
-%r15557 = tail call fastcc i64 @"fun-cons"(i64 %r15558, i64 %r15559)
-%r15553 = tail call fastcc i64 @"fun-cons"(i64 %r15554, i64 %r15557)
-%r15549 = tail call fastcc i64 @"fun-cons"(i64 %r15550, i64 %r15553)
-%r15560 = tail call fastcc i64 @"fun-make-null"()
-%r15548 = tail call fastcc i64 @"fun-cons"(i64 %r15549, i64 %r15560)
-%r15538 = tail call fastcc i64 @"fun-cons"(i64 %r15539, i64 %r15548)
-%r15534 = tail call fastcc i64 @"fun-cons"(i64 %r15535, i64 %r15538)
-%r15565 = ptrtoint [7 x i8]* @r15564 to i64
-%r15563 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15565, i64 6)
-%r15570 = ptrtoint [16 x i8]* @r15569 to i64
-%r15568 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15570, i64 15)
-%r15574 = ptrtoint [3 x i8]* @r15573 to i64
-%r15572 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15574, i64 2)
+%r15555 = tail call fastcc i64 @"fun-cons"(i64 %r15556, i64 %r15559)
+%r15564 = ptrtoint [7 x i8]* @r15563 to i64
+%r15562 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15564, i64 6)
+%r15568 = ptrtoint [3 x i8]* @r15567 to i64
+%r15566 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15568, i64 2)
+%r15573 = ptrtoint [10 x i8]* @r15572 to i64
+%r15571 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15573, i64 9)
+%r15574 = tail call fastcc i64 @"fun-make-null"()
+%r15570 = tail call fastcc i64 @"fun-cons"(i64 %r15571, i64 %r15574)
 %r15575 = tail call fastcc i64 @"fun-make-null"()
-%r15571 = tail call fastcc i64 @"fun-cons"(i64 %r15572, i64 %r15575)
-%r15567 = tail call fastcc i64 @"fun-cons"(i64 %r15568, i64 %r15571)
-%r15580 = ptrtoint [4 x i8]* @r15579 to i64
-%r15578 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15580, i64 3)
-%r15584 = ptrtoint [3 x i8]* @r15583 to i64
-%r15582 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15584, i64 2)
-%r15586 = tail call fastcc i64 @"fun-make-number"(i64 35)
-%r15587 = tail call fastcc i64 @"fun-make-null"()
-%r15585 = tail call fastcc i64 @"fun-cons"(i64 %r15586, i64 %r15587)
-%r15581 = tail call fastcc i64 @"fun-cons"(i64 %r15582, i64 %r15585)
-%r15577 = tail call fastcc i64 @"fun-cons"(i64 %r15578, i64 %r15581)
-%r15588 = tail call fastcc i64 @"fun-make-null"()
-%r15576 = tail call fastcc i64 @"fun-cons"(i64 %r15577, i64 %r15588)
-%r15566 = tail call fastcc i64 @"fun-cons"(i64 %r15567, i64 %r15576)
-%r15562 = tail call fastcc i64 @"fun-cons"(i64 %r15563, i64 %r15566)
-%r15593 = ptrtoint [7 x i8]* @r15592 to i64
-%r15591 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15593, i64 6)
-%r15597 = ptrtoint [15 x i8]* @r15596 to i64
-%r15595 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15597, i64 14)
-%r15602 = ptrtoint [6 x i8]* @r15601 to i64
-%r15600 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15602, i64 5)
-%r15605 = tail call fastcc i64 @"fun-make-number"(i64 40)
-%r15607 = tail call fastcc i64 @"fun-make-number"(i64 41)
-%r15609 = tail call fastcc i64 @"fun-make-number"(i64 32)
-%r15611 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r15612 = tail call fastcc i64 @"fun-make-null"()
-%r15610 = tail call fastcc i64 @"fun-cons"(i64 %r15611, i64 %r15612)
-%r15608 = tail call fastcc i64 @"fun-cons"(i64 %r15609, i64 %r15610)
-%r15606 = tail call fastcc i64 @"fun-cons"(i64 %r15607, i64 %r15608)
-%r15604 = tail call fastcc i64 @"fun-cons"(i64 %r15605, i64 %r15606)
-%r15613 = tail call fastcc i64 @"fun-make-null"()
-%r15603 = tail call fastcc i64 @"fun-cons"(i64 %r15604, i64 %r15613)
-%r15599 = tail call fastcc i64 @"fun-cons"(i64 %r15600, i64 %r15603)
-%r15614 = tail call fastcc i64 @"fun-make-null"()
-%r15598 = tail call fastcc i64 @"fun-cons"(i64 %r15599, i64 %r15614)
-%r15594 = tail call fastcc i64 @"fun-cons"(i64 %r15595, i64 %r15598)
-%r15590 = tail call fastcc i64 @"fun-cons"(i64 %r15591, i64 %r15594)
-%r15619 = ptrtoint [7 x i8]* @r15618 to i64
-%r15617 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15619, i64 6)
-%r15624 = ptrtoint [5 x i8]* @r15623 to i64
-%r15622 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15624, i64 4)
-%r15625 = tail call fastcc i64 @"fun-make-null"()
-%r15621 = tail call fastcc i64 @"fun-cons"(i64 %r15622, i64 %r15625)
-%r15630 = ptrtoint [7 x i8]* @r15629 to i64
-%r15628 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15630, i64 6)
-%r15634 = ptrtoint [3 x i8]* @r15633 to i64
-%r15632 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15634, i64 2)
-%r15639 = ptrtoint [10 x i8]* @r15638 to i64
-%r15637 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15639, i64 9)
+%r15569 = tail call fastcc i64 @"fun-cons"(i64 %r15570, i64 %r15575)
+%r15565 = tail call fastcc i64 @"fun-cons"(i64 %r15566, i64 %r15569)
+%r15561 = tail call fastcc i64 @"fun-cons"(i64 %r15562, i64 %r15565)
+%r15580 = ptrtoint [5 x i8]* @r15579 to i64
+%r15578 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15580, i64 4)
+%r15586 = ptrtoint [17 x i8]* @r15585 to i64
+%r15584 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15586, i64 16)
+%r15590 = ptrtoint [3 x i8]* @r15589 to i64
+%r15588 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15590, i64 2)
+%r15591 = tail call fastcc i64 @"fun-make-null"()
+%r15587 = tail call fastcc i64 @"fun-cons"(i64 %r15588, i64 %r15591)
+%r15583 = tail call fastcc i64 @"fun-cons"(i64 %r15584, i64 %r15587)
+%r15596 = ptrtoint [10 x i8]* @r15595 to i64
+%r15594 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15596, i64 9)
+%r15597 = tail call fastcc i64 @"fun-make-null"()
+%r15593 = tail call fastcc i64 @"fun-cons"(i64 %r15594, i64 %r15597)
+%r15598 = tail call fastcc i64 @"fun-make-null"()
+%r15592 = tail call fastcc i64 @"fun-cons"(i64 %r15593, i64 %r15598)
+%r15582 = tail call fastcc i64 @"fun-cons"(i64 %r15583, i64 %r15592)
+%r15604 = ptrtoint [17 x i8]* @r15603 to i64
+%r15602 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15604, i64 16)
+%r15608 = ptrtoint [3 x i8]* @r15607 to i64
+%r15606 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15608, i64 2)
+%r15609 = tail call fastcc i64 @"fun-make-null"()
+%r15605 = tail call fastcc i64 @"fun-cons"(i64 %r15606, i64 %r15609)
+%r15601 = tail call fastcc i64 @"fun-cons"(i64 %r15602, i64 %r15605)
+%r15614 = ptrtoint [5 x i8]* @r15613 to i64
+%r15612 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15614, i64 4)
+%r15615 = tail call fastcc i64 @"fun-make-null"()
+%r15611 = tail call fastcc i64 @"fun-cons"(i64 %r15612, i64 %r15615)
+%r15616 = tail call fastcc i64 @"fun-make-null"()
+%r15610 = tail call fastcc i64 @"fun-cons"(i64 %r15611, i64 %r15616)
+%r15600 = tail call fastcc i64 @"fun-cons"(i64 %r15601, i64 %r15610)
+%r15622 = ptrtoint [14 x i8]* @r15621 to i64
+%r15620 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15622, i64 13)
+%r15626 = ptrtoint [3 x i8]* @r15625 to i64
+%r15624 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15626, i64 2)
+%r15627 = tail call fastcc i64 @"fun-make-null"()
+%r15623 = tail call fastcc i64 @"fun-cons"(i64 %r15624, i64 %r15627)
+%r15619 = tail call fastcc i64 @"fun-cons"(i64 %r15620, i64 %r15623)
+%r15632 = ptrtoint [13 x i8]* @r15631 to i64
+%r15630 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15632, i64 12)
+%r15633 = tail call fastcc i64 @"fun-make-null"()
+%r15629 = tail call fastcc i64 @"fun-cons"(i64 %r15630, i64 %r15633)
+%r15638 = ptrtoint [5 x i8]* @r15637 to i64
+%r15636 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15638, i64 4)
+%r15639 = tail call fastcc i64 @"fun-make-null"()
+%r15635 = tail call fastcc i64 @"fun-cons"(i64 %r15636, i64 %r15639)
 %r15640 = tail call fastcc i64 @"fun-make-null"()
-%r15636 = tail call fastcc i64 @"fun-cons"(i64 %r15637, i64 %r15640)
-%r15641 = tail call fastcc i64 @"fun-make-null"()
-%r15635 = tail call fastcc i64 @"fun-cons"(i64 %r15636, i64 %r15641)
-%r15631 = tail call fastcc i64 @"fun-cons"(i64 %r15632, i64 %r15635)
-%r15627 = tail call fastcc i64 @"fun-cons"(i64 %r15628, i64 %r15631)
-%r15646 = ptrtoint [5 x i8]* @r15645 to i64
-%r15644 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15646, i64 4)
-%r15652 = ptrtoint [17 x i8]* @r15651 to i64
-%r15650 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15652, i64 16)
-%r15656 = ptrtoint [3 x i8]* @r15655 to i64
-%r15654 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15656, i64 2)
-%r15657 = tail call fastcc i64 @"fun-make-null"()
+%r15634 = tail call fastcc i64 @"fun-cons"(i64 %r15635, i64 %r15640)
+%r15628 = tail call fastcc i64 @"fun-cons"(i64 %r15629, i64 %r15634)
+%r15618 = tail call fastcc i64 @"fun-cons"(i64 %r15619, i64 %r15628)
+%r15646 = ptrtoint [12 x i8]* @r15645 to i64
+%r15644 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15646, i64 11)
+%r15650 = ptrtoint [3 x i8]* @r15649 to i64
+%r15648 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15650, i64 2)
+%r15651 = tail call fastcc i64 @"fun-make-null"()
+%r15647 = tail call fastcc i64 @"fun-cons"(i64 %r15648, i64 %r15651)
+%r15643 = tail call fastcc i64 @"fun-cons"(i64 %r15644, i64 %r15647)
+%r15656 = ptrtoint [5 x i8]* @r15655 to i64
+%r15654 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15656, i64 4)
+%r15661 = ptrtoint [6 x i8]* @r15660 to i64
+%r15659 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15661, i64 5)
+%r15665 = ptrtoint [6 x i8]* @r15664 to i64
+%r15663 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15665, i64 5)
+%r15666 = tail call fastcc i64 @"fun-make-null"()
+%r15662 = tail call fastcc i64 @"fun-cons"(i64 %r15663, i64 %r15666)
+%r15658 = tail call fastcc i64 @"fun-cons"(i64 %r15659, i64 %r15662)
+%r15671 = ptrtoint [5 x i8]* @r15670 to i64
+%r15669 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15671, i64 4)
+%r15676 = ptrtoint [5 x i8]* @r15675 to i64
+%r15674 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15676, i64 4)
+%r15677 = tail call fastcc i64 @"fun-make-null"()
+%r15673 = tail call fastcc i64 @"fun-cons"(i64 %r15674, i64 %r15677)
+%r15682 = ptrtoint [6 x i8]* @r15681 to i64
+%r15680 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15682, i64 5)
+%r15684 = tail call fastcc i64 @"fun-make-null"()
+%r15685 = tail call fastcc i64 @"fun-make-null"()
+%r15683 = tail call fastcc i64 @"fun-cons"(i64 %r15684, i64 %r15685)
+%r15679 = tail call fastcc i64 @"fun-cons"(i64 %r15680, i64 %r15683)
+%r15686 = tail call fastcc i64 @"fun-make-null"()
+%r15678 = tail call fastcc i64 @"fun-cons"(i64 %r15679, i64 %r15686)
+%r15672 = tail call fastcc i64 @"fun-cons"(i64 %r15673, i64 %r15678)
+%r15668 = tail call fastcc i64 @"fun-cons"(i64 %r15669, i64 %r15672)
+%r15687 = tail call fastcc i64 @"fun-make-null"()
+%r15667 = tail call fastcc i64 @"fun-cons"(i64 %r15668, i64 %r15687)
+%r15657 = tail call fastcc i64 @"fun-cons"(i64 %r15658, i64 %r15667)
 %r15653 = tail call fastcc i64 @"fun-cons"(i64 %r15654, i64 %r15657)
-%r15649 = tail call fastcc i64 @"fun-cons"(i64 %r15650, i64 %r15653)
-%r15662 = ptrtoint [10 x i8]* @r15661 to i64
-%r15660 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15662, i64 9)
-%r15663 = tail call fastcc i64 @"fun-make-null"()
-%r15659 = tail call fastcc i64 @"fun-cons"(i64 %r15660, i64 %r15663)
-%r15664 = tail call fastcc i64 @"fun-make-null"()
-%r15658 = tail call fastcc i64 @"fun-cons"(i64 %r15659, i64 %r15664)
-%r15648 = tail call fastcc i64 @"fun-cons"(i64 %r15649, i64 %r15658)
-%r15670 = ptrtoint [17 x i8]* @r15669 to i64
-%r15668 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15670, i64 16)
-%r15674 = ptrtoint [3 x i8]* @r15673 to i64
-%r15672 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15674, i64 2)
-%r15675 = tail call fastcc i64 @"fun-make-null"()
-%r15671 = tail call fastcc i64 @"fun-cons"(i64 %r15672, i64 %r15675)
-%r15667 = tail call fastcc i64 @"fun-cons"(i64 %r15668, i64 %r15671)
-%r15680 = ptrtoint [5 x i8]* @r15679 to i64
-%r15678 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15680, i64 4)
-%r15681 = tail call fastcc i64 @"fun-make-null"()
-%r15677 = tail call fastcc i64 @"fun-cons"(i64 %r15678, i64 %r15681)
-%r15682 = tail call fastcc i64 @"fun-make-null"()
-%r15676 = tail call fastcc i64 @"fun-cons"(i64 %r15677, i64 %r15682)
-%r15666 = tail call fastcc i64 @"fun-cons"(i64 %r15667, i64 %r15676)
-%r15688 = ptrtoint [14 x i8]* @r15687 to i64
-%r15686 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15688, i64 13)
-%r15692 = ptrtoint [3 x i8]* @r15691 to i64
-%r15690 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15692, i64 2)
-%r15693 = tail call fastcc i64 @"fun-make-null"()
-%r15689 = tail call fastcc i64 @"fun-cons"(i64 %r15690, i64 %r15693)
-%r15685 = tail call fastcc i64 @"fun-cons"(i64 %r15686, i64 %r15689)
-%r15698 = ptrtoint [13 x i8]* @r15697 to i64
-%r15696 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15698, i64 12)
+%r15688 = tail call fastcc i64 @"fun-make-null"()
+%r15652 = tail call fastcc i64 @"fun-cons"(i64 %r15653, i64 %r15688)
+%r15642 = tail call fastcc i64 @"fun-cons"(i64 %r15643, i64 %r15652)
+%r15694 = ptrtoint [13 x i8]* @r15693 to i64
+%r15692 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15694, i64 12)
+%r15698 = ptrtoint [3 x i8]* @r15697 to i64
+%r15696 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15698, i64 2)
 %r15699 = tail call fastcc i64 @"fun-make-null"()
 %r15695 = tail call fastcc i64 @"fun-cons"(i64 %r15696, i64 %r15699)
-%r15704 = ptrtoint [5 x i8]* @r15703 to i64
-%r15702 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15704, i64 4)
+%r15691 = tail call fastcc i64 @"fun-cons"(i64 %r15692, i64 %r15695)
+%r15704 = ptrtoint [12 x i8]* @r15703 to i64
+%r15702 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15704, i64 11)
 %r15705 = tail call fastcc i64 @"fun-make-null"()
 %r15701 = tail call fastcc i64 @"fun-cons"(i64 %r15702, i64 %r15705)
 %r15706 = tail call fastcc i64 @"fun-make-null"()
 %r15700 = tail call fastcc i64 @"fun-cons"(i64 %r15701, i64 %r15706)
-%r15694 = tail call fastcc i64 @"fun-cons"(i64 %r15695, i64 %r15700)
-%r15684 = tail call fastcc i64 @"fun-cons"(i64 %r15685, i64 %r15694)
-%r15712 = ptrtoint [12 x i8]* @r15711 to i64
-%r15710 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15712, i64 11)
+%r15690 = tail call fastcc i64 @"fun-cons"(i64 %r15691, i64 %r15700)
+%r15712 = ptrtoint [16 x i8]* @r15711 to i64
+%r15710 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15712, i64 15)
 %r15716 = ptrtoint [3 x i8]* @r15715 to i64
 %r15714 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15716, i64 2)
 %r15717 = tail call fastcc i64 @"fun-make-null"()
 %r15713 = tail call fastcc i64 @"fun-cons"(i64 %r15714, i64 %r15717)
 %r15709 = tail call fastcc i64 @"fun-cons"(i64 %r15710, i64 %r15713)
-%r15722 = ptrtoint [5 x i8]* @r15721 to i64
-%r15720 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15722, i64 4)
-%r15727 = ptrtoint [6 x i8]* @r15726 to i64
-%r15725 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15727, i64 5)
-%r15731 = ptrtoint [6 x i8]* @r15730 to i64
-%r15729 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15731, i64 5)
-%r15732 = tail call fastcc i64 @"fun-make-null"()
-%r15728 = tail call fastcc i64 @"fun-cons"(i64 %r15729, i64 %r15732)
-%r15724 = tail call fastcc i64 @"fun-cons"(i64 %r15725, i64 %r15728)
-%r15737 = ptrtoint [5 x i8]* @r15736 to i64
-%r15735 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15737, i64 4)
-%r15742 = ptrtoint [5 x i8]* @r15741 to i64
-%r15740 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15742, i64 4)
-%r15743 = tail call fastcc i64 @"fun-make-null"()
-%r15739 = tail call fastcc i64 @"fun-cons"(i64 %r15740, i64 %r15743)
-%r15748 = ptrtoint [6 x i8]* @r15747 to i64
-%r15746 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15748, i64 5)
-%r15750 = tail call fastcc i64 @"fun-make-null"()
-%r15751 = tail call fastcc i64 @"fun-make-null"()
-%r15749 = tail call fastcc i64 @"fun-cons"(i64 %r15750, i64 %r15751)
-%r15745 = tail call fastcc i64 @"fun-cons"(i64 %r15746, i64 %r15749)
-%r15752 = tail call fastcc i64 @"fun-make-null"()
-%r15744 = tail call fastcc i64 @"fun-cons"(i64 %r15745, i64 %r15752)
-%r15738 = tail call fastcc i64 @"fun-cons"(i64 %r15739, i64 %r15744)
-%r15734 = tail call fastcc i64 @"fun-cons"(i64 %r15735, i64 %r15738)
-%r15753 = tail call fastcc i64 @"fun-make-null"()
-%r15733 = tail call fastcc i64 @"fun-cons"(i64 %r15734, i64 %r15753)
-%r15723 = tail call fastcc i64 @"fun-cons"(i64 %r15724, i64 %r15733)
+%r15722 = ptrtoint [16 x i8]* @r15721 to i64
+%r15720 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15722, i64 15)
+%r15723 = tail call fastcc i64 @"fun-make-null"()
 %r15719 = tail call fastcc i64 @"fun-cons"(i64 %r15720, i64 %r15723)
-%r15754 = tail call fastcc i64 @"fun-make-null"()
-%r15718 = tail call fastcc i64 @"fun-cons"(i64 %r15719, i64 %r15754)
+%r15724 = tail call fastcc i64 @"fun-make-null"()
+%r15718 = tail call fastcc i64 @"fun-cons"(i64 %r15719, i64 %r15724)
 %r15708 = tail call fastcc i64 @"fun-cons"(i64 %r15709, i64 %r15718)
-%r15760 = ptrtoint [13 x i8]* @r15759 to i64
-%r15758 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15760, i64 12)
-%r15764 = ptrtoint [3 x i8]* @r15763 to i64
-%r15762 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15764, i64 2)
-%r15765 = tail call fastcc i64 @"fun-make-null"()
-%r15761 = tail call fastcc i64 @"fun-cons"(i64 %r15762, i64 %r15765)
+%r15730 = ptrtoint [14 x i8]* @r15729 to i64
+%r15728 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15730, i64 13)
+%r15734 = ptrtoint [3 x i8]* @r15733 to i64
+%r15732 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15734, i64 2)
+%r15735 = tail call fastcc i64 @"fun-make-null"()
+%r15731 = tail call fastcc i64 @"fun-cons"(i64 %r15732, i64 %r15735)
+%r15727 = tail call fastcc i64 @"fun-cons"(i64 %r15728, i64 %r15731)
+%r15740 = ptrtoint [12 x i8]* @r15739 to i64
+%r15738 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15740, i64 11)
+%r15744 = ptrtoint [3 x i8]* @r15743 to i64
+%r15742 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15744, i64 2)
+%r15745 = tail call fastcc i64 @"fun-make-null"()
+%r15741 = tail call fastcc i64 @"fun-cons"(i64 %r15742, i64 %r15745)
+%r15737 = tail call fastcc i64 @"fun-cons"(i64 %r15738, i64 %r15741)
+%r15746 = tail call fastcc i64 @"fun-make-null"()
+%r15736 = tail call fastcc i64 @"fun-cons"(i64 %r15737, i64 %r15746)
+%r15726 = tail call fastcc i64 @"fun-cons"(i64 %r15727, i64 %r15736)
+%r15751 = ptrtoint [5 x i8]* @r15750 to i64
+%r15749 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15751, i64 4)
+%r15756 = ptrtoint [16 x i8]* @r15755 to i64
+%r15754 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15756, i64 15)
+%r15760 = ptrtoint [3 x i8]* @r15759 to i64
+%r15758 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15760, i64 2)
+%r15761 = tail call fastcc i64 @"fun-make-null"()
 %r15757 = tail call fastcc i64 @"fun-cons"(i64 %r15758, i64 %r15761)
-%r15770 = ptrtoint [12 x i8]* @r15769 to i64
-%r15768 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15770, i64 11)
-%r15771 = tail call fastcc i64 @"fun-make-null"()
-%r15767 = tail call fastcc i64 @"fun-cons"(i64 %r15768, i64 %r15771)
-%r15772 = tail call fastcc i64 @"fun-make-null"()
-%r15766 = tail call fastcc i64 @"fun-cons"(i64 %r15767, i64 %r15772)
-%r15756 = tail call fastcc i64 @"fun-cons"(i64 %r15757, i64 %r15766)
-%r15778 = ptrtoint [16 x i8]* @r15777 to i64
-%r15776 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15778, i64 15)
-%r15782 = ptrtoint [3 x i8]* @r15781 to i64
-%r15780 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15782, i64 2)
-%r15783 = tail call fastcc i64 @"fun-make-null"()
-%r15779 = tail call fastcc i64 @"fun-cons"(i64 %r15780, i64 %r15783)
-%r15775 = tail call fastcc i64 @"fun-cons"(i64 %r15776, i64 %r15779)
-%r15788 = ptrtoint [16 x i8]* @r15787 to i64
-%r15786 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15788, i64 15)
-%r15789 = tail call fastcc i64 @"fun-make-null"()
-%r15785 = tail call fastcc i64 @"fun-cons"(i64 %r15786, i64 %r15789)
-%r15790 = tail call fastcc i64 @"fun-make-null"()
-%r15784 = tail call fastcc i64 @"fun-cons"(i64 %r15785, i64 %r15790)
-%r15774 = tail call fastcc i64 @"fun-cons"(i64 %r15775, i64 %r15784)
-%r15796 = ptrtoint [14 x i8]* @r15795 to i64
-%r15794 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15796, i64 13)
-%r15800 = ptrtoint [3 x i8]* @r15799 to i64
-%r15798 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15800, i64 2)
-%r15801 = tail call fastcc i64 @"fun-make-null"()
-%r15797 = tail call fastcc i64 @"fun-cons"(i64 %r15798, i64 %r15801)
-%r15793 = tail call fastcc i64 @"fun-cons"(i64 %r15794, i64 %r15797)
-%r15806 = ptrtoint [12 x i8]* @r15805 to i64
-%r15804 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15806, i64 11)
-%r15810 = ptrtoint [3 x i8]* @r15809 to i64
-%r15808 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15810, i64 2)
-%r15811 = tail call fastcc i64 @"fun-make-null"()
-%r15807 = tail call fastcc i64 @"fun-cons"(i64 %r15808, i64 %r15811)
-%r15803 = tail call fastcc i64 @"fun-cons"(i64 %r15804, i64 %r15807)
-%r15812 = tail call fastcc i64 @"fun-make-null"()
-%r15802 = tail call fastcc i64 @"fun-cons"(i64 %r15803, i64 %r15812)
-%r15792 = tail call fastcc i64 @"fun-cons"(i64 %r15793, i64 %r15802)
-%r15817 = ptrtoint [5 x i8]* @r15816 to i64
-%r15815 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15817, i64 4)
-%r15822 = ptrtoint [16 x i8]* @r15821 to i64
-%r15820 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15822, i64 15)
-%r15826 = ptrtoint [3 x i8]* @r15825 to i64
-%r15824 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15826, i64 2)
-%r15827 = tail call fastcc i64 @"fun-make-null"()
-%r15823 = tail call fastcc i64 @"fun-cons"(i64 %r15824, i64 %r15827)
-%r15819 = tail call fastcc i64 @"fun-cons"(i64 %r15820, i64 %r15823)
+%r15753 = tail call fastcc i64 @"fun-cons"(i64 %r15754, i64 %r15757)
+%r15762 = tail call fastcc i64 @"fun-make-null"()
+%r15752 = tail call fastcc i64 @"fun-cons"(i64 %r15753, i64 %r15762)
+%r15748 = tail call fastcc i64 @"fun-cons"(i64 %r15749, i64 %r15752)
+%r15763 = tail call fastcc i64 @"fun-make-null"()
+%r15747 = tail call fastcc i64 @"fun-cons"(i64 %r15748, i64 %r15763)
+%r15725 = tail call fastcc i64 @"fun-cons"(i64 %r15726, i64 %r15747)
+%r15707 = tail call fastcc i64 @"fun-cons"(i64 %r15708, i64 %r15725)
+%r15689 = tail call fastcc i64 @"fun-cons"(i64 %r15690, i64 %r15707)
+%r15641 = tail call fastcc i64 @"fun-cons"(i64 %r15642, i64 %r15689)
+%r15617 = tail call fastcc i64 @"fun-cons"(i64 %r15618, i64 %r15641)
+%r15599 = tail call fastcc i64 @"fun-cons"(i64 %r15600, i64 %r15617)
+%r15581 = tail call fastcc i64 @"fun-cons"(i64 %r15582, i64 %r15599)
+%r15577 = tail call fastcc i64 @"fun-cons"(i64 %r15578, i64 %r15581)
+%r15764 = tail call fastcc i64 @"fun-make-null"()
+%r15576 = tail call fastcc i64 @"fun-cons"(i64 %r15577, i64 %r15764)
+%r15560 = tail call fastcc i64 @"fun-cons"(i64 %r15561, i64 %r15576)
+%r15554 = tail call fastcc i64 @"fun-cons"(i64 %r15555, i64 %r15560)
+%r15550 = tail call fastcc i64 @"fun-cons"(i64 %r15551, i64 %r15554)
+%r15769 = ptrtoint [7 x i8]* @r15768 to i64
+%r15767 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15769, i64 6)
+%r15774 = ptrtoint [16 x i8]* @r15773 to i64
+%r15772 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15774, i64 15)
+%r15775 = tail call fastcc i64 @"fun-make-null"()
+%r15771 = tail call fastcc i64 @"fun-cons"(i64 %r15772, i64 %r15775)
+%r15780 = ptrtoint [10 x i8]* @r15779 to i64
+%r15778 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15780, i64 9)
+%r15781 = tail call fastcc i64 @"fun-make-null"()
+%r15777 = tail call fastcc i64 @"fun-cons"(i64 %r15778, i64 %r15781)
+%r15786 = ptrtoint [10 x i8]* @r15785 to i64
+%r15784 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15786, i64 9)
+%r15787 = tail call fastcc i64 @"fun-make-null"()
+%r15783 = tail call fastcc i64 @"fun-cons"(i64 %r15784, i64 %r15787)
+%r15788 = tail call fastcc i64 @"fun-make-null"()
+%r15782 = tail call fastcc i64 @"fun-cons"(i64 %r15783, i64 %r15788)
+%r15776 = tail call fastcc i64 @"fun-cons"(i64 %r15777, i64 %r15782)
+%r15770 = tail call fastcc i64 @"fun-cons"(i64 %r15771, i64 %r15776)
+%r15766 = tail call fastcc i64 @"fun-cons"(i64 %r15767, i64 %r15770)
+%r15793 = ptrtoint [7 x i8]* @r15792 to i64
+%r15791 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15793, i64 6)
+%r15798 = ptrtoint [13 x i8]* @r15797 to i64
+%r15796 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15798, i64 12)
+%r15799 = tail call fastcc i64 @"fun-make-null"()
+%r15795 = tail call fastcc i64 @"fun-cons"(i64 %r15796, i64 %r15799)
+%r15804 = ptrtoint [3 x i8]* @r15803 to i64
+%r15802 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15804, i64 2)
+%r15809 = ptrtoint [4 x i8]* @r15808 to i64
+%r15807 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15809, i64 3)
+%r15814 = ptrtoint [14 x i8]* @r15813 to i64
+%r15812 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15814, i64 13)
+%r15819 = ptrtoint [10 x i8]* @r15818 to i64
+%r15817 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15819, i64 9)
+%r15820 = tail call fastcc i64 @"fun-make-null"()
+%r15816 = tail call fastcc i64 @"fun-cons"(i64 %r15817, i64 %r15820)
+%r15821 = tail call fastcc i64 @"fun-make-null"()
+%r15815 = tail call fastcc i64 @"fun-cons"(i64 %r15816, i64 %r15821)
+%r15811 = tail call fastcc i64 @"fun-cons"(i64 %r15812, i64 %r15815)
+%r15822 = tail call fastcc i64 @"fun-make-null"()
+%r15810 = tail call fastcc i64 @"fun-cons"(i64 %r15811, i64 %r15822)
+%r15806 = tail call fastcc i64 @"fun-cons"(i64 %r15807, i64 %r15810)
+%r15827 = ptrtoint [13 x i8]* @r15826 to i64
+%r15825 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15827, i64 12)
 %r15828 = tail call fastcc i64 @"fun-make-null"()
-%r15818 = tail call fastcc i64 @"fun-cons"(i64 %r15819, i64 %r15828)
-%r15814 = tail call fastcc i64 @"fun-cons"(i64 %r15815, i64 %r15818)
+%r15824 = tail call fastcc i64 @"fun-cons"(i64 %r15825, i64 %r15828)
 %r15829 = tail call fastcc i64 @"fun-make-null"()
-%r15813 = tail call fastcc i64 @"fun-cons"(i64 %r15814, i64 %r15829)
-%r15791 = tail call fastcc i64 @"fun-cons"(i64 %r15792, i64 %r15813)
-%r15773 = tail call fastcc i64 @"fun-cons"(i64 %r15774, i64 %r15791)
-%r15755 = tail call fastcc i64 @"fun-cons"(i64 %r15756, i64 %r15773)
-%r15707 = tail call fastcc i64 @"fun-cons"(i64 %r15708, i64 %r15755)
-%r15683 = tail call fastcc i64 @"fun-cons"(i64 %r15684, i64 %r15707)
-%r15665 = tail call fastcc i64 @"fun-cons"(i64 %r15666, i64 %r15683)
-%r15647 = tail call fastcc i64 @"fun-cons"(i64 %r15648, i64 %r15665)
-%r15643 = tail call fastcc i64 @"fun-cons"(i64 %r15644, i64 %r15647)
+%r15823 = tail call fastcc i64 @"fun-cons"(i64 %r15824, i64 %r15829)
+%r15805 = tail call fastcc i64 @"fun-cons"(i64 %r15806, i64 %r15823)
+%r15801 = tail call fastcc i64 @"fun-cons"(i64 %r15802, i64 %r15805)
 %r15830 = tail call fastcc i64 @"fun-make-null"()
-%r15642 = tail call fastcc i64 @"fun-cons"(i64 %r15643, i64 %r15830)
-%r15626 = tail call fastcc i64 @"fun-cons"(i64 %r15627, i64 %r15642)
-%r15620 = tail call fastcc i64 @"fun-cons"(i64 %r15621, i64 %r15626)
-%r15616 = tail call fastcc i64 @"fun-cons"(i64 %r15617, i64 %r15620)
+%r15800 = tail call fastcc i64 @"fun-cons"(i64 %r15801, i64 %r15830)
+%r15794 = tail call fastcc i64 @"fun-cons"(i64 %r15795, i64 %r15800)
+%r15790 = tail call fastcc i64 @"fun-cons"(i64 %r15791, i64 %r15794)
 %r15835 = ptrtoint [7 x i8]* @r15834 to i64
 %r15833 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15835, i64 6)
-%r15840 = ptrtoint [16 x i8]* @r15839 to i64
-%r15838 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15840, i64 15)
+%r15840 = ptrtoint [10 x i8]* @r15839 to i64
+%r15838 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15840, i64 9)
 %r15841 = tail call fastcc i64 @"fun-make-null"()
 %r15837 = tail call fastcc i64 @"fun-cons"(i64 %r15838, i64 %r15841)
-%r15846 = ptrtoint [10 x i8]* @r15845 to i64
-%r15844 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15846, i64 9)
-%r15847 = tail call fastcc i64 @"fun-make-null"()
+%r15846 = ptrtoint [7 x i8]* @r15845 to i64
+%r15844 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15846, i64 6)
+%r15850 = ptrtoint [3 x i8]* @r15849 to i64
+%r15848 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15850, i64 2)
+%r15855 = ptrtoint [10 x i8]* @r15854 to i64
+%r15853 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15855, i64 9)
+%r15856 = tail call fastcc i64 @"fun-make-null"()
+%r15852 = tail call fastcc i64 @"fun-cons"(i64 %r15853, i64 %r15856)
+%r15857 = tail call fastcc i64 @"fun-make-null"()
+%r15851 = tail call fastcc i64 @"fun-cons"(i64 %r15852, i64 %r15857)
+%r15847 = tail call fastcc i64 @"fun-cons"(i64 %r15848, i64 %r15851)
 %r15843 = tail call fastcc i64 @"fun-cons"(i64 %r15844, i64 %r15847)
-%r15852 = ptrtoint [10 x i8]* @r15851 to i64
-%r15850 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15852, i64 9)
-%r15853 = tail call fastcc i64 @"fun-make-null"()
-%r15849 = tail call fastcc i64 @"fun-cons"(i64 %r15850, i64 %r15853)
-%r15854 = tail call fastcc i64 @"fun-make-null"()
-%r15848 = tail call fastcc i64 @"fun-cons"(i64 %r15849, i64 %r15854)
-%r15842 = tail call fastcc i64 @"fun-cons"(i64 %r15843, i64 %r15848)
-%r15836 = tail call fastcc i64 @"fun-cons"(i64 %r15837, i64 %r15842)
-%r15832 = tail call fastcc i64 @"fun-cons"(i64 %r15833, i64 %r15836)
-%r15859 = ptrtoint [7 x i8]* @r15858 to i64
-%r15857 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15859, i64 6)
-%r15864 = ptrtoint [13 x i8]* @r15863 to i64
-%r15862 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15864, i64 12)
-%r15865 = tail call fastcc i64 @"fun-make-null"()
-%r15861 = tail call fastcc i64 @"fun-cons"(i64 %r15862, i64 %r15865)
-%r15870 = ptrtoint [3 x i8]* @r15869 to i64
-%r15868 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15870, i64 2)
-%r15875 = ptrtoint [4 x i8]* @r15874 to i64
-%r15873 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15875, i64 3)
-%r15880 = ptrtoint [14 x i8]* @r15879 to i64
-%r15878 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15880, i64 13)
-%r15885 = ptrtoint [10 x i8]* @r15884 to i64
-%r15883 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15885, i64 9)
-%r15886 = tail call fastcc i64 @"fun-make-null"()
-%r15882 = tail call fastcc i64 @"fun-cons"(i64 %r15883, i64 %r15886)
-%r15887 = tail call fastcc i64 @"fun-make-null"()
-%r15881 = tail call fastcc i64 @"fun-cons"(i64 %r15882, i64 %r15887)
-%r15877 = tail call fastcc i64 @"fun-cons"(i64 %r15878, i64 %r15881)
-%r15888 = tail call fastcc i64 @"fun-make-null"()
-%r15876 = tail call fastcc i64 @"fun-cons"(i64 %r15877, i64 %r15888)
-%r15872 = tail call fastcc i64 @"fun-cons"(i64 %r15873, i64 %r15876)
-%r15893 = ptrtoint [13 x i8]* @r15892 to i64
-%r15891 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15893, i64 12)
-%r15894 = tail call fastcc i64 @"fun-make-null"()
-%r15890 = tail call fastcc i64 @"fun-cons"(i64 %r15891, i64 %r15894)
-%r15895 = tail call fastcc i64 @"fun-make-null"()
-%r15889 = tail call fastcc i64 @"fun-cons"(i64 %r15890, i64 %r15895)
-%r15871 = tail call fastcc i64 @"fun-cons"(i64 %r15872, i64 %r15889)
-%r15867 = tail call fastcc i64 @"fun-cons"(i64 %r15868, i64 %r15871)
-%r15896 = tail call fastcc i64 @"fun-make-null"()
-%r15866 = tail call fastcc i64 @"fun-cons"(i64 %r15867, i64 %r15896)
-%r15860 = tail call fastcc i64 @"fun-cons"(i64 %r15861, i64 %r15866)
-%r15856 = tail call fastcc i64 @"fun-cons"(i64 %r15857, i64 %r15860)
-%r15901 = ptrtoint [7 x i8]* @r15900 to i64
-%r15899 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15901, i64 6)
-%r15906 = ptrtoint [10 x i8]* @r15905 to i64
-%r15904 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15906, i64 9)
-%r15907 = tail call fastcc i64 @"fun-make-null"()
-%r15903 = tail call fastcc i64 @"fun-cons"(i64 %r15904, i64 %r15907)
-%r15912 = ptrtoint [7 x i8]* @r15911 to i64
-%r15910 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15912, i64 6)
+%r15862 = ptrtoint [5 x i8]* @r15861 to i64
+%r15860 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15862, i64 4)
+%r15868 = ptrtoint [18 x i8]* @r15867 to i64
+%r15866 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15868, i64 17)
+%r15872 = ptrtoint [3 x i8]* @r15871 to i64
+%r15870 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15872, i64 2)
+%r15873 = tail call fastcc i64 @"fun-make-null"()
+%r15869 = tail call fastcc i64 @"fun-cons"(i64 %r15870, i64 %r15873)
+%r15865 = tail call fastcc i64 @"fun-cons"(i64 %r15866, i64 %r15869)
+%r15878 = ptrtoint [6 x i8]* @r15877 to i64
+%r15876 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15878, i64 5)
+%r15880 = tail call fastcc i64 @"fun-make-null"()
+%r15881 = tail call fastcc i64 @"fun-make-null"()
+%r15879 = tail call fastcc i64 @"fun-cons"(i64 %r15880, i64 %r15881)
+%r15875 = tail call fastcc i64 @"fun-cons"(i64 %r15876, i64 %r15879)
+%r15882 = tail call fastcc i64 @"fun-make-null"()
+%r15874 = tail call fastcc i64 @"fun-cons"(i64 %r15875, i64 %r15882)
+%r15864 = tail call fastcc i64 @"fun-cons"(i64 %r15865, i64 %r15874)
+%r15888 = ptrtoint [10 x i8]* @r15887 to i64
+%r15886 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15888, i64 9)
+%r15892 = ptrtoint [3 x i8]* @r15891 to i64
+%r15890 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15892, i64 2)
+%r15893 = tail call fastcc i64 @"fun-make-null"()
+%r15889 = tail call fastcc i64 @"fun-cons"(i64 %r15890, i64 %r15893)
+%r15885 = tail call fastcc i64 @"fun-cons"(i64 %r15886, i64 %r15889)
+%r15898 = ptrtoint [4 x i8]* @r15897 to i64
+%r15896 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15898, i64 3)
+%r15903 = ptrtoint [10 x i8]* @r15902 to i64
+%r15901 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15903, i64 9)
+%r15904 = tail call fastcc i64 @"fun-make-null"()
+%r15900 = tail call fastcc i64 @"fun-cons"(i64 %r15901, i64 %r15904)
+%r15905 = tail call fastcc i64 @"fun-make-null"()
+%r15899 = tail call fastcc i64 @"fun-cons"(i64 %r15900, i64 %r15905)
+%r15895 = tail call fastcc i64 @"fun-cons"(i64 %r15896, i64 %r15899)
+%r15906 = tail call fastcc i64 @"fun-make-null"()
+%r15894 = tail call fastcc i64 @"fun-cons"(i64 %r15895, i64 %r15906)
+%r15884 = tail call fastcc i64 @"fun-cons"(i64 %r15885, i64 %r15894)
+%r15912 = ptrtoint [17 x i8]* @r15911 to i64
+%r15910 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15912, i64 16)
 %r15916 = ptrtoint [3 x i8]* @r15915 to i64
 %r15914 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15916, i64 2)
-%r15921 = ptrtoint [10 x i8]* @r15920 to i64
-%r15919 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15921, i64 9)
-%r15922 = tail call fastcc i64 @"fun-make-null"()
-%r15918 = tail call fastcc i64 @"fun-cons"(i64 %r15919, i64 %r15922)
-%r15923 = tail call fastcc i64 @"fun-make-null"()
-%r15917 = tail call fastcc i64 @"fun-cons"(i64 %r15918, i64 %r15923)
+%r15917 = tail call fastcc i64 @"fun-make-null"()
 %r15913 = tail call fastcc i64 @"fun-cons"(i64 %r15914, i64 %r15917)
 %r15909 = tail call fastcc i64 @"fun-cons"(i64 %r15910, i64 %r15913)
-%r15928 = ptrtoint [5 x i8]* @r15927 to i64
-%r15926 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15928, i64 4)
-%r15934 = ptrtoint [18 x i8]* @r15933 to i64
-%r15932 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15934, i64 17)
-%r15938 = ptrtoint [3 x i8]* @r15937 to i64
-%r15936 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15938, i64 2)
-%r15939 = tail call fastcc i64 @"fun-make-null"()
-%r15935 = tail call fastcc i64 @"fun-cons"(i64 %r15936, i64 %r15939)
-%r15931 = tail call fastcc i64 @"fun-cons"(i64 %r15932, i64 %r15935)
-%r15944 = ptrtoint [6 x i8]* @r15943 to i64
-%r15942 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15944, i64 5)
-%r15946 = tail call fastcc i64 @"fun-make-null"()
+%r15922 = ptrtoint [5 x i8]* @r15921 to i64
+%r15920 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15922, i64 4)
+%r15927 = ptrtoint [10 x i8]* @r15926 to i64
+%r15925 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15927, i64 9)
+%r15928 = tail call fastcc i64 @"fun-make-null"()
+%r15924 = tail call fastcc i64 @"fun-cons"(i64 %r15925, i64 %r15928)
+%r15933 = ptrtoint [10 x i8]* @r15932 to i64
+%r15931 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15933, i64 9)
+%r15934 = tail call fastcc i64 @"fun-make-null"()
+%r15930 = tail call fastcc i64 @"fun-cons"(i64 %r15931, i64 %r15934)
+%r15935 = tail call fastcc i64 @"fun-make-null"()
+%r15929 = tail call fastcc i64 @"fun-cons"(i64 %r15930, i64 %r15935)
+%r15923 = tail call fastcc i64 @"fun-cons"(i64 %r15924, i64 %r15929)
+%r15919 = tail call fastcc i64 @"fun-cons"(i64 %r15920, i64 %r15923)
+%r15936 = tail call fastcc i64 @"fun-make-null"()
+%r15918 = tail call fastcc i64 @"fun-cons"(i64 %r15919, i64 %r15936)
+%r15908 = tail call fastcc i64 @"fun-cons"(i64 %r15909, i64 %r15918)
+%r15942 = ptrtoint [17 x i8]* @r15941 to i64
+%r15940 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15942, i64 16)
+%r15946 = ptrtoint [3 x i8]* @r15945 to i64
+%r15944 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15946, i64 2)
 %r15947 = tail call fastcc i64 @"fun-make-null"()
-%r15945 = tail call fastcc i64 @"fun-cons"(i64 %r15946, i64 %r15947)
-%r15941 = tail call fastcc i64 @"fun-cons"(i64 %r15942, i64 %r15945)
-%r15948 = tail call fastcc i64 @"fun-make-null"()
-%r15940 = tail call fastcc i64 @"fun-cons"(i64 %r15941, i64 %r15948)
-%r15930 = tail call fastcc i64 @"fun-cons"(i64 %r15931, i64 %r15940)
-%r15954 = ptrtoint [10 x i8]* @r15953 to i64
-%r15952 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15954, i64 9)
-%r15958 = ptrtoint [3 x i8]* @r15957 to i64
-%r15956 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15958, i64 2)
-%r15959 = tail call fastcc i64 @"fun-make-null"()
-%r15955 = tail call fastcc i64 @"fun-cons"(i64 %r15956, i64 %r15959)
-%r15951 = tail call fastcc i64 @"fun-cons"(i64 %r15952, i64 %r15955)
-%r15964 = ptrtoint [4 x i8]* @r15963 to i64
-%r15962 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15964, i64 3)
-%r15969 = ptrtoint [10 x i8]* @r15968 to i64
-%r15967 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15969, i64 9)
-%r15970 = tail call fastcc i64 @"fun-make-null"()
-%r15966 = tail call fastcc i64 @"fun-cons"(i64 %r15967, i64 %r15970)
-%r15971 = tail call fastcc i64 @"fun-make-null"()
-%r15965 = tail call fastcc i64 @"fun-cons"(i64 %r15966, i64 %r15971)
+%r15943 = tail call fastcc i64 @"fun-cons"(i64 %r15944, i64 %r15947)
+%r15939 = tail call fastcc i64 @"fun-cons"(i64 %r15940, i64 %r15943)
+%r15952 = ptrtoint [10 x i8]* @r15951 to i64
+%r15950 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15952, i64 9)
+%r15953 = tail call fastcc i64 @"fun-make-null"()
+%r15949 = tail call fastcc i64 @"fun-cons"(i64 %r15950, i64 %r15953)
+%r15954 = tail call fastcc i64 @"fun-make-null"()
+%r15948 = tail call fastcc i64 @"fun-cons"(i64 %r15949, i64 %r15954)
+%r15938 = tail call fastcc i64 @"fun-cons"(i64 %r15939, i64 %r15948)
+%r15960 = ptrtoint [14 x i8]* @r15959 to i64
+%r15958 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15960, i64 13)
+%r15964 = ptrtoint [3 x i8]* @r15963 to i64
+%r15962 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15964, i64 2)
+%r15965 = tail call fastcc i64 @"fun-make-null"()
 %r15961 = tail call fastcc i64 @"fun-cons"(i64 %r15962, i64 %r15965)
-%r15972 = tail call fastcc i64 @"fun-make-null"()
-%r15960 = tail call fastcc i64 @"fun-cons"(i64 %r15961, i64 %r15972)
-%r15950 = tail call fastcc i64 @"fun-cons"(i64 %r15951, i64 %r15960)
-%r15978 = ptrtoint [17 x i8]* @r15977 to i64
-%r15976 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15978, i64 16)
-%r15982 = ptrtoint [3 x i8]* @r15981 to i64
-%r15980 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15982, i64 2)
-%r15983 = tail call fastcc i64 @"fun-make-null"()
-%r15979 = tail call fastcc i64 @"fun-cons"(i64 %r15980, i64 %r15983)
-%r15975 = tail call fastcc i64 @"fun-cons"(i64 %r15976, i64 %r15979)
-%r15988 = ptrtoint [5 x i8]* @r15987 to i64
-%r15986 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15988, i64 4)
-%r15993 = ptrtoint [10 x i8]* @r15992 to i64
-%r15991 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15993, i64 9)
-%r15994 = tail call fastcc i64 @"fun-make-null"()
-%r15990 = tail call fastcc i64 @"fun-cons"(i64 %r15991, i64 %r15994)
-%r15999 = ptrtoint [10 x i8]* @r15998 to i64
-%r15997 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15999, i64 9)
-%r16000 = tail call fastcc i64 @"fun-make-null"()
-%r15996 = tail call fastcc i64 @"fun-cons"(i64 %r15997, i64 %r16000)
-%r16001 = tail call fastcc i64 @"fun-make-null"()
-%r15995 = tail call fastcc i64 @"fun-cons"(i64 %r15996, i64 %r16001)
-%r15989 = tail call fastcc i64 @"fun-cons"(i64 %r15990, i64 %r15995)
+%r15957 = tail call fastcc i64 @"fun-cons"(i64 %r15958, i64 %r15961)
+%r15970 = ptrtoint [13 x i8]* @r15969 to i64
+%r15968 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15970, i64 12)
+%r15971 = tail call fastcc i64 @"fun-make-null"()
+%r15967 = tail call fastcc i64 @"fun-cons"(i64 %r15968, i64 %r15971)
+%r15976 = ptrtoint [10 x i8]* @r15975 to i64
+%r15974 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15976, i64 9)
+%r15977 = tail call fastcc i64 @"fun-make-null"()
+%r15973 = tail call fastcc i64 @"fun-cons"(i64 %r15974, i64 %r15977)
+%r15978 = tail call fastcc i64 @"fun-make-null"()
+%r15972 = tail call fastcc i64 @"fun-cons"(i64 %r15973, i64 %r15978)
+%r15966 = tail call fastcc i64 @"fun-cons"(i64 %r15967, i64 %r15972)
+%r15956 = tail call fastcc i64 @"fun-cons"(i64 %r15957, i64 %r15966)
+%r15984 = ptrtoint [12 x i8]* @r15983 to i64
+%r15982 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15984, i64 11)
+%r15988 = ptrtoint [3 x i8]* @r15987 to i64
+%r15986 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15988, i64 2)
+%r15989 = tail call fastcc i64 @"fun-make-null"()
 %r15985 = tail call fastcc i64 @"fun-cons"(i64 %r15986, i64 %r15989)
-%r16002 = tail call fastcc i64 @"fun-make-null"()
-%r15984 = tail call fastcc i64 @"fun-cons"(i64 %r15985, i64 %r16002)
-%r15974 = tail call fastcc i64 @"fun-cons"(i64 %r15975, i64 %r15984)
-%r16008 = ptrtoint [17 x i8]* @r16007 to i64
-%r16006 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16008, i64 16)
-%r16012 = ptrtoint [3 x i8]* @r16011 to i64
-%r16010 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16012, i64 2)
-%r16013 = tail call fastcc i64 @"fun-make-null"()
-%r16009 = tail call fastcc i64 @"fun-cons"(i64 %r16010, i64 %r16013)
+%r15981 = tail call fastcc i64 @"fun-cons"(i64 %r15982, i64 %r15985)
+%r15994 = ptrtoint [5 x i8]* @r15993 to i64
+%r15992 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15994, i64 4)
+%r15999 = ptrtoint [5 x i8]* @r15998 to i64
+%r15997 = tail call fastcc i64 @"fun-make-symbol"(i64 %r15999, i64 4)
+%r16004 = ptrtoint [6 x i8]* @r16003 to i64
+%r16002 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16004, i64 5)
+%r16008 = ptrtoint [6 x i8]* @r16007 to i64
+%r16006 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16008, i64 5)
+%r16009 = tail call fastcc i64 @"fun-make-null"()
 %r16005 = tail call fastcc i64 @"fun-cons"(i64 %r16006, i64 %r16009)
-%r16018 = ptrtoint [10 x i8]* @r16017 to i64
-%r16016 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16018, i64 9)
-%r16019 = tail call fastcc i64 @"fun-make-null"()
-%r16015 = tail call fastcc i64 @"fun-cons"(i64 %r16016, i64 %r16019)
+%r16001 = tail call fastcc i64 @"fun-cons"(i64 %r16002, i64 %r16005)
+%r16014 = ptrtoint [5 x i8]* @r16013 to i64
+%r16012 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16014, i64 4)
+%r16019 = ptrtoint [5 x i8]* @r16018 to i64
+%r16017 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16019, i64 4)
 %r16020 = tail call fastcc i64 @"fun-make-null"()
-%r16014 = tail call fastcc i64 @"fun-cons"(i64 %r16015, i64 %r16020)
-%r16004 = tail call fastcc i64 @"fun-cons"(i64 %r16005, i64 %r16014)
-%r16026 = ptrtoint [14 x i8]* @r16025 to i64
-%r16024 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16026, i64 13)
-%r16030 = ptrtoint [3 x i8]* @r16029 to i64
-%r16028 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16030, i64 2)
-%r16031 = tail call fastcc i64 @"fun-make-null"()
-%r16027 = tail call fastcc i64 @"fun-cons"(i64 %r16028, i64 %r16031)
-%r16023 = tail call fastcc i64 @"fun-cons"(i64 %r16024, i64 %r16027)
-%r16036 = ptrtoint [13 x i8]* @r16035 to i64
-%r16034 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16036, i64 12)
+%r16016 = tail call fastcc i64 @"fun-cons"(i64 %r16017, i64 %r16020)
+%r16025 = ptrtoint [6 x i8]* @r16024 to i64
+%r16023 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16025, i64 5)
+%r16027 = tail call fastcc i64 @"fun-make-null"()
+%r16028 = tail call fastcc i64 @"fun-make-null"()
+%r16026 = tail call fastcc i64 @"fun-cons"(i64 %r16027, i64 %r16028)
+%r16022 = tail call fastcc i64 @"fun-cons"(i64 %r16023, i64 %r16026)
+%r16029 = tail call fastcc i64 @"fun-make-null"()
+%r16021 = tail call fastcc i64 @"fun-cons"(i64 %r16022, i64 %r16029)
+%r16015 = tail call fastcc i64 @"fun-cons"(i64 %r16016, i64 %r16021)
+%r16011 = tail call fastcc i64 @"fun-cons"(i64 %r16012, i64 %r16015)
+%r16030 = tail call fastcc i64 @"fun-make-null"()
+%r16010 = tail call fastcc i64 @"fun-cons"(i64 %r16011, i64 %r16030)
+%r16000 = tail call fastcc i64 @"fun-cons"(i64 %r16001, i64 %r16010)
+%r15996 = tail call fastcc i64 @"fun-cons"(i64 %r15997, i64 %r16000)
+%r16035 = ptrtoint [10 x i8]* @r16034 to i64
+%r16033 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16035, i64 9)
+%r16036 = tail call fastcc i64 @"fun-make-null"()
+%r16032 = tail call fastcc i64 @"fun-cons"(i64 %r16033, i64 %r16036)
 %r16037 = tail call fastcc i64 @"fun-make-null"()
-%r16033 = tail call fastcc i64 @"fun-cons"(i64 %r16034, i64 %r16037)
-%r16042 = ptrtoint [10 x i8]* @r16041 to i64
-%r16040 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16042, i64 9)
-%r16043 = tail call fastcc i64 @"fun-make-null"()
-%r16039 = tail call fastcc i64 @"fun-cons"(i64 %r16040, i64 %r16043)
-%r16044 = tail call fastcc i64 @"fun-make-null"()
-%r16038 = tail call fastcc i64 @"fun-cons"(i64 %r16039, i64 %r16044)
-%r16032 = tail call fastcc i64 @"fun-cons"(i64 %r16033, i64 %r16038)
-%r16022 = tail call fastcc i64 @"fun-cons"(i64 %r16023, i64 %r16032)
-%r16050 = ptrtoint [12 x i8]* @r16049 to i64
-%r16048 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16050, i64 11)
-%r16054 = ptrtoint [3 x i8]* @r16053 to i64
-%r16052 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16054, i64 2)
-%r16055 = tail call fastcc i64 @"fun-make-null"()
-%r16051 = tail call fastcc i64 @"fun-cons"(i64 %r16052, i64 %r16055)
-%r16047 = tail call fastcc i64 @"fun-cons"(i64 %r16048, i64 %r16051)
-%r16060 = ptrtoint [5 x i8]* @r16059 to i64
-%r16058 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16060, i64 4)
-%r16065 = ptrtoint [5 x i8]* @r16064 to i64
-%r16063 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16065, i64 4)
-%r16070 = ptrtoint [6 x i8]* @r16069 to i64
-%r16068 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16070, i64 5)
-%r16074 = ptrtoint [6 x i8]* @r16073 to i64
-%r16072 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16074, i64 5)
-%r16075 = tail call fastcc i64 @"fun-make-null"()
-%r16071 = tail call fastcc i64 @"fun-cons"(i64 %r16072, i64 %r16075)
-%r16067 = tail call fastcc i64 @"fun-cons"(i64 %r16068, i64 %r16071)
-%r16080 = ptrtoint [5 x i8]* @r16079 to i64
-%r16078 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16080, i64 4)
-%r16085 = ptrtoint [5 x i8]* @r16084 to i64
-%r16083 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16085, i64 4)
-%r16086 = tail call fastcc i64 @"fun-make-null"()
-%r16082 = tail call fastcc i64 @"fun-cons"(i64 %r16083, i64 %r16086)
-%r16091 = ptrtoint [6 x i8]* @r16090 to i64
-%r16089 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16091, i64 5)
-%r16093 = tail call fastcc i64 @"fun-make-null"()
-%r16094 = tail call fastcc i64 @"fun-make-null"()
-%r16092 = tail call fastcc i64 @"fun-cons"(i64 %r16093, i64 %r16094)
-%r16088 = tail call fastcc i64 @"fun-cons"(i64 %r16089, i64 %r16092)
-%r16095 = tail call fastcc i64 @"fun-make-null"()
-%r16087 = tail call fastcc i64 @"fun-cons"(i64 %r16088, i64 %r16095)
-%r16081 = tail call fastcc i64 @"fun-cons"(i64 %r16082, i64 %r16087)
-%r16077 = tail call fastcc i64 @"fun-cons"(i64 %r16078, i64 %r16081)
-%r16096 = tail call fastcc i64 @"fun-make-null"()
-%r16076 = tail call fastcc i64 @"fun-cons"(i64 %r16077, i64 %r16096)
-%r16066 = tail call fastcc i64 @"fun-cons"(i64 %r16067, i64 %r16076)
+%r16031 = tail call fastcc i64 @"fun-cons"(i64 %r16032, i64 %r16037)
+%r15995 = tail call fastcc i64 @"fun-cons"(i64 %r15996, i64 %r16031)
+%r15991 = tail call fastcc i64 @"fun-cons"(i64 %r15992, i64 %r15995)
+%r16038 = tail call fastcc i64 @"fun-make-null"()
+%r15990 = tail call fastcc i64 @"fun-cons"(i64 %r15991, i64 %r16038)
+%r15980 = tail call fastcc i64 @"fun-cons"(i64 %r15981, i64 %r15990)
+%r16044 = ptrtoint [13 x i8]* @r16043 to i64
+%r16042 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16044, i64 12)
+%r16048 = ptrtoint [3 x i8]* @r16047 to i64
+%r16046 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16048, i64 2)
+%r16049 = tail call fastcc i64 @"fun-make-null"()
+%r16045 = tail call fastcc i64 @"fun-cons"(i64 %r16046, i64 %r16049)
+%r16041 = tail call fastcc i64 @"fun-cons"(i64 %r16042, i64 %r16045)
+%r16054 = ptrtoint [5 x i8]* @r16053 to i64
+%r16052 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16054, i64 4)
+%r16059 = ptrtoint [12 x i8]* @r16058 to i64
+%r16057 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16059, i64 11)
+%r16060 = tail call fastcc i64 @"fun-make-null"()
+%r16056 = tail call fastcc i64 @"fun-cons"(i64 %r16057, i64 %r16060)
+%r16065 = ptrtoint [10 x i8]* @r16064 to i64
+%r16063 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16065, i64 9)
+%r16066 = tail call fastcc i64 @"fun-make-null"()
 %r16062 = tail call fastcc i64 @"fun-cons"(i64 %r16063, i64 %r16066)
-%r16101 = ptrtoint [10 x i8]* @r16100 to i64
-%r16099 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16101, i64 9)
-%r16102 = tail call fastcc i64 @"fun-make-null"()
-%r16098 = tail call fastcc i64 @"fun-cons"(i64 %r16099, i64 %r16102)
-%r16103 = tail call fastcc i64 @"fun-make-null"()
-%r16097 = tail call fastcc i64 @"fun-cons"(i64 %r16098, i64 %r16103)
-%r16061 = tail call fastcc i64 @"fun-cons"(i64 %r16062, i64 %r16097)
-%r16057 = tail call fastcc i64 @"fun-cons"(i64 %r16058, i64 %r16061)
-%r16104 = tail call fastcc i64 @"fun-make-null"()
-%r16056 = tail call fastcc i64 @"fun-cons"(i64 %r16057, i64 %r16104)
-%r16046 = tail call fastcc i64 @"fun-cons"(i64 %r16047, i64 %r16056)
-%r16110 = ptrtoint [13 x i8]* @r16109 to i64
-%r16108 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16110, i64 12)
-%r16114 = ptrtoint [3 x i8]* @r16113 to i64
-%r16112 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16114, i64 2)
-%r16115 = tail call fastcc i64 @"fun-make-null"()
-%r16111 = tail call fastcc i64 @"fun-cons"(i64 %r16112, i64 %r16115)
-%r16107 = tail call fastcc i64 @"fun-cons"(i64 %r16108, i64 %r16111)
-%r16120 = ptrtoint [5 x i8]* @r16119 to i64
-%r16118 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16120, i64 4)
-%r16125 = ptrtoint [12 x i8]* @r16124 to i64
-%r16123 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16125, i64 11)
-%r16126 = tail call fastcc i64 @"fun-make-null"()
+%r16067 = tail call fastcc i64 @"fun-make-null"()
+%r16061 = tail call fastcc i64 @"fun-cons"(i64 %r16062, i64 %r16067)
+%r16055 = tail call fastcc i64 @"fun-cons"(i64 %r16056, i64 %r16061)
+%r16051 = tail call fastcc i64 @"fun-cons"(i64 %r16052, i64 %r16055)
+%r16068 = tail call fastcc i64 @"fun-make-null"()
+%r16050 = tail call fastcc i64 @"fun-cons"(i64 %r16051, i64 %r16068)
+%r16040 = tail call fastcc i64 @"fun-cons"(i64 %r16041, i64 %r16050)
+%r16074 = ptrtoint [16 x i8]* @r16073 to i64
+%r16072 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16074, i64 15)
+%r16078 = ptrtoint [3 x i8]* @r16077 to i64
+%r16076 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16078, i64 2)
+%r16079 = tail call fastcc i64 @"fun-make-null"()
+%r16075 = tail call fastcc i64 @"fun-cons"(i64 %r16076, i64 %r16079)
+%r16071 = tail call fastcc i64 @"fun-cons"(i64 %r16072, i64 %r16075)
+%r16084 = ptrtoint [16 x i8]* @r16083 to i64
+%r16082 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16084, i64 15)
+%r16085 = tail call fastcc i64 @"fun-make-null"()
+%r16081 = tail call fastcc i64 @"fun-cons"(i64 %r16082, i64 %r16085)
+%r16086 = tail call fastcc i64 @"fun-make-null"()
+%r16080 = tail call fastcc i64 @"fun-cons"(i64 %r16081, i64 %r16086)
+%r16070 = tail call fastcc i64 @"fun-cons"(i64 %r16071, i64 %r16080)
+%r16092 = ptrtoint [14 x i8]* @r16091 to i64
+%r16090 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16092, i64 13)
+%r16096 = ptrtoint [3 x i8]* @r16095 to i64
+%r16094 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16096, i64 2)
+%r16097 = tail call fastcc i64 @"fun-make-null"()
+%r16093 = tail call fastcc i64 @"fun-cons"(i64 %r16094, i64 %r16097)
+%r16089 = tail call fastcc i64 @"fun-cons"(i64 %r16090, i64 %r16093)
+%r16102 = ptrtoint [5 x i8]* @r16101 to i64
+%r16100 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16102, i64 4)
+%r16107 = ptrtoint [12 x i8]* @r16106 to i64
+%r16105 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16107, i64 11)
+%r16111 = ptrtoint [3 x i8]* @r16110 to i64
+%r16109 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16111, i64 2)
+%r16112 = tail call fastcc i64 @"fun-make-null"()
+%r16108 = tail call fastcc i64 @"fun-cons"(i64 %r16109, i64 %r16112)
+%r16104 = tail call fastcc i64 @"fun-cons"(i64 %r16105, i64 %r16108)
+%r16117 = ptrtoint [10 x i8]* @r16116 to i64
+%r16115 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16117, i64 9)
+%r16118 = tail call fastcc i64 @"fun-make-null"()
+%r16114 = tail call fastcc i64 @"fun-cons"(i64 %r16115, i64 %r16118)
+%r16119 = tail call fastcc i64 @"fun-make-null"()
+%r16113 = tail call fastcc i64 @"fun-cons"(i64 %r16114, i64 %r16119)
+%r16103 = tail call fastcc i64 @"fun-cons"(i64 %r16104, i64 %r16113)
+%r16099 = tail call fastcc i64 @"fun-cons"(i64 %r16100, i64 %r16103)
+%r16120 = tail call fastcc i64 @"fun-make-null"()
+%r16098 = tail call fastcc i64 @"fun-cons"(i64 %r16099, i64 %r16120)
+%r16088 = tail call fastcc i64 @"fun-cons"(i64 %r16089, i64 %r16098)
+%r16125 = ptrtoint [5 x i8]* @r16124 to i64
+%r16123 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16125, i64 4)
+%r16130 = ptrtoint [5 x i8]* @r16129 to i64
+%r16128 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16130, i64 4)
+%r16135 = ptrtoint [16 x i8]* @r16134 to i64
+%r16133 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16135, i64 15)
+%r16139 = ptrtoint [3 x i8]* @r16138 to i64
+%r16137 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16139, i64 2)
+%r16140 = tail call fastcc i64 @"fun-make-null"()
+%r16136 = tail call fastcc i64 @"fun-cons"(i64 %r16137, i64 %r16140)
+%r16132 = tail call fastcc i64 @"fun-cons"(i64 %r16133, i64 %r16136)
+%r16145 = ptrtoint [10 x i8]* @r16144 to i64
+%r16143 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16145, i64 9)
+%r16146 = tail call fastcc i64 @"fun-make-null"()
+%r16142 = tail call fastcc i64 @"fun-cons"(i64 %r16143, i64 %r16146)
+%r16147 = tail call fastcc i64 @"fun-make-null"()
+%r16141 = tail call fastcc i64 @"fun-cons"(i64 %r16142, i64 %r16147)
+%r16131 = tail call fastcc i64 @"fun-cons"(i64 %r16132, i64 %r16141)
+%r16127 = tail call fastcc i64 @"fun-cons"(i64 %r16128, i64 %r16131)
+%r16148 = tail call fastcc i64 @"fun-make-null"()
+%r16126 = tail call fastcc i64 @"fun-cons"(i64 %r16127, i64 %r16148)
 %r16122 = tail call fastcc i64 @"fun-cons"(i64 %r16123, i64 %r16126)
-%r16131 = ptrtoint [10 x i8]* @r16130 to i64
-%r16129 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16131, i64 9)
-%r16132 = tail call fastcc i64 @"fun-make-null"()
-%r16128 = tail call fastcc i64 @"fun-cons"(i64 %r16129, i64 %r16132)
-%r16133 = tail call fastcc i64 @"fun-make-null"()
-%r16127 = tail call fastcc i64 @"fun-cons"(i64 %r16128, i64 %r16133)
-%r16121 = tail call fastcc i64 @"fun-cons"(i64 %r16122, i64 %r16127)
-%r16117 = tail call fastcc i64 @"fun-cons"(i64 %r16118, i64 %r16121)
-%r16134 = tail call fastcc i64 @"fun-make-null"()
-%r16116 = tail call fastcc i64 @"fun-cons"(i64 %r16117, i64 %r16134)
-%r16106 = tail call fastcc i64 @"fun-cons"(i64 %r16107, i64 %r16116)
-%r16140 = ptrtoint [16 x i8]* @r16139 to i64
-%r16138 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16140, i64 15)
-%r16144 = ptrtoint [3 x i8]* @r16143 to i64
-%r16142 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16144, i64 2)
-%r16145 = tail call fastcc i64 @"fun-make-null"()
-%r16141 = tail call fastcc i64 @"fun-cons"(i64 %r16142, i64 %r16145)
-%r16137 = tail call fastcc i64 @"fun-cons"(i64 %r16138, i64 %r16141)
-%r16150 = ptrtoint [16 x i8]* @r16149 to i64
-%r16148 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16150, i64 15)
-%r16151 = tail call fastcc i64 @"fun-make-null"()
-%r16147 = tail call fastcc i64 @"fun-cons"(i64 %r16148, i64 %r16151)
-%r16152 = tail call fastcc i64 @"fun-make-null"()
-%r16146 = tail call fastcc i64 @"fun-cons"(i64 %r16147, i64 %r16152)
-%r16136 = tail call fastcc i64 @"fun-cons"(i64 %r16137, i64 %r16146)
-%r16158 = ptrtoint [14 x i8]* @r16157 to i64
-%r16156 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16158, i64 13)
-%r16162 = ptrtoint [3 x i8]* @r16161 to i64
-%r16160 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16162, i64 2)
-%r16163 = tail call fastcc i64 @"fun-make-null"()
-%r16159 = tail call fastcc i64 @"fun-cons"(i64 %r16160, i64 %r16163)
-%r16155 = tail call fastcc i64 @"fun-cons"(i64 %r16156, i64 %r16159)
-%r16168 = ptrtoint [5 x i8]* @r16167 to i64
-%r16166 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16168, i64 4)
-%r16173 = ptrtoint [12 x i8]* @r16172 to i64
-%r16171 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16173, i64 11)
-%r16177 = ptrtoint [3 x i8]* @r16176 to i64
-%r16175 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16177, i64 2)
-%r16178 = tail call fastcc i64 @"fun-make-null"()
-%r16174 = tail call fastcc i64 @"fun-cons"(i64 %r16175, i64 %r16178)
-%r16170 = tail call fastcc i64 @"fun-cons"(i64 %r16171, i64 %r16174)
-%r16183 = ptrtoint [10 x i8]* @r16182 to i64
-%r16181 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16183, i64 9)
-%r16184 = tail call fastcc i64 @"fun-make-null"()
-%r16180 = tail call fastcc i64 @"fun-cons"(i64 %r16181, i64 %r16184)
-%r16185 = tail call fastcc i64 @"fun-make-null"()
-%r16179 = tail call fastcc i64 @"fun-cons"(i64 %r16180, i64 %r16185)
-%r16169 = tail call fastcc i64 @"fun-cons"(i64 %r16170, i64 %r16179)
+%r16149 = tail call fastcc i64 @"fun-make-null"()
+%r16121 = tail call fastcc i64 @"fun-cons"(i64 %r16122, i64 %r16149)
+%r16087 = tail call fastcc i64 @"fun-cons"(i64 %r16088, i64 %r16121)
+%r16069 = tail call fastcc i64 @"fun-cons"(i64 %r16070, i64 %r16087)
+%r16039 = tail call fastcc i64 @"fun-cons"(i64 %r16040, i64 %r16069)
+%r15979 = tail call fastcc i64 @"fun-cons"(i64 %r15980, i64 %r16039)
+%r15955 = tail call fastcc i64 @"fun-cons"(i64 %r15956, i64 %r15979)
+%r15937 = tail call fastcc i64 @"fun-cons"(i64 %r15938, i64 %r15955)
+%r15907 = tail call fastcc i64 @"fun-cons"(i64 %r15908, i64 %r15937)
+%r15883 = tail call fastcc i64 @"fun-cons"(i64 %r15884, i64 %r15907)
+%r15863 = tail call fastcc i64 @"fun-cons"(i64 %r15864, i64 %r15883)
+%r15859 = tail call fastcc i64 @"fun-cons"(i64 %r15860, i64 %r15863)
+%r16150 = tail call fastcc i64 @"fun-make-null"()
+%r15858 = tail call fastcc i64 @"fun-cons"(i64 %r15859, i64 %r16150)
+%r15842 = tail call fastcc i64 @"fun-cons"(i64 %r15843, i64 %r15858)
+%r15836 = tail call fastcc i64 @"fun-cons"(i64 %r15837, i64 %r15842)
+%r15832 = tail call fastcc i64 @"fun-cons"(i64 %r15833, i64 %r15836)
+%r16155 = ptrtoint [7 x i8]* @r16154 to i64
+%r16153 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16155, i64 6)
+%r16160 = ptrtoint [18 x i8]* @r16159 to i64
+%r16158 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16160, i64 17)
+%r16164 = ptrtoint [4 x i8]* @r16163 to i64
+%r16162 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16164, i64 3)
+%r16168 = ptrtoint [4 x i8]* @r16167 to i64
+%r16166 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16168, i64 3)
+%r16169 = tail call fastcc i64 @"fun-make-null"()
 %r16165 = tail call fastcc i64 @"fun-cons"(i64 %r16166, i64 %r16169)
-%r16186 = tail call fastcc i64 @"fun-make-null"()
-%r16164 = tail call fastcc i64 @"fun-cons"(i64 %r16165, i64 %r16186)
-%r16154 = tail call fastcc i64 @"fun-cons"(i64 %r16155, i64 %r16164)
-%r16191 = ptrtoint [5 x i8]* @r16190 to i64
-%r16189 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16191, i64 4)
-%r16196 = ptrtoint [5 x i8]* @r16195 to i64
-%r16194 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16196, i64 4)
-%r16201 = ptrtoint [16 x i8]* @r16200 to i64
-%r16199 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16201, i64 15)
-%r16205 = ptrtoint [3 x i8]* @r16204 to i64
-%r16203 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16205, i64 2)
-%r16206 = tail call fastcc i64 @"fun-make-null"()
-%r16202 = tail call fastcc i64 @"fun-cons"(i64 %r16203, i64 %r16206)
-%r16198 = tail call fastcc i64 @"fun-cons"(i64 %r16199, i64 %r16202)
-%r16211 = ptrtoint [10 x i8]* @r16210 to i64
-%r16209 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16211, i64 9)
-%r16212 = tail call fastcc i64 @"fun-make-null"()
-%r16208 = tail call fastcc i64 @"fun-cons"(i64 %r16209, i64 %r16212)
-%r16213 = tail call fastcc i64 @"fun-make-null"()
-%r16207 = tail call fastcc i64 @"fun-cons"(i64 %r16208, i64 %r16213)
-%r16197 = tail call fastcc i64 @"fun-cons"(i64 %r16198, i64 %r16207)
-%r16193 = tail call fastcc i64 @"fun-cons"(i64 %r16194, i64 %r16197)
-%r16214 = tail call fastcc i64 @"fun-make-null"()
-%r16192 = tail call fastcc i64 @"fun-cons"(i64 %r16193, i64 %r16214)
+%r16161 = tail call fastcc i64 @"fun-cons"(i64 %r16162, i64 %r16165)
+%r16157 = tail call fastcc i64 @"fun-cons"(i64 %r16158, i64 %r16161)
+%r16174 = ptrtoint [7 x i8]* @r16173 to i64
+%r16172 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16174, i64 6)
+%r16179 = ptrtoint [6 x i8]* @r16178 to i64
+%r16177 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16179, i64 5)
+%r16183 = ptrtoint [2 x i8]* @r16182 to i64
+%r16181 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16183, i64 1)
+%r16187 = ptrtoint [4 x i8]* @r16186 to i64
+%r16185 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16187, i64 3)
+%r16191 = ptrtoint [4 x i8]* @r16190 to i64
+%r16189 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16191, i64 3)
+%r16192 = tail call fastcc i64 @"fun-make-null"()
 %r16188 = tail call fastcc i64 @"fun-cons"(i64 %r16189, i64 %r16192)
-%r16215 = tail call fastcc i64 @"fun-make-null"()
-%r16187 = tail call fastcc i64 @"fun-cons"(i64 %r16188, i64 %r16215)
-%r16153 = tail call fastcc i64 @"fun-cons"(i64 %r16154, i64 %r16187)
-%r16135 = tail call fastcc i64 @"fun-cons"(i64 %r16136, i64 %r16153)
-%r16105 = tail call fastcc i64 @"fun-cons"(i64 %r16106, i64 %r16135)
-%r16045 = tail call fastcc i64 @"fun-cons"(i64 %r16046, i64 %r16105)
-%r16021 = tail call fastcc i64 @"fun-cons"(i64 %r16022, i64 %r16045)
-%r16003 = tail call fastcc i64 @"fun-cons"(i64 %r16004, i64 %r16021)
-%r15973 = tail call fastcc i64 @"fun-cons"(i64 %r15974, i64 %r16003)
-%r15949 = tail call fastcc i64 @"fun-cons"(i64 %r15950, i64 %r15973)
-%r15929 = tail call fastcc i64 @"fun-cons"(i64 %r15930, i64 %r15949)
-%r15925 = tail call fastcc i64 @"fun-cons"(i64 %r15926, i64 %r15929)
+%r16184 = tail call fastcc i64 @"fun-cons"(i64 %r16185, i64 %r16188)
+%r16180 = tail call fastcc i64 @"fun-cons"(i64 %r16181, i64 %r16184)
+%r16176 = tail call fastcc i64 @"fun-cons"(i64 %r16177, i64 %r16180)
+%r16197 = ptrtoint [3 x i8]* @r16196 to i64
+%r16195 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16197, i64 2)
+%r16202 = ptrtoint [2 x i8]* @r16201 to i64
+%r16200 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16202, i64 1)
+%r16206 = ptrtoint [2 x i8]* @r16205 to i64
+%r16204 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16206, i64 1)
+%r16211 = ptrtoint [4 x i8]* @r16210 to i64
+%r16209 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16211, i64 3)
+%r16215 = ptrtoint [4 x i8]* @r16214 to i64
+%r16213 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16215, i64 3)
 %r16216 = tail call fastcc i64 @"fun-make-null"()
-%r15924 = tail call fastcc i64 @"fun-cons"(i64 %r15925, i64 %r16216)
-%r15908 = tail call fastcc i64 @"fun-cons"(i64 %r15909, i64 %r15924)
-%r15902 = tail call fastcc i64 @"fun-cons"(i64 %r15903, i64 %r15908)
-%r15898 = tail call fastcc i64 @"fun-cons"(i64 %r15899, i64 %r15902)
-%r16221 = ptrtoint [7 x i8]* @r16220 to i64
-%r16219 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16221, i64 6)
-%r16226 = ptrtoint [18 x i8]* @r16225 to i64
-%r16224 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16226, i64 17)
-%r16230 = ptrtoint [4 x i8]* @r16229 to i64
-%r16228 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16230, i64 3)
-%r16234 = ptrtoint [4 x i8]* @r16233 to i64
-%r16232 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16234, i64 3)
-%r16235 = tail call fastcc i64 @"fun-make-null"()
-%r16231 = tail call fastcc i64 @"fun-cons"(i64 %r16232, i64 %r16235)
-%r16227 = tail call fastcc i64 @"fun-cons"(i64 %r16228, i64 %r16231)
-%r16223 = tail call fastcc i64 @"fun-cons"(i64 %r16224, i64 %r16227)
-%r16240 = ptrtoint [7 x i8]* @r16239 to i64
-%r16238 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16240, i64 6)
-%r16245 = ptrtoint [6 x i8]* @r16244 to i64
-%r16243 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16245, i64 5)
-%r16249 = ptrtoint [2 x i8]* @r16248 to i64
-%r16247 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16249, i64 1)
-%r16253 = ptrtoint [4 x i8]* @r16252 to i64
-%r16251 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16253, i64 3)
-%r16257 = ptrtoint [4 x i8]* @r16256 to i64
-%r16255 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16257, i64 3)
-%r16258 = tail call fastcc i64 @"fun-make-null"()
-%r16254 = tail call fastcc i64 @"fun-cons"(i64 %r16255, i64 %r16258)
-%r16250 = tail call fastcc i64 @"fun-cons"(i64 %r16251, i64 %r16254)
+%r16212 = tail call fastcc i64 @"fun-cons"(i64 %r16213, i64 %r16216)
+%r16208 = tail call fastcc i64 @"fun-cons"(i64 %r16209, i64 %r16212)
+%r16217 = tail call fastcc i64 @"fun-make-null"()
+%r16207 = tail call fastcc i64 @"fun-cons"(i64 %r16208, i64 %r16217)
+%r16203 = tail call fastcc i64 @"fun-cons"(i64 %r16204, i64 %r16207)
+%r16199 = tail call fastcc i64 @"fun-cons"(i64 %r16200, i64 %r16203)
+%r16221 = ptrtoint [4 x i8]* @r16220 to i64
+%r16219 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16221, i64 3)
+%r16226 = ptrtoint [6 x i8]* @r16225 to i64
+%r16224 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16226, i64 5)
+%r16230 = ptrtoint [2 x i8]* @r16229 to i64
+%r16228 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16230, i64 1)
+%r16235 = ptrtoint [4 x i8]* @r16234 to i64
+%r16233 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16235, i64 3)
+%r16239 = ptrtoint [4 x i8]* @r16238 to i64
+%r16237 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16239, i64 3)
+%r16240 = tail call fastcc i64 @"fun-make-null"()
+%r16236 = tail call fastcc i64 @"fun-cons"(i64 %r16237, i64 %r16240)
+%r16232 = tail call fastcc i64 @"fun-cons"(i64 %r16233, i64 %r16236)
+%r16245 = ptrtoint [2 x i8]* @r16244 to i64
+%r16243 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16245, i64 1)
+%r16249 = ptrtoint [4 x i8]* @r16248 to i64
+%r16247 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16249, i64 3)
+%r16251 = tail call fastcc i64 @"fun-make-number"(i64 1)
+%r16252 = tail call fastcc i64 @"fun-make-null"()
+%r16250 = tail call fastcc i64 @"fun-cons"(i64 %r16251, i64 %r16252)
 %r16246 = tail call fastcc i64 @"fun-cons"(i64 %r16247, i64 %r16250)
 %r16242 = tail call fastcc i64 @"fun-cons"(i64 %r16243, i64 %r16246)
-%r16263 = ptrtoint [3 x i8]* @r16262 to i64
-%r16261 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16263, i64 2)
-%r16268 = ptrtoint [2 x i8]* @r16267 to i64
-%r16266 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16268, i64 1)
-%r16272 = ptrtoint [2 x i8]* @r16271 to i64
-%r16270 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16272, i64 1)
-%r16277 = ptrtoint [4 x i8]* @r16276 to i64
-%r16275 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16277, i64 3)
-%r16281 = ptrtoint [4 x i8]* @r16280 to i64
-%r16279 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16281, i64 3)
-%r16282 = tail call fastcc i64 @"fun-make-null"()
-%r16278 = tail call fastcc i64 @"fun-cons"(i64 %r16279, i64 %r16282)
-%r16274 = tail call fastcc i64 @"fun-cons"(i64 %r16275, i64 %r16278)
-%r16283 = tail call fastcc i64 @"fun-make-null"()
-%r16273 = tail call fastcc i64 @"fun-cons"(i64 %r16274, i64 %r16283)
-%r16269 = tail call fastcc i64 @"fun-cons"(i64 %r16270, i64 %r16273)
-%r16265 = tail call fastcc i64 @"fun-cons"(i64 %r16266, i64 %r16269)
-%r16287 = ptrtoint [4 x i8]* @r16286 to i64
-%r16285 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16287, i64 3)
-%r16292 = ptrtoint [6 x i8]* @r16291 to i64
-%r16290 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16292, i64 5)
-%r16296 = ptrtoint [2 x i8]* @r16295 to i64
-%r16294 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16296, i64 1)
-%r16301 = ptrtoint [4 x i8]* @r16300 to i64
-%r16299 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16301, i64 3)
-%r16305 = ptrtoint [4 x i8]* @r16304 to i64
-%r16303 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16305, i64 3)
-%r16306 = tail call fastcc i64 @"fun-make-null"()
-%r16302 = tail call fastcc i64 @"fun-cons"(i64 %r16303, i64 %r16306)
-%r16298 = tail call fastcc i64 @"fun-cons"(i64 %r16299, i64 %r16302)
-%r16311 = ptrtoint [2 x i8]* @r16310 to i64
-%r16309 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16311, i64 1)
-%r16315 = ptrtoint [4 x i8]* @r16314 to i64
-%r16313 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16315, i64 3)
-%r16317 = tail call fastcc i64 @"fun-make-number"(i64 1)
-%r16318 = tail call fastcc i64 @"fun-make-null"()
-%r16316 = tail call fastcc i64 @"fun-cons"(i64 %r16317, i64 %r16318)
-%r16312 = tail call fastcc i64 @"fun-cons"(i64 %r16313, i64 %r16316)
-%r16308 = tail call fastcc i64 @"fun-cons"(i64 %r16309, i64 %r16312)
-%r16319 = tail call fastcc i64 @"fun-make-null"()
-%r16307 = tail call fastcc i64 @"fun-cons"(i64 %r16308, i64 %r16319)
-%r16297 = tail call fastcc i64 @"fun-cons"(i64 %r16298, i64 %r16307)
-%r16293 = tail call fastcc i64 @"fun-cons"(i64 %r16294, i64 %r16297)
-%r16289 = tail call fastcc i64 @"fun-cons"(i64 %r16290, i64 %r16293)
-%r16320 = tail call fastcc i64 @"fun-make-null"()
-%r16288 = tail call fastcc i64 @"fun-cons"(i64 %r16289, i64 %r16320)
-%r16284 = tail call fastcc i64 @"fun-cons"(i64 %r16285, i64 %r16288)
-%r16264 = tail call fastcc i64 @"fun-cons"(i64 %r16265, i64 %r16284)
-%r16260 = tail call fastcc i64 @"fun-cons"(i64 %r16261, i64 %r16264)
-%r16321 = tail call fastcc i64 @"fun-make-null"()
-%r16259 = tail call fastcc i64 @"fun-cons"(i64 %r16260, i64 %r16321)
-%r16241 = tail call fastcc i64 @"fun-cons"(i64 %r16242, i64 %r16259)
-%r16237 = tail call fastcc i64 @"fun-cons"(i64 %r16238, i64 %r16241)
-%r16326 = ptrtoint [3 x i8]* @r16325 to i64
-%r16324 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16326, i64 2)
-%r16331 = ptrtoint [6 x i8]* @r16330 to i64
-%r16329 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16331, i64 5)
-%r16335 = ptrtoint [4 x i8]* @r16334 to i64
-%r16333 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16335, i64 3)
-%r16336 = tail call fastcc i64 @"fun-make-null"()
-%r16332 = tail call fastcc i64 @"fun-cons"(i64 %r16333, i64 %r16336)
-%r16328 = tail call fastcc i64 @"fun-cons"(i64 %r16329, i64 %r16332)
-%r16340 = ptrtoint [4 x i8]* @r16339 to i64
-%r16338 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16340, i64 3)
-%r16345 = ptrtoint [18 x i8]* @r16344 to i64
-%r16343 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16345, i64 17)
-%r16350 = ptrtoint [4 x i8]* @r16349 to i64
-%r16348 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16350, i64 3)
-%r16354 = ptrtoint [4 x i8]* @r16353 to i64
-%r16352 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16354, i64 3)
-%r16355 = tail call fastcc i64 @"fun-make-null"()
-%r16351 = tail call fastcc i64 @"fun-cons"(i64 %r16352, i64 %r16355)
-%r16347 = tail call fastcc i64 @"fun-cons"(i64 %r16348, i64 %r16351)
-%r16360 = ptrtoint [2 x i8]* @r16359 to i64
-%r16358 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16360, i64 1)
-%r16365 = ptrtoint [2 x i8]* @r16364 to i64
-%r16363 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16365, i64 1)
-%r16369 = ptrtoint [4 x i8]* @r16368 to i64
-%r16367 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16369, i64 3)
-%r16371 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r16372 = tail call fastcc i64 @"fun-make-null"()
-%r16370 = tail call fastcc i64 @"fun-cons"(i64 %r16371, i64 %r16372)
-%r16366 = tail call fastcc i64 @"fun-cons"(i64 %r16367, i64 %r16370)
-%r16362 = tail call fastcc i64 @"fun-cons"(i64 %r16363, i64 %r16366)
-%r16377 = ptrtoint [6 x i8]* @r16376 to i64
-%r16375 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16377, i64 5)
-%r16382 = ptrtoint [4 x i8]* @r16381 to i64
-%r16380 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16382, i64 3)
-%r16386 = ptrtoint [4 x i8]* @r16385 to i64
-%r16384 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16386, i64 3)
-%r16387 = tail call fastcc i64 @"fun-make-null"()
-%r16383 = tail call fastcc i64 @"fun-cons"(i64 %r16384, i64 %r16387)
-%r16379 = tail call fastcc i64 @"fun-cons"(i64 %r16380, i64 %r16383)
-%r16391 = ptrtoint [13 x i8]* @r16390 to i64
-%r16389 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16391, i64 12)
-%r16393 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r16394 = tail call fastcc i64 @"fun-make-null"()
-%r16392 = tail call fastcc i64 @"fun-cons"(i64 %r16393, i64 %r16394)
-%r16388 = tail call fastcc i64 @"fun-cons"(i64 %r16389, i64 %r16392)
-%r16378 = tail call fastcc i64 @"fun-cons"(i64 %r16379, i64 %r16388)
-%r16374 = tail call fastcc i64 @"fun-cons"(i64 %r16375, i64 %r16378)
-%r16395 = tail call fastcc i64 @"fun-make-null"()
-%r16373 = tail call fastcc i64 @"fun-cons"(i64 %r16374, i64 %r16395)
-%r16361 = tail call fastcc i64 @"fun-cons"(i64 %r16362, i64 %r16373)
-%r16357 = tail call fastcc i64 @"fun-cons"(i64 %r16358, i64 %r16361)
-%r16396 = tail call fastcc i64 @"fun-make-null"()
-%r16356 = tail call fastcc i64 @"fun-cons"(i64 %r16357, i64 %r16396)
-%r16346 = tail call fastcc i64 @"fun-cons"(i64 %r16347, i64 %r16356)
-%r16342 = tail call fastcc i64 @"fun-cons"(i64 %r16343, i64 %r16346)
-%r16397 = tail call fastcc i64 @"fun-make-null"()
-%r16341 = tail call fastcc i64 @"fun-cons"(i64 %r16342, i64 %r16397)
-%r16337 = tail call fastcc i64 @"fun-cons"(i64 %r16338, i64 %r16341)
-%r16327 = tail call fastcc i64 @"fun-cons"(i64 %r16328, i64 %r16337)
-%r16323 = tail call fastcc i64 @"fun-cons"(i64 %r16324, i64 %r16327)
-%r16398 = tail call fastcc i64 @"fun-make-null"()
-%r16322 = tail call fastcc i64 @"fun-cons"(i64 %r16323, i64 %r16398)
-%r16236 = tail call fastcc i64 @"fun-cons"(i64 %r16237, i64 %r16322)
-%r16222 = tail call fastcc i64 @"fun-cons"(i64 %r16223, i64 %r16236)
+%r16253 = tail call fastcc i64 @"fun-make-null"()
+%r16241 = tail call fastcc i64 @"fun-cons"(i64 %r16242, i64 %r16253)
+%r16231 = tail call fastcc i64 @"fun-cons"(i64 %r16232, i64 %r16241)
+%r16227 = tail call fastcc i64 @"fun-cons"(i64 %r16228, i64 %r16231)
+%r16223 = tail call fastcc i64 @"fun-cons"(i64 %r16224, i64 %r16227)
+%r16254 = tail call fastcc i64 @"fun-make-null"()
+%r16222 = tail call fastcc i64 @"fun-cons"(i64 %r16223, i64 %r16254)
 %r16218 = tail call fastcc i64 @"fun-cons"(i64 %r16219, i64 %r16222)
-%r16403 = ptrtoint [7 x i8]* @r16402 to i64
-%r16401 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16403, i64 6)
-%r16408 = ptrtoint [12 x i8]* @r16407 to i64
-%r16406 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16408, i64 11)
-%r16412 = ptrtoint [3 x i8]* @r16411 to i64
-%r16410 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16412, i64 2)
-%r16413 = tail call fastcc i64 @"fun-make-null"()
+%r16198 = tail call fastcc i64 @"fun-cons"(i64 %r16199, i64 %r16218)
+%r16194 = tail call fastcc i64 @"fun-cons"(i64 %r16195, i64 %r16198)
+%r16255 = tail call fastcc i64 @"fun-make-null"()
+%r16193 = tail call fastcc i64 @"fun-cons"(i64 %r16194, i64 %r16255)
+%r16175 = tail call fastcc i64 @"fun-cons"(i64 %r16176, i64 %r16193)
+%r16171 = tail call fastcc i64 @"fun-cons"(i64 %r16172, i64 %r16175)
+%r16260 = ptrtoint [3 x i8]* @r16259 to i64
+%r16258 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16260, i64 2)
+%r16265 = ptrtoint [6 x i8]* @r16264 to i64
+%r16263 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16265, i64 5)
+%r16269 = ptrtoint [4 x i8]* @r16268 to i64
+%r16267 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16269, i64 3)
+%r16270 = tail call fastcc i64 @"fun-make-null"()
+%r16266 = tail call fastcc i64 @"fun-cons"(i64 %r16267, i64 %r16270)
+%r16262 = tail call fastcc i64 @"fun-cons"(i64 %r16263, i64 %r16266)
+%r16274 = ptrtoint [4 x i8]* @r16273 to i64
+%r16272 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16274, i64 3)
+%r16279 = ptrtoint [18 x i8]* @r16278 to i64
+%r16277 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16279, i64 17)
+%r16284 = ptrtoint [4 x i8]* @r16283 to i64
+%r16282 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16284, i64 3)
+%r16288 = ptrtoint [4 x i8]* @r16287 to i64
+%r16286 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16288, i64 3)
+%r16289 = tail call fastcc i64 @"fun-make-null"()
+%r16285 = tail call fastcc i64 @"fun-cons"(i64 %r16286, i64 %r16289)
+%r16281 = tail call fastcc i64 @"fun-cons"(i64 %r16282, i64 %r16285)
+%r16294 = ptrtoint [2 x i8]* @r16293 to i64
+%r16292 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16294, i64 1)
+%r16299 = ptrtoint [2 x i8]* @r16298 to i64
+%r16297 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16299, i64 1)
+%r16303 = ptrtoint [4 x i8]* @r16302 to i64
+%r16301 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16303, i64 3)
+%r16305 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r16306 = tail call fastcc i64 @"fun-make-null"()
+%r16304 = tail call fastcc i64 @"fun-cons"(i64 %r16305, i64 %r16306)
+%r16300 = tail call fastcc i64 @"fun-cons"(i64 %r16301, i64 %r16304)
+%r16296 = tail call fastcc i64 @"fun-cons"(i64 %r16297, i64 %r16300)
+%r16311 = ptrtoint [6 x i8]* @r16310 to i64
+%r16309 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16311, i64 5)
+%r16316 = ptrtoint [4 x i8]* @r16315 to i64
+%r16314 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16316, i64 3)
+%r16320 = ptrtoint [4 x i8]* @r16319 to i64
+%r16318 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16320, i64 3)
+%r16321 = tail call fastcc i64 @"fun-make-null"()
+%r16317 = tail call fastcc i64 @"fun-cons"(i64 %r16318, i64 %r16321)
+%r16313 = tail call fastcc i64 @"fun-cons"(i64 %r16314, i64 %r16317)
+%r16325 = ptrtoint [13 x i8]* @r16324 to i64
+%r16323 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16325, i64 12)
+%r16327 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r16328 = tail call fastcc i64 @"fun-make-null"()
+%r16326 = tail call fastcc i64 @"fun-cons"(i64 %r16327, i64 %r16328)
+%r16322 = tail call fastcc i64 @"fun-cons"(i64 %r16323, i64 %r16326)
+%r16312 = tail call fastcc i64 @"fun-cons"(i64 %r16313, i64 %r16322)
+%r16308 = tail call fastcc i64 @"fun-cons"(i64 %r16309, i64 %r16312)
+%r16329 = tail call fastcc i64 @"fun-make-null"()
+%r16307 = tail call fastcc i64 @"fun-cons"(i64 %r16308, i64 %r16329)
+%r16295 = tail call fastcc i64 @"fun-cons"(i64 %r16296, i64 %r16307)
+%r16291 = tail call fastcc i64 @"fun-cons"(i64 %r16292, i64 %r16295)
+%r16330 = tail call fastcc i64 @"fun-make-null"()
+%r16290 = tail call fastcc i64 @"fun-cons"(i64 %r16291, i64 %r16330)
+%r16280 = tail call fastcc i64 @"fun-cons"(i64 %r16281, i64 %r16290)
+%r16276 = tail call fastcc i64 @"fun-cons"(i64 %r16277, i64 %r16280)
+%r16331 = tail call fastcc i64 @"fun-make-null"()
+%r16275 = tail call fastcc i64 @"fun-cons"(i64 %r16276, i64 %r16331)
+%r16271 = tail call fastcc i64 @"fun-cons"(i64 %r16272, i64 %r16275)
+%r16261 = tail call fastcc i64 @"fun-cons"(i64 %r16262, i64 %r16271)
+%r16257 = tail call fastcc i64 @"fun-cons"(i64 %r16258, i64 %r16261)
+%r16332 = tail call fastcc i64 @"fun-make-null"()
+%r16256 = tail call fastcc i64 @"fun-cons"(i64 %r16257, i64 %r16332)
+%r16170 = tail call fastcc i64 @"fun-cons"(i64 %r16171, i64 %r16256)
+%r16156 = tail call fastcc i64 @"fun-cons"(i64 %r16157, i64 %r16170)
+%r16152 = tail call fastcc i64 @"fun-cons"(i64 %r16153, i64 %r16156)
+%r16337 = ptrtoint [7 x i8]* @r16336 to i64
+%r16335 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16337, i64 6)
+%r16342 = ptrtoint [12 x i8]* @r16341 to i64
+%r16340 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16342, i64 11)
+%r16346 = ptrtoint [3 x i8]* @r16345 to i64
+%r16344 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16346, i64 2)
+%r16347 = tail call fastcc i64 @"fun-make-null"()
+%r16343 = tail call fastcc i64 @"fun-cons"(i64 %r16344, i64 %r16347)
+%r16339 = tail call fastcc i64 @"fun-cons"(i64 %r16340, i64 %r16343)
+%r16352 = ptrtoint [7 x i8]* @r16351 to i64
+%r16350 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16352, i64 6)
+%r16357 = ptrtoint [9 x i8]* @r16356 to i64
+%r16355 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16357, i64 8)
+%r16358 = tail call fastcc i64 @"fun-make-null"()
+%r16354 = tail call fastcc i64 @"fun-cons"(i64 %r16355, i64 %r16358)
+%r16363 = ptrtoint [7 x i8]* @r16362 to i64
+%r16361 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16363, i64 6)
+%r16367 = ptrtoint [5 x i8]* @r16366 to i64
+%r16365 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16367, i64 4)
+%r16372 = ptrtoint [10 x i8]* @r16371 to i64
+%r16370 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16372, i64 9)
+%r16373 = tail call fastcc i64 @"fun-make-null"()
+%r16369 = tail call fastcc i64 @"fun-cons"(i64 %r16370, i64 %r16373)
+%r16374 = tail call fastcc i64 @"fun-make-null"()
+%r16368 = tail call fastcc i64 @"fun-cons"(i64 %r16369, i64 %r16374)
+%r16364 = tail call fastcc i64 @"fun-cons"(i64 %r16365, i64 %r16368)
+%r16360 = tail call fastcc i64 @"fun-cons"(i64 %r16361, i64 %r16364)
+%r16379 = ptrtoint [3 x i8]* @r16378 to i64
+%r16377 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16379, i64 2)
+%r16384 = ptrtoint [14 x i8]* @r16383 to i64
+%r16382 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16384, i64 13)
+%r16388 = ptrtoint [5 x i8]* @r16387 to i64
+%r16386 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16388, i64 4)
+%r16389 = tail call fastcc i64 @"fun-make-null"()
+%r16385 = tail call fastcc i64 @"fun-cons"(i64 %r16386, i64 %r16389)
+%r16381 = tail call fastcc i64 @"fun-cons"(i64 %r16382, i64 %r16385)
+%r16394 = ptrtoint [5 x i8]* @r16393 to i64
+%r16392 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16394, i64 4)
+%r16399 = ptrtoint [10 x i8]* @r16398 to i64
+%r16397 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16399, i64 9)
+%r16400 = tail call fastcc i64 @"fun-make-null"()
+%r16396 = tail call fastcc i64 @"fun-cons"(i64 %r16397, i64 %r16400)
+%r16405 = ptrtoint [9 x i8]* @r16404 to i64
+%r16403 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16405, i64 8)
+%r16406 = tail call fastcc i64 @"fun-make-null"()
+%r16402 = tail call fastcc i64 @"fun-cons"(i64 %r16403, i64 %r16406)
+%r16407 = tail call fastcc i64 @"fun-make-null"()
+%r16401 = tail call fastcc i64 @"fun-cons"(i64 %r16402, i64 %r16407)
+%r16395 = tail call fastcc i64 @"fun-cons"(i64 %r16396, i64 %r16401)
+%r16391 = tail call fastcc i64 @"fun-cons"(i64 %r16392, i64 %r16395)
+%r16412 = ptrtoint [6 x i8]* @r16411 to i64
+%r16410 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16412, i64 5)
+%r16414 = tail call fastcc i64 @"fun-make-null"()
+%r16415 = tail call fastcc i64 @"fun-make-null"()
+%r16413 = tail call fastcc i64 @"fun-cons"(i64 %r16414, i64 %r16415)
 %r16409 = tail call fastcc i64 @"fun-cons"(i64 %r16410, i64 %r16413)
-%r16405 = tail call fastcc i64 @"fun-cons"(i64 %r16406, i64 %r16409)
-%r16418 = ptrtoint [7 x i8]* @r16417 to i64
-%r16416 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16418, i64 6)
-%r16423 = ptrtoint [9 x i8]* @r16422 to i64
-%r16421 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16423, i64 8)
-%r16424 = tail call fastcc i64 @"fun-make-null"()
-%r16420 = tail call fastcc i64 @"fun-cons"(i64 %r16421, i64 %r16424)
-%r16429 = ptrtoint [7 x i8]* @r16428 to i64
-%r16427 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16429, i64 6)
-%r16433 = ptrtoint [5 x i8]* @r16432 to i64
-%r16431 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16433, i64 4)
-%r16438 = ptrtoint [10 x i8]* @r16437 to i64
-%r16436 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16438, i64 9)
-%r16439 = tail call fastcc i64 @"fun-make-null"()
-%r16435 = tail call fastcc i64 @"fun-cons"(i64 %r16436, i64 %r16439)
-%r16440 = tail call fastcc i64 @"fun-make-null"()
-%r16434 = tail call fastcc i64 @"fun-cons"(i64 %r16435, i64 %r16440)
-%r16430 = tail call fastcc i64 @"fun-cons"(i64 %r16431, i64 %r16434)
-%r16426 = tail call fastcc i64 @"fun-cons"(i64 %r16427, i64 %r16430)
-%r16445 = ptrtoint [3 x i8]* @r16444 to i64
-%r16443 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16445, i64 2)
-%r16450 = ptrtoint [14 x i8]* @r16449 to i64
-%r16448 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16450, i64 13)
-%r16454 = ptrtoint [5 x i8]* @r16453 to i64
-%r16452 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16454, i64 4)
-%r16455 = tail call fastcc i64 @"fun-make-null"()
-%r16451 = tail call fastcc i64 @"fun-cons"(i64 %r16452, i64 %r16455)
-%r16447 = tail call fastcc i64 @"fun-cons"(i64 %r16448, i64 %r16451)
-%r16460 = ptrtoint [5 x i8]* @r16459 to i64
-%r16458 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16460, i64 4)
-%r16465 = ptrtoint [10 x i8]* @r16464 to i64
-%r16463 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16465, i64 9)
-%r16466 = tail call fastcc i64 @"fun-make-null"()
-%r16462 = tail call fastcc i64 @"fun-cons"(i64 %r16463, i64 %r16466)
-%r16471 = ptrtoint [9 x i8]* @r16470 to i64
-%r16469 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16471, i64 8)
-%r16472 = tail call fastcc i64 @"fun-make-null"()
-%r16468 = tail call fastcc i64 @"fun-cons"(i64 %r16469, i64 %r16472)
-%r16473 = tail call fastcc i64 @"fun-make-null"()
-%r16467 = tail call fastcc i64 @"fun-cons"(i64 %r16468, i64 %r16473)
-%r16461 = tail call fastcc i64 @"fun-cons"(i64 %r16462, i64 %r16467)
-%r16457 = tail call fastcc i64 @"fun-cons"(i64 %r16458, i64 %r16461)
-%r16478 = ptrtoint [6 x i8]* @r16477 to i64
-%r16476 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16478, i64 5)
-%r16480 = tail call fastcc i64 @"fun-make-null"()
-%r16481 = tail call fastcc i64 @"fun-make-null"()
-%r16479 = tail call fastcc i64 @"fun-cons"(i64 %r16480, i64 %r16481)
-%r16475 = tail call fastcc i64 @"fun-cons"(i64 %r16476, i64 %r16479)
-%r16482 = tail call fastcc i64 @"fun-make-null"()
-%r16474 = tail call fastcc i64 @"fun-cons"(i64 %r16475, i64 %r16482)
-%r16456 = tail call fastcc i64 @"fun-cons"(i64 %r16457, i64 %r16474)
-%r16446 = tail call fastcc i64 @"fun-cons"(i64 %r16447, i64 %r16456)
-%r16442 = tail call fastcc i64 @"fun-cons"(i64 %r16443, i64 %r16446)
-%r16483 = tail call fastcc i64 @"fun-make-null"()
-%r16441 = tail call fastcc i64 @"fun-cons"(i64 %r16442, i64 %r16483)
-%r16425 = tail call fastcc i64 @"fun-cons"(i64 %r16426, i64 %r16441)
-%r16419 = tail call fastcc i64 @"fun-cons"(i64 %r16420, i64 %r16425)
-%r16415 = tail call fastcc i64 @"fun-cons"(i64 %r16416, i64 %r16419)
-%r16488 = ptrtoint [18 x i8]* @r16487 to i64
-%r16486 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16488, i64 17)
-%r16493 = ptrtoint [5 x i8]* @r16492 to i64
-%r16491 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16493, i64 4)
-%r16497 = ptrtoint [3 x i8]* @r16496 to i64
-%r16495 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16497, i64 2)
-%r16502 = ptrtoint [9 x i8]* @r16501 to i64
-%r16500 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16502, i64 8)
-%r16503 = tail call fastcc i64 @"fun-make-null"()
-%r16499 = tail call fastcc i64 @"fun-cons"(i64 %r16500, i64 %r16503)
-%r16504 = tail call fastcc i64 @"fun-make-null"()
-%r16498 = tail call fastcc i64 @"fun-cons"(i64 %r16499, i64 %r16504)
-%r16494 = tail call fastcc i64 @"fun-cons"(i64 %r16495, i64 %r16498)
-%r16490 = tail call fastcc i64 @"fun-cons"(i64 %r16491, i64 %r16494)
-%r16506 = tail call fastcc i64 @"fun-make-number"(i64 0)
-%r16507 = tail call fastcc i64 @"fun-make-null"()
-%r16505 = tail call fastcc i64 @"fun-cons"(i64 %r16506, i64 %r16507)
-%r16489 = tail call fastcc i64 @"fun-cons"(i64 %r16490, i64 %r16505)
+%r16416 = tail call fastcc i64 @"fun-make-null"()
+%r16408 = tail call fastcc i64 @"fun-cons"(i64 %r16409, i64 %r16416)
+%r16390 = tail call fastcc i64 @"fun-cons"(i64 %r16391, i64 %r16408)
+%r16380 = tail call fastcc i64 @"fun-cons"(i64 %r16381, i64 %r16390)
+%r16376 = tail call fastcc i64 @"fun-cons"(i64 %r16377, i64 %r16380)
+%r16417 = tail call fastcc i64 @"fun-make-null"()
+%r16375 = tail call fastcc i64 @"fun-cons"(i64 %r16376, i64 %r16417)
+%r16359 = tail call fastcc i64 @"fun-cons"(i64 %r16360, i64 %r16375)
+%r16353 = tail call fastcc i64 @"fun-cons"(i64 %r16354, i64 %r16359)
+%r16349 = tail call fastcc i64 @"fun-cons"(i64 %r16350, i64 %r16353)
+%r16422 = ptrtoint [18 x i8]* @r16421 to i64
+%r16420 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16422, i64 17)
+%r16427 = ptrtoint [5 x i8]* @r16426 to i64
+%r16425 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16427, i64 4)
+%r16431 = ptrtoint [3 x i8]* @r16430 to i64
+%r16429 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16431, i64 2)
+%r16436 = ptrtoint [9 x i8]* @r16435 to i64
+%r16434 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16436, i64 8)
+%r16437 = tail call fastcc i64 @"fun-make-null"()
+%r16433 = tail call fastcc i64 @"fun-cons"(i64 %r16434, i64 %r16437)
+%r16438 = tail call fastcc i64 @"fun-make-null"()
+%r16432 = tail call fastcc i64 @"fun-cons"(i64 %r16433, i64 %r16438)
+%r16428 = tail call fastcc i64 @"fun-cons"(i64 %r16429, i64 %r16432)
+%r16424 = tail call fastcc i64 @"fun-cons"(i64 %r16425, i64 %r16428)
+%r16440 = tail call fastcc i64 @"fun-make-number"(i64 0)
+%r16441 = tail call fastcc i64 @"fun-make-null"()
+%r16439 = tail call fastcc i64 @"fun-cons"(i64 %r16440, i64 %r16441)
+%r16423 = tail call fastcc i64 @"fun-cons"(i64 %r16424, i64 %r16439)
+%r16419 = tail call fastcc i64 @"fun-cons"(i64 %r16420, i64 %r16423)
+%r16442 = tail call fastcc i64 @"fun-make-null"()
+%r16418 = tail call fastcc i64 @"fun-cons"(i64 %r16419, i64 %r16442)
+%r16348 = tail call fastcc i64 @"fun-cons"(i64 %r16349, i64 %r16418)
+%r16338 = tail call fastcc i64 @"fun-cons"(i64 %r16339, i64 %r16348)
+%r16334 = tail call fastcc i64 @"fun-cons"(i64 %r16335, i64 %r16338)
+%r16447 = ptrtoint [7 x i8]* @r16446 to i64
+%r16445 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16447, i64 6)
+%r16452 = ptrtoint [16 x i8]* @r16451 to i64
+%r16450 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16452, i64 15)
+%r16456 = ptrtoint [3 x i8]* @r16455 to i64
+%r16454 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16456, i64 2)
+%r16457 = tail call fastcc i64 @"fun-make-null"()
+%r16453 = tail call fastcc i64 @"fun-cons"(i64 %r16454, i64 %r16457)
+%r16449 = tail call fastcc i64 @"fun-cons"(i64 %r16450, i64 %r16453)
+%r16462 = ptrtoint [7 x i8]* @r16461 to i64
+%r16460 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16462, i64 6)
+%r16467 = ptrtoint [8 x i8]* @r16466 to i64
+%r16465 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16467, i64 7)
+%r16468 = tail call fastcc i64 @"fun-make-null"()
+%r16464 = tail call fastcc i64 @"fun-cons"(i64 %r16465, i64 %r16468)
+%r16473 = ptrtoint [3 x i8]* @r16472 to i64
+%r16471 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16473, i64 2)
+%r16478 = ptrtoint [7 x i8]* @r16477 to i64
+%r16476 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16478, i64 6)
+%r16483 = ptrtoint [10 x i8]* @r16482 to i64
+%r16481 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16483, i64 9)
+%r16484 = tail call fastcc i64 @"fun-make-null"()
+%r16480 = tail call fastcc i64 @"fun-cons"(i64 %r16481, i64 %r16484)
+%r16488 = ptrtoint [15 x i8]* @r16487 to i64
+%r16486 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16488, i64 14)
+%r16489 = tail call fastcc i64 @"fun-make-null"()
 %r16485 = tail call fastcc i64 @"fun-cons"(i64 %r16486, i64 %r16489)
+%r16479 = tail call fastcc i64 @"fun-cons"(i64 %r16480, i64 %r16485)
+%r16475 = tail call fastcc i64 @"fun-cons"(i64 %r16476, i64 %r16479)
+%r16494 = ptrtoint [6 x i8]* @r16493 to i64
+%r16492 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16494, i64 5)
+%r16496 = tail call fastcc i64 @"fun-make-null"()
+%r16497 = tail call fastcc i64 @"fun-make-null"()
+%r16495 = tail call fastcc i64 @"fun-cons"(i64 %r16496, i64 %r16497)
+%r16491 = tail call fastcc i64 @"fun-cons"(i64 %r16492, i64 %r16495)
+%r16502 = ptrtoint [5 x i8]* @r16501 to i64
+%r16500 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16502, i64 4)
+%r16507 = ptrtoint [10 x i8]* @r16506 to i64
+%r16505 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16507, i64 9)
 %r16508 = tail call fastcc i64 @"fun-make-null"()
-%r16484 = tail call fastcc i64 @"fun-cons"(i64 %r16485, i64 %r16508)
-%r16414 = tail call fastcc i64 @"fun-cons"(i64 %r16415, i64 %r16484)
-%r16404 = tail call fastcc i64 @"fun-cons"(i64 %r16405, i64 %r16414)
-%r16400 = tail call fastcc i64 @"fun-cons"(i64 %r16401, i64 %r16404)
-%r16513 = ptrtoint [7 x i8]* @r16512 to i64
-%r16511 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16513, i64 6)
-%r16518 = ptrtoint [16 x i8]* @r16517 to i64
-%r16516 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16518, i64 15)
-%r16522 = ptrtoint [3 x i8]* @r16521 to i64
-%r16520 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16522, i64 2)
-%r16523 = tail call fastcc i64 @"fun-make-null"()
+%r16504 = tail call fastcc i64 @"fun-cons"(i64 %r16505, i64 %r16508)
+%r16513 = ptrtoint [8 x i8]* @r16512 to i64
+%r16511 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16513, i64 7)
+%r16514 = tail call fastcc i64 @"fun-make-null"()
+%r16510 = tail call fastcc i64 @"fun-cons"(i64 %r16511, i64 %r16514)
+%r16515 = tail call fastcc i64 @"fun-make-null"()
+%r16509 = tail call fastcc i64 @"fun-cons"(i64 %r16510, i64 %r16515)
+%r16503 = tail call fastcc i64 @"fun-cons"(i64 %r16504, i64 %r16509)
+%r16499 = tail call fastcc i64 @"fun-cons"(i64 %r16500, i64 %r16503)
+%r16516 = tail call fastcc i64 @"fun-make-null"()
+%r16498 = tail call fastcc i64 @"fun-cons"(i64 %r16499, i64 %r16516)
+%r16490 = tail call fastcc i64 @"fun-cons"(i64 %r16491, i64 %r16498)
+%r16474 = tail call fastcc i64 @"fun-cons"(i64 %r16475, i64 %r16490)
+%r16470 = tail call fastcc i64 @"fun-cons"(i64 %r16471, i64 %r16474)
+%r16517 = tail call fastcc i64 @"fun-make-null"()
+%r16469 = tail call fastcc i64 @"fun-cons"(i64 %r16470, i64 %r16517)
+%r16463 = tail call fastcc i64 @"fun-cons"(i64 %r16464, i64 %r16469)
+%r16459 = tail call fastcc i64 @"fun-cons"(i64 %r16460, i64 %r16463)
+%r16522 = ptrtoint [15 x i8]* @r16521 to i64
+%r16520 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16522, i64 14)
+%r16527 = ptrtoint [13 x i8]* @r16526 to i64
+%r16525 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16527, i64 12)
+%r16532 = ptrtoint [5 x i8]* @r16531 to i64
+%r16530 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16532, i64 4)
+%r16536 = ptrtoint [3 x i8]* @r16535 to i64
+%r16534 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16536, i64 2)
+%r16541 = ptrtoint [8 x i8]* @r16540 to i64
+%r16539 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16541, i64 7)
+%r16542 = tail call fastcc i64 @"fun-make-null"()
+%r16538 = tail call fastcc i64 @"fun-cons"(i64 %r16539, i64 %r16542)
+%r16543 = tail call fastcc i64 @"fun-make-null"()
+%r16537 = tail call fastcc i64 @"fun-cons"(i64 %r16538, i64 %r16543)
+%r16533 = tail call fastcc i64 @"fun-cons"(i64 %r16534, i64 %r16537)
+%r16529 = tail call fastcc i64 @"fun-cons"(i64 %r16530, i64 %r16533)
+%r16544 = tail call fastcc i64 @"fun-make-null"()
+%r16528 = tail call fastcc i64 @"fun-cons"(i64 %r16529, i64 %r16544)
+%r16524 = tail call fastcc i64 @"fun-cons"(i64 %r16525, i64 %r16528)
+%r16545 = tail call fastcc i64 @"fun-make-null"()
+%r16523 = tail call fastcc i64 @"fun-cons"(i64 %r16524, i64 %r16545)
 %r16519 = tail call fastcc i64 @"fun-cons"(i64 %r16520, i64 %r16523)
-%r16515 = tail call fastcc i64 @"fun-cons"(i64 %r16516, i64 %r16519)
-%r16528 = ptrtoint [7 x i8]* @r16527 to i64
-%r16526 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16528, i64 6)
-%r16533 = ptrtoint [8 x i8]* @r16532 to i64
-%r16531 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16533, i64 7)
-%r16534 = tail call fastcc i64 @"fun-make-null"()
-%r16530 = tail call fastcc i64 @"fun-cons"(i64 %r16531, i64 %r16534)
-%r16539 = ptrtoint [3 x i8]* @r16538 to i64
-%r16537 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16539, i64 2)
-%r16544 = ptrtoint [7 x i8]* @r16543 to i64
-%r16542 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16544, i64 6)
-%r16549 = ptrtoint [10 x i8]* @r16548 to i64
-%r16547 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16549, i64 9)
-%r16550 = tail call fastcc i64 @"fun-make-null"()
-%r16546 = tail call fastcc i64 @"fun-cons"(i64 %r16547, i64 %r16550)
-%r16554 = ptrtoint [15 x i8]* @r16553 to i64
-%r16552 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16554, i64 14)
-%r16555 = tail call fastcc i64 @"fun-make-null"()
-%r16551 = tail call fastcc i64 @"fun-cons"(i64 %r16552, i64 %r16555)
-%r16545 = tail call fastcc i64 @"fun-cons"(i64 %r16546, i64 %r16551)
-%r16541 = tail call fastcc i64 @"fun-cons"(i64 %r16542, i64 %r16545)
-%r16560 = ptrtoint [6 x i8]* @r16559 to i64
-%r16558 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16560, i64 5)
-%r16562 = tail call fastcc i64 @"fun-make-null"()
-%r16563 = tail call fastcc i64 @"fun-make-null"()
-%r16561 = tail call fastcc i64 @"fun-cons"(i64 %r16562, i64 %r16563)
+%r16546 = tail call fastcc i64 @"fun-make-null"()
+%r16518 = tail call fastcc i64 @"fun-cons"(i64 %r16519, i64 %r16546)
+%r16458 = tail call fastcc i64 @"fun-cons"(i64 %r16459, i64 %r16518)
+%r16448 = tail call fastcc i64 @"fun-cons"(i64 %r16449, i64 %r16458)
+%r16444 = tail call fastcc i64 @"fun-cons"(i64 %r16445, i64 %r16448)
+%r16551 = ptrtoint [7 x i8]* @r16550 to i64
+%r16549 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16551, i64 6)
+%r16556 = ptrtoint [17 x i8]* @r16555 to i64
+%r16554 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16556, i64 16)
+%r16560 = ptrtoint [3 x i8]* @r16559 to i64
+%r16558 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16560, i64 2)
+%r16561 = tail call fastcc i64 @"fun-make-null"()
 %r16557 = tail call fastcc i64 @"fun-cons"(i64 %r16558, i64 %r16561)
-%r16568 = ptrtoint [5 x i8]* @r16567 to i64
-%r16566 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16568, i64 4)
-%r16573 = ptrtoint [10 x i8]* @r16572 to i64
-%r16571 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16573, i64 9)
-%r16574 = tail call fastcc i64 @"fun-make-null"()
-%r16570 = tail call fastcc i64 @"fun-cons"(i64 %r16571, i64 %r16574)
-%r16579 = ptrtoint [8 x i8]* @r16578 to i64
-%r16577 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16579, i64 7)
-%r16580 = tail call fastcc i64 @"fun-make-null"()
-%r16576 = tail call fastcc i64 @"fun-cons"(i64 %r16577, i64 %r16580)
-%r16581 = tail call fastcc i64 @"fun-make-null"()
-%r16575 = tail call fastcc i64 @"fun-cons"(i64 %r16576, i64 %r16581)
-%r16569 = tail call fastcc i64 @"fun-cons"(i64 %r16570, i64 %r16575)
-%r16565 = tail call fastcc i64 @"fun-cons"(i64 %r16566, i64 %r16569)
+%r16553 = tail call fastcc i64 @"fun-cons"(i64 %r16554, i64 %r16557)
+%r16566 = ptrtoint [5 x i8]* @r16565 to i64
+%r16564 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16566, i64 4)
+%r16572 = ptrtoint [4 x i8]* @r16571 to i64
+%r16570 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16572, i64 3)
+%r16576 = ptrtoint [3 x i8]* @r16575 to i64
+%r16574 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16576, i64 2)
+%r16578 = tail call fastcc i64 @"fun-make-number"(i64 110)
+%r16579 = tail call fastcc i64 @"fun-make-null"()
+%r16577 = tail call fastcc i64 @"fun-cons"(i64 %r16578, i64 %r16579)
+%r16573 = tail call fastcc i64 @"fun-cons"(i64 %r16574, i64 %r16577)
+%r16569 = tail call fastcc i64 @"fun-cons"(i64 %r16570, i64 %r16573)
+%r16581 = tail call fastcc i64 @"fun-make-number"(i64 10)
 %r16582 = tail call fastcc i64 @"fun-make-null"()
-%r16564 = tail call fastcc i64 @"fun-cons"(i64 %r16565, i64 %r16582)
-%r16556 = tail call fastcc i64 @"fun-cons"(i64 %r16557, i64 %r16564)
-%r16540 = tail call fastcc i64 @"fun-cons"(i64 %r16541, i64 %r16556)
-%r16536 = tail call fastcc i64 @"fun-cons"(i64 %r16537, i64 %r16540)
-%r16583 = tail call fastcc i64 @"fun-make-null"()
-%r16535 = tail call fastcc i64 @"fun-cons"(i64 %r16536, i64 %r16583)
-%r16529 = tail call fastcc i64 @"fun-cons"(i64 %r16530, i64 %r16535)
-%r16525 = tail call fastcc i64 @"fun-cons"(i64 %r16526, i64 %r16529)
-%r16588 = ptrtoint [15 x i8]* @r16587 to i64
-%r16586 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16588, i64 14)
-%r16593 = ptrtoint [13 x i8]* @r16592 to i64
-%r16591 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16593, i64 12)
-%r16598 = ptrtoint [5 x i8]* @r16597 to i64
-%r16596 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16598, i64 4)
-%r16602 = ptrtoint [3 x i8]* @r16601 to i64
-%r16600 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16602, i64 2)
-%r16607 = ptrtoint [8 x i8]* @r16606 to i64
-%r16605 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16607, i64 7)
+%r16580 = tail call fastcc i64 @"fun-cons"(i64 %r16581, i64 %r16582)
+%r16568 = tail call fastcc i64 @"fun-cons"(i64 %r16569, i64 %r16580)
+%r16588 = ptrtoint [4 x i8]* @r16587 to i64
+%r16586 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16588, i64 3)
+%r16592 = ptrtoint [3 x i8]* @r16591 to i64
+%r16590 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16592, i64 2)
+%r16594 = tail call fastcc i64 @"fun-make-number"(i64 116)
+%r16595 = tail call fastcc i64 @"fun-make-null"()
+%r16593 = tail call fastcc i64 @"fun-cons"(i64 %r16594, i64 %r16595)
+%r16589 = tail call fastcc i64 @"fun-cons"(i64 %r16590, i64 %r16593)
+%r16585 = tail call fastcc i64 @"fun-cons"(i64 %r16586, i64 %r16589)
+%r16597 = tail call fastcc i64 @"fun-make-number"(i64 9)
+%r16598 = tail call fastcc i64 @"fun-make-null"()
+%r16596 = tail call fastcc i64 @"fun-cons"(i64 %r16597, i64 %r16598)
+%r16584 = tail call fastcc i64 @"fun-cons"(i64 %r16585, i64 %r16596)
+%r16603 = ptrtoint [5 x i8]* @r16602 to i64
+%r16601 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16603, i64 4)
+%r16607 = ptrtoint [3 x i8]* @r16606 to i64
+%r16605 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16607, i64 2)
 %r16608 = tail call fastcc i64 @"fun-make-null"()
 %r16604 = tail call fastcc i64 @"fun-cons"(i64 %r16605, i64 %r16608)
+%r16600 = tail call fastcc i64 @"fun-cons"(i64 %r16601, i64 %r16604)
 %r16609 = tail call fastcc i64 @"fun-make-null"()
-%r16603 = tail call fastcc i64 @"fun-cons"(i64 %r16604, i64 %r16609)
-%r16599 = tail call fastcc i64 @"fun-cons"(i64 %r16600, i64 %r16603)
-%r16595 = tail call fastcc i64 @"fun-cons"(i64 %r16596, i64 %r16599)
+%r16599 = tail call fastcc i64 @"fun-cons"(i64 %r16600, i64 %r16609)
+%r16583 = tail call fastcc i64 @"fun-cons"(i64 %r16584, i64 %r16599)
+%r16567 = tail call fastcc i64 @"fun-cons"(i64 %r16568, i64 %r16583)
+%r16563 = tail call fastcc i64 @"fun-cons"(i64 %r16564, i64 %r16567)
 %r16610 = tail call fastcc i64 @"fun-make-null"()
-%r16594 = tail call fastcc i64 @"fun-cons"(i64 %r16595, i64 %r16610)
-%r16590 = tail call fastcc i64 @"fun-cons"(i64 %r16591, i64 %r16594)
-%r16611 = tail call fastcc i64 @"fun-make-null"()
-%r16589 = tail call fastcc i64 @"fun-cons"(i64 %r16590, i64 %r16611)
-%r16585 = tail call fastcc i64 @"fun-cons"(i64 %r16586, i64 %r16589)
-%r16612 = tail call fastcc i64 @"fun-make-null"()
-%r16584 = tail call fastcc i64 @"fun-cons"(i64 %r16585, i64 %r16612)
-%r16524 = tail call fastcc i64 @"fun-cons"(i64 %r16525, i64 %r16584)
-%r16514 = tail call fastcc i64 @"fun-cons"(i64 %r16515, i64 %r16524)
-%r16510 = tail call fastcc i64 @"fun-cons"(i64 %r16511, i64 %r16514)
-%r16617 = ptrtoint [7 x i8]* @r16616 to i64
-%r16615 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16617, i64 6)
-%r16622 = ptrtoint [17 x i8]* @r16621 to i64
-%r16620 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16622, i64 16)
-%r16626 = ptrtoint [3 x i8]* @r16625 to i64
-%r16624 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16626, i64 2)
-%r16627 = tail call fastcc i64 @"fun-make-null"()
-%r16623 = tail call fastcc i64 @"fun-cons"(i64 %r16624, i64 %r16627)
-%r16619 = tail call fastcc i64 @"fun-cons"(i64 %r16620, i64 %r16623)
-%r16632 = ptrtoint [5 x i8]* @r16631 to i64
-%r16630 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16632, i64 4)
-%r16638 = ptrtoint [4 x i8]* @r16637 to i64
-%r16636 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16638, i64 3)
-%r16642 = ptrtoint [3 x i8]* @r16641 to i64
-%r16640 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16642, i64 2)
-%r16644 = tail call fastcc i64 @"fun-make-number"(i64 110)
-%r16645 = tail call fastcc i64 @"fun-make-null"()
-%r16643 = tail call fastcc i64 @"fun-cons"(i64 %r16644, i64 %r16645)
-%r16639 = tail call fastcc i64 @"fun-cons"(i64 %r16640, i64 %r16643)
-%r16635 = tail call fastcc i64 @"fun-cons"(i64 %r16636, i64 %r16639)
-%r16647 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r16562 = tail call fastcc i64 @"fun-cons"(i64 %r16563, i64 %r16610)
+%r16552 = tail call fastcc i64 @"fun-cons"(i64 %r16553, i64 %r16562)
+%r16548 = tail call fastcc i64 @"fun-cons"(i64 %r16549, i64 %r16552)
+%r16615 = ptrtoint [7 x i8]* @r16614 to i64
+%r16613 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16615, i64 6)
+%r16620 = ptrtoint [12 x i8]* @r16619 to i64
+%r16618 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16620, i64 11)
+%r16621 = tail call fastcc i64 @"fun-make-null"()
+%r16617 = tail call fastcc i64 @"fun-cons"(i64 %r16618, i64 %r16621)
+%r16626 = ptrtoint [7 x i8]* @r16625 to i64
+%r16624 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16626, i64 6)
+%r16631 = ptrtoint [9 x i8]* @r16630 to i64
+%r16629 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16631, i64 8)
+%r16632 = tail call fastcc i64 @"fun-make-null"()
+%r16628 = tail call fastcc i64 @"fun-cons"(i64 %r16629, i64 %r16632)
+%r16637 = ptrtoint [7 x i8]* @r16636 to i64
+%r16635 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16637, i64 6)
+%r16641 = ptrtoint [3 x i8]* @r16640 to i64
+%r16639 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16641, i64 2)
+%r16646 = ptrtoint [10 x i8]* @r16645 to i64
+%r16644 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16646, i64 9)
+%r16647 = tail call fastcc i64 @"fun-make-null"()
+%r16643 = tail call fastcc i64 @"fun-cons"(i64 %r16644, i64 %r16647)
 %r16648 = tail call fastcc i64 @"fun-make-null"()
-%r16646 = tail call fastcc i64 @"fun-cons"(i64 %r16647, i64 %r16648)
-%r16634 = tail call fastcc i64 @"fun-cons"(i64 %r16635, i64 %r16646)
-%r16654 = ptrtoint [4 x i8]* @r16653 to i64
-%r16652 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16654, i64 3)
-%r16658 = ptrtoint [3 x i8]* @r16657 to i64
-%r16656 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16658, i64 2)
-%r16660 = tail call fastcc i64 @"fun-make-number"(i64 116)
-%r16661 = tail call fastcc i64 @"fun-make-null"()
-%r16659 = tail call fastcc i64 @"fun-cons"(i64 %r16660, i64 %r16661)
-%r16655 = tail call fastcc i64 @"fun-cons"(i64 %r16656, i64 %r16659)
-%r16651 = tail call fastcc i64 @"fun-cons"(i64 %r16652, i64 %r16655)
-%r16663 = tail call fastcc i64 @"fun-make-number"(i64 9)
+%r16642 = tail call fastcc i64 @"fun-cons"(i64 %r16643, i64 %r16648)
+%r16638 = tail call fastcc i64 @"fun-cons"(i64 %r16639, i64 %r16642)
+%r16634 = tail call fastcc i64 @"fun-cons"(i64 %r16635, i64 %r16638)
+%r16653 = ptrtoint [5 x i8]* @r16652 to i64
+%r16651 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16653, i64 4)
+%r16659 = ptrtoint [16 x i8]* @r16658 to i64
+%r16657 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16659, i64 15)
+%r16663 = ptrtoint [3 x i8]* @r16662 to i64
+%r16661 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16663, i64 2)
 %r16664 = tail call fastcc i64 @"fun-make-null"()
-%r16662 = tail call fastcc i64 @"fun-cons"(i64 %r16663, i64 %r16664)
-%r16650 = tail call fastcc i64 @"fun-cons"(i64 %r16651, i64 %r16662)
+%r16660 = tail call fastcc i64 @"fun-cons"(i64 %r16661, i64 %r16664)
+%r16656 = tail call fastcc i64 @"fun-cons"(i64 %r16657, i64 %r16660)
 %r16669 = ptrtoint [5 x i8]* @r16668 to i64
 %r16667 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16669, i64 4)
-%r16673 = ptrtoint [3 x i8]* @r16672 to i64
-%r16671 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16673, i64 2)
-%r16674 = tail call fastcc i64 @"fun-make-null"()
-%r16670 = tail call fastcc i64 @"fun-cons"(i64 %r16671, i64 %r16674)
-%r16666 = tail call fastcc i64 @"fun-cons"(i64 %r16667, i64 %r16670)
-%r16675 = tail call fastcc i64 @"fun-make-null"()
-%r16665 = tail call fastcc i64 @"fun-cons"(i64 %r16666, i64 %r16675)
-%r16649 = tail call fastcc i64 @"fun-cons"(i64 %r16650, i64 %r16665)
-%r16633 = tail call fastcc i64 @"fun-cons"(i64 %r16634, i64 %r16649)
-%r16629 = tail call fastcc i64 @"fun-cons"(i64 %r16630, i64 %r16633)
-%r16676 = tail call fastcc i64 @"fun-make-null"()
-%r16628 = tail call fastcc i64 @"fun-cons"(i64 %r16629, i64 %r16676)
-%r16618 = tail call fastcc i64 @"fun-cons"(i64 %r16619, i64 %r16628)
-%r16614 = tail call fastcc i64 @"fun-cons"(i64 %r16615, i64 %r16618)
-%r16681 = ptrtoint [7 x i8]* @r16680 to i64
-%r16679 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16681, i64 6)
-%r16686 = ptrtoint [12 x i8]* @r16685 to i64
-%r16684 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16686, i64 11)
+%r16674 = ptrtoint [17 x i8]* @r16673 to i64
+%r16672 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16674, i64 16)
+%r16679 = ptrtoint [10 x i8]* @r16678 to i64
+%r16677 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16679, i64 9)
+%r16680 = tail call fastcc i64 @"fun-make-null"()
+%r16676 = tail call fastcc i64 @"fun-cons"(i64 %r16677, i64 %r16680)
+%r16681 = tail call fastcc i64 @"fun-make-null"()
+%r16675 = tail call fastcc i64 @"fun-cons"(i64 %r16676, i64 %r16681)
+%r16671 = tail call fastcc i64 @"fun-cons"(i64 %r16672, i64 %r16675)
+%r16686 = ptrtoint [9 x i8]* @r16685 to i64
+%r16684 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16686, i64 8)
 %r16687 = tail call fastcc i64 @"fun-make-null"()
 %r16683 = tail call fastcc i64 @"fun-cons"(i64 %r16684, i64 %r16687)
-%r16692 = ptrtoint [7 x i8]* @r16691 to i64
-%r16690 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16692, i64 6)
-%r16697 = ptrtoint [9 x i8]* @r16696 to i64
-%r16695 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16697, i64 8)
-%r16698 = tail call fastcc i64 @"fun-make-null"()
-%r16694 = tail call fastcc i64 @"fun-cons"(i64 %r16695, i64 %r16698)
-%r16703 = ptrtoint [7 x i8]* @r16702 to i64
-%r16701 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16703, i64 6)
-%r16707 = ptrtoint [3 x i8]* @r16706 to i64
-%r16705 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16707, i64 2)
-%r16712 = ptrtoint [10 x i8]* @r16711 to i64
-%r16710 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16712, i64 9)
-%r16713 = tail call fastcc i64 @"fun-make-null"()
-%r16709 = tail call fastcc i64 @"fun-cons"(i64 %r16710, i64 %r16713)
-%r16714 = tail call fastcc i64 @"fun-make-null"()
-%r16708 = tail call fastcc i64 @"fun-cons"(i64 %r16709, i64 %r16714)
-%r16704 = tail call fastcc i64 @"fun-cons"(i64 %r16705, i64 %r16708)
-%r16700 = tail call fastcc i64 @"fun-cons"(i64 %r16701, i64 %r16704)
+%r16688 = tail call fastcc i64 @"fun-make-null"()
+%r16682 = tail call fastcc i64 @"fun-cons"(i64 %r16683, i64 %r16688)
+%r16670 = tail call fastcc i64 @"fun-cons"(i64 %r16671, i64 %r16682)
+%r16666 = tail call fastcc i64 @"fun-cons"(i64 %r16667, i64 %r16670)
+%r16689 = tail call fastcc i64 @"fun-make-null"()
+%r16665 = tail call fastcc i64 @"fun-cons"(i64 %r16666, i64 %r16689)
+%r16655 = tail call fastcc i64 @"fun-cons"(i64 %r16656, i64 %r16665)
+%r16695 = ptrtoint [13 x i8]* @r16694 to i64
+%r16693 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16695, i64 12)
+%r16699 = ptrtoint [3 x i8]* @r16698 to i64
+%r16697 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16699, i64 2)
+%r16700 = tail call fastcc i64 @"fun-make-null"()
+%r16696 = tail call fastcc i64 @"fun-cons"(i64 %r16697, i64 %r16700)
+%r16692 = tail call fastcc i64 @"fun-cons"(i64 %r16693, i64 %r16696)
+%r16705 = ptrtoint [6 x i8]* @r16704 to i64
+%r16703 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16705, i64 5)
+%r16707 = tail call fastcc i64 @"fun-make-null"()
+%r16708 = tail call fastcc i64 @"fun-make-null"()
+%r16706 = tail call fastcc i64 @"fun-cons"(i64 %r16707, i64 %r16708)
+%r16702 = tail call fastcc i64 @"fun-cons"(i64 %r16703, i64 %r16706)
+%r16709 = tail call fastcc i64 @"fun-make-null"()
+%r16701 = tail call fastcc i64 @"fun-cons"(i64 %r16702, i64 %r16709)
+%r16691 = tail call fastcc i64 @"fun-cons"(i64 %r16692, i64 %r16701)
+%r16714 = ptrtoint [5 x i8]* @r16713 to i64
+%r16712 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16714, i64 4)
 %r16719 = ptrtoint [5 x i8]* @r16718 to i64
 %r16717 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16719, i64 4)
-%r16725 = ptrtoint [16 x i8]* @r16724 to i64
-%r16723 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16725, i64 15)
-%r16729 = ptrtoint [3 x i8]* @r16728 to i64
-%r16727 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16729, i64 2)
+%r16723 = ptrtoint [3 x i8]* @r16722 to i64
+%r16721 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16723, i64 2)
+%r16728 = ptrtoint [9 x i8]* @r16727 to i64
+%r16726 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16728, i64 8)
+%r16729 = tail call fastcc i64 @"fun-make-null"()
+%r16725 = tail call fastcc i64 @"fun-cons"(i64 %r16726, i64 %r16729)
 %r16730 = tail call fastcc i64 @"fun-make-null"()
-%r16726 = tail call fastcc i64 @"fun-cons"(i64 %r16727, i64 %r16730)
-%r16722 = tail call fastcc i64 @"fun-cons"(i64 %r16723, i64 %r16726)
-%r16735 = ptrtoint [5 x i8]* @r16734 to i64
-%r16733 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16735, i64 4)
-%r16740 = ptrtoint [17 x i8]* @r16739 to i64
-%r16738 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16740, i64 16)
-%r16745 = ptrtoint [10 x i8]* @r16744 to i64
-%r16743 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16745, i64 9)
-%r16746 = tail call fastcc i64 @"fun-make-null"()
-%r16742 = tail call fastcc i64 @"fun-cons"(i64 %r16743, i64 %r16746)
-%r16747 = tail call fastcc i64 @"fun-make-null"()
-%r16741 = tail call fastcc i64 @"fun-cons"(i64 %r16742, i64 %r16747)
-%r16737 = tail call fastcc i64 @"fun-cons"(i64 %r16738, i64 %r16741)
-%r16752 = ptrtoint [9 x i8]* @r16751 to i64
-%r16750 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16752, i64 8)
-%r16753 = tail call fastcc i64 @"fun-make-null"()
-%r16749 = tail call fastcc i64 @"fun-cons"(i64 %r16750, i64 %r16753)
-%r16754 = tail call fastcc i64 @"fun-make-null"()
-%r16748 = tail call fastcc i64 @"fun-cons"(i64 %r16749, i64 %r16754)
-%r16736 = tail call fastcc i64 @"fun-cons"(i64 %r16737, i64 %r16748)
-%r16732 = tail call fastcc i64 @"fun-cons"(i64 %r16733, i64 %r16736)
-%r16755 = tail call fastcc i64 @"fun-make-null"()
-%r16731 = tail call fastcc i64 @"fun-cons"(i64 %r16732, i64 %r16755)
-%r16721 = tail call fastcc i64 @"fun-cons"(i64 %r16722, i64 %r16731)
-%r16761 = ptrtoint [13 x i8]* @r16760 to i64
-%r16759 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16761, i64 12)
-%r16765 = ptrtoint [3 x i8]* @r16764 to i64
-%r16763 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16765, i64 2)
-%r16766 = tail call fastcc i64 @"fun-make-null"()
-%r16762 = tail call fastcc i64 @"fun-cons"(i64 %r16763, i64 %r16766)
-%r16758 = tail call fastcc i64 @"fun-cons"(i64 %r16759, i64 %r16762)
-%r16771 = ptrtoint [6 x i8]* @r16770 to i64
-%r16769 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16771, i64 5)
-%r16773 = tail call fastcc i64 @"fun-make-null"()
-%r16774 = tail call fastcc i64 @"fun-make-null"()
-%r16772 = tail call fastcc i64 @"fun-cons"(i64 %r16773, i64 %r16774)
-%r16768 = tail call fastcc i64 @"fun-cons"(i64 %r16769, i64 %r16772)
-%r16775 = tail call fastcc i64 @"fun-make-null"()
-%r16767 = tail call fastcc i64 @"fun-cons"(i64 %r16768, i64 %r16775)
-%r16757 = tail call fastcc i64 @"fun-cons"(i64 %r16758, i64 %r16767)
-%r16780 = ptrtoint [5 x i8]* @r16779 to i64
-%r16778 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16780, i64 4)
-%r16785 = ptrtoint [5 x i8]* @r16784 to i64
-%r16783 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16785, i64 4)
-%r16789 = ptrtoint [3 x i8]* @r16788 to i64
-%r16787 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16789, i64 2)
-%r16794 = ptrtoint [9 x i8]* @r16793 to i64
-%r16792 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16794, i64 8)
-%r16795 = tail call fastcc i64 @"fun-make-null"()
-%r16791 = tail call fastcc i64 @"fun-cons"(i64 %r16792, i64 %r16795)
-%r16796 = tail call fastcc i64 @"fun-make-null"()
-%r16790 = tail call fastcc i64 @"fun-cons"(i64 %r16791, i64 %r16796)
-%r16786 = tail call fastcc i64 @"fun-cons"(i64 %r16787, i64 %r16790)
-%r16782 = tail call fastcc i64 @"fun-cons"(i64 %r16783, i64 %r16786)
-%r16797 = tail call fastcc i64 @"fun-make-null"()
-%r16781 = tail call fastcc i64 @"fun-cons"(i64 %r16782, i64 %r16797)
-%r16777 = tail call fastcc i64 @"fun-cons"(i64 %r16778, i64 %r16781)
-%r16798 = tail call fastcc i64 @"fun-make-null"()
-%r16776 = tail call fastcc i64 @"fun-cons"(i64 %r16777, i64 %r16798)
-%r16756 = tail call fastcc i64 @"fun-cons"(i64 %r16757, i64 %r16776)
-%r16720 = tail call fastcc i64 @"fun-cons"(i64 %r16721, i64 %r16756)
+%r16724 = tail call fastcc i64 @"fun-cons"(i64 %r16725, i64 %r16730)
+%r16720 = tail call fastcc i64 @"fun-cons"(i64 %r16721, i64 %r16724)
 %r16716 = tail call fastcc i64 @"fun-cons"(i64 %r16717, i64 %r16720)
-%r16799 = tail call fastcc i64 @"fun-make-null"()
-%r16715 = tail call fastcc i64 @"fun-cons"(i64 %r16716, i64 %r16799)
-%r16699 = tail call fastcc i64 @"fun-cons"(i64 %r16700, i64 %r16715)
-%r16693 = tail call fastcc i64 @"fun-cons"(i64 %r16694, i64 %r16699)
-%r16689 = tail call fastcc i64 @"fun-cons"(i64 %r16690, i64 %r16693)
-%r16804 = ptrtoint [13 x i8]* @r16803 to i64
-%r16802 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16804, i64 12)
-%r16809 = ptrtoint [9 x i8]* @r16808 to i64
-%r16807 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16809, i64 8)
-%r16810 = tail call fastcc i64 @"fun-make-null"()
-%r16806 = tail call fastcc i64 @"fun-cons"(i64 %r16807, i64 %r16810)
-%r16811 = tail call fastcc i64 @"fun-make-null"()
-%r16805 = tail call fastcc i64 @"fun-cons"(i64 %r16806, i64 %r16811)
-%r16801 = tail call fastcc i64 @"fun-cons"(i64 %r16802, i64 %r16805)
-%r16812 = tail call fastcc i64 @"fun-make-null"()
-%r16800 = tail call fastcc i64 @"fun-cons"(i64 %r16801, i64 %r16812)
-%r16688 = tail call fastcc i64 @"fun-cons"(i64 %r16689, i64 %r16800)
-%r16682 = tail call fastcc i64 @"fun-cons"(i64 %r16683, i64 %r16688)
-%r16678 = tail call fastcc i64 @"fun-cons"(i64 %r16679, i64 %r16682)
-%r16813 = tail call fastcc i64 @"fun-make-null"()
-%r16677 = tail call fastcc i64 @"fun-cons"(i64 %r16678, i64 %r16813)
-%r16613 = tail call fastcc i64 @"fun-cons"(i64 %r16614, i64 %r16677)
-%r16509 = tail call fastcc i64 @"fun-cons"(i64 %r16510, i64 %r16613)
-%r16399 = tail call fastcc i64 @"fun-cons"(i64 %r16400, i64 %r16509)
-%r16217 = tail call fastcc i64 @"fun-cons"(i64 %r16218, i64 %r16399)
-%r15897 = tail call fastcc i64 @"fun-cons"(i64 %r15898, i64 %r16217)
-%r15855 = tail call fastcc i64 @"fun-cons"(i64 %r15856, i64 %r15897)
-%r15831 = tail call fastcc i64 @"fun-cons"(i64 %r15832, i64 %r15855)
-%r15615 = tail call fastcc i64 @"fun-cons"(i64 %r15616, i64 %r15831)
-%r15589 = tail call fastcc i64 @"fun-cons"(i64 %r15590, i64 %r15615)
-%r15561 = tail call fastcc i64 @"fun-cons"(i64 %r15562, i64 %r15589)
-%r15533 = tail call fastcc i64 @"fun-cons"(i64 %r15534, i64 %r15561)
-%r15505 = tail call fastcc i64 @"fun-cons"(i64 %r15506, i64 %r15533)
-%r15477 = tail call fastcc i64 @"fun-cons"(i64 %r15478, i64 %r15505)
-%r15449 = tail call fastcc i64 @"fun-cons"(i64 %r15450, i64 %r15477)
-%r15421 = tail call fastcc i64 @"fun-cons"(i64 %r15422, i64 %r15449)
-%r15393 = tail call fastcc i64 @"fun-cons"(i64 %r15394, i64 %r15421)
-%r15365 = tail call fastcc i64 @"fun-cons"(i64 %r15366, i64 %r15393)
-%r15337 = tail call fastcc i64 @"fun-cons"(i64 %r15338, i64 %r15365)
-%r15309 = tail call fastcc i64 @"fun-cons"(i64 %r15310, i64 %r15337)
-%r15281 = tail call fastcc i64 @"fun-cons"(i64 %r15282, i64 %r15309)
-%r15251 = tail call fastcc i64 @"fun-cons"(i64 %r15252, i64 %r15281)
-%r15187 = tail call fastcc i64 @"fun-cons"(i64 %r15188, i64 %r15251)
-%r15149 = tail call fastcc i64 @"fun-cons"(i64 %r15150, i64 %r15187)
-%r15065 = tail call fastcc i64 @"fun-cons"(i64 %r15066, i64 %r15149)
-%r14999 = tail call fastcc i64 @"fun-cons"(i64 %r15000, i64 %r15065)
-%r14981 = tail call fastcc i64 @"fun-cons"(i64 %r14982, i64 %r14999)
-%r14929 = tail call fastcc i64 @"fun-cons"(i64 %r14930, i64 %r14981)
-%r14819 = tail call fastcc i64 @"fun-cons"(i64 %r14820, i64 %r14929)
-%r14795 = tail call fastcc i64 @"fun-cons"(i64 %r14796, i64 %r14819)
-%r14717 = tail call fastcc i64 @"fun-cons"(i64 %r14718, i64 %r14795)
-%r14565 = tail call fastcc i64 @"fun-cons"(i64 %r14566, i64 %r14717)
-%r14491 = tail call fastcc i64 @"fun-cons"(i64 %r14492, i64 %r14565)
-%r14407 = tail call fastcc i64 @"fun-cons"(i64 %r14408, i64 %r14491)
-%r14313 = tail call fastcc i64 @"fun-cons"(i64 %r14314, i64 %r14407)
-%r14209 = tail call fastcc i64 @"fun-cons"(i64 %r14210, i64 %r14313)
-%r14143 = tail call fastcc i64 @"fun-cons"(i64 %r14144, i64 %r14209)
+%r16731 = tail call fastcc i64 @"fun-make-null"()
+%r16715 = tail call fastcc i64 @"fun-cons"(i64 %r16716, i64 %r16731)
+%r16711 = tail call fastcc i64 @"fun-cons"(i64 %r16712, i64 %r16715)
+%r16732 = tail call fastcc i64 @"fun-make-null"()
+%r16710 = tail call fastcc i64 @"fun-cons"(i64 %r16711, i64 %r16732)
+%r16690 = tail call fastcc i64 @"fun-cons"(i64 %r16691, i64 %r16710)
+%r16654 = tail call fastcc i64 @"fun-cons"(i64 %r16655, i64 %r16690)
+%r16650 = tail call fastcc i64 @"fun-cons"(i64 %r16651, i64 %r16654)
+%r16733 = tail call fastcc i64 @"fun-make-null"()
+%r16649 = tail call fastcc i64 @"fun-cons"(i64 %r16650, i64 %r16733)
+%r16633 = tail call fastcc i64 @"fun-cons"(i64 %r16634, i64 %r16649)
+%r16627 = tail call fastcc i64 @"fun-cons"(i64 %r16628, i64 %r16633)
+%r16623 = tail call fastcc i64 @"fun-cons"(i64 %r16624, i64 %r16627)
+%r16738 = ptrtoint [13 x i8]* @r16737 to i64
+%r16736 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16738, i64 12)
+%r16743 = ptrtoint [9 x i8]* @r16742 to i64
+%r16741 = tail call fastcc i64 @"fun-make-symbol"(i64 %r16743, i64 8)
+%r16744 = tail call fastcc i64 @"fun-make-null"()
+%r16740 = tail call fastcc i64 @"fun-cons"(i64 %r16741, i64 %r16744)
+%r16745 = tail call fastcc i64 @"fun-make-null"()
+%r16739 = tail call fastcc i64 @"fun-cons"(i64 %r16740, i64 %r16745)
+%r16735 = tail call fastcc i64 @"fun-cons"(i64 %r16736, i64 %r16739)
+%r16746 = tail call fastcc i64 @"fun-make-null"()
+%r16734 = tail call fastcc i64 @"fun-cons"(i64 %r16735, i64 %r16746)
+%r16622 = tail call fastcc i64 @"fun-cons"(i64 %r16623, i64 %r16734)
+%r16616 = tail call fastcc i64 @"fun-cons"(i64 %r16617, i64 %r16622)
+%r16612 = tail call fastcc i64 @"fun-cons"(i64 %r16613, i64 %r16616)
+%r16747 = tail call fastcc i64 @"fun-make-null"()
+%r16611 = tail call fastcc i64 @"fun-cons"(i64 %r16612, i64 %r16747)
+%r16547 = tail call fastcc i64 @"fun-cons"(i64 %r16548, i64 %r16611)
+%r16443 = tail call fastcc i64 @"fun-cons"(i64 %r16444, i64 %r16547)
+%r16333 = tail call fastcc i64 @"fun-cons"(i64 %r16334, i64 %r16443)
+%r16151 = tail call fastcc i64 @"fun-cons"(i64 %r16152, i64 %r16333)
+%r15831 = tail call fastcc i64 @"fun-cons"(i64 %r15832, i64 %r16151)
+%r15789 = tail call fastcc i64 @"fun-cons"(i64 %r15790, i64 %r15831)
+%r15765 = tail call fastcc i64 @"fun-cons"(i64 %r15766, i64 %r15789)
+%r15549 = tail call fastcc i64 @"fun-cons"(i64 %r15550, i64 %r15765)
+%r15523 = tail call fastcc i64 @"fun-cons"(i64 %r15524, i64 %r15549)
+%r15495 = tail call fastcc i64 @"fun-cons"(i64 %r15496, i64 %r15523)
+%r15467 = tail call fastcc i64 @"fun-cons"(i64 %r15468, i64 %r15495)
+%r15439 = tail call fastcc i64 @"fun-cons"(i64 %r15440, i64 %r15467)
+%r15411 = tail call fastcc i64 @"fun-cons"(i64 %r15412, i64 %r15439)
+%r15383 = tail call fastcc i64 @"fun-cons"(i64 %r15384, i64 %r15411)
+%r15355 = tail call fastcc i64 @"fun-cons"(i64 %r15356, i64 %r15383)
+%r15327 = tail call fastcc i64 @"fun-cons"(i64 %r15328, i64 %r15355)
+%r15299 = tail call fastcc i64 @"fun-cons"(i64 %r15300, i64 %r15327)
+%r15271 = tail call fastcc i64 @"fun-cons"(i64 %r15272, i64 %r15299)
+%r15243 = tail call fastcc i64 @"fun-cons"(i64 %r15244, i64 %r15271)
+%r15215 = tail call fastcc i64 @"fun-cons"(i64 %r15216, i64 %r15243)
+%r15185 = tail call fastcc i64 @"fun-cons"(i64 %r15186, i64 %r15215)
+%r15121 = tail call fastcc i64 @"fun-cons"(i64 %r15122, i64 %r15185)
+%r15083 = tail call fastcc i64 @"fun-cons"(i64 %r15084, i64 %r15121)
+%r14999 = tail call fastcc i64 @"fun-cons"(i64 %r15000, i64 %r15083)
+%r14933 = tail call fastcc i64 @"fun-cons"(i64 %r14934, i64 %r14999)
+%r14915 = tail call fastcc i64 @"fun-cons"(i64 %r14916, i64 %r14933)
+%r14863 = tail call fastcc i64 @"fun-cons"(i64 %r14864, i64 %r14915)
+%r14753 = tail call fastcc i64 @"fun-cons"(i64 %r14754, i64 %r14863)
+%r14729 = tail call fastcc i64 @"fun-cons"(i64 %r14730, i64 %r14753)
+%r14651 = tail call fastcc i64 @"fun-cons"(i64 %r14652, i64 %r14729)
+%r14499 = tail call fastcc i64 @"fun-cons"(i64 %r14500, i64 %r14651)
+%r14425 = tail call fastcc i64 @"fun-cons"(i64 %r14426, i64 %r14499)
+%r14341 = tail call fastcc i64 @"fun-cons"(i64 %r14342, i64 %r14425)
+%r14247 = tail call fastcc i64 @"fun-cons"(i64 %r14248, i64 %r14341)
+%r14143 = tail call fastcc i64 @"fun-cons"(i64 %r14144, i64 %r14247)
 %r14047 = tail call fastcc i64 @"fun-cons"(i64 %r14048, i64 %r14143)
 %r13771 = tail call fastcc i64 @"fun-cons"(i64 %r13772, i64 %r14047)
 %r13615 = tail call fastcc i64 @"fun-cons"(i64 %r13616, i64 %r13771)
@@ -19110,37 +19047,37 @@ define fastcc i64 @fun218(i64 %"env") nounwind {
 %r9387 = tail call fastcc i64 @"fun-cons"(i64 %r9388, i64 %r9427)
 %r9347 = tail call fastcc i64 @"fun-cons"(i64 %r9348, i64 %r9387)
 %r9343 = tail call fastcc i64 @"fun-cons"(i64 %r9344, i64 %r9347)
-%r9342 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 117, i64 %r9343)
-%r16815 = ptrtoint i64 (i64)* @"fun214-compiler" to i64
-%r16816 = tail call fastcc i64 @"fun-make-function"(i64 %r16815, i64 %"env", i64 0)
-%r16814 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 118, i64 %r16816)
-%r16982 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 118)
-%r16977 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16982)
-%r16979 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16977)
-%r16980 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16982)
-%r16976 = inttoptr i64 %r16980 to i64 (i64)*
-%r16989 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 12)
-%r16984 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16989)
-%r16986 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16984)
-%r16987 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16989)
-%r16983 = inttoptr i64 %r16987 to i64 (i64)*
-%r16996 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 33)
-%r16991 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16996)
-%r16993 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16991)
-%r16994 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16996)
-%r16990 = inttoptr i64 %r16994 to i64 (i64)*
-%r16992 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16996)
-%r16997 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16992, i64 %r16993)
-%r16995 = tail call fastcc i64 %r16990(i64 %r16993)
-%r16998 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16986, i64 1, i64 %r16995)
-%r16985 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16989)
-%r16999 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16985, i64 %r16986)
-%r16988 = tail call fastcc i64 %r16983(i64 %r16986)
-%r17000 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16979, i64 1, i64 %r16988)
-%r16978 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16982)
-%r17001 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16978, i64 %r16979)
-%r16981 = tail call fastcc i64 %r16976(i64 %r16979)
-ret i64 %r16981
+%r9342 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 118, i64 %r9343)
+%r16749 = ptrtoint i64 (i64)* @"fun214-compiler" to i64
+%r16750 = tail call fastcc i64 @"fun-make-function"(i64 %r16749, i64 %"env", i64 0)
+%r16748 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 119, i64 %r16750)
+%r16916 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 119)
+%r16911 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16916)
+%r16913 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16911)
+%r16914 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16916)
+%r16910 = inttoptr i64 %r16914 to i64 (i64)*
+%r16923 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 11)
+%r16918 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16923)
+%r16920 = tail call fastcc i64 @"fun-make-env"(i64 1, i64 %r16918)
+%r16921 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16923)
+%r16917 = inttoptr i64 %r16921 to i64 (i64)*
+%r16930 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 32)
+%r16925 = tail call fastcc i64 @"fun-get-function-env"(i64 %r16930)
+%r16927 = tail call fastcc i64 @"fun-make-env"(i64 0, i64 %r16925)
+%r16928 = tail call fastcc i64 @"fun-get-function-func"(i64 %r16930)
+%r16924 = inttoptr i64 %r16928 to i64 (i64)*
+%r16926 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16930)
+%r16931 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16926, i64 %r16927)
+%r16929 = tail call fastcc i64 %r16924(i64 %r16927)
+%r16932 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16920, i64 1, i64 %r16929)
+%r16919 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16923)
+%r16933 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16919, i64 %r16920)
+%r16922 = tail call fastcc i64 %r16917(i64 %r16920)
+%r16934 = tail call fastcc i64 @"fun-vector-set!"(i64 %r16913, i64 1, i64 %r16922)
+%r16912 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r16916)
+%r16935 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r16912, i64 %r16913)
+%r16915 = tail call fastcc i64 %r16910(i64 %r16913)
+ret i64 %r16915
 }
 
 define fastcc i64 @fun219(i64 %"env") nounwind {
@@ -19156,144 +19093,141 @@ define fastcc i64 @fun219(i64 %"env") nounwind {
 %r759 = ptrtoint i64 (i64)* @"fun4-member" to i64
 %r760 = tail call fastcc i64 @"fun-make-function"(i64 %r759, i64 %"env", i64 0)
 %r758 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 4, i64 %r760)
-%r800 = ptrtoint i64 (i64)* @"fun5-length" to i64
+%r800 = ptrtoint i64 (i64)* @"fun5-nth" to i64
 %r801 = tail call fastcc i64 @"fun-make-function"(i64 %r800, i64 %"env", i64 0)
 %r799 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 5, i64 %r801)
-%r823 = ptrtoint i64 (i64)* @"fun6-nth" to i64
-%r824 = tail call fastcc i64 @"fun-make-function"(i64 %r823, i64 %"env", i64 0)
-%r822 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 6, i64 %r824)
-%r857 = ptrtoint i64 (i64)* @"fun7-map" to i64
-%r858 = tail call fastcc i64 @"fun-make-function"(i64 %r857, i64 %"env", i64 0)
-%r856 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 7, i64 %r858)
-%r892 = ptrtoint i64 (i64)* @"fun8-append" to i64
-%r893 = tail call fastcc i64 @"fun-make-function"(i64 %r892, i64 %"env", i64 0)
-%r891 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 8, i64 %r893)
-%r918 = ptrtoint i64 (i64)* @"fun9-reverse" to i64
-%r919 = tail call fastcc i64 @"fun-make-function"(i64 %r918, i64 %"env", i64 0)
-%r917 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 9, i64 %r919)
-%r960 = ptrtoint i64 (i64)* @"fun10-number->string" to i64
-%r961 = tail call fastcc i64 @"fun-make-function"(i64 %r960, i64 %"env", i64 0)
-%r959 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 10, i64 %r961)
-%r1032 = ptrtoint i64 (i64)* @"fun13-list?" to i64
-%r1033 = tail call fastcc i64 @"fun-make-function"(i64 %r1032, i64 %"env", i64 0)
-%r1031 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 11, i64 %r1033)
-%r1060 = ptrtoint i64 (i64)* @"fun14-list" to i64
-%r1061 = tail call fastcc i64 @"fun-make-function"(i64 %r1060, i64 %"env", i64 1)
-%r1059 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 12, i64 %r1061)
-%r1064 = ptrtoint i64 (i64)* @"fun15-assoc" to i64
-%r1065 = tail call fastcc i64 @"fun-make-function"(i64 %r1064, i64 %"env", i64 0)
-%r1063 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 13, i64 %r1065)
-%r1107 = ptrtoint i64 (i64)* @"fun16-string-append" to i64
-%r1108 = tail call fastcc i64 @"fun-make-function"(i64 %r1107, i64 %"env", i64 0)
-%r1106 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 14, i64 %r1108)
-%r1125 = tail call fastcc i64 @"fun-make-null"()
-%r1124 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 15, i64 %r1125)
-%r1127 = ptrtoint i64 (i64)* @"fun17-peek-char" to i64
-%r1128 = tail call fastcc i64 @"fun-make-function"(i64 %r1127, i64 %"env", i64 0)
-%r1126 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 16, i64 %r1128)
-%r1141 = ptrtoint i64 (i64)* @"fun18-read-char" to i64
-%r1142 = tail call fastcc i64 @"fun-make-function"(i64 %r1141, i64 %"env", i64 0)
-%r1140 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 17, i64 %r1142)
-%r1161 = tail call fastcc i64 @"fun-make-number"(i64 48)
-%r1163 = tail call fastcc i64 @"fun-make-number"(i64 49)
-%r1165 = tail call fastcc i64 @"fun-make-number"(i64 50)
-%r1167 = tail call fastcc i64 @"fun-make-number"(i64 51)
-%r1169 = tail call fastcc i64 @"fun-make-number"(i64 52)
-%r1171 = tail call fastcc i64 @"fun-make-number"(i64 53)
-%r1173 = tail call fastcc i64 @"fun-make-number"(i64 54)
-%r1175 = tail call fastcc i64 @"fun-make-number"(i64 55)
-%r1177 = tail call fastcc i64 @"fun-make-number"(i64 56)
-%r1179 = tail call fastcc i64 @"fun-make-number"(i64 57)
-%r1180 = tail call fastcc i64 @"fun-make-null"()
-%r1178 = tail call fastcc i64 @"fun-cons"(i64 %r1179, i64 %r1180)
-%r1176 = tail call fastcc i64 @"fun-cons"(i64 %r1177, i64 %r1178)
-%r1174 = tail call fastcc i64 @"fun-cons"(i64 %r1175, i64 %r1176)
-%r1172 = tail call fastcc i64 @"fun-cons"(i64 %r1173, i64 %r1174)
-%r1170 = tail call fastcc i64 @"fun-cons"(i64 %r1171, i64 %r1172)
-%r1168 = tail call fastcc i64 @"fun-cons"(i64 %r1169, i64 %r1170)
-%r1166 = tail call fastcc i64 @"fun-cons"(i64 %r1167, i64 %r1168)
-%r1164 = tail call fastcc i64 @"fun-cons"(i64 %r1165, i64 %r1166)
-%r1162 = tail call fastcc i64 @"fun-cons"(i64 %r1163, i64 %r1164)
-%r1160 = tail call fastcc i64 @"fun-cons"(i64 %r1161, i64 %r1162)
-%r1159 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 18, i64 %r1160)
-%r1182 = ptrtoint i64 (i64)* @"fun20-char-whitespace?" to i64
-%r1183 = tail call fastcc i64 @"fun-make-function"(i64 %r1182, i64 %"env", i64 0)
-%r1181 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 19, i64 %r1183)
-%r1223 = ptrtoint i64 (i64)* @"fun21-char-numeric?" to i64
-%r1224 = tail call fastcc i64 @"fun-make-function"(i64 %r1223, i64 %"env", i64 0)
-%r1222 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 20, i64 %r1224)
-%r1238 = ptrtoint i64 (i64)* @"fun22-char-left-paren?" to i64
-%r1239 = tail call fastcc i64 @"fun-make-function"(i64 %r1238, i64 %"env", i64 0)
-%r1237 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 21, i64 %r1239)
-%r1253 = ptrtoint i64 (i64)* @"fun23-char-right-paren?" to i64
-%r1254 = tail call fastcc i64 @"fun-make-function"(i64 %r1253, i64 %"env", i64 0)
-%r1252 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 22, i64 %r1254)
-%r1268 = ptrtoint i64 (i64)* @"fun24-char-comment?" to i64
-%r1269 = tail call fastcc i64 @"fun-make-function"(i64 %r1268, i64 %"env", i64 0)
-%r1267 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 23, i64 %r1269)
-%r1283 = ptrtoint i64 (i64)* @"fun25-char-string?" to i64
-%r1284 = tail call fastcc i64 @"fun-make-function"(i64 %r1283, i64 %"env", i64 0)
-%r1282 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 24, i64 %r1284)
-%r1298 = ptrtoint i64 (i64)* @"fun26-char-newline?" to i64
-%r1299 = tail call fastcc i64 @"fun-make-function"(i64 %r1298, i64 %"env", i64 0)
-%r1297 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 25, i64 %r1299)
-%r1313 = ptrtoint i64 (i64)* @"fun27-char-dot?" to i64
-%r1314 = tail call fastcc i64 @"fun-make-function"(i64 %r1313, i64 %"env", i64 0)
-%r1312 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 26, i64 %r1314)
-%r1328 = ptrtoint i64 (i64)* @"fun28-char-quote?" to i64
-%r1329 = tail call fastcc i64 @"fun-make-function"(i64 %r1328, i64 %"env", i64 0)
-%r1327 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 27, i64 %r1329)
-%r1343 = ptrtoint i64 (i64)* @"fun29-char-backquote?" to i64
-%r1344 = tail call fastcc i64 @"fun-make-function"(i64 %r1343, i64 %"env", i64 0)
-%r1342 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 28, i64 %r1344)
-%r1358 = ptrtoint i64 (i64)* @"fun30-char-comma?" to i64
-%r1359 = tail call fastcc i64 @"fun-make-function"(i64 %r1358, i64 %"env", i64 0)
-%r1357 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 29, i64 %r1359)
-%r1373 = ptrtoint i64 (i64)* @"fun31-char-backslash?" to i64
-%r1374 = tail call fastcc i64 @"fun-make-function"(i64 %r1373, i64 %"env", i64 0)
-%r1372 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 30, i64 %r1374)
-%r1388 = ptrtoint i64 (i64)* @"fun32-char-character?" to i64
-%r1389 = tail call fastcc i64 @"fun-make-function"(i64 %r1388, i64 %"env", i64 0)
-%r1387 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 31, i64 %r1389)
-%r1404 = tail call fastcc i64 @"fun-make-number"(i64 40)
-%r1406 = tail call fastcc i64 @"fun-make-number"(i64 41)
-%r1408 = tail call fastcc i64 @"fun-make-number"(i64 32)
-%r1410 = tail call fastcc i64 @"fun-make-number"(i64 10)
-%r1411 = tail call fastcc i64 @"fun-make-null"()
-%r1409 = tail call fastcc i64 @"fun-cons"(i64 %r1410, i64 %r1411)
-%r1407 = tail call fastcc i64 @"fun-cons"(i64 %r1408, i64 %r1409)
-%r1405 = tail call fastcc i64 @"fun-cons"(i64 %r1406, i64 %r1407)
-%r1403 = tail call fastcc i64 @"fun-cons"(i64 %r1404, i64 %r1405)
-%r1402 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 32, i64 %r1403)
-%r1413 = ptrtoint i64 (i64)* @"fun33-read" to i64
-%r1414 = tail call fastcc i64 @"fun-make-function"(i64 %r1413, i64 %"env", i64 0)
-%r1412 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 33, i64 %r1414)
-%r1608 = ptrtoint i64 (i64)* @"fun35-read-char-quote" to i64
-%r1609 = tail call fastcc i64 @"fun-make-function"(i64 %r1608, i64 %"env", i64 0)
-%r1607 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 34, i64 %r1609)
-%r1627 = ptrtoint i64 (i64)* @"fun36-read-comment" to i64
-%r1628 = tail call fastcc i64 @"fun-make-function"(i64 %r1627, i64 %"env", i64 0)
-%r1626 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 35, i64 %r1628)
-%r1661 = ptrtoint i64 (i64)* @"fun37-read-list" to i64
-%r1662 = tail call fastcc i64 @"fun-make-function"(i64 %r1661, i64 %"env", i64 0)
-%r1660 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 36, i64 %r1662)
-%r1939 = ptrtoint i64 (i64)* @"fun39-char-list->number" to i64
-%r1940 = tail call fastcc i64 @"fun-make-function"(i64 %r1939, i64 %"env", i64 0)
-%r1938 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 37, i64 %r1940)
-%r2012 = ptrtoint i64 (i64)* @"fun42-read-number" to i64
-%r2013 = tail call fastcc i64 @"fun-make-function"(i64 %r2012, i64 %"env", i64 0)
-%r2011 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 38, i64 %r2013)
-%r2086 = ptrtoint i64 (i64)* @"fun46-read-identifier" to i64
-%r2087 = tail call fastcc i64 @"fun-make-function"(i64 %r2086, i64 %"env", i64 0)
-%r2085 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 39, i64 %r2087)
-%r2148 = ptrtoint i64 (i64)* @"fun49-interpret-escape" to i64
-%r2149 = tail call fastcc i64 @"fun-make-function"(i64 %r2148, i64 %"env", i64 0)
-%r2147 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 40, i64 %r2149)
-%r2186 = ptrtoint i64 (i64)* @"fun50-read-string" to i64
-%r2187 = tail call fastcc i64 @"fun-make-function"(i64 %r2186, i64 %"env", i64 0)
-%r2185 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 41, i64 %r2187)
-%r17002 = tail call fastcc i64 @"fun-make-env"(i64 118, i64 %"env")
-%r17004 = tail call fastcc i64 @fun218(i64 %r17002)
-ret i64 %r17004
+%r834 = ptrtoint i64 (i64)* @"fun6-map" to i64
+%r835 = tail call fastcc i64 @"fun-make-function"(i64 %r834, i64 %"env", i64 0)
+%r833 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 6, i64 %r835)
+%r869 = ptrtoint i64 (i64)* @"fun7-append" to i64
+%r870 = tail call fastcc i64 @"fun-make-function"(i64 %r869, i64 %"env", i64 0)
+%r868 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 7, i64 %r870)
+%r895 = ptrtoint i64 (i64)* @"fun8-reverse" to i64
+%r896 = tail call fastcc i64 @"fun-make-function"(i64 %r895, i64 %"env", i64 0)
+%r894 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 8, i64 %r896)
+%r937 = ptrtoint i64 (i64)* @"fun9-number->string" to i64
+%r938 = tail call fastcc i64 @"fun-make-function"(i64 %r937, i64 %"env", i64 0)
+%r936 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 9, i64 %r938)
+%r1009 = ptrtoint i64 (i64)* @"fun12-list?" to i64
+%r1010 = tail call fastcc i64 @"fun-make-function"(i64 %r1009, i64 %"env", i64 0)
+%r1008 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 10, i64 %r1010)
+%r1037 = ptrtoint i64 (i64)* @"fun13-list" to i64
+%r1038 = tail call fastcc i64 @"fun-make-function"(i64 %r1037, i64 %"env", i64 1)
+%r1036 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 11, i64 %r1038)
+%r1041 = ptrtoint i64 (i64)* @"fun14-assoc" to i64
+%r1042 = tail call fastcc i64 @"fun-make-function"(i64 %r1041, i64 %"env", i64 0)
+%r1040 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 12, i64 %r1042)
+%r1084 = ptrtoint i64 (i64)* @"fun15-string-append" to i64
+%r1085 = tail call fastcc i64 @"fun-make-function"(i64 %r1084, i64 %"env", i64 0)
+%r1083 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 13, i64 %r1085)
+%r1102 = tail call fastcc i64 @"fun-make-null"()
+%r1101 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 14, i64 %r1102)
+%r1104 = ptrtoint i64 (i64)* @"fun16-peek-char" to i64
+%r1105 = tail call fastcc i64 @"fun-make-function"(i64 %r1104, i64 %"env", i64 0)
+%r1103 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 15, i64 %r1105)
+%r1118 = ptrtoint i64 (i64)* @"fun17-read-char" to i64
+%r1119 = tail call fastcc i64 @"fun-make-function"(i64 %r1118, i64 %"env", i64 0)
+%r1117 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 16, i64 %r1119)
+%r1138 = tail call fastcc i64 @"fun-make-number"(i64 48)
+%r1140 = tail call fastcc i64 @"fun-make-number"(i64 49)
+%r1142 = tail call fastcc i64 @"fun-make-number"(i64 50)
+%r1144 = tail call fastcc i64 @"fun-make-number"(i64 51)
+%r1146 = tail call fastcc i64 @"fun-make-number"(i64 52)
+%r1148 = tail call fastcc i64 @"fun-make-number"(i64 53)
+%r1150 = tail call fastcc i64 @"fun-make-number"(i64 54)
+%r1152 = tail call fastcc i64 @"fun-make-number"(i64 55)
+%r1154 = tail call fastcc i64 @"fun-make-number"(i64 56)
+%r1156 = tail call fastcc i64 @"fun-make-number"(i64 57)
+%r1157 = tail call fastcc i64 @"fun-make-null"()
+%r1155 = tail call fastcc i64 @"fun-cons"(i64 %r1156, i64 %r1157)
+%r1153 = tail call fastcc i64 @"fun-cons"(i64 %r1154, i64 %r1155)
+%r1151 = tail call fastcc i64 @"fun-cons"(i64 %r1152, i64 %r1153)
+%r1149 = tail call fastcc i64 @"fun-cons"(i64 %r1150, i64 %r1151)
+%r1147 = tail call fastcc i64 @"fun-cons"(i64 %r1148, i64 %r1149)
+%r1145 = tail call fastcc i64 @"fun-cons"(i64 %r1146, i64 %r1147)
+%r1143 = tail call fastcc i64 @"fun-cons"(i64 %r1144, i64 %r1145)
+%r1141 = tail call fastcc i64 @"fun-cons"(i64 %r1142, i64 %r1143)
+%r1139 = tail call fastcc i64 @"fun-cons"(i64 %r1140, i64 %r1141)
+%r1137 = tail call fastcc i64 @"fun-cons"(i64 %r1138, i64 %r1139)
+%r1136 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 17, i64 %r1137)
+%r1159 = ptrtoint i64 (i64)* @"fun19-char-whitespace?" to i64
+%r1160 = tail call fastcc i64 @"fun-make-function"(i64 %r1159, i64 %"env", i64 0)
+%r1158 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 18, i64 %r1160)
+%r1200 = ptrtoint i64 (i64)* @"fun20-char-numeric?" to i64
+%r1201 = tail call fastcc i64 @"fun-make-function"(i64 %r1200, i64 %"env", i64 0)
+%r1199 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 19, i64 %r1201)
+%r1215 = ptrtoint i64 (i64)* @"fun21-char-left-paren?" to i64
+%r1216 = tail call fastcc i64 @"fun-make-function"(i64 %r1215, i64 %"env", i64 0)
+%r1214 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 20, i64 %r1216)
+%r1230 = ptrtoint i64 (i64)* @"fun22-char-right-paren?" to i64
+%r1231 = tail call fastcc i64 @"fun-make-function"(i64 %r1230, i64 %"env", i64 0)
+%r1229 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 21, i64 %r1231)
+%r1245 = ptrtoint i64 (i64)* @"fun23-char-comment?" to i64
+%r1246 = tail call fastcc i64 @"fun-make-function"(i64 %r1245, i64 %"env", i64 0)
+%r1244 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 22, i64 %r1246)
+%r1260 = ptrtoint i64 (i64)* @"fun24-char-string?" to i64
+%r1261 = tail call fastcc i64 @"fun-make-function"(i64 %r1260, i64 %"env", i64 0)
+%r1259 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 23, i64 %r1261)
+%r1275 = ptrtoint i64 (i64)* @"fun25-char-newline?" to i64
+%r1276 = tail call fastcc i64 @"fun-make-function"(i64 %r1275, i64 %"env", i64 0)
+%r1274 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 24, i64 %r1276)
+%r1290 = ptrtoint i64 (i64)* @"fun26-char-dot?" to i64
+%r1291 = tail call fastcc i64 @"fun-make-function"(i64 %r1290, i64 %"env", i64 0)
+%r1289 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 25, i64 %r1291)
+%r1305 = ptrtoint i64 (i64)* @"fun27-char-quote?" to i64
+%r1306 = tail call fastcc i64 @"fun-make-function"(i64 %r1305, i64 %"env", i64 0)
+%r1304 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 26, i64 %r1306)
+%r1320 = ptrtoint i64 (i64)* @"fun28-char-backquote?" to i64
+%r1321 = tail call fastcc i64 @"fun-make-function"(i64 %r1320, i64 %"env", i64 0)
+%r1319 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 27, i64 %r1321)
+%r1335 = ptrtoint i64 (i64)* @"fun29-char-comma?" to i64
+%r1336 = tail call fastcc i64 @"fun-make-function"(i64 %r1335, i64 %"env", i64 0)
+%r1334 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 28, i64 %r1336)
+%r1350 = ptrtoint i64 (i64)* @"fun30-char-backslash?" to i64
+%r1351 = tail call fastcc i64 @"fun-make-function"(i64 %r1350, i64 %"env", i64 0)
+%r1349 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 29, i64 %r1351)
+%r1365 = ptrtoint i64 (i64)* @"fun31-char-character?" to i64
+%r1366 = tail call fastcc i64 @"fun-make-function"(i64 %r1365, i64 %"env", i64 0)
+%r1364 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 30, i64 %r1366)
+%r1381 = tail call fastcc i64 @"fun-make-number"(i64 40)
+%r1383 = tail call fastcc i64 @"fun-make-number"(i64 41)
+%r1385 = tail call fastcc i64 @"fun-make-number"(i64 32)
+%r1387 = tail call fastcc i64 @"fun-make-number"(i64 10)
+%r1388 = tail call fastcc i64 @"fun-make-null"()
+%r1386 = tail call fastcc i64 @"fun-cons"(i64 %r1387, i64 %r1388)
+%r1384 = tail call fastcc i64 @"fun-cons"(i64 %r1385, i64 %r1386)
+%r1382 = tail call fastcc i64 @"fun-cons"(i64 %r1383, i64 %r1384)
+%r1380 = tail call fastcc i64 @"fun-cons"(i64 %r1381, i64 %r1382)
+%r1379 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 31, i64 %r1380)
+%r1390 = ptrtoint i64 (i64)* @"fun32-read" to i64
+%r1391 = tail call fastcc i64 @"fun-make-function"(i64 %r1390, i64 %"env", i64 0)
+%r1389 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 32, i64 %r1391)
+%r1585 = ptrtoint i64 (i64)* @"fun34-read-char-quote" to i64
+%r1586 = tail call fastcc i64 @"fun-make-function"(i64 %r1585, i64 %"env", i64 0)
+%r1584 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 33, i64 %r1586)
+%r1604 = ptrtoint i64 (i64)* @"fun35-read-comment" to i64
+%r1605 = tail call fastcc i64 @"fun-make-function"(i64 %r1604, i64 %"env", i64 0)
+%r1603 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 34, i64 %r1605)
+%r1638 = ptrtoint i64 (i64)* @"fun36-read-list" to i64
+%r1639 = tail call fastcc i64 @"fun-make-function"(i64 %r1638, i64 %"env", i64 0)
+%r1637 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 35, i64 %r1639)
+%r1916 = ptrtoint i64 (i64)* @"fun38-char-list->number" to i64
+%r1917 = tail call fastcc i64 @"fun-make-function"(i64 %r1916, i64 %"env", i64 0)
+%r1915 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 36, i64 %r1917)
+%r1989 = ptrtoint i64 (i64)* @"fun41-read-number" to i64
+%r1990 = tail call fastcc i64 @"fun-make-function"(i64 %r1989, i64 %"env", i64 0)
+%r1988 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 37, i64 %r1990)
+%r2063 = ptrtoint i64 (i64)* @"fun45-read-identifier" to i64
+%r2064 = tail call fastcc i64 @"fun-make-function"(i64 %r2063, i64 %"env", i64 0)
+%r2062 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 38, i64 %r2064)
+%r2125 = ptrtoint i64 (i64)* @"fun48-interpret-escape" to i64
+%r2126 = tail call fastcc i64 @"fun-make-function"(i64 %r2125, i64 %"env", i64 0)
+%r2124 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 39, i64 %r2126)
+%r2163 = ptrtoint i64 (i64)* @"fun49-read-string" to i64
+%r2164 = tail call fastcc i64 @"fun-make-function"(i64 %r2163, i64 %"env", i64 0)
+%r2162 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 40, i64 %r2164)
+%r16936 = tail call fastcc i64 @"fun-make-env"(i64 119, i64 %"env")
+%r16938 = tail call fastcc i64 @fun218(i64 %r16936)
+ret i64 %r16938
 }
 

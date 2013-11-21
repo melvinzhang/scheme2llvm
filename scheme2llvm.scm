@@ -45,6 +45,11 @@
 ;; -- The Implementation --
 
 (begin
+
+(define (length lst)
+  (cond 
+    ((null? lst) 0)
+    (else (+ 1 (length (cdr lst))))))
   
 (define (error func str)
   (display func) (display " ") 
@@ -956,10 +961,6 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
        (cond ((null? lst) '())
              ((eq? el (car lst)) 1)
              (else (member el (cdr lst)))))
-     
-     (define (length lst)
-       (cond ((null? lst) 0)
-             (else (+ 1 (length (cdr lst))))))
      
      (define (nth lst el)
        (cond ((null? lst) '())
