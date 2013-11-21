@@ -189,9 +189,11 @@
   (c "label" (number->string label-counter)))
 
 (define function-counter 0)
-(define (make-function-name)
+(define (make-raw-function-name)
   (set! function-counter (+ 1 function-counter))
-  (c "@function" (number->string function-counter)))
+  (c "function" (number->string function-counter)))
+(define (make-function-name)
+  (c "@" (make-raw-function-name)))
 
 (define llvm-primitive-functions '())
 (define (add-llvm-function-name f-name)
@@ -427,8 +429,12 @@
 
 (define (compile-assignment exp c-t-env)
   (let ((target (make-var))
-    (c-t-pos (find-var (definition-variable exp) c-t-env 0))
-        (value (compile (definition-value exp) c-t-env)))
+        (c-t-pos (find-var (definition-variable exp) c-t-env 0))
+        (value (cond 
+                 ((lambda? (definition-value exp)) 
+                    (compile-named-lambda (definition-value exp) c-t-env (definition-variable exp)))
+                 (else 
+                    (compile (definition-value exp) c-t-env)))))
     (if (null? c-t-pos) (error 'compile-assignment "not found")
     (make-code
          target 
@@ -486,7 +492,7 @@
                (append-sequences seq '() (extend-c-t-env seq-defines c-t-env)))
               (f-name (make-function-name))
               (t1 (make-var)) 
-          (t2 (make-var))
+              (t2 (make-var))
               (seq-env (make-var))
               (target (make-var)))
           (add-llvm-function f-name '(env) seq-code)
@@ -495,9 +501,8 @@
            (llvm-call t1 'make-env (length seq-defines) 'env)
            (llvm-call target f-name t1))))))
 
-(define (compile-lambda exp c-t-env)
-  (let ((f-name (make-function-name))
-        (t1 (make-var))
+(define (compile-lambda-with-name exp c-t-env f-name)
+  (let ((t1 (make-var))
         (target (make-var))
         (l-body 
          (compile-sequence (lambda-body exp)
@@ -510,6 +515,12 @@
                 (if (lambda-arbitrary-args? exp)
                     (length (lambda-parameters exp))
                     0)))))
+
+(define (compile-lambda exp c-t-env)
+  (compile-lambda-with-name exp c-t-env (make-function-name)))
+
+(define (compile-named-lambda exp c-t-env def-name)
+  (compile-lambda-with-name exp c-t-env (c "@\"" (make-raw-function-name) "-" (symbol->string def-name) "\"")))
 
 (define (compile-llvm-definition exp c-t-env)
   (let ((f-name (definition-variable exp))
