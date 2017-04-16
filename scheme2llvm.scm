@@ -337,7 +337,7 @@
 (define (llvm-store target value) 
   (c "store i64 " value ", i64* " target))
 
-(define (llvm-load target var) (c target " = load i64* " var))
+(define (llvm-load target var) (c target " = load i64, i64* " var))
 (define (llvm-alloca-var target) (c target " = alloca i64"))
 
 (define (llvm-shift-op target op value sh)
@@ -347,7 +347,7 @@
   (let ((t1 (make-var)))
     (append-code
       (llvm-inttoptr t1 "i64" ptr "i64*")
-      (c target " = getelementptr i64* " t1 ", i64 " index))))
+      (c target " = getelementptr i64, i64* " t1 ", i64 " index))))
 
 (define (llvm-vector-ref target vector index)
   (llvm-call target 'vector-ref (llvm-repr vector) (llvm-repr index)))
@@ -654,7 +654,7 @@ define fastcc i64 @\"fun-get-char\"() {
 
 define fastcc i64 @\"fun-print\"(i64 %format, i64 %value) {
     %format2 = inttoptr i64 %format to i8*
-    call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
+    call i32 (i8*, ...) @printf( i8* %format2, i64 %value )
     ret i64 0
 }
 
@@ -669,7 +669,7 @@ define fastcc i64 @\"fun-append-bytearray\"(i64 %arr, i64 %ch, i64 %size) {
     %newsize = add i64 %size, 1
     %res = call i8* @GC_malloc( i64 %newsize )
     %ch2 = trunc i64 %ch to i8
-    %end = getelementptr i8* %res, i64 %size
+    %end = getelementptr i8, i8* %res, i64 %size
     store i8 %ch2, i8* %end
     %cpy = icmp eq i64 %size, 0
     br i1 %cpy, label %nocopy, label %copy
@@ -686,8 +686,8 @@ nocopy:
 
 define fastcc i64 @\"fun-bytearray-ref\"(i64 %arr, i64 %index) {
     %arr2 = inttoptr i64 %arr to i8*
-    %ptr = getelementptr i8* %arr2, i64 %index
-    %res = load i8* %ptr
+    %ptr = getelementptr i8, i8* %arr2, i64 %index
+    %res = load i8, i8* %ptr
     %res2 = sext i8 %res to i64
     ret i64 %res2
 }

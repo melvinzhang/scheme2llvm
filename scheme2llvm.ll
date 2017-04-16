@@ -172,14 +172,14 @@
 @r4973 = internal constant [10 x i8] c", label %\00"
 @r5017 = internal constant [11 x i8] c"store i64 \00"
 @r5021 = internal constant [8 x i8] c", i64* \00"
-@r5041 = internal constant [14 x i8] c" = load i64* \00"
+@r5041 = internal constant [19 x i8] c" = load i64, i64* \00"
 @r5060 = internal constant [14 x i8] c" = alloca i64\00"
 @r5077 = internal constant [4 x i8] c" = \00"
 @r5090 = internal constant [6 x i8] c" i64 \00"
 @r5103 = internal constant [3 x i8] c", \00"
 @r5141 = internal constant [4 x i8] c"i64\00"
 @r5145 = internal constant [5 x i8] c"i64*\00"
-@r5161 = internal constant [23 x i8] c" = getelementptr i64* \00"
+@r5161 = internal constant [28 x i8] c" = getelementptr i64, i64* \00"
 @r5165 = internal constant [7 x i8] c", i64 \00"
 @r5199 = internal constant [11 x i8] c"vector-ref\00"
 @r5245 = internal constant [12 x i8] c"vector-set!\00"
@@ -228,7 +228,7 @@
 @r9000 = internal constant [11 x i8] c"i64 (i64)*\00"
 @r9030 = internal constant [21 x i8] c"get-function-nparams\00"
 @r9062 = internal constant [20 x i8] c"fix-arbitrary-funcs\00"
-@r9340 = internal constant [1831 x i8] c"
+@r9340 = internal constant [1842 x i8] c"
 declare i32 @printf(i8*, ...)
 declare i32 @exit(i32)
 declare i32 @getchar()
@@ -246,7 +246,7 @@ define fastcc i64 @\22fun-get-char\22() {
 
 define fastcc i64 @\22fun-print\22(i64 %format, i64 %value) {
     %format2 = inttoptr i64 %format to i8*
-    call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
+    call i32 (i8*, ...) @printf( i8* %format2, i64 %value )
     ret i64 0
 }
 
@@ -261,7 +261,7 @@ define fastcc i64 @\22fun-append-bytearray\22(i64 %arr, i64 %ch, i64 %size) {
     %newsize = add i64 %size, 1
     %res = call i8* @GC_malloc( i64 %newsize )
     %ch2 = trunc i64 %ch to i8
-    %end = getelementptr i8* %res, i64 %size
+    %end = getelementptr i8, i8* %res, i64 %size
     store i8 %ch2, i8* %end
     %cpy = icmp eq i64 %size, 0
     br i1 %cpy, label %nocopy, label %copy
@@ -278,8 +278,8 @@ nocopy:
 
 define fastcc i64 @\22fun-bytearray-ref\22(i64 %arr, i64 %index) {
     %arr2 = inttoptr i64 %arr to i8*
-    %ptr = getelementptr i8* %arr2, i64 %index
-    %res = load i8* %ptr
+    %ptr = getelementptr i8, i8* %arr2, i64 %index
+    %res = load i8, i8* %ptr
     %res2 = sext i8 %res to i64
     ret i64 %res2
 }
@@ -1673,7 +1673,7 @@ define fastcc i64 @"fun-get-char"() {
 
 define fastcc i64 @"fun-print"(i64 %format, i64 %value) {
     %format2 = inttoptr i64 %format to i8*
-    call i32 (i8*, ...)* @printf( i8* %format2, i64 %value )
+    call i32 (i8*, ...) @printf( i8* %format2, i64 %value )
     ret i64 0
 }
 
@@ -1688,7 +1688,7 @@ define fastcc i64 @"fun-append-bytearray"(i64 %arr, i64 %ch, i64 %size) {
     %newsize = add i64 %size, 1
     %res = call i8* @GC_malloc( i64 %newsize )
     %ch2 = trunc i64 %ch to i8
-    %end = getelementptr i8* %res, i64 %size
+    %end = getelementptr i8, i8* %res, i64 %size
     store i8 %ch2, i8* %end
     %cpy = icmp eq i64 %size, 0
     br i1 %cpy, label %nocopy, label %copy
@@ -1705,8 +1705,8 @@ nocopy:
 
 define fastcc i64 @"fun-bytearray-ref"(i64 %arr, i64 %index) {
     %arr2 = inttoptr i64 %arr to i8*
-    %ptr = getelementptr i8* %arr2, i64 %index
-    %res = load i8* %ptr
+    %ptr = getelementptr i8, i8* %arr2, i64 %index
+    %res = load i8, i8* %ptr
     %res2 = sext i8 %res to i64
     ret i64 %res2
 }
@@ -1744,7 +1744,7 @@ label2:
 store i64 %r2, i64* %r3
 br label %label3
 label3:
-%r4 = load i64* %r3
+%r4 = load i64, i64* %r3
 ret i64 %r4
 }
 
@@ -1761,7 +1761,7 @@ label5:
 store i64 %"y", i64* %r9
 br label %label6
 label6:
-%r10 = load i64* %r9
+%r10 = load i64, i64* %r9
 ret i64 %r10
 }
 
@@ -1779,7 +1779,7 @@ label8:
 store i64 %r15, i64* %r16
 br label %label9
 label9:
-%r17 = load i64* %r16
+%r17 = load i64, i64* %r16
 ret i64 %r17
 }
 
@@ -1798,7 +1798,7 @@ label11:
 store i64 0, i64* %r24
 br label %label12
 label12:
-%r25 = load i64* %r24
+%r25 = load i64, i64* %r24
 ret i64 %r25
 }
 
@@ -1844,16 +1844,16 @@ store i64 1, i64* %r48
 br label %label18
 label17:
 %r47 = inttoptr i64 %"x" to i64*
-%r46 = getelementptr i64* %r47, i64 0
-%r45 = load i64* %r46
+%r46 = getelementptr i64, i64* %r47, i64 0
+%r45 = load i64, i64* %r46
 store i64 %r45, i64* %r48
 br label %label18
 label18:
-%r49 = load i64* %r48
+%r49 = load i64, i64* %r48
 store i64 %r49, i64* %r52
 br label %label15
 label15:
-%r53 = load i64* %r52
+%r53 = load i64, i64* %r52
 ret i64 %r53
 }
 
@@ -1931,16 +1931,16 @@ label20:
 store i64 %r94, i64* %r95
 br label %label21
 label21:
-%r96 = load i64* %r95
+%r96 = load i64, i64* %r95
 ret i64 %r96
 }
 
 define fastcc i64 @"fun-init-vector!"(i64 %"vector", i64 %"size") nounwind {
 %r102 = inttoptr i64 %"vector" to i64*
-%r101 = getelementptr i64* %r102, i64 0
+%r101 = getelementptr i64, i64* %r102, i64 0
 store i64 1, i64* %r101
 %r105 = inttoptr i64 %"vector" to i64*
-%r104 = getelementptr i64* %r105, i64 1
+%r104 = getelementptr i64, i64* %r105, i64 1
 store i64 %"size", i64* %r104
 ret i64 %"vector"
 }
@@ -1954,8 +1954,8 @@ ret i64 %r107
 
 define fastcc i64 @"fun-vector-size"(i64 %"vector") nounwind {
 %r113 = inttoptr i64 %"vector" to i64*
-%r112 = getelementptr i64* %r113, i64 1
-%r111 = load i64* %r112
+%r112 = getelementptr i64, i64* %r113, i64 1
+%r111 = load i64, i64* %r112
 ret i64 %r111
 }
 
@@ -1978,8 +1978,8 @@ define fastcc i64 @"fun-vector-ref"(i64 %"vector", i64 %"raw-index") nounwind {
 %r126 = tail call fastcc i64 @"fun-ensure"(i64 %r127, i64 %r131)
 %r136 = add i64 %"raw-index", 2
 %r137 = inttoptr i64 %"vector" to i64*
-%r135 = getelementptr i64* %r137, i64 %r136
-%r134 = load i64* %r135
+%r135 = getelementptr i64, i64* %r137, i64 %r136
+%r134 = load i64, i64* %r135
 ret i64 %r134
 }
 
@@ -2002,7 +2002,7 @@ define fastcc i64 @"fun-vector-set!"(i64 %"vector", i64 %"raw-index", i64 %"valu
 %r150 = tail call fastcc i64 @"fun-ensure"(i64 %r151, i64 %r155)
 %r160 = add i64 %"raw-index", 2
 %r161 = inttoptr i64 %"vector" to i64*
-%r159 = getelementptr i64* %r161, i64 %r160
+%r159 = getelementptr i64, i64* %r161, i64 %r160
 store i64 %"value", i64* %r159
 ret i64 %"vector"
 }
@@ -2026,16 +2026,16 @@ ret i64 %r167
 
 define fastcc i64 @"fun-init-function!"(i64 %"function", i64 %"raw-func", i64 %"env", i64 %"nparams") nounwind {
 %r173 = inttoptr i64 %"function" to i64*
-%r172 = getelementptr i64* %r173, i64 0
+%r172 = getelementptr i64, i64* %r173, i64 0
 store i64 3, i64* %r172
 %r176 = inttoptr i64 %"function" to i64*
-%r175 = getelementptr i64* %r176, i64 1
+%r175 = getelementptr i64, i64* %r176, i64 1
 store i64 %"raw-func", i64* %r175
 %r179 = inttoptr i64 %"function" to i64*
-%r178 = getelementptr i64* %r179, i64 2
+%r178 = getelementptr i64, i64* %r179, i64 2
 store i64 %"env", i64* %r178
 %r182 = inttoptr i64 %"function" to i64*
-%r181 = getelementptr i64* %r182, i64 3
+%r181 = getelementptr i64, i64* %r182, i64 3
 store i64 %"nparams", i64* %r181
 ret i64 %"function"
 }
@@ -2052,8 +2052,8 @@ define fastcc i64 @"fun-get-function-func"(i64 %"function") nounwind {
 %r189 = tail call fastcc i64 @"fun-make-string"(i64 %r191, i64 34)
 %r187 = tail call fastcc i64 @"fun-ensure"(i64 %r188, i64 %r189)
 %r194 = inttoptr i64 %"function" to i64*
-%r193 = getelementptr i64* %r194, i64 1
-%r192 = load i64* %r193
+%r193 = getelementptr i64, i64* %r194, i64 1
+%r192 = load i64, i64* %r193
 ret i64 %r192
 }
 
@@ -2063,8 +2063,8 @@ define fastcc i64 @"fun-get-function-env"(i64 %"function") nounwind {
 %r198 = tail call fastcc i64 @"fun-make-string"(i64 %r200, i64 33)
 %r196 = tail call fastcc i64 @"fun-ensure"(i64 %r197, i64 %r198)
 %r203 = inttoptr i64 %"function" to i64*
-%r202 = getelementptr i64* %r203, i64 2
-%r201 = load i64* %r202
+%r202 = getelementptr i64, i64* %r203, i64 2
+%r201 = load i64, i64* %r202
 ret i64 %r201
 }
 
@@ -2074,8 +2074,8 @@ define fastcc i64 @"fun-get-function-nparams"(i64 %"function") nounwind {
 %r207 = tail call fastcc i64 @"fun-make-string"(i64 %r209, i64 37)
 %r205 = tail call fastcc i64 @"fun-ensure"(i64 %r206, i64 %r207)
 %r212 = inttoptr i64 %"function" to i64*
-%r211 = getelementptr i64* %r212, i64 3
-%r210 = load i64* %r211
+%r211 = getelementptr i64, i64* %r212, i64 3
+%r210 = load i64, i64* %r211
 ret i64 %r210
 }
 
@@ -2099,7 +2099,7 @@ label23:
 store i64 %r218, i64* %r222
 br label %label24
 label24:
-%r223 = load i64* %r222
+%r223 = load i64, i64* %r222
 ret i64 %r223
 }
 
@@ -2122,19 +2122,19 @@ label26:
 store i64 %r230, i64* %r234
 br label %label27
 label27:
-%r235 = load i64* %r234
+%r235 = load i64, i64* %r234
 ret i64 %r235
 }
 
 define fastcc i64 @"fun-init-string"(i64 %"str", i64 %"raw-str", i64 %"size") nounwind {
 %r241 = inttoptr i64 %"str" to i64*
-%r240 = getelementptr i64* %r241, i64 0
+%r240 = getelementptr i64, i64* %r241, i64 0
 store i64 2, i64* %r240
 %r244 = inttoptr i64 %"str" to i64*
-%r243 = getelementptr i64* %r244, i64 1
+%r243 = getelementptr i64, i64* %r244, i64 1
 store i64 %"raw-str", i64* %r243
 %r247 = inttoptr i64 %"str" to i64*
-%r246 = getelementptr i64* %r247, i64 2
+%r246 = getelementptr i64, i64* %r247, i64 2
 store i64 %"size", i64* %r246
 ret i64 %"str"
 }
@@ -2148,13 +2148,13 @@ ret i64 %r249
 
 define fastcc i64 @"fun-init-symbol"(i64 %"str", i64 %"raw-str", i64 %"size") nounwind {
 %r255 = inttoptr i64 %"str" to i64*
-%r254 = getelementptr i64* %r255, i64 0
+%r254 = getelementptr i64, i64* %r255, i64 0
 store i64 4, i64* %r254
 %r258 = inttoptr i64 %"str" to i64*
-%r257 = getelementptr i64* %r258, i64 1
+%r257 = getelementptr i64, i64* %r258, i64 1
 store i64 %"raw-str", i64* %r257
 %r261 = inttoptr i64 %"str" to i64*
-%r260 = getelementptr i64* %r261, i64 2
+%r260 = getelementptr i64, i64* %r261, i64 2
 store i64 %"size", i64* %r260
 ret i64 %"str"
 }
@@ -2168,15 +2168,15 @@ ret i64 %r263
 
 define fastcc i64 @"fun-string-length"(i64 %"str") nounwind {
 %r269 = inttoptr i64 %"str" to i64*
-%r268 = getelementptr i64* %r269, i64 2
-%r267 = load i64* %r268
+%r268 = getelementptr i64, i64* %r269, i64 2
+%r267 = load i64, i64* %r268
 ret i64 %r267
 }
 
 define fastcc i64 @"fun-string-bytes"(i64 %"str") nounwind {
 %r273 = inttoptr i64 %"str" to i64*
-%r272 = getelementptr i64* %r273, i64 1
-%r271 = load i64* %r272
+%r272 = getelementptr i64, i64* %r273, i64 1
+%r271 = load i64, i64* %r272
 ret i64 %r271
 }
 
@@ -2230,7 +2230,7 @@ label29:
 store i64 %r304, i64* %r310
 br label %label30
 label30:
-%r311 = load i64* %r310
+%r311 = load i64, i64* %r310
 ret i64 %r311
 }
 
@@ -2264,7 +2264,7 @@ label32:
 store i64 %r326, i64* %r331
 br label %label33
 label33:
-%r332 = load i64* %r331
+%r332 = load i64, i64* %r331
 ret i64 %r332
 }
 
@@ -2330,7 +2330,7 @@ label35:
 store i64 %r375, i64* %r378
 br label %label36
 label36:
-%r379 = load i64* %r378
+%r379 = load i64, i64* %r378
 ret i64 %r379
 }
 
@@ -2353,7 +2353,7 @@ label38:
 store i64 %r387, i64* %r390
 br label %label39
 label39:
-%r391 = load i64* %r390
+%r391 = load i64, i64* %r390
 ret i64 %r391
 }
 
@@ -2525,7 +2525,7 @@ label41:
 store i64 %r513, i64* %r517
 br label %label42
 label42:
-%r518 = load i64* %r517
+%r518 = load i64, i64* %r517
 ret i64 %r518
 }
 
@@ -2552,7 +2552,7 @@ label44:
 store i64 %r530, i64* %r534
 br label %label45
 label45:
-%r535 = load i64* %r534
+%r535 = load i64, i64* %r534
 ret i64 %r535
 }
 
@@ -2644,23 +2644,23 @@ label59:
 store i64 %r586, i64* %r591
 br label %label60
 label60:
-%r592 = load i64* %r591
+%r592 = load i64, i64* %r591
 store i64 %r592, i64* %r595
 br label %label57
 label57:
-%r596 = load i64* %r595
+%r596 = load i64, i64* %r595
 store i64 %r596, i64* %r599
 br label %label54
 label54:
-%r600 = load i64* %r599
+%r600 = load i64, i64* %r599
 store i64 %r600, i64* %r603
 br label %label51
 label51:
-%r604 = load i64* %r603
+%r604 = load i64, i64* %r603
 store i64 %r604, i64* %r607
 br label %label48
 label48:
-%r608 = load i64* %r607
+%r608 = load i64, i64* %r607
 ret i64 %"x"
 }
 
@@ -2729,11 +2729,11 @@ label65:
 store i64 %r657, i64* %r658
 br label %label66
 label66:
-%r659 = load i64* %r658
+%r659 = load i64, i64* %r658
 store i64 %r659, i64* %r662
 br label %label63
 label63:
-%r663 = load i64* %r662
+%r663 = load i64, i64* %r662
 ret i64 %r663
 }
 
@@ -2798,7 +2798,7 @@ label74:
 store i64 %r704, i64* %r705
 br label %label75
 label75:
-%r706 = load i64* %r705
+%r706 = load i64, i64* %r705
 store i64 %r706, i64* %r750
 br label %label72
 label71:
@@ -2846,7 +2846,7 @@ label80:
 store i64 %r736, i64* %r737
 br label %label81
 label81:
-%r738 = load i64* %r737
+%r738 = load i64, i64* %r737
 store i64 %r738, i64* %r746
 br label %label78
 label77:
@@ -2858,15 +2858,15 @@ label77:
 store i64 %r741, i64* %r746
 br label %label78
 label78:
-%r747 = load i64* %r746
+%r747 = load i64, i64* %r746
 store i64 %r747, i64* %r750
 br label %label72
 label72:
-%r751 = load i64* %r750
+%r751 = load i64, i64* %r750
 store i64 %r751, i64* %r754
 br label %label69
 label69:
-%r755 = load i64* %r754
+%r755 = load i64, i64* %r754
 ret i64 %r755
 }
 
@@ -2920,11 +2920,11 @@ label86:
 store i64 %r783, i64* %r791
 br label %label87
 label87:
-%r792 = load i64* %r791
+%r792 = load i64, i64* %r791
 store i64 %r792, i64* %r795
 br label %label84
 label84:
-%r796 = load i64* %r795
+%r796 = load i64, i64* %r795
 ret i64 %r796
 }
 
@@ -2971,11 +2971,11 @@ label92:
 store i64 %r815, i64* %r825
 br label %label93
 label93:
-%r826 = load i64* %r825
+%r826 = load i64, i64* %r825
 store i64 %r826, i64* %r829
 br label %label90
 label90:
-%r830 = load i64* %r829
+%r830 = load i64, i64* %r829
 ret i64 %r830
 }
 
@@ -3019,7 +3019,7 @@ label95:
 store i64 %r839, i64* %r864
 br label %label96
 label96:
-%r865 = load i64* %r864
+%r865 = load i64, i64* %r864
 ret i64 %r865
 }
 
@@ -3054,7 +3054,7 @@ label98:
 store i64 %r874, i64* %r890
 br label %label99
 label99:
-%r891 = load i64* %r890
+%r891 = load i64, i64* %r890
 ret i64 %r891
 }
 
@@ -3105,7 +3105,7 @@ label101:
 store i64 %r905, i64* %r932
 br label %label102
 label102:
-%r933 = load i64* %r932
+%r933 = load i64, i64* %r932
 ret i64 %r933
 }
 
@@ -3167,7 +3167,7 @@ label104:
 store i64 %r974, i64* %r988
 br label %label105
 label105:
-%r989 = load i64* %r988
+%r989 = load i64, i64* %r988
 ret i64 %r989
 }
 
@@ -3234,11 +3234,11 @@ label110:
 store i64 %r1027, i64* %r1028
 br label %label111
 label111:
-%r1029 = load i64* %r1028
+%r1029 = load i64, i64* %r1028
 store i64 %r1029, i64* %r1032
 br label %label108
 label108:
-%r1033 = load i64* %r1032
+%r1033 = load i64, i64* %r1032
 ret i64 %r1033
 }
 
@@ -3299,11 +3299,11 @@ label116:
 store i64 %r1067, i64* %r1075
 br label %label117
 label117:
-%r1076 = load i64* %r1075
+%r1076 = load i64, i64* %r1075
 store i64 %r1076, i64* %r1079
 br label %label114
 label114:
-%r1080 = load i64* %r1079
+%r1080 = load i64, i64* %r1079
 ret i64 %r1080
 }
 
@@ -3345,7 +3345,7 @@ label119:
 store i64 %r1112, i64* %r1113
 br label %label120
 label120:
-%r1114 = load i64* %r1113
+%r1114 = load i64, i64* %r1113
 ret i64 %r1114
 }
 
@@ -3370,7 +3370,7 @@ label122:
 store i64 %r1128, i64* %r1129
 br label %label123
 label123:
-%r1130 = load i64* %r1129
+%r1130 = load i64, i64* %r1129
 ret i64 %r1130
 }
 
@@ -3834,31 +3834,31 @@ label143:
 store i64 %r1548, i64* %r1553
 br label %label144
 label144:
-%r1554 = load i64* %r1553
+%r1554 = load i64, i64* %r1553
 store i64 %r1554, i64* %r1557
 br label %label141
 label141:
-%r1558 = load i64* %r1557
+%r1558 = load i64, i64* %r1557
 store i64 %r1558, i64* %r1561
 br label %label138
 label138:
-%r1562 = load i64* %r1561
+%r1562 = load i64, i64* %r1561
 store i64 %r1562, i64* %r1565
 br label %label135
 label135:
-%r1566 = load i64* %r1565
+%r1566 = load i64, i64* %r1565
 store i64 %r1566, i64* %r1569
 br label %label132
 label132:
-%r1570 = load i64* %r1569
+%r1570 = load i64, i64* %r1569
 store i64 %r1570, i64* %r1573
 br label %label129
 label129:
-%r1574 = load i64* %r1573
+%r1574 = load i64, i64* %r1573
 store i64 %r1574, i64* %r1577
 br label %label126
 label126:
-%r1578 = load i64* %r1577
+%r1578 = load i64, i64* %r1577
 ret i64 %r1578
 }
 
@@ -3927,7 +3927,7 @@ label146:
 store i64 %r1632, i64* %r1633
 br label %label147
 label147:
-%r1634 = load i64* %r1633
+%r1634 = load i64, i64* %r1633
 ret i64 %r1634
 }
 
@@ -4242,39 +4242,39 @@ label173:
 store i64 %r1857, i64* %r1876
 br label %label174
 label174:
-%r1877 = load i64* %r1876
+%r1877 = load i64, i64* %r1876
 store i64 %r1877, i64* %r1880
 br label %label171
 label171:
-%r1881 = load i64* %r1880
+%r1881 = load i64, i64* %r1880
 store i64 %r1881, i64* %r1884
 br label %label168
 label168:
-%r1885 = load i64* %r1884
+%r1885 = load i64, i64* %r1884
 store i64 %r1885, i64* %r1888
 br label %label165
 label165:
-%r1889 = load i64* %r1888
+%r1889 = load i64, i64* %r1888
 store i64 %r1889, i64* %r1892
 br label %label162
 label162:
-%r1893 = load i64* %r1892
+%r1893 = load i64, i64* %r1892
 store i64 %r1893, i64* %r1896
 br label %label159
 label159:
-%r1897 = load i64* %r1896
+%r1897 = load i64, i64* %r1896
 store i64 %r1897, i64* %r1900
 br label %label156
 label156:
-%r1901 = load i64* %r1900
+%r1901 = load i64, i64* %r1900
 store i64 %r1901, i64* %r1904
 br label %label153
 label153:
-%r1905 = load i64* %r1904
+%r1905 = load i64, i64* %r1904
 store i64 %r1905, i64* %r1908
 br label %label150
 label150:
-%r1909 = load i64* %r1908
+%r1909 = load i64, i64* %r1908
 ret i64 %r1909
 }
 
@@ -4318,7 +4318,7 @@ label176:
 store i64 %r1931, i64* %r1943
 br label %label177
 label177:
-%r1944 = load i64* %r1943
+%r1944 = load i64, i64* %r1943
 ret i64 %r1944
 }
 
@@ -4371,7 +4371,7 @@ label179:
 store i64 %r1955, i64* %r1981
 br label %label180
 label180:
-%r1982 = load i64* %r1981
+%r1982 = load i64, i64* %r1981
 ret i64 %r1982
 }
 
@@ -4430,7 +4430,7 @@ label182:
 store i64 %r2030, i64* %r2031
 br label %label183
 label183:
-%r2032 = load i64* %r2031
+%r2032 = load i64, i64* %r2031
 ret i64 %r2032
 }
 
@@ -4523,7 +4523,7 @@ label185:
 store i64 %r2088, i64* %r2105
 br label %label186
 label186:
-%r2106 = load i64* %r2105
+%r2106 = load i64, i64* %r2105
 ret i64 %r2106
 }
 
@@ -4599,11 +4599,11 @@ label191:
 store i64 %r2153, i64* %r2154
 br label %label192
 label192:
-%r2155 = load i64* %r2154
+%r2155 = load i64, i64* %r2154
 store i64 %r2155, i64* %r2158
 br label %label189
 label189:
-%r2159 = load i64* %r2158
+%r2159 = load i64, i64* %r2158
 ret i64 %r2159
 }
 
@@ -4693,11 +4693,11 @@ label197:
 store i64 %r2224, i64* %r2234
 br label %label198
 label198:
-%r2235 = load i64* %r2234
+%r2235 = load i64, i64* %r2234
 store i64 %r2235, i64* %r2238
 br label %label195
 label195:
-%r2239 = load i64* %r2238
+%r2239 = load i64, i64* %r2238
 ret i64 %r2239
 }
 
@@ -4757,7 +4757,7 @@ label200:
 store i64 %r2263, i64* %r2276
 br label %label201
 label201:
-%r2277 = load i64* %r2276
+%r2277 = load i64, i64* %r2276
 ret i64 %r2277
 }
 
@@ -4812,7 +4812,7 @@ label203:
 store i64 %r2319, i64* %r2322
 br label %label204
 label204:
-%r2323 = load i64* %r2322
+%r2323 = load i64, i64* %r2322
 ret i64 %r2323
 }
 
@@ -5185,7 +5185,7 @@ label206:
 store i64 %r2672, i64* %r2674
 br label %label207
 label207:
-%r2675 = load i64* %r2674
+%r2675 = load i64, i64* %r2674
 ret i64 %r2675
 }
 
@@ -5214,7 +5214,7 @@ label209:
 store i64 %r2686, i64* %r2695
 br label %label210
 label210:
-%r2696 = load i64* %r2695
+%r2696 = load i64, i64* %r2695
 ret i64 %r2696
 }
 
@@ -5249,7 +5249,7 @@ label212:
 store i64 %r2718, i64* %r2719
 br label %label213
 label213:
-%r2720 = load i64* %r2719
+%r2720 = load i64, i64* %r2719
 ret i64 %r2720
 }
 
@@ -5306,7 +5306,7 @@ label215:
 store i64 %r2756, i64* %r2770
 br label %label216
 label216:
-%r2771 = load i64* %r2770
+%r2771 = load i64, i64* %r2770
 ret i64 %r2771
 }
 
@@ -5349,7 +5349,7 @@ label218:
 store i64 %r2792, i64* %r2798
 br label %label219
 label219:
-%r2799 = load i64* %r2798
+%r2799 = load i64, i64* %r2798
 ret i64 %r2799
 }
 
@@ -5426,11 +5426,11 @@ label224:
 store i64 %r2848, i64* %r2853
 br label %label225
 label225:
-%r2854 = load i64* %r2853
+%r2854 = load i64, i64* %r2853
 store i64 %r2854, i64* %r2857
 br label %label222
 label222:
-%r2858 = load i64* %r2857
+%r2858 = load i64, i64* %r2857
 ret i64 %r2858
 }
 
@@ -5571,7 +5571,7 @@ label233:
 store i64 %r2982, i64* %r2993
 br label %label234
 label234:
-%r2994 = load i64* %r2993
+%r2994 = load i64, i64* %r2993
 store i64 %r2994, i64* %r3047
 br label %label231
 label230:
@@ -5628,7 +5628,7 @@ label230:
 store i64 %r3002, i64* %r3047
 br label %label231
 label231:
-%r3048 = load i64* %r3047
+%r3048 = load i64, i64* %r3047
 ret i64 %r3048
 }
 
@@ -5662,7 +5662,7 @@ label227:
 store i64 %r2943, i64* %r3058
 br label %label228
 label228:
-%r3059 = load i64* %r3058
+%r3059 = load i64, i64* %r3058
 ret i64 %r3059
 }
 
@@ -5856,15 +5856,15 @@ label242:
 store i64 %r3200, i64* %r3214
 br label %label243
 label243:
-%r3215 = load i64* %r3214
+%r3215 = load i64, i64* %r3214
 store i64 %r3215, i64* %r3218
 br label %label240
 label240:
-%r3219 = load i64* %r3218
+%r3219 = load i64, i64* %r3218
 store i64 %r3219, i64* %r3222
 br label %label237
 label237:
-%r3223 = load i64* %r3222
+%r3223 = load i64, i64* %r3222
 ret i64 %r3223
 }
 
@@ -5938,7 +5938,7 @@ label245:
 store i64 %r3268, i64* %r3288
 br label %label246
 label246:
-%r3289 = load i64* %r3288
+%r3289 = load i64, i64* %r3288
 ret i64 %r3289
 }
 
@@ -6206,7 +6206,7 @@ label251:
 store i64 %r3547, i64* %r3550
 br label %label252
 label252:
-%r3551 = load i64* %r3550
+%r3551 = load i64, i64* %r3550
 %r3567 = tail call fastcc i64 @"fun-vector-set!"(i64 %r3523, i64 3, i64 %r3551)
 %r3560 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r3555 = tail call fastcc i64 @"fun-get-function-env"(i64 %r3560)
@@ -6226,7 +6226,7 @@ label252:
 store i64 %r3525, i64* %r3570
 br label %label249
 label249:
-%r3571 = load i64* %r3570
+%r3571 = load i64, i64* %r3570
 ret i64 %r3571
 }
 
@@ -6533,15 +6533,15 @@ label260:
 store i64 %r3827, i64* %r3847
 br label %label261
 label261:
-%r3848 = load i64* %r3847
+%r3848 = load i64, i64* %r3847
 store i64 %r3848, i64* %r3851
 br label %label258
 label258:
-%r3852 = load i64* %r3851
+%r3852 = load i64, i64* %r3851
 store i64 %r3852, i64* %r3855
 br label %label255
 label255:
-%r3856 = load i64* %r3855
+%r3856 = load i64, i64* %r3855
 ret i64 %r3856
 }
 
@@ -6765,11 +6765,11 @@ label266:
 store i64 %r4037, i64* %r4049
 br label %label267
 label267:
-%r4050 = load i64* %r4049
+%r4050 = load i64, i64* %r4049
 store i64 %r4050, i64* %r4053
 br label %label264
 label264:
-%r4054 = load i64* %r4053
+%r4054 = load i64, i64* %r4053
 ret i64 %r4054
 }
 
@@ -6815,7 +6815,7 @@ label272:
 store i64 %r4095, i64* %r4098
 br label %label273
 label273:
-%r4099 = load i64* %r4098
+%r4099 = load i64, i64* %r4098
 ret i64 %r4099
 }
 
@@ -6870,7 +6870,7 @@ label269:
 store i64 %r4065, i64* %r4127
 br label %label270
 label270:
-%r4128 = load i64* %r4127
+%r4128 = load i64, i64* %r4127
 ret i64 %r4128
 }
 
@@ -6949,11 +6949,11 @@ label278:
 store i64 %r4394, i64* %r4395
 br label %label279
 label279:
-%r4396 = load i64* %r4395
+%r4396 = load i64, i64* %r4395
 store i64 %r4396, i64* %r4399
 br label %label276
 label276:
-%r4400 = load i64* %r4399
+%r4400 = load i64, i64* %r4399
 ret i64 %r4400
 }
 
@@ -7009,11 +7009,11 @@ label284:
 store i64 %r4439, i64* %r4440
 br label %label285
 label285:
-%r4441 = load i64* %r4440
+%r4441 = load i64, i64* %r4440
 store i64 %r4441, i64* %r4444
 br label %label282
 label282:
-%r4445 = load i64* %r4444
+%r4445 = load i64, i64* %r4444
 ret i64 %r4445
 }
 
@@ -7130,7 +7130,7 @@ label290:
 store i64 %r4551, i64* %r4554
 br label %label291
 label291:
-%r4555 = load i64* %r4554
+%r4555 = load i64, i64* %r4554
 %r4595 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4541, i64 1, i64 %r4555)
 %r4564 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 3, i64 57)
 %r4559 = tail call fastcc i64 @"fun-get-function-env"(i64 %r4564)
@@ -7176,7 +7176,7 @@ label291:
 store i64 %r4543, i64* %r4599
 br label %label288
 label288:
-%r4600 = load i64* %r4599
+%r4600 = load i64, i64* %r4599
 ret i64 %r4600
 }
 
@@ -7409,7 +7409,7 @@ label293:
 store i64 %r4805, i64* %r4824
 br label %label294
 label294:
-%r4825 = load i64* %r4824
+%r4825 = load i64, i64* %r4824
 %r4833 = tail call fastcc i64 @"fun-vector-set!"(i64 %r4766, i64 6, i64 %r4825)
 %r4765 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r4769)
 %r4834 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r4765, i64 %r4766)
@@ -7625,8 +7625,8 @@ define fastcc i64 @"fun161-llvm-load"(i64 %"env") nounwind {
 %r5032 = inttoptr i64 %r5036 to i64 (i64)*
 %r5039 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r5044 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5035, i64 1, i64 %r5039)
-%r5042 = ptrtoint [14 x i8]* @r5041 to i64
-%r5040 = tail call fastcc i64 @"fun-make-string"(i64 %r5042, i64 13)
+%r5042 = ptrtoint [19 x i8]* @r5041 to i64
+%r5040 = tail call fastcc i64 @"fun-make-string"(i64 %r5042, i64 18)
 %r5045 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5035, i64 2, i64 %r5040)
 %r5043 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 2)
 %r5046 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5035, i64 3, i64 %r5043)
@@ -7732,8 +7732,8 @@ define fastcc i64 @fun165(i64 %"env") nounwind {
 %r5152 = inttoptr i64 %r5156 to i64 (i64)*
 %r5159 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 1, i64 1)
 %r5168 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5155, i64 1, i64 %r5159)
-%r5162 = ptrtoint [23 x i8]* @r5161 to i64
-%r5160 = tail call fastcc i64 @"fun-make-string"(i64 %r5162, i64 22)
+%r5162 = ptrtoint [28 x i8]* @r5161 to i64
+%r5160 = tail call fastcc i64 @"fun-make-string"(i64 %r5162, i64 27)
 %r5169 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5155, i64 2, i64 %r5160)
 %r5163 = tail call fastcc i64 @"fun-lookup-variable"(i64 %"env", i64 0, i64 1)
 %r5170 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5155, i64 3, i64 %r5163)
@@ -8368,51 +8368,51 @@ label329:
 store i64 %r5676, i64* %r5687
 br label %label330
 label330:
-%r5688 = load i64* %r5687
+%r5688 = load i64, i64* %r5687
 store i64 %r5688, i64* %r5691
 br label %label327
 label327:
-%r5692 = load i64* %r5691
+%r5692 = load i64, i64* %r5691
 store i64 %r5692, i64* %r5695
 br label %label324
 label324:
-%r5696 = load i64* %r5695
+%r5696 = load i64, i64* %r5695
 store i64 %r5696, i64* %r5699
 br label %label321
 label321:
-%r5700 = load i64* %r5699
+%r5700 = load i64, i64* %r5699
 store i64 %r5700, i64* %r5703
 br label %label318
 label318:
-%r5704 = load i64* %r5703
+%r5704 = load i64, i64* %r5703
 store i64 %r5704, i64* %r5707
 br label %label315
 label315:
-%r5708 = load i64* %r5707
+%r5708 = load i64, i64* %r5707
 store i64 %r5708, i64* %r5711
 br label %label312
 label312:
-%r5712 = load i64* %r5711
+%r5712 = load i64, i64* %r5711
 store i64 %r5712, i64* %r5715
 br label %label309
 label309:
-%r5716 = load i64* %r5715
+%r5716 = load i64, i64* %r5715
 store i64 %r5716, i64* %r5719
 br label %label306
 label306:
-%r5720 = load i64* %r5719
+%r5720 = load i64, i64* %r5719
 store i64 %r5720, i64* %r5723
 br label %label303
 label303:
-%r5724 = load i64* %r5723
+%r5724 = load i64, i64* %r5723
 store i64 %r5724, i64* %r5727
 br label %label300
 label300:
-%r5728 = load i64* %r5727
+%r5728 = load i64, i64* %r5727
 store i64 %r5728, i64* %r5731
 br label %label297
 label297:
-%r5732 = load i64* %r5731
+%r5732 = load i64, i64* %r5731
 ret i64 %r5732
 }
 
@@ -8812,23 +8812,23 @@ label347:
 store i64 %r6123, i64* %r6134
 br label %label348
 label348:
-%r6135 = load i64* %r6134
+%r6135 = load i64, i64* %r6134
 store i64 %r6135, i64* %r6138
 br label %label345
 label345:
-%r6139 = load i64* %r6138
+%r6139 = load i64, i64* %r6138
 store i64 %r6139, i64* %r6142
 br label %label342
 label342:
-%r6143 = load i64* %r6142
+%r6143 = load i64, i64* %r6142
 store i64 %r6143, i64* %r6146
 br label %label339
 label339:
-%r6147 = load i64* %r6146
+%r6147 = load i64, i64* %r6146
 store i64 %r6147, i64* %r6150
 br label %label336
 label336:
-%r6151 = load i64* %r6150
+%r6151 = load i64, i64* %r6150
 %r6155 = tail call fastcc i64 @"fun-vector-set!"(i64 %r5787, i64 2, i64 %r6151)
 %r5786 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r5790)
 %r6156 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r5786, i64 %r5787)
@@ -8903,7 +8903,7 @@ label332:
 store i64 %r5781, i64* %r6167
 br label %label333
 label333:
-%r6168 = load i64* %r6167
+%r6168 = load i64, i64* %r6167
 ret i64 %r6168
 }
 
@@ -8967,7 +8967,7 @@ label353:
 store i64 %r6238, i64* %r6268
 br label %label354
 label354:
-%r6269 = load i64* %r6268
+%r6269 = load i64, i64* %r6268
 ret i64 %r6269
 }
 
@@ -9050,7 +9050,7 @@ label350:
 store i64 %r6214, i64* %r6297
 br label %label351
 label351:
-%r6298 = load i64* %r6297
+%r6298 = load i64, i64* %r6297
 ret i64 %r6298
 }
 
@@ -9137,7 +9137,7 @@ label356:
 store i64 %r6335, i64* %r6387
 br label %label357
 label357:
-%r6388 = load i64* %r6387
+%r6388 = load i64, i64* %r6387
 ret i64 %r6388
 }
 
@@ -9264,7 +9264,7 @@ label359:
 store i64 %r6478, i64* %r6494
 br label %label360
 label360:
-%r6495 = load i64* %r6494
+%r6495 = load i64, i64* %r6494
 %r6500 = tail call fastcc i64 @"fun-vector-set!"(i64 %r6307, i64 3, i64 %r6495)
 %r6306 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r6311)
 %r6501 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r6306, i64 %r6307)
@@ -9708,15 +9708,15 @@ label368:
 store i64 %r6905, i64* %r6911
 br label %label369
 label369:
-%r6912 = load i64* %r6911
+%r6912 = load i64, i64* %r6911
 store i64 %r6912, i64* %r6915
 br label %label366
 label366:
-%r6916 = load i64* %r6915
+%r6916 = load i64, i64* %r6915
 store i64 %r6916, i64* %r6919
 br label %label363
 label363:
-%r6920 = load i64* %r6919
+%r6920 = load i64, i64* %r6919
 ret i64 %r6920
 }
 
@@ -9848,7 +9848,7 @@ label371:
 store i64 %r6996, i64* %r7038
 br label %label372
 label372:
-%r7039 = load i64* %r7038
+%r7039 = load i64, i64* %r7038
 ret i64 %r7039
 }
 
@@ -10025,7 +10025,7 @@ label374:
 store i64 %r7071, i64* %r7210
 br label %label375
 label375:
-%r7211 = load i64* %r7210
+%r7211 = load i64, i64* %r7210
 ret i64 %r7211
 }
 
@@ -10165,7 +10165,7 @@ label377:
 store i64 %r7330, i64* %r7331
 br label %label378
 label378:
-%r7332 = load i64* %r7331
+%r7332 = load i64, i64* %r7331
 %r7339 = tail call fastcc i64 @"fun-vector-set!"(i64 %r7289, i64 5, i64 %r7332)
 %r7288 = tail call fastcc i64 @"fun-get-function-nparams"(i64 %r7292)
 %r7340 = tail call fastcc i64 @"fun-fix-arbitrary-funcs"(i64 %r7288, i64 %r7289)
@@ -11661,35 +11661,35 @@ label401:
 store i64 %r8600, i64* %r8724
 br label %label402
 label402:
-%r8725 = load i64* %r8724
+%r8725 = load i64, i64* %r8724
 store i64 %r8725, i64* %r8728
 br label %label399
 label399:
-%r8729 = load i64* %r8728
+%r8729 = load i64, i64* %r8728
 store i64 %r8729, i64* %r8732
 br label %label396
 label396:
-%r8733 = load i64* %r8732
+%r8733 = load i64, i64* %r8732
 store i64 %r8733, i64* %r8736
 br label %label393
 label393:
-%r8737 = load i64* %r8736
+%r8737 = load i64, i64* %r8736
 store i64 %r8737, i64* %r8740
 br label %label390
 label390:
-%r8741 = load i64* %r8740
+%r8741 = load i64, i64* %r8740
 store i64 %r8741, i64* %r8744
 br label %label387
 label387:
-%r8745 = load i64* %r8744
+%r8745 = load i64, i64* %r8744
 store i64 %r8745, i64* %r8748
 br label %label384
 label384:
-%r8749 = load i64* %r8748
+%r8749 = load i64, i64* %r8748
 store i64 %r8749, i64* %r8752
 br label %label381
 label381:
-%r8753 = load i64* %r8752
+%r8753 = load i64, i64* %r8752
 ret i64 %r8753
 }
 
@@ -11793,7 +11793,7 @@ label404:
 store i64 %r8780, i64* %r8838
 br label %label405
 label405:
-%r8839 = load i64* %r8838
+%r8839 = load i64, i64* %r8838
 ret i64 %r8839
 }
 
@@ -12179,7 +12179,7 @@ label407:
 store i64 %r8880, i64* %r9208
 br label %label408
 label408:
-%r9209 = load i64* %r9208
+%r9209 = load i64, i64* %r9208
 ret i64 %r9209
 }
 
@@ -12987,8 +12987,8 @@ define fastcc i64 @fun218(i64 %"env") nounwind {
 %r9216 = ptrtoint i64 (i64)* @"fun211-compile-llvm-application" to i64
 %r9217 = tail call fastcc i64 @"fun-make-function"(i64 %r9216, i64 %"env", i64 0)
 %r9215 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 116, i64 %r9217)
-%r9341 = ptrtoint [1831 x i8]* @r9340 to i64
-%r9339 = tail call fastcc i64 @"fun-make-string"(i64 %r9341, i64 1830)
+%r9341 = ptrtoint [1842 x i8]* @r9340 to i64
+%r9339 = tail call fastcc i64 @"fun-make-string"(i64 %r9341, i64 1841)
 %r9338 = tail call fastcc i64 @"fun-set-variable!"(i64 %"env", i64 0, i64 117, i64 %r9339)
 %r9346 = ptrtoint [6 x i8]* @r9345 to i64
 %r9344 = tail call fastcc i64 @"fun-make-symbol"(i64 %r9346, i64 5)
