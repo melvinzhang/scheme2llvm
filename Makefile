@@ -5,7 +5,10 @@ clean:
 
 TEST_SRC := $(wildcard test/*.scm) 
 
-tests: scheme2llvm.llvm $(TEST_SRC:.scm=.llvm)
+compile: scheme2llvm.llvm $(TEST_SRC:.scm=.llvm)
+
+tests: test/semantics.llvm
+	./$^
 
 %.ll: %.scm scheme2llvm.llvm
 	ulimit -v 50000; cat $< | ./scheme2llvm.llvm > $@
