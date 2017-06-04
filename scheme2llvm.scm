@@ -748,7 +748,7 @@ define fastcc i64 @main(i32 %argc, i8** %argv) {
                   (init-vector! (malloc (add raw-size 2)) raw-size))
      
      (llvm-define (vector-size vector)
-                  (load (getelementptr vector 1)))
+                  (if (null? vector) 0 (load (getelementptr vector 1))))
      
      (llvm-define (vector-ref vector raw-index)
                   ;(display "; vector-ref:")
