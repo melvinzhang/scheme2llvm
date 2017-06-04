@@ -1,0 +1,7 @@
+Rewrite parts of the compiler to make it more functional, remove use of globals
+
+Document the subset of Scheme supported
+
+Reduce repetition in the code base
+
+Add a REPL to allow interaction with the language without compilation
