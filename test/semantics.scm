@@ -37,6 +37,8 @@
 (assert 1 (> 4 2))
 (assert 0 (> 2 4))
 
+; only 0 and '() are considered false, other values are truthy
+
 ; and, or, not are binary functions created with llvm-define
 ; and returns the second argument if the first one is truthy, otherwise return nil
 (assert 4 (and 1 4))
@@ -52,6 +54,30 @@
 (assert 1 (not '()))
 (assert '() (not 1))
 (assert '() (not "a"))
+
+(assert 1 (number? 0))
+(assert 0 (number? "a"))
+
+(assert 1 (vector? '()))
+(assert 1 (vector? '(1)))
+(assert 0 (vector? 0))
+
+(assert 1 (function? assert))
+(assert 0 (function? '()))
+
+(assert 1 (string? "vvv"))
+(assert 0 (string? '()))
+
+(assert 1 (symbol? 'v))
+(assert 0 (symbol? "v"))
+
+(assert 1 (null? '()))
+(assert 0 (null? 0))
+
+(assert 1 (pair? '(1 . 2)))
+(assert 1 (pair? '(1)))
+(assert 0 (pair? '()))
+(assert '() (pair? "a"))
 
 (done)
 
