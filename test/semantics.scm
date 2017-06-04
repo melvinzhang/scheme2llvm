@@ -1,8 +1,7 @@
 (begin
 
 ; helper funtions to run tests
-(define passed 0)
-(define failed 0)
+(define ran 0)
 
 (define (error ex1 ex2)
   (display ex1) (display " != ")
@@ -13,13 +12,13 @@
   (if (eq? ex1 ex2)
     (begin
       (display ".")
-      (set! passed (+ passed 1)))
+      (set! ran (+ ran 1)))
     (error ex1 ex2)))
 
 (define (done)
   (newline)
   (display "Ran ")
-  (display passed)
+  (display ran)
   (display " tests.")
   (newline)
   (display "All passed.")
