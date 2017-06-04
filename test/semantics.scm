@@ -38,8 +38,20 @@
 (assert 0 (> 2 4))
 
 ; and, or, not are binary functions created with llvm-define
-(assert 4 (and 2 4))
-(assert '() (and 0 0))
+; and returns the second argument if the first one is truthy, otherwise return nil
+(assert 4 (and 1 4))
+(assert "a" (and 1 "a"))
+(assert '() (and 0 4))
+
+; or returns the 1 if the first argument it is truthy, otherwise return the second argument
+(assert "b" (or 0 "b"))
+(assert 1 (or "a" 0))
+
+; not returns nil if the argument is truthy, otherwise return 1
+(assert 1 (not 0))
+(assert 1 (not '()))
+(assert '() (not 1))
+(assert '() (not "a"))
 
 (done)
 
