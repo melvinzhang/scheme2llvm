@@ -37,6 +37,12 @@
 (assert 0 (> 2 4))
 
 ; only 0 and '() are considered false, other values are truthy
+; if is defined within the compiler, see compile-if
+(assert "f" (if 0 "t" "f"))
+(assert "f" (if '() "t" "f"))
+
+(assert "t" (if '(1) "t" "f"))
+(assert "t" (if 1 "t" "f"))
 
 ; and, or, not are binary functions created with llvm-define
 ; and returns the second argument if the first one is truthy, otherwise return nil
